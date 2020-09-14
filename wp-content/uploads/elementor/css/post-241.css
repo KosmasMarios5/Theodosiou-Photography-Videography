@@ -1,0 +1,27 @@
+.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-menu-toggle{margin-right:auto;}.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown a, .elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-menu-toggle{color:var( --e-global-color-text );}.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown a:hover,
+					.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown a.elementor-item-active,
+					.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown a.highlighted,
+					.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-menu-toggle:hover{color:var( --e-global-color-primary );}.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown a:hover,
+					.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown a.elementor-item-active,
+					.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown a.highlighted{background-color:#07070700;}.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown a.elementor-item-active{color:#FFFFFF;background-color:var( --e-global-color-primary );}.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown .elementor-item, .elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown  .elementor-sub-item{font-family:"Cera GR", Sans-serif;font-size:13px;font-weight:400;letter-spacing:0px;}.elementor-241 .elementor-element.elementor-element-d3f93ba .elementor-nav-menu--dropdown a{padding-top:2px;padding-bottom:2px;}.elementor-241 .elementor-element.elementor-element-d3f93ba{width:auto;max-width:auto;top:68px;}body:not(.rtl) .elementor-241 .elementor-element.elementor-element-d3f93ba{left:24px;}body.rtl .elementor-241 .elementor-element.elementor-element-d3f93ba{right:24px;}.elementor-241 .elementor-element.elementor-element-95a7e32{--grid-template-columns:repeat(1, auto);--grid-column-gap:93px;--grid-side-margin:93px;--grid-row-gap:4px;--grid-bottom-margin:4px;width:auto;max-width:auto;bottom:70px;}.elementor-241 .elementor-element.elementor-element-95a7e32 .elementor-widget-container{justify-content:center;}.elementor-241 .elementor-element.elementor-element-95a7e32 .elementor-social-icon{background-color:var( --e-global-color-4240917 );padding:0.2em;}.elementor-241 .elementor-element.elementor-element-95a7e32 .elementor-social-icon i{color:var( --e-global-color-secondary );}.elementor-241 .elementor-element.elementor-element-95a7e32 .elementor-social-icon svg{fill:var( --e-global-color-secondary );}.elementor-241 .elementor-element.elementor-element-95a7e32 .elementor-social-icon:hover i{color:var( --e-global-color-primary );}.elementor-241 .elementor-element.elementor-element-95a7e32 .elementor-social-icon:hover svg{fill:var( --e-global-color-primary );}body:not(.rtl) .elementor-241 .elementor-element.elementor-element-95a7e32{right:50px;}body.rtl .elementor-241 .elementor-element.elementor-element-95a7e32{left:50px;}.elementor-241 .elementor-element.elementor-element-2035632a .elementor-text-editor{text-align:center;}/* Start Custom Fonts CSS */@font-face {
+	font-family: 'Cera GR';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('https://new.theodosiou.gr/wp-content/uploads/2020/09/CeraGR.woff') format('woff');
+}
+@font-face {
+	font-family: 'Cera GR';
+	font-style: normal;
+	font-weight: 300;
+	font-display: auto;
+	src: url('https://new.theodosiou.gr/wp-content/uploads/2020/09/Cera-GR-Light.woff') format('woff');
+}
+@font-face {
+	font-family: 'Cera GR';
+	font-style: normal;
+	font-weight: 100;
+	font-display: auto;
+	src: url('https://new.theodosiou.gr/wp-content/uploads/2020/09/CeraGRThin.woff') format('woff');
+}
+/* End Custom Fonts CSS */
