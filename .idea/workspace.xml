@@ -1,20 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4780d3c-cd8d-4a26-b24d-63a48248a369" name="Default Changelist" comment="" />
+    <list default="true" id="a4780d3c-cd8d-4a26-b24d-63a48248a369" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/html5blank-stable/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/html5blank-stable/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/theodosiou/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/theodosiou/page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/theodosiou/scss/_menubar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/theodosiou/scss/_menubar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/theodosiou/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/theodosiou/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/theodosiou/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/theodosiou/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/uploads/elementor/css/post-241.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/elementor/css/post-241.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/uploads/elementor/css/post-464.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/elementor/css/post-464.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="ComposerSettings">
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hUtDEPxCRWNcnqAC2PTkDboDta" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -22,11 +59,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Projects/DevPortalBackend" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/wp-content/themes/theodosiou" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kosma\PhpstormProjects\THEODOSIOU NEW REMOTE\wp-content\themes\theodosiou" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -37,10 +85,57 @@
       <option name="presentableId" value="Default" />
       <updated>1600077376483</updated>
       <workItem from="1600077377561" duration="671000" />
+      <workItem from="1600082462884" duration="9686000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="872" y="213" key="#Deployment" timestamp="1600086110002">
+      <screen x="0" y="30" width="2560" height="1050" />
+    </state>
+    <state x="872" y="213" key="#Deployment/2560.30.1920.1050/0.30.2560.1050@0.30.2560.1050" timestamp="1600086110002" />
+    <state x="949" y="332" key="EditFileWatcherDialog" timestamp="1600088180423">
+      <screen x="0" y="30" width="2560" height="1050" />
+    </state>
+    <state x="949" y="332" key="EditFileWatcherDialog/2560.30.1920.1050/0.30.2560.1050@0.30.2560.1050" timestamp="1600088180423" />
+    <state x="781" y="199" key="SettingsEditor" timestamp="1600088186015">
+      <screen x="0" y="30" width="2560" height="1050" />
+    </state>
+    <state x="781" y="199" key="SettingsEditor/2560.30.1920.1050/0.30.2560.1050@0.30.2560.1050" timestamp="1600088186015" />
+    <state x="872" y="287" key="Vcs.Push.Dialog.v2" timestamp="1600082780264">
+      <screen x="0" y="30" width="2560" height="1050" />
+    </state>
+    <state x="872" y="287" key="Vcs.Push.Dialog.v2/2560.30.1920.1050/0.30.2560.1050@0.30.2560.1050" timestamp="1600082780264" />
+    <state x="1263" y="291" width="1076" height="534" key="find.popup" timestamp="1600092045043">
+      <screen x="0" y="30" width="2560" height="1050" />
+    </state>
+    <state x="1263" y="291" width="1076" height="534" key="find.popup/2560.30.1920.1050/0.30.2560.1050@0.30.2560.1050" timestamp="1600092045043" />
+    <state x="1078" y="285" key="ftp.server.browser" timestamp="1600086108176">
+      <screen x="0" y="30" width="2560" height="1050" />
+    </state>
+    <state x="1078" y="285" key="ftp.server.browser/2560.30.1920.1050/0.30.2560.1050@0.30.2560.1050" timestamp="1600086108176" />
+    <state x="1133" y="446" key="publish.login" timestamp="1600082688856">
+      <screen x="0" y="30" width="2560" height="1050" />
+    </state>
+    <state x="1133" y="446" key="publish.login/2560.30.1920.1050/0.30.2560.1050@0.30.2560.1050" timestamp="1600082688856" />
+    <state x="936" y="258" key="run.anything.popup" timestamp="1600088892600">
+      <screen x="0" y="30" width="2560" height="1050" />
+    </state>
+    <state x="936" y="258" key="run.anything.popup/2560.30.1920.1050/0.30.2560.1050@0.30.2560.1050" timestamp="1600088892600" />
   </component>
 </project>
