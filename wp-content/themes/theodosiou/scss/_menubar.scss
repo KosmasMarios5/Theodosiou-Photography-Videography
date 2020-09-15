@@ -1,6 +1,5 @@
 
 #navbar {
-  width: 100%;
   top: 0px;
 
   position: fixed;
@@ -31,7 +30,21 @@
     &--three {
       width: 25px;
     }
+  }
 
+  &--active,
+  &:hover {
+    .burger__slash--one {
+      opacity: 0;
+    }
+
+    .burger__slash--two {
+      width: 30px;
+    }
+
+    .burger__slash--three {
+      opacity: 0;
+    }
   }
 }
 
@@ -40,18 +53,6 @@
   position: absolute;
   z-index: 1;
   background: white;
-
-  &:hover .burger__slash--one {
-    opacity: 0;
-  }
-
-  &:hover .burger__slash--two {
-    width: 30px;
-  }
-
-  &:hover .burger__slash--three {
-    opacity: 0;
-  }
 
   ul {
     padding: 2px 8px;
@@ -87,6 +88,7 @@
   .menu-item-has-children {
     > a:after {
       content: "+";
+      margin-left: 5px;
       font-weight: 900;
     }
 
@@ -97,13 +99,7 @@
     > ul {
       max-height: 0px;
       overflow: hidden;
-      //-webkit-transition: max-height 0.9s ease-in;
-      //transition: max-height 0.9s ease-in;
     }
-
-    //&:hover > ul {
-    //  max-height: 1000px;
-    //}
 
   }
 

@@ -6,7 +6,7 @@
 <div id="navbar">
     <div class="menubar">
         <ul class="menubar__wrapper">
-            <li class="menu-item-has-children menu-item-has-children--no-add">
+            <li class="menubar__burger menu-item-has-children menu-item-has-children--no-add">
                 <a id="a" href="#" class="burger">
                     <div class="burger__slash burger__slash--one"></div>
                     <div class="burger__slash burger__slash--two"></div>
