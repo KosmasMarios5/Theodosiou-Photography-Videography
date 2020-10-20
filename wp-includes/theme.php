@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Theme, template, and stylesheet functions.
  *
@@ -1805,10 +1806,13 @@ function _custom_background_cb() {
 		$style .= $image . $position . $size . $repeat . $attachment;
 	}
 	?>
-<style<?php echo $type_attr; ?> id="custom-background-css">
-body.custom-background { <?php echo trim( $style ); ?> }
+<style<?php
+ echo $type_attr; ?> id="custom-background-css">
+body.custom-background { <?php
+ echo trim( $style ); ?> }
 </style>
 	<?php
+
 }
 
 /**
@@ -1821,10 +1825,13 @@ function wp_custom_css_cb() {
 	if ( $styles || is_customize_preview() ) :
 		$type_attr = current_theme_supports( 'html5', 'style' ) ? '' : ' type="text/css"';
 		?>
-		<style<?php echo $type_attr; ?> id="wp-custom-css">
-			<?php echo strip_tags( $styles ); // Note that esc_html() cannot be used because `div &gt; span` is not interpreted properly. ?>
+		<style<?php
+ echo $type_attr; ?> id="wp-custom-css">
+			<?php
+ echo strip_tags( $styles ); // Note that esc_html() cannot be used because `div &gt; span` is not interpreted properly. ?>
 		</style>
 		<?php
+
 	endif;
 }
 
@@ -2773,13 +2780,16 @@ function _custom_logo_header_styles() {
 		$type_attr = current_theme_supports( 'html5', 'style' ) ? '' : ' type="text/css"';
 		?>
 		<!-- Custom Logo: hide header text -->
-		<style id="custom-logo-css"<?php echo $type_attr; ?>>
-			<?php echo $classes; ?> {
+		<style id="custom-logo-css"<?php
+ echo $type_attr; ?>>
+			<?php
+ echo $classes; ?> {
 				position: absolute;
 				clip: rect(1px, 1px, 1px, 1px);
 			}
 		</style>
 		<?php
+
 	}
 }
 
@@ -3542,15 +3552,19 @@ function wp_customize_support_script() {
 	$cross_domain = ( strtolower( $admin_origin['host'] ) != strtolower( $home_origin['host'] ) );
 	$type_attr    = current_theme_supports( 'html5', 'script' ) ? '' : ' type="text/javascript"';
 	?>
-	<script<?php echo $type_attr; ?>>
+	<script<?php
+ echo $type_attr; ?>>
 		(function() {
 			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
 
-	<?php	if ( $cross_domain ) : ?>
+	<?php
+	if ( $cross_domain ) : ?>
 			request = (function(){ var xhr = new XMLHttpRequest(); return ('withCredentials' in xhr); })();
-	<?php	else : ?>
+	<?php
+	else : ?>
 			request = true;
-	<?php	endif; ?>
+	<?php
+	endif; ?>
 
 			b[c] = b[c].replace( rcs, ' ' );
 			// The customizer requires postMessage and CORS (if the site is cross domain).
@@ -3558,6 +3572,7 @@ function wp_customize_support_script() {
 		}());
 	</script>
 	<?php
+
 }
 
 /**

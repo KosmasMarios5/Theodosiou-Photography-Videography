@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\Library\Documents;
 
 use Elementor\Core\DocumentTypes\Post;

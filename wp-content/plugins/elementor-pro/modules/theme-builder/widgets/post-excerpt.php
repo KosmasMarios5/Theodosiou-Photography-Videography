@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Widgets;
 
 use Elementor\Controls_Manager;

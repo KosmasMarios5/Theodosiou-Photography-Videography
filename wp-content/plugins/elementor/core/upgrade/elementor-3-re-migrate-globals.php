@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Upgrade;
 
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains the post embed content template part
  *
@@ -10,8 +11,10 @@
  * @since 4.5.0
  */
 ?>
-	<div <?php post_class( 'wp-embed' ); ?>>
+	<div <?php
+ post_class( 'wp-embed' ); ?>>
 		<?php
+
 		$thumbnail_id = 0;
 
 		if ( has_post_thumbnail() ) {
@@ -78,29 +81,40 @@
 		if ( $thumbnail_id && 'rectangular' === $shape ) :
 			?>
 			<div class="wp-embed-featured-image rectangular">
-				<a href="<?php the_permalink(); ?>" target="_top">
-					<?php echo wp_get_attachment_image( $thumbnail_id, $image_size ); ?>
+				<a href="<?php
+ the_permalink(); ?>" target="_top">
+					<?php
+ echo wp_get_attachment_image( $thumbnail_id, $image_size ); ?>
 				</a>
 			</div>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 
 		<p class="wp-embed-heading">
-			<a href="<?php the_permalink(); ?>" target="_top">
-				<?php the_title(); ?>
+			<a href="<?php
+ the_permalink(); ?>" target="_top">
+				<?php
+ the_title(); ?>
 			</a>
 		</p>
 
-		<?php if ( $thumbnail_id && 'square' === $shape ) : ?>
+		<?php
+ if ( $thumbnail_id && 'square' === $shape ) : ?>
 			<div class="wp-embed-featured-image square">
-				<a href="<?php the_permalink(); ?>" target="_top">
-					<?php echo wp_get_attachment_image( $thumbnail_id, $image_size ); ?>
+				<a href="<?php
+ the_permalink(); ?>" target="_top">
+					<?php
+ echo wp_get_attachment_image( $thumbnail_id, $image_size ); ?>
 				</a>
 			</div>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 
-		<div class="wp-embed-excerpt"><?php the_excerpt_embed(); ?></div>
+		<div class="wp-embed-excerpt"><?php
+ the_excerpt_embed(); ?></div>
 
 		<?php
+
 		/**
 		 * Prints additional content after the embed excerpt.
 		 *
@@ -110,10 +124,12 @@
 		?>
 
 		<div class="wp-embed-footer">
-			<?php the_embed_site_title(); ?>
+			<?php
+ the_embed_site_title(); ?>
 
 			<div class="wp-embed-meta">
 				<?php
+
 				/**
 				 * Prints additional meta content in the embed template.
 				 *
@@ -125,3 +141,4 @@
 		</div>
 	</div>
 <?php
+

@@ -1,4 +1,5 @@
 <?php
+
 if ( is_admin() ) {
 	require_once EXACTMETRICS_PLUGIN_DIR . 'lite/includes/admin/tools.php';
 

@@ -451,8 +451,6 @@ class getid3_riff extends getid3_handler
 					}
 				}
 
-
-
 				if (!isset($thisfile_audio['bitrate']) && isset($thisfile_riff_audio[$streamindex]['bitrate'])) {
 					$thisfile_audio['bitrate'] = $thisfile_riff_audio[$streamindex]['bitrate'];
 					$info['playtime_seconds'] = (float) ((($info['avdataend'] - $info['avdataoffset']) * 8) / $thisfile_audio['bitrate']);
@@ -813,7 +811,6 @@ class getid3_riff extends getid3_handler
 											$thisfile_audio_streams_currentstream['bitrate_mode'] = $thisfile_audio['bitrate_mode'];
 											break;
 
-
 										case 'iavs':
 										case 'vids':
 											// shortcut
@@ -907,7 +904,6 @@ class getid3_riff extends getid3_handler
 				}
 				break;
 
-
 			case 'AMV ':
 				$info['fileformat'] = 'amv';
 				$info['mime_type']  = 'video/amv';
@@ -921,7 +917,6 @@ class getid3_riff extends getid3_handler
 				$thisfile_audio['dataformat']   = 'adpcm';
 				$thisfile_audio['lossless']     = false;
 				break;
-
 
 			// http://en.wikipedia.org/wiki/CD-DA
 			case 'CDDA':
@@ -1315,7 +1310,6 @@ class getid3_riff extends getid3_handler
 			}
 		}
 
-
 		if (isset($thisfile_riff_video) && isset($thisfile_audio['bitrate']) && ($thisfile_audio['bitrate'] > 0) && ($info['playtime_seconds'] > 0)) {
 
 			$info['bitrate'] = ((($info['avdataend'] - $info['avdataoffset']) / $info['playtime_seconds']) * 8);
@@ -1358,7 +1352,6 @@ class getid3_riff extends getid3_handler
 			unset($getid3_mp3);
 		}
 
-
 		if (!empty($thisfile_riff_raw['fmt ']['wBitsPerSample']) && ($thisfile_riff_raw['fmt ']['wBitsPerSample'] > 0)) {
 			switch ($thisfile_audio_dataformat) {
 				case 'ac3':
@@ -1370,7 +1363,6 @@ class getid3_riff extends getid3_handler
 					break;
 			}
 		}
-
 
 		if (empty($thisfile_riff_raw)) {
 			unset($thisfile_riff['raw']);
@@ -1482,14 +1474,12 @@ class getid3_riff extends getid3_handler
 			$RIFFchunk['strf']['cbsize']          = getid3_lib::LittleEndian2Int(substr($AMVheader,  280,  2));
 			$RIFFchunk['strf']['reserved']        = getid3_lib::LittleEndian2Int(substr($AMVheader,  282,  2));
 
-
 			$info['audio']['lossless']        = false;
 			$info['audio']['sample_rate']     = $RIFFchunk['strf']['nsamplespersec'];
 			$info['audio']['channels']        = $RIFFchunk['strf']['nchannels'];
 			$info['audio']['bits_per_sample'] = $RIFFchunk['strf']['wbitspersample'];
 			$info['audio']['bitrate']         = $info['audio']['sample_rate'] * $info['audio']['channels'] * $info['audio']['bits_per_sample'];
 			$info['audio']['bitrate_mode']    = 'cbr';
-
 
 		} catch (getid3_exception $e) {
 			if ($e->getCode() == 10) {

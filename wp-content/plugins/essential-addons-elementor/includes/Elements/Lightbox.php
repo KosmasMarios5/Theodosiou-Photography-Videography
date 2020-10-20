@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -54,7 +55,6 @@ class Lightbox extends Widget_Base {
 	{
 		return 'https://essential-addons.com/elementor/docs/lightbox-modal/';
 	}
-
 
 	protected function _register_controls() {
 
@@ -275,7 +275,6 @@ class Lightbox extends Widget_Base {
         );
 
 		$this->end_controls_section(); # End Of Content Section
-
 
 		# Settings Section
   		$this->start_controls_section(
@@ -591,7 +590,6 @@ class Lightbox extends Widget_Base {
 		$this->end_controls_section();
 		# End of Settings Section
 
-
 		# Animation Section
 		$this->start_controls_section(
 			'animation_section',
@@ -619,7 +617,6 @@ class Lightbox extends Widget_Base {
         );
 
 		$this->end_controls_section(); # End of Animation Section
-
 
 		/*-------------------------------------------------*/
 		/*	Style TAB
@@ -726,7 +723,6 @@ class Lightbox extends Widget_Base {
             ]
         );
 		$this->end_controls_section();
-
 
 		/**
          * Style Tab: Lightbox
@@ -837,7 +833,6 @@ class Lightbox extends Widget_Base {
 		
 		$this->end_controls_section();
 		# Lightbox styles
-
 
 		/**
          * Style Tab: Icon
@@ -1207,7 +1202,6 @@ class Lightbox extends Widget_Base {
 
 		$this->end_controls_section();
 
-
 		/**
          * Style Tab: Close Button
          * -------------------------------------------------
@@ -1566,7 +1560,6 @@ class Lightbox extends Widget_Base {
 
 	}
 
-
 	protected function render() {
 
 		$settings    = $this->get_settings_for_display();
@@ -1688,10 +1681,11 @@ class Lightbox extends Widget_Base {
         $this->add_render_attribute('lightbox-popup-window', 'class', $settings['eael_lightbox_type']);
 	?>
 
-
-	<div <?php echo $this->get_render_attribute_string( 'eael-lightbox-wrapper' ); ?>>
+	<div <?php
+ echo $this->get_render_attribute_string( 'eael-lightbox-wrapper' ); ?>>
 			<div class="eael-lightbox-btn">
 				<?php
+
 					if ( ($settings['eael_lightbox_trigger_type']) == 'eael_lightbox_trigger_button' ) {
 
 						if( 'button' == $settings['trigger_type'] ) {
@@ -1733,14 +1727,19 @@ class Lightbox extends Widget_Base {
 			</div><!-- close .eael-lightbox-btn -->
 	</div>
 
-	<div <?php echo $this->get_render_attribute_string('lightbox-popup-window'); ?>>
-		<div <?php echo $this->get_render_attribute_string('popup-window-container'); ?>>
+	<div <?php
+ echo $this->get_render_attribute_string('lightbox-popup-window'); ?>>
+		<div <?php
+ echo $this->get_render_attribute_string('popup-window-container'); ?>>
 			<?php
+
 				if ( $settings['popup_lightbox_title'] == 'yes' && $settings['title'] != '' ) : ?>
 				<div class="eael-lightbox-header">
-					<h2 class="eael-lightbox-title"><?php echo $settings['title']; ?></h2>
+					<h2 class="eael-lightbox-title"><?php
+ echo $settings['title']; ?></h2>
 				</div>
 			<?php
+
 				endif; // if ( $settings['popup_title'] == 'yes' ...)
 
 					if ( 'lightbox_type_image' == ($settings['eael_lightbox_type']) ) {
@@ -1759,7 +1758,6 @@ class Lightbox extends Widget_Base {
                         echo $settings['custom_html'];
                     }
 				?>
-
 
 		</div>
 	</div>

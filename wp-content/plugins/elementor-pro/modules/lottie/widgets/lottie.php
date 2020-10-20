@@ -858,5 +858,6 @@ class Lottie extends Base_Widget {
 		print( widget_container );
 		#>
 		<?php
+
 	}
 }

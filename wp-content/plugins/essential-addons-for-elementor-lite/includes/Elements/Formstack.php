@@ -1598,8 +1598,6 @@ class Formstack extends Widget_Base {
             ]
         );
 
-
-
         $this->add_control(
             'eael_formstack_pagination_progressbar',
             [
@@ -1670,8 +1668,6 @@ class Formstack extends Widget_Base {
                 ]
             ]
         );
-
-
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
@@ -2100,23 +2096,33 @@ class Formstack extends Widget_Base {
 
 
         ?>
-        <div <?php echo $this->get_render_attribute_string('eael_formstack_wrapper'); ?>>
-            <?php if ($settings['eael_formstack_custom_title_description'] == 'yes') { ?>
+        <div <?php
+ echo $this->get_render_attribute_string('eael_formstack_wrapper'); ?>>
+            <?php
+ if ($settings['eael_formstack_custom_title_description'] == 'yes') { ?>
                 <div class="eael-formstack-heading">
-                    <?php if ($settings['eael_formstack_form_title_custom'] != '') { ?>
+                    <?php
+ if ($settings['eael_formstack_form_title_custom'] != '') { ?>
                         <h3 class="eael-contact-form-title eael-formstack-title">
-                            <?php echo esc_attr($settings['eael_formstack_form_title_custom']); ?>
+                            <?php
+ echo esc_attr($settings['eael_formstack_form_title_custom']); ?>
                         </h3>
-                    <?php } ?>
-                    <?php if ($settings['eael_formstack_form_description_custom'] != '') { ?>
+                    <?php
+ } ?>
+                    <?php
+ if ($settings['eael_formstack_form_description_custom'] != '') { ?>
                         <div class="eael-contact-form-description eael-formstack-description">
-                            <?php echo $this->parse_text_editor($settings['eael_formstack_form_description_custom']); ?>
+                            <?php
+ echo $this->parse_text_editor($settings['eael_formstack_form_description_custom']); ?>
                         </div>
-                    <?php } ?>
+                    <?php
+ } ?>
                 </div>
-            <?php } ?>
+            <?php
+ } ?>
             <div class="fsForm">
-                <?php echo $form_data; ?>
+                <?php
+ echo $form_data; ?>
             </div>
         </div>
         <?php

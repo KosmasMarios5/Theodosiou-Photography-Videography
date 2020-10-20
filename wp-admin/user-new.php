@@ -1,4 +1,5 @@
 <?php
+
 /**
  * New User Administration Screen.
  *
@@ -340,6 +341,7 @@ if ( isset( $_GET['update'] ) ) {
 <div class="wrap">
 <h1 id="add-new-user">
 <?php
+
 if ( current_user_can( 'create_users' ) ) {
 	_e( 'Add New User' );
 } elseif ( current_user_can( 'promote_users' ) ) {
@@ -348,10 +350,12 @@ if ( current_user_can( 'create_users' ) ) {
 ?>
 </h1>
 
-<?php if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
+<?php
+ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 	<div class="error">
 		<ul>
 		<?php
+
 		foreach ( $errors->get_error_messages() as $err ) {
 			echo "<li>$err</li>\n";
 		}
@@ -359,6 +363,7 @@ if ( current_user_can( 'create_users' ) ) {
 		</ul>
 	</div>
 	<?php
+
 endif;
 
 if ( ! empty( $messages ) ) {
@@ -368,18 +373,22 @@ if ( ! empty( $messages ) ) {
 }
 ?>
 
-<?php if ( isset( $add_user_errors ) && is_wp_error( $add_user_errors ) ) : ?>
+<?php
+ if ( isset( $add_user_errors ) && is_wp_error( $add_user_errors ) ) : ?>
 	<div class="error">
 		<?php
+
 		foreach ( $add_user_errors->get_error_messages() as $message ) {
 			echo "<p>$message</p>";
 		}
 		?>
 	</div>
-<?php endif; ?>
+<?php
+ endif; ?>
 <div id="ajax-response"></div>
 
 <?php
+
 if ( is_multisite() && current_user_can( 'promote_users' ) ) {
 	if ( $do_both ) {
 		echo '<h2 id="add-existing-user">' . __( 'Add Existing User' ) . '</h2>';
@@ -396,6 +405,7 @@ if ( is_multisite() && current_user_can( 'promote_users' ) ) {
 	?>
 <form method="post" name="adduser" id="adduser" class="validate" novalidate="novalidate"
 	<?php
+
 	/**
 	 * Fires inside the adduser form tag.
 	 *
@@ -405,31 +415,41 @@ if ( is_multisite() && current_user_can( 'promote_users' ) ) {
 	?>
 >
 <input name="action" type="hidden" value="adduser" />
-	<?php wp_nonce_field( 'add-user', '_wpnonce_add-user' ); ?>
+	<?php
+ wp_nonce_field( 'add-user', '_wpnonce_add-user' ); ?>
 
 <table class="form-table" role="presentation">
 	<tr class="form-field form-required">
-		<th scope="row"><label for="adduser-email"><?php echo $label; ?></label></th>
-		<td><input name="email" type="<?php echo $type; ?>" id="adduser-email" class="wp-suggest-user" value="" /></td>
+		<th scope="row"><label for="adduser-email"><?php
+ echo $label; ?></label></th>
+		<td><input name="email" type="<?php
+ echo $type; ?>" id="adduser-email" class="wp-suggest-user" value="" /></td>
 	</tr>
 	<tr class="form-field">
-		<th scope="row"><label for="adduser-role"><?php _e( 'Role' ); ?></label></th>
+		<th scope="row"><label for="adduser-role"><?php
+ _e( 'Role' ); ?></label></th>
 		<td><select name="role" id="adduser-role">
-			<?php wp_dropdown_roles( get_option( 'default_role' ) ); ?>
+			<?php
+ wp_dropdown_roles( get_option( 'default_role' ) ); ?>
 			</select>
 		</td>
 	</tr>
-	<?php if ( current_user_can( 'manage_network_users' ) ) { ?>
+	<?php
+ if ( current_user_can( 'manage_network_users' ) ) { ?>
 	<tr>
-		<th scope="row"><?php _e( 'Skip Confirmation Email' ); ?></th>
+		<th scope="row"><?php
+ _e( 'Skip Confirmation Email' ); ?></th>
 		<td>
 			<input type="checkbox" name="noconfirmation" id="adduser-noconfirmation" value="1" />
-			<label for="adduser-noconfirmation"><?php _e( 'Add the user without sending an email that requires their confirmation.' ); ?></label>
+			<label for="adduser-noconfirmation"><?php
+ _e( 'Add the user without sending an email that requires their confirmation.' ); ?></label>
 		</td>
 	</tr>
-	<?php } ?>
+	<?php
+ } ?>
 </table>
 	<?php
+
 	/**
 	 * Fires at the end of the new user form.
 	 *
@@ -443,9 +463,11 @@ if ( is_multisite() && current_user_can( 'promote_users' ) ) {
 	 */
 	do_action( 'user_new_form', 'add-existing-user' );
 	?>
-	<?php submit_button( __( 'Add Existing User' ), 'primary', 'adduser', true, array( 'id' => 'addusersub' ) ); ?>
+	<?php
+ submit_button( __( 'Add Existing User' ), 'primary', 'adduser', true, array( 'id' => 'addusersub' ) ); ?>
 </form>
 	<?php
+
 } // End if is_multisite().
 
 if ( current_user_can( 'create_users' ) ) {
@@ -453,16 +475,20 @@ if ( current_user_can( 'create_users' ) ) {
 		echo '<h2 id="create-new-user">' . __( 'Add New User' ) . '</h2>';
 	}
 	?>
-<p><?php _e( 'Create a brand new user and add them to this site.' ); ?></p>
+<p><?php
+ _e( 'Create a brand new user and add them to this site.' ); ?></p>
 <form method="post" name="createuser" id="createuser" class="validate" novalidate="novalidate"
 	<?php
+
 	/** This action is documented in wp-admin/user-new.php */
 	do_action( 'user_new_form_tag' );
 	?>
 >
 <input name="action" type="hidden" value="createuser" />
-	<?php wp_nonce_field( 'create-user', '_wpnonce_create-user' ); ?>
 	<?php
+ wp_nonce_field( 'create-user', '_wpnonce_create-user' ); ?>
+	<?php
+
 	// Load up the passed data, else set to a default.
 	$creating = isset( $_POST['createuser'] );
 
@@ -478,39 +504,56 @@ if ( current_user_can( 'create_users' ) ) {
 	?>
 <table class="form-table" role="presentation">
 	<tr class="form-field form-required">
-		<th scope="row"><label for="user_login"><?php _e( 'Username' ); ?> <span class="description"><?php _e( '(required)' ); ?></span></label></th>
-		<td><input name="user_login" type="text" id="user_login" value="<?php echo esc_attr( $new_user_login ); ?>" aria-required="true" autocapitalize="none" autocorrect="off" maxlength="60" /></td>
+		<th scope="row"><label for="user_login"><?php
+ _e( 'Username' ); ?> <span class="description"><?php
+ _e( '(required)' ); ?></span></label></th>
+		<td><input name="user_login" type="text" id="user_login" value="<?php
+ echo esc_attr( $new_user_login ); ?>" aria-required="true" autocapitalize="none" autocorrect="off" maxlength="60" /></td>
 	</tr>
 	<tr class="form-field form-required">
-		<th scope="row"><label for="email"><?php _e( 'Email' ); ?> <span class="description"><?php _e( '(required)' ); ?></span></label></th>
-		<td><input name="email" type="email" id="email" value="<?php echo esc_attr( $new_user_email ); ?>" /></td>
+		<th scope="row"><label for="email"><?php
+ _e( 'Email' ); ?> <span class="description"><?php
+ _e( '(required)' ); ?></span></label></th>
+		<td><input name="email" type="email" id="email" value="<?php
+ echo esc_attr( $new_user_email ); ?>" /></td>
 	</tr>
-	<?php if ( ! is_multisite() ) { ?>
+	<?php
+ if ( ! is_multisite() ) { ?>
 	<tr class="form-field">
-		<th scope="row"><label for="first_name"><?php _e( 'First Name' ); ?> </label></th>
-		<td><input name="first_name" type="text" id="first_name" value="<?php echo esc_attr( $new_user_firstname ); ?>" /></td>
+		<th scope="row"><label for="first_name"><?php
+ _e( 'First Name' ); ?> </label></th>
+		<td><input name="first_name" type="text" id="first_name" value="<?php
+ echo esc_attr( $new_user_firstname ); ?>" /></td>
 	</tr>
 	<tr class="form-field">
-		<th scope="row"><label for="last_name"><?php _e( 'Last Name' ); ?> </label></th>
-		<td><input name="last_name" type="text" id="last_name" value="<?php echo esc_attr( $new_user_lastname ); ?>" /></td>
+		<th scope="row"><label for="last_name"><?php
+ _e( 'Last Name' ); ?> </label></th>
+		<td><input name="last_name" type="text" id="last_name" value="<?php
+ echo esc_attr( $new_user_lastname ); ?>" /></td>
 	</tr>
 	<tr class="form-field">
-		<th scope="row"><label for="url"><?php _e( 'Website' ); ?></label></th>
-		<td><input name="url" type="url" id="url" class="code" value="<?php echo esc_attr( $new_user_uri ); ?>" /></td>
+		<th scope="row"><label for="url"><?php
+ _e( 'Website' ); ?></label></th>
+		<td><input name="url" type="url" id="url" class="code" value="<?php
+ echo esc_attr( $new_user_uri ); ?>" /></td>
 	</tr>
 		<?php
+
 		$languages = get_available_languages();
 		if ( $languages ) :
 			?>
 		<tr class="form-field user-language-wrap">
 			<th scope="row">
 				<label for="locale">
-					<?php /* translators: The user language selection field label. */ ?>
-					<?php _e( 'Language' ); ?><span class="dashicons dashicons-translation" aria-hidden="true"></span>
+					<?php
+ /* translators: The user language selection field label. */ ?>
+					<?php
+ _e( 'Language' ); ?><span class="dashicons dashicons-translation" aria-hidden="true"></span>
 				</label>
 			</th>
 			<td>
 				<?php
+
 				wp_dropdown_languages(
 					array(
 						'name'                        => 'locale',
@@ -524,62 +567,83 @@ if ( current_user_can( 'create_users' ) ) {
 				?>
 			</td>
 		</tr>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 	<tr class="form-field form-required user-pass1-wrap">
 		<th scope="row">
 			<label for="pass1">
-				<?php _e( 'Password' ); ?>
-				<span class="description hide-if-js"><?php _e( '(required)' ); ?></span>
+				<?php
+ _e( 'Password' ); ?>
+				<span class="description hide-if-js"><?php
+ _e( '(required)' ); ?></span>
 			</label>
 		</th>
 		<td>
 			<input class="hidden" value=" " /><!-- #24364 workaround -->
-			<button type="button" class="button wp-generate-pw hide-if-no-js"><?php _e( 'Show password' ); ?></button>
+			<button type="button" class="button wp-generate-pw hide-if-no-js"><?php
+ _e( 'Show password' ); ?></button>
 			<div class="wp-pwd hide-if-js">
-				<?php $initial_password = wp_generate_password( 24 ); ?>
+				<?php
+ $initial_password = wp_generate_password( 24 ); ?>
 				<span class="password-input-wrapper">
-					<input type="password" name="pass1" id="pass1" class="regular-text" autocomplete="off" data-reveal="1" data-pw="<?php echo esc_attr( $initial_password ); ?>" aria-describedby="pass-strength-result" />
+					<input type="password" name="pass1" id="pass1" class="regular-text" autocomplete="off" data-reveal="1" data-pw="<?php
+ echo esc_attr( $initial_password ); ?>" aria-describedby="pass-strength-result" />
 				</span>
-				<button type="button" class="button wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="<?php esc_attr_e( 'Hide password' ); ?>">
+				<button type="button" class="button wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="<?php
+ esc_attr_e( 'Hide password' ); ?>">
 					<span class="dashicons dashicons-hidden" aria-hidden="true"></span>
-					<span class="text"><?php _e( 'Hide' ); ?></span>
+					<span class="text"><?php
+ _e( 'Hide' ); ?></span>
 				</button>
-				<button type="button" class="button wp-cancel-pw hide-if-no-js" data-toggle="0" aria-label="<?php esc_attr_e( 'Cancel password change' ); ?>">
+				<button type="button" class="button wp-cancel-pw hide-if-no-js" data-toggle="0" aria-label="<?php
+ esc_attr_e( 'Cancel password change' ); ?>">
 					<span class="dashicons dashicons-no" aria-hidden="true"></span>
-					<span class="text"><?php _e( 'Cancel' ); ?></span>
+					<span class="text"><?php
+ _e( 'Cancel' ); ?></span>
 				</button>
 				<div style="display:none" id="pass-strength-result" aria-live="polite"></div>
 			</div>
 		</td>
 	</tr>
 	<tr class="form-field form-required user-pass2-wrap hide-if-js">
-		<th scope="row"><label for="pass2"><?php _e( 'Repeat Password' ); ?> <span class="description"><?php _e( '(required)' ); ?></span></label></th>
+		<th scope="row"><label for="pass2"><?php
+ _e( 'Repeat Password' ); ?> <span class="description"><?php
+ _e( '(required)' ); ?></span></label></th>
 		<td>
 		<input name="pass2" type="password" id="pass2" autocomplete="off" />
 		</td>
 	</tr>
 	<tr class="pw-weak">
-		<th><?php _e( 'Confirm Password' ); ?></th>
+		<th><?php
+ _e( 'Confirm Password' ); ?></th>
 		<td>
 			<label>
 				<input type="checkbox" name="pw_weak" class="pw-checkbox" />
-				<?php _e( 'Confirm use of weak password' ); ?>
+				<?php
+ _e( 'Confirm use of weak password' ); ?>
 			</label>
 		</td>
 	</tr>
 	<tr>
-		<th scope="row"><?php _e( 'Send User Notification' ); ?></th>
+		<th scope="row"><?php
+ _e( 'Send User Notification' ); ?></th>
 		<td>
-			<input type="checkbox" name="send_user_notification" id="send_user_notification" value="1" <?php checked( $new_user_send_notification ); ?> />
-			<label for="send_user_notification"><?php _e( 'Send the new user an email about their account.' ); ?></label>
+			<input type="checkbox" name="send_user_notification" id="send_user_notification" value="1" <?php
+ checked( $new_user_send_notification ); ?> />
+			<label for="send_user_notification"><?php
+ _e( 'Send the new user an email about their account.' ); ?></label>
 		</td>
 	</tr>
-	<?php } // End if ! is_multisite(). ?>
-	<?php if ( current_user_can( 'promote_users' ) ) { ?>
+	<?php
+ } // End if ! is_multisite(). ?>
+	<?php
+ if ( current_user_can( 'promote_users' ) ) { ?>
 	<tr class="form-field">
-		<th scope="row"><label for="role"><?php _e( 'Role' ); ?></label></th>
+		<th scope="row"><label for="role"><?php
+ _e( 'Role' ); ?></label></th>
 		<td><select name="role" id="role">
 			<?php
+
 			if ( ! $new_user_role ) {
 				$new_user_role = ! empty( $current_role ) ? $current_role : get_option( 'default_role' );
 			}
@@ -588,27 +652,37 @@ if ( current_user_can( 'create_users' ) ) {
 			</select>
 		</td>
 	</tr>
-	<?php } ?>
-	<?php if ( is_multisite() && current_user_can( 'manage_network_users' ) ) { ?>
+	<?php
+ } ?>
+	<?php
+ if ( is_multisite() && current_user_can( 'manage_network_users' ) ) { ?>
 	<tr>
-		<th scope="row"><?php _e( 'Skip Confirmation Email' ); ?></th>
+		<th scope="row"><?php
+ _e( 'Skip Confirmation Email' ); ?></th>
 		<td>
-			<input type="checkbox" name="noconfirmation" id="noconfirmation" value="1" <?php checked( $new_user_ignore_pass ); ?> />
-			<label for="noconfirmation"><?php _e( 'Add the user without sending an email that requires their confirmation.' ); ?></label>
+			<input type="checkbox" name="noconfirmation" id="noconfirmation" value="1" <?php
+ checked( $new_user_ignore_pass ); ?> />
+			<label for="noconfirmation"><?php
+ _e( 'Add the user without sending an email that requires their confirmation.' ); ?></label>
 		</td>
 	</tr>
-	<?php } ?>
+	<?php
+ } ?>
 </table>
 
 	<?php
+
 	/** This action is documented in wp-admin/user-new.php */
 	do_action( 'user_new_form', 'add-new-user' );
 	?>
 
-	<?php submit_button( __( 'Add New User' ), 'primary', 'createuser', true, array( 'id' => 'createusersub' ) ); ?>
+	<?php
+ submit_button( __( 'Add New User' ), 'primary', 'createuser', true, array( 'id' => 'createusersub' ) ); ?>
 
 </form>
-<?php } // End if current_user_can( 'create_users' ). ?>
+<?php
+ } // End if current_user_can( 'create_users' ). ?>
 </div>
 <?php
+
 require_once ABSPATH . 'wp-admin/admin-footer.php';

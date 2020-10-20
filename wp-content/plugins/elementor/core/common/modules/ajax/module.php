@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Common\Modules\Ajax;
 
 use Elementor\Core\Base\Module as BaseModule;

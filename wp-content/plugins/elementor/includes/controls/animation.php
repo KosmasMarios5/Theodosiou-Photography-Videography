@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -140,18 +141,29 @@ class Control_Animation extends Base_Data_Control {
 		$control_uid = $this->get_control_uid();
 		?>
 		<div class="elementor-control-field">
-			<label for="<?php echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
+			<label for="<?php
+ echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
 			<div class="elementor-control-input-wrapper">
-				<select id="<?php echo $control_uid; ?>" data-setting="{{ data.name }}">
-					<option value=""><?php echo __( 'Default', 'elementor' ); ?></option>
-					<option value="none"><?php echo __( 'None', 'elementor' ); ?></option>
-					<?php foreach ( static::get_animations() as $animations_group_name => $animations_group ) : ?>
-						<optgroup label="<?php echo $animations_group_name; ?>">
-							<?php foreach ( $animations_group as $animation_name => $animation_title ) : ?>
-								<option value="<?php echo $animation_name; ?>"><?php echo $animation_title; ?></option>
-							<?php endforeach; ?>
+				<select id="<?php
+ echo $control_uid; ?>" data-setting="{{ data.name }}">
+					<option value=""><?php
+ echo __( 'Default', 'elementor' ); ?></option>
+					<option value="none"><?php
+ echo __( 'None', 'elementor' ); ?></option>
+					<?php
+ foreach ( static::get_animations() as $animations_group_name => $animations_group ) : ?>
+						<optgroup label="<?php
+ echo $animations_group_name; ?>">
+							<?php
+ foreach ( $animations_group as $animation_name => $animation_title ) : ?>
+								<option value="<?php
+ echo $animation_name; ?>"><?php
+ echo $animation_title; ?></option>
+							<?php
+ endforeach; ?>
 						</optgroup>
-					<?php endforeach; ?>
+					<?php
+ endforeach; ?>
 				</select>
 			</div>
 		</div>
@@ -159,5 +171,6 @@ class Control_Animation extends Base_Data_Control {
 		<div class="elementor-control-field-description">{{{ data.description }}}</div>
 		<# } #>
 		<?php
+
 	}
 }

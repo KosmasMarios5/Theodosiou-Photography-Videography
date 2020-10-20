@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Settings\Base;
 
 use Elementor\Controls_Stack;

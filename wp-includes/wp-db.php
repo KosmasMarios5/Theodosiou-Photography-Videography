@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress database access abstraction class
  *
@@ -3487,7 +3488,6 @@ class wpdb {
 			return false;
 		}
 	}
-
 
 	/**
 	 * Closes the current database connection.

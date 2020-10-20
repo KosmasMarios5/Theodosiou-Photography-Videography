@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Carousel\Widgets;
 
 use Elementor\Controls_Manager;
@@ -485,35 +486,48 @@ abstract class Base extends Base_Widget {
 		$slides_count = count( $settings['slides'] );
 		?>
 		<div class="elementor-swiper">
-			<div class="<?php echo esc_attr( $settings['container_class'] ); ?> swiper-container">
+			<div class="<?php
+ echo esc_attr( $settings['container_class'] ); ?> swiper-container">
 				<div class="swiper-wrapper">
 					<?php
+
 					foreach ( $settings['slides'] as $index => $slide ) :
 						$this->slide_prints_count++;
 						?>
 						<div class="swiper-slide">
-							<?php $this->print_slide( $slide, $settings, 'slide-' . $index . '-' . $this->slide_prints_count ); ?>
+							<?php
+ $this->print_slide( $slide, $settings, 'slide-' . $index . '-' . $this->slide_prints_count ); ?>
 						</div>
-					<?php endforeach; ?>
+					<?php
+ endforeach; ?>
 				</div>
-				<?php if ( 1 < $slides_count ) : ?>
-					<?php if ( $settings['pagination'] ) : ?>
+				<?php
+ if ( 1 < $slides_count ) : ?>
+					<?php
+ if ( $settings['pagination'] ) : ?>
 						<div class="swiper-pagination"></div>
-					<?php endif; ?>
-					<?php if ( $settings['show_arrows'] ) : ?>
+					<?php
+ endif; ?>
+					<?php
+ if ( $settings['show_arrows'] ) : ?>
 						<div class="elementor-swiper-button elementor-swiper-button-prev">
 							<i class="eicon-chevron-left" aria-hidden="true"></i>
-							<span class="elementor-screen-only"><?php _e( 'Previous', 'elementor-pro' ); ?></span>
+							<span class="elementor-screen-only"><?php
+ _e( 'Previous', 'elementor-pro' ); ?></span>
 						</div>
 						<div class="elementor-swiper-button elementor-swiper-button-next">
 							<i class="eicon-chevron-right" aria-hidden="true"></i>
-							<span class="elementor-screen-only"><?php _e( 'Next', 'elementor-pro' ); ?></span>
+							<span class="elementor-screen-only"><?php
+ _e( 'Next', 'elementor-pro' ); ?></span>
 						</div>
-					<?php endif; ?>
-				<?php endif; ?>
+					<?php
+ endif; ?>
+				<?php
+ endif; ?>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	protected function get_slide_image_url( $slide, array $settings ) {

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\SafeMode;
 
 use Elementor\Plugin;
@@ -265,6 +266,7 @@ class Module extends \Elementor\Core\Base\Module {
 			}
 		</style>
 		<?php
+
 	}
 
 	public function print_safe_mode_notice() {
@@ -273,29 +275,40 @@ class Module extends \Elementor\Core\Base\Module {
 		<div class="elementor-safe-mode-toast" id="elementor-safe-mode-message">
 			<header>
 				<i class="eicon-warning"></i>
-				<h2><?php echo __( 'Safe Mode ON', 'elementor' ); ?></h2>
-				<a class="elementor-safe-mode-button elementor-disable-safe-mode" target="_blank" href="<?php echo $this->get_admin_page_url(); ?>">
-					<?php echo __( 'Disable Safe Mode', 'elementor' ); ?>
+				<h2><?php
+ echo __( 'Safe Mode ON', 'elementor' ); ?></h2>
+				<a class="elementor-safe-mode-button elementor-disable-safe-mode" target="_blank" href="<?php
+ echo $this->get_admin_page_url(); ?>">
+					<?php
+ echo __( 'Disable Safe Mode', 'elementor' ); ?>
 				</a>
 			</header>
 
 			<div class="elementor-toast-content">
 				<ul class="elementor-safe-mode-list">
 					<li class="elementor-safe-mode-list-item">
-						<div class="elementor-safe-mode-list-item-title"><?php echo __( 'Editor successfully loaded?', 'elementor' ); ?></div>
-						<div class="elementor-safe-mode-list-item-content"><?php echo __( 'The issue was probably caused by one of your plugins or theme.', 'elementor' ); ?> <?php printf( __( '<a href="%s" target="_blank">Click here</a> to troubleshoot', 'elementor' ), self::DOCS_HELPED_URL ); ?></div>
+						<div class="elementor-safe-mode-list-item-title"><?php
+ echo __( 'Editor successfully loaded?', 'elementor' ); ?></div>
+						<div class="elementor-safe-mode-list-item-content"><?php
+ echo __( 'The issue was probably caused by one of your plugins or theme.', 'elementor' ); ?> <?php
+ printf( __( '<a href="%s" target="_blank">Click here</a> to troubleshoot', 'elementor' ), self::DOCS_HELPED_URL ); ?></div>
 					</li>
 					<li class="elementor-safe-mode-list-item">
-						<div class="elementor-safe-mode-list-item-title"><?php echo __( 'Still experiencing issues?', 'elementor' ); ?></div>
-						<div class="elementor-safe-mode-list-item-content"><?php printf( __( '<a href="%s" target="_blank">Click here</a> to troubleshoot', 'elementor' ), self::DOCS_DIDNT_HELP_URL ); ?></div>
+						<div class="elementor-safe-mode-list-item-title"><?php
+ echo __( 'Still experiencing issues?', 'elementor' ); ?></div>
+						<div class="elementor-safe-mode-list-item-content"><?php
+ printf( __( '<a href="%s" target="_blank">Click here</a> to troubleshoot', 'elementor' ), self::DOCS_DIDNT_HELP_URL ); ?></div>
 					</li>
 				</ul>
 				<?php
+
 				$mu_plugins = wp_get_mu_plugins();
 
 				if ( 1 < count( $mu_plugins ) ) : ?>
-					<div class="elementor-safe-mode-mu-plugins"><?php printf( __( 'Please note! We couldn\'t deactivate all of your plugins on Safe Mode. Please <a href="%s" target="_blank">read more</a> about this issue.', 'elementor' ), self::DOCS_MU_PLUGINS_URL ); ?></div>
-				<?php endif; ?>
+					<div class="elementor-safe-mode-mu-plugins"><?php
+ printf( __( 'Please note! We couldn\'t deactivate all of your plugins on Safe Mode. Please <a href="%s" target="_blank">read more</a> about this issue.', 'elementor' ), self::DOCS_MU_PLUGINS_URL ); ?></div>
+				<?php
+ endif; ?>
 			</div>
 		</div>
 
@@ -338,6 +351,7 @@ class Module extends \Elementor\Core\Base\Module {
 			new ElementorSafeMode();
 		</script>
 		<?php
+
 	}
 
 	public function print_try_safe_mode() {
@@ -348,28 +362,41 @@ class Module extends \Elementor\Core\Base\Module {
 		echo $this->print_safe_mode_css();
 		?>
 		<div class="elementor-safe-mode-toast" id="elementor-try-safe-mode">
-		<?php if ( current_user_can( 'install_plugins' ) ) : ?>
+		<?php
+ if ( current_user_can( 'install_plugins' ) ) : ?>
 			<header>
 				<i class="eicon-warning"></i>
-				<h2><?php echo __( 'Can\'t Edit?', 'elementor' ); ?></h2>
-				<a class="elementor-safe-mode-button elementor-enable-safe-mode" target="_blank" href="<?php echo $this->get_admin_page_url(); ?>">
-					<?php echo __( 'Enable Safe Mode', 'elementor' ); ?>
+				<h2><?php
+ echo __( 'Can\'t Edit?', 'elementor' ); ?></h2>
+				<a class="elementor-safe-mode-button elementor-enable-safe-mode" target="_blank" href="<?php
+ echo $this->get_admin_page_url(); ?>">
+					<?php
+ echo __( 'Enable Safe Mode', 'elementor' ); ?>
 				</a>
 			</header>
 			<div class="elementor-toast-content">
-				<?php echo __( 'Having problems loading Elementor? Please enable Safe Mode to troubleshoot.', 'elementor' ); ?>
-				<a href="<?php echo self::DOCS_TRY_SAFE_MODE_URL; ?>" target="_blank"><?php echo __( 'Learn More', 'elementor' ); ?></a>
+				<?php
+ echo __( 'Having problems loading Elementor? Please enable Safe Mode to troubleshoot.', 'elementor' ); ?>
+				<a href="<?php
+ echo self::DOCS_TRY_SAFE_MODE_URL; ?>" target="_blank"><?php
+ echo __( 'Learn More', 'elementor' ); ?></a>
 			</div>
-		<?php else : ?>
+		<?php
+ else : ?>
 			<header>
 				<i class="eicon-warning"></i>
-				<h2><?php echo __( 'Can\'t Edit?', 'elementor' ); ?></h2>
+				<h2><?php
+ echo __( 'Can\'t Edit?', 'elementor' ); ?></h2>
 			</header>
 			<div class="elementor-toast-content">
-				<?php echo __( 'If you are experiencing a loading issue, contact your site administrator to troubleshoot the problem using Safe Mode.', 'elementor' ); ?>
-				<a href="<?php echo self::DOCS_TRY_SAFE_MODE_URL; ?>" target="_blank"><?php echo __( 'Learn More', 'elementor' ); ?></a>
+				<?php
+ echo __( 'If you are experiencing a loading issue, contact your site administrator to troubleshoot the problem using Safe Mode.', 'elementor' ); ?>
+				<a href="<?php
+ echo self::DOCS_TRY_SAFE_MODE_URL; ?>" target="_blank"><?php
+ echo __( 'Learn More', 'elementor' ); ?></a>
 			</div>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 		</div>
 
 		<script>
@@ -385,7 +412,8 @@ class Module extends \Elementor\Core\Base\Module {
 						elementorCommon.ajax.addRequest(
 							'enable_safe_mode', {
 								data: {
-									editor_post_id: '<?php echo Plugin::$instance->editor->get_post_id(); ?>',
+									editor_post_id: '<?php
+ echo Plugin::$instance->editor->get_post_id(); ?>',
 								},
 								success: function( url ) {
 									location.assign( url );
@@ -432,7 +460,8 @@ class Module extends \Elementor\Core\Base\Module {
 				};
 
 				var init = function() {
-					setTimeout( handleTrySafeModeNotice, <?php echo self::EDITOR_NOTICE_TIMEOUT; ?> );
+					setTimeout( handleTrySafeModeNotice, <?php
+ echo self::EDITOR_NOTICE_TIMEOUT; ?> );
 
 					attachEvents();
 				};
@@ -444,6 +473,7 @@ class Module extends \Elementor\Core\Base\Module {
 		</script>
 
 		<?php
+
 	}
 
 	public function run_safe_mode() {

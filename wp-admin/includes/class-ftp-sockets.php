@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PemFTP - An Ftp implementation in pure PHP
  *

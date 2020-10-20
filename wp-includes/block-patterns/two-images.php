@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Two images side by side block pattern.
  *

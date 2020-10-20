@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Gutenberg-specific scripts.
  */

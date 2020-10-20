@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Install plugin administration panel.
  *
@@ -123,14 +124,17 @@ get_current_screen()->set_screen_reader_content(
  */
 require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
-<div class="wrap <?php echo esc_attr( "plugin-install-tab-$tab" ); ?>">
+<div class="wrap <?php
+ echo esc_attr( "plugin-install-tab-$tab" ); ?>">
 <h1 class="wp-heading-inline">
 <?php
+
 echo esc_html( $title );
 ?>
 </h1>
 
 <?php
+
 if ( ! empty( $tabs['upload'] ) && current_user_can( 'upload_plugins' ) ) {
 	printf(
 		' <a href="%s" class="upload-view-toggle page-title-action"><span class="upload">%s</span><span class="browse">%s</span></a>',
@@ -144,6 +148,7 @@ if ( ! empty( $tabs['upload'] ) && current_user_can( 'upload_plugins' ) ) {
 <hr class="wp-header-end">
 
 <?php
+
 /*
  * Output the upload plugin form on every non-upload plugin installation screen, so it can be
  * displayed via JavaScript rather then opening up the devoted upload plugin page.
@@ -152,11 +157,13 @@ if ( 'upload' !== $tab ) {
 	?>
 	<div class="upload-plugin-wrap">
 		<?php
+
 		/** This action is documented in wp-admin/plugin-install.php */
 		do_action( 'install_plugins_upload' );
 		?>
 	</div>
 	<?php
+
 	$wp_list_table->views();
 }
 
@@ -177,6 +184,7 @@ do_action( "install_plugins_{$tab}", $paged );
 </div>
 
 <?php
+
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 

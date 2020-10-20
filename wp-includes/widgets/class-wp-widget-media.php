@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Media_Widget class
  *
@@ -339,13 +340,18 @@ abstract class WP_Widget_Media extends WP_Widget {
 		foreach ( $instance as $name => $value ) : ?>
 			<input
 				type="hidden"
-				data-property="<?php echo esc_attr( $name ); ?>"
+				data-property="<?php
+ echo esc_attr( $name ); ?>"
 				class="media-widget-instance-property"
-				name="<?php echo esc_attr( $this->get_field_name( $name ) ); ?>"
-				id="<?php echo esc_attr( $this->get_field_id( $name ) ); // Needed specifically by wpWidgets.appendTitle(). ?>"
-				value="<?php echo esc_attr( is_array( $value ) ? join( ',', $value ) : strval( $value ) ); ?>"
+				name="<?php
+ echo esc_attr( $this->get_field_name( $name ) ); ?>"
+				id="<?php
+ echo esc_attr( $this->get_field_id( $name ) ); // Needed specifically by wpWidgets.appendTitle(). ?>"
+				value="<?php
+ echo esc_attr( is_array( $value ) ? join( ',', $value ) : strval( $value ) ); ?>"
 			/>
 			<?php
+
 		endforeach;
 	}
 
@@ -409,33 +415,42 @@ abstract class WP_Widget_Media extends WP_Widget {
 	 */
 	public function render_control_template_scripts() {
 		?>
-		<script type="text/html" id="tmpl-widget-media-<?php echo esc_attr( $this->id_base ); ?>-control">
+		<script type="text/html" id="tmpl-widget-media-<?php
+ echo esc_attr( $this->id_base ); ?>-control">
 			<# var elementIdPrefix = 'el' + String( Math.random() ) + '_' #>
 			<p>
-				<label for="{{ elementIdPrefix }}title"><?php esc_html_e( 'Title:' ); ?></label>
+				<label for="{{ elementIdPrefix }}title"><?php
+ esc_html_e( 'Title:' ); ?></label>
 				<input id="{{ elementIdPrefix }}title" type="text" class="widefat title">
 			</p>
-			<div class="media-widget-preview <?php echo esc_attr( $this->id_base ); ?>">
+			<div class="media-widget-preview <?php
+ echo esc_attr( $this->id_base ); ?>">
 				<div class="attachment-media-view">
 					<button type="button" class="select-media button-add-media not-selected">
-						<?php echo esc_html( $this->l10n['add_media'] ); ?>
+						<?php
+ echo esc_html( $this->l10n['add_media'] ); ?>
 					</button>
 				</div>
 			</div>
 			<p class="media-widget-buttons">
 				<button type="button" class="button edit-media selected">
-					<?php echo esc_html( $this->l10n['edit_media'] ); ?>
+					<?php
+ echo esc_html( $this->l10n['edit_media'] ); ?>
 				</button>
-			<?php if ( ! empty( $this->l10n['replace_media'] ) ) : ?>
+			<?php
+ if ( ! empty( $this->l10n['replace_media'] ) ) : ?>
 				<button type="button" class="button change-media select-media selected">
-					<?php echo esc_html( $this->l10n['replace_media'] ); ?>
+					<?php
+ echo esc_html( $this->l10n['replace_media'] ); ?>
 				</button>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 			</p>
 			<div class="media-widget-fields">
 			</div>
 		</script>
 		<?php
+
 	}
 
 	/**

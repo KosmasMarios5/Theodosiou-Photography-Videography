@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core\App\Modules\SiteEditor\Data\Responses;
 
 if ( ! defined( 'ABSPATH' ) ) {

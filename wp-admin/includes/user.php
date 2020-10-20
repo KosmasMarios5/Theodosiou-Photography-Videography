@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress user administration API.
  *
@@ -547,6 +548,7 @@ jQuery(document).ready( function($) {
 });
 </script>
 	<?php
+
 }
 
 /**
@@ -561,10 +563,14 @@ jQuery(document).ready( function($) {
 function use_ssl_preference( $user ) {
 	?>
 	<tr class="user-use-ssl-wrap">
-		<th scope="row"><?php _e( 'Use https' ); ?></th>
-		<td><label for="use_ssl"><input name="use_ssl" type="checkbox" id="use_ssl" value="1" <?php checked( '1', $user->use_ssl ); ?> /> <?php _e( 'Always use https when visiting the admin' ); ?></label></td>
+		<th scope="row"><?php
+ _e( 'Use https' ); ?></th>
+		<td><label for="use_ssl"><input name="use_ssl" type="checkbox" id="use_ssl" value="1" <?php
+ checked( '1', $user->use_ssl ); ?> /> <?php
+ _e( 'Always use https when visiting the admin' ); ?></label></td>
 	</tr>
 	<?php
+
 }
 
 /**

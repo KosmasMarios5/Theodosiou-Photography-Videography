@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -129,8 +130,10 @@ class Widget_Shortcode extends Widget_Base {
 
 		$shortcode = do_shortcode( shortcode_unautop( $shortcode ) );
 		?>
-		<div class="elementor-shortcode"><?php echo $shortcode; ?></div>
+		<div class="elementor-shortcode"><?php
+ echo $shortcode; ?></div>
 		<?php
+
 	}
 
 	/**

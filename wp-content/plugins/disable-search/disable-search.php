@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Disable Search
  * Version:     1.8.1

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -51,6 +52,7 @@ class Control_Wysiwyg extends Base_Data_Control {
 		<div class="elementor-control-field-description">{{{ data.description }}}</div>
 		<# } #>
 		<?php
+
 	}
 
 	/**

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Forms;
 
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;

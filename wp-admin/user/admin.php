@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress User Administration Bootstrap
  *

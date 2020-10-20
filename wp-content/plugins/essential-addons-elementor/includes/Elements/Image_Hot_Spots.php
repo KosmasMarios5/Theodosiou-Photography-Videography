@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -572,7 +573,6 @@ class Image_Hot_Spots extends Widget_Base {
             ]
         );
 
-
         $this->add_control(
 			'image_alignment',
 			[
@@ -800,6 +800,7 @@ class Image_Hot_Spots extends Widget_Base {
         <div class="eael-image-hotspots">
             <div class="eael-hot-spot-image">
                 <?php
+
                     $i = 1;
                     foreach ( $settings['hot_spots'] as $index => $item ) :
                     $icon = ((isset($item['__fa4_migrated']['hotspot_icon_new']) || empty($item['hotspot_icon'])) ? $item['hotspot_icon_new']['value'] : $item['hotspot_icon']);
@@ -858,9 +859,12 @@ class Image_Hot_Spots extends Widget_Base {
                         $this->add_render_attribute( 'hotspot_inner_' . $i, 'class', 'hotspot-animation' );
                     }
                     ?>
-                    <span <?php echo $this->get_render_attribute_string( 'hotspot' . $i ); ?>>
-                        <span <?php echo $this->get_render_attribute_string( 'hotspot_inner_' . $i ); ?>>
+                    <span <?php
+ echo $this->get_render_attribute_string( 'hotspot' . $i ); ?>>
+                        <span <?php
+ echo $this->get_render_attribute_string( 'hotspot_inner_' . $i ); ?>>
                         <?php
+
                             if ( $item['hotspot_type'] == 'icon' ) {
                                 if( isset($icon['url']) ) {
                                     printf( '<span class="eael-hotspot-icon-wrap">
@@ -876,11 +880,14 @@ class Image_Hot_Spots extends Widget_Base {
                         ?>
                         </span>
                     </span>
-                <?php $i++; endforeach; ?>
+                <?php
+ $i++; endforeach; ?>
                 
-                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?>
+                <?php
+ echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?>
             </div>
         </div>
         <?php
+
     }
 }

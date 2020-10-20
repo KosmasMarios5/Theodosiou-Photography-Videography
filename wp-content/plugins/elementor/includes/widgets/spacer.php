@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -153,6 +154,7 @@ class Widget_Spacer extends Widget_Base {
 			<div class="elementor-spacer-inner"></div>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -169,5 +171,6 @@ class Widget_Spacer extends Widget_Base {
 			<div class="elementor-spacer-inner"></div>
 		</div>
 		<?php
+
 	}
 }

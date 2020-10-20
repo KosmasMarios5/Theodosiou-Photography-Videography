@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Social\Classes;
 
 use Elementor\Controls_Manager;

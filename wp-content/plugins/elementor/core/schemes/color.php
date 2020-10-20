@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Schemes;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -129,35 +130,48 @@ class Color extends Base_UI {
 		?>
 		<div class="elementor-panel-scheme-content elementor-panel-box">
 			<div class="elementor-panel-heading">
-				<div class="elementor-panel-heading-title"><?php echo $this->_get_current_scheme_title(); ?></div>
+				<div class="elementor-panel-heading-title"><?php
+ echo $this->_get_current_scheme_title(); ?></div>
 			</div>
 			<?php
+
 			$description = static::get_description();
 
 			if ( $description ) :
 				?>
-				<div class="elementor-panel-scheme-description elementor-descriptor"><?php echo $description; ?></div>
-			<?php endif; ?>
+				<div class="elementor-panel-scheme-description elementor-descriptor"><?php
+ echo $description; ?></div>
+			<?php
+ endif; ?>
 			<div class="elementor-panel-scheme-items elementor-panel-box-content"></div>
 		</div>
 		<div class="elementor-panel-scheme-colors-more-palettes elementor-panel-box">
 			<div class="elementor-panel-heading">
-				<div class="elementor-panel-heading-title"><?php echo __( 'More Palettes', 'elementor' ); ?></div>
+				<div class="elementor-panel-heading-title"><?php
+ echo __( 'More Palettes', 'elementor' ); ?></div>
 			</div>
 			<div class="elementor-panel-box-content">
-				<?php foreach ( $this->_get_system_schemes_to_print() as $scheme_name => $scheme ) : ?>
-					<div class="elementor-panel-scheme-color-system-scheme" data-scheme-name="<?php echo esc_attr( $scheme_name ); ?>">
+				<?php
+ foreach ( $this->_get_system_schemes_to_print() as $scheme_name => $scheme ) : ?>
+					<div class="elementor-panel-scheme-color-system-scheme" data-scheme-name="<?php
+ echo esc_attr( $scheme_name ); ?>">
 						<div class="elementor-panel-scheme-color-system-items">
-							<?php foreach ( $scheme['items'] as $color_value ) : ?>
-								<div class="elementor-panel-scheme-color-system-item" style="background-color: <?php echo esc_attr( $color_value ); ?>;"></div>
-							<?php endforeach; ?>
+							<?php
+ foreach ( $scheme['items'] as $color_value ) : ?>
+								<div class="elementor-panel-scheme-color-system-item" style="background-color: <?php
+ echo esc_attr( $color_value ); ?>;"></div>
+							<?php
+ endforeach; ?>
 						</div>
-						<div class="elementor-title"><?php echo $scheme['title']; ?></div>
+						<div class="elementor-title"><?php
+ echo $scheme['title']; ?></div>
 					</div>
-				<?php endforeach; ?>
+				<?php
+ endforeach; ?>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	/**

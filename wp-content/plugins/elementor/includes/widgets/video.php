@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -826,8 +827,10 @@ class Widget_Video extends Widget_Base {
 
 		$this->add_render_attribute( 'video-wrapper', 'class', 'elementor-open-' . ( $settings['lightbox'] ? 'lightbox' : 'inline' ) );
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'video-wrapper' ); ?>>
+		<div <?php
+ echo $this->get_render_attribute_string( 'video-wrapper' ); ?>>
 			<?php
+
 			if ( ! $settings['lightbox'] ) {
 				echo $video_html; // XSS ok.
 			}
@@ -873,20 +876,29 @@ class Widget_Video extends Widget_Base {
 					$this->add_render_attribute( 'image-overlay', 'style', 'background-image: url(' . Group_Control_Image_Size::get_attachment_image_src( $settings['image_overlay']['id'], 'image_overlay', $settings ) . ');' );
 				}
 				?>
-				<div <?php echo $this->get_render_attribute_string( 'image-overlay' ); ?>>
-					<?php if ( $settings['lightbox'] ) : ?>
-						<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image_overlay' ); ?>
-					<?php endif; ?>
-					<?php if ( 'yes' === $settings['show_play_icon'] ) : ?>
+				<div <?php
+ echo $this->get_render_attribute_string( 'image-overlay' ); ?>>
+					<?php
+ if ( $settings['lightbox'] ) : ?>
+						<?php
+ echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image_overlay' ); ?>
+					<?php
+ endif; ?>
+					<?php
+ if ( 'yes' === $settings['show_play_icon'] ) : ?>
 						<div class="elementor-custom-embed-play" role="button">
 							<i class="eicon-play" aria-hidden="true"></i>
-							<span class="elementor-screen-only"><?php echo __( 'Play Video', 'elementor' ); ?></span>
+							<span class="elementor-screen-only"><?php
+ echo __( 'Play Video', 'elementor' ); ?></span>
 						</div>
-					<?php endif; ?>
+					<?php
+ endif; ?>
 				</div>
-			<?php } ?>
+			<?php
+ } ?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -1114,7 +1126,10 @@ class Widget_Video extends Widget_Base {
 
 		$video_params = $this->get_hosted_params();
 		?>
-		<video class="elementor-video" src="<?php echo esc_url( $video_url ); ?>" <?php echo Utils::render_html_attributes( $video_params ); ?>></video>
+		<video class="elementor-video" src="<?php
+ echo esc_url( $video_url ); ?>" <?php
+ echo Utils::render_html_attributes( $video_params ); ?>></video>
 		<?php
+
 	}
 }

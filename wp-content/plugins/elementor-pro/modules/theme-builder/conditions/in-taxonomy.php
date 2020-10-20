@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Conditions;
 
 use ElementorPro\Modules\QueryControl\Module as QueryModule;
@@ -8,7 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class In_Taxonomy extends Condition_Base {
-
 
 	/**
 	 * @var \WP_Taxonomy

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Translation API: Continent and city translations for timezone selection
  *

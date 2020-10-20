@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -467,7 +468,6 @@ class Google_Map extends Widget_Base {
 			]
 		);
 		$this->end_controls_section();
-
 
   		/**
   		 * Polyline Coordinates Settings (Polyline)
@@ -1056,8 +1056,6 @@ class Google_Map extends Widget_Base {
 			]
 		);
 
-
-
 		$this->end_controls_section();
 	}
 
@@ -1135,7 +1133,6 @@ class Google_Map extends Widget_Base {
 		return $data_string;
 	}
 
-
 	protected function render() {
 
 		$settings = $this->get_settings();
@@ -1146,11 +1143,15 @@ class Google_Map extends Widget_Base {
 		]);
 	?>
 
-	<?php if( ! empty($settings['eael_google_map_type']) ) : ?>
-	<div <?php echo $this->get_render_attribute_string('eael_google_map_wrap'), $this->get_map_render_data_attribute_string($settings); ?>></div>
-	<?php endif; ?>
+	<?php
+ if( ! empty($settings['eael_google_map_type']) ) : ?>
+	<div <?php
+ echo $this->get_render_attribute_string('eael_google_map_wrap'), $this->get_map_render_data_attribute_string($settings); ?>></div>
+	<?php
+ endif; ?>
 	<div class="google-map-notice"></div>
 	<?php
+
 	}
 
 	protected function content_template() {}

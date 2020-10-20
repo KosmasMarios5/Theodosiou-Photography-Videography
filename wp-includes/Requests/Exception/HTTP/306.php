@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 306 Switch Proxy responses
  *

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -124,5 +125,6 @@ class Widget_Html extends Widget_Base {
 		?>
 		{{{ settings.html }}}
 		<?php
+
 	}
 }

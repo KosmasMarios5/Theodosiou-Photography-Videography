@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Block Renderer REST API: WP_REST_Block_Renderer_Controller class
  *

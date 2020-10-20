@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\GlobalWidget\Widgets;
 
 use Elementor\DB;

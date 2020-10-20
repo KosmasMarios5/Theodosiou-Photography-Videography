@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Countdown;
 
 use ElementorPro\Base\Module_Base;

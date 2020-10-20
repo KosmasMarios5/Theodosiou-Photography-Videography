@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -48,6 +49,7 @@ class Control_Tab extends Base_UI_Control {
 				{{{ data.label }}}
 			</div>
 		<?php
+
 	}
 
 	/**

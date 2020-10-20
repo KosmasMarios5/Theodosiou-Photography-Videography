@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Conditions;
 
 use ElementorPro\Modules\QueryControl\Module as QueryModule;

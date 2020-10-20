@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\QueryControl\Controls;
 
 use Elementor\Controls_Manager;

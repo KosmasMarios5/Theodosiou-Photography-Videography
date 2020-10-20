@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Widget_Meta class
  *
@@ -68,12 +69,19 @@ class WP_Widget_Meta extends WP_Widget {
 		?>
 
 		<ul>
-			<?php wp_register(); ?>
-			<li><?php wp_loginout(); ?></li>
-			<li><a href="<?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?>"><?php _e( 'Entries feed' ); ?></a></li>
-			<li><a href="<?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?>"><?php _e( 'Comments feed' ); ?></a></li>
+			<?php
+ wp_register(); ?>
+			<li><?php
+ wp_loginout(); ?></li>
+			<li><a href="<?php
+ echo esc_url( get_bloginfo( 'rss2_url' ) ); ?>"><?php
+ _e( 'Entries feed' ); ?></a></li>
+			<li><a href="<?php
+ echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?>"><?php
+ _e( 'Comments feed' ); ?></a></li>
 
 			<?php
+
 			/**
 			 * Filters the "WordPress.org" list item HTML in the Meta widget.
 			 *
@@ -99,6 +107,7 @@ class WP_Widget_Meta extends WP_Widget {
 		</ul>
 
 		<?php
+
 		if ( 'html5' === $format ) {
 			echo '</nav>';
 		}
@@ -134,9 +143,15 @@ class WP_Widget_Meta extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
+			<label for="<?php
+ echo $this->get_field_id( 'title' ); ?>"><?php
+ _e( 'Title:' ); ?></label>
+			<input class="widefat" id="<?php
+ echo $this->get_field_id( 'title' ); ?>" name="<?php
+ echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php
+ echo esc_attr( $instance['title'] ); ?>" />
 		</p>
 		<?php
+
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom CSS and JS
  */
@@ -86,7 +87,6 @@ class CustomCSSandJS_Admin {
 
 	}
 
-
 	/**
 	 * Add submenu pages
 	 */
@@ -106,7 +106,6 @@ class CustomCSSandJS_Admin {
 		add_submenu_page( $menu_slug, $title, $title, 'publish_custom_csss', $submenu_slug . '&language=html' );
 
 	}
-
 
 	/**
 	 * Enqueue the scripts and styles
@@ -194,7 +193,6 @@ class CustomCSSandJS_Admin {
 		}
 	}
 
-
 	/**
 	 * Send variables to the ccj_admin.js script
 	 */
@@ -221,8 +219,6 @@ class CustomCSSandJS_Admin {
 		remove_meta_box( 'slugdiv', 'custom-css-js', 'normal' );
 	}
 
-
-
 	/**
 	 * Get options for a specific custom-css-js post
 	 */
@@ -241,7 +237,6 @@ class CustomCSSandJS_Admin {
 		$this->options[ $post_id ] = $options;
 		return $options;
 	}
-
 
 	/**
 	 * Reformat the `edit` or the `post` screens
@@ -263,8 +258,6 @@ class CustomCSSandJS_Admin {
 		wp_deregister_script( 'autosave' );
 	}
 
-
-
 	/**
 	 * Add the buttons in the `edit` screen
 	 */
@@ -276,15 +269,17 @@ class CustomCSSandJS_Admin {
 		}
 		?>
 	<div class="updated buttons">
-	<a href="post-new.php?post_type=custom-css-js&language=css" class="custom-btn custom-css-btn"><?php _e( 'Add CSS code', 'custom-css-js' ); ?></a>
-	<a href="post-new.php?post_type=custom-css-js&language=js" class="custom-btn custom-js-btn"><?php _e( 'Add JS code', 'custom-css-js' ); ?></a>
-	<a href="post-new.php?post_type=custom-css-js&language=html" class="custom-btn custom-js-btn"><?php _e( 'Add HTML code', 'custom-css-js' ); ?></a>
+	<a href="post-new.php?post_type=custom-css-js&language=css" class="custom-btn custom-css-btn"><?php
+ _e( 'Add CSS code', 'custom-css-js' ); ?></a>
+	<a href="post-new.php?post_type=custom-css-js&language=js" class="custom-btn custom-js-btn"><?php
+ _e( 'Add JS code', 'custom-css-js' ); ?></a>
+	<a href="post-new.php?post_type=custom-css-js&language=html" class="custom-btn custom-js-btn"><?php
+ _e( 'Add HTML code', 'custom-css-js' ); ?></a>
 		<!-- a href="post-new.php?post_type=custom-css-js&language=php" class="custom-btn custom-php-btn">Add PHP code</a -->
 	</div>
 		<?php
+
 	}
-
-
 
 	/**
 	 * Add new columns in the `edit` screen
@@ -300,7 +295,6 @@ class CustomCSSandJS_Admin {
 			'modified'  => __( 'Modified', 'custom-css-js' ),
 		);
 	}
-
 
 	/**
 	 * Fill the data for the new added columns in the `edit` screen
@@ -349,7 +343,6 @@ class CustomCSSandJS_Admin {
 		}
 	}
 
-
 	/**
 	 * Make the 'Modified' column sortable
 	 */
@@ -361,7 +354,6 @@ class CustomCSSandJS_Admin {
 		return $columns;
 
 	}
-
 
 	/**
 	 * List table: Change the query in order to filter by code type
@@ -396,7 +388,6 @@ class CustomCSSandJS_Admin {
 		return $query;
 	}
 
-
 	/**
 	 * List table: add a filter by code type
 	 */
@@ -421,7 +412,6 @@ class CustomCSSandJS_Admin {
 		echo '</select>';
 	}
 
-
 	/**
 	 * Order table by Type and Active columns
 	 */
@@ -439,7 +429,6 @@ class CustomCSSandJS_Admin {
 		}
 		return $orderby;
 	}
-
 
 	/**
 	 * Order table by Type and Active columns
@@ -460,7 +449,6 @@ class CustomCSSandJS_Admin {
 		return $join;
 	}
 
-
 	/**
 	 * Order table by Type and Active columns
 	 */
@@ -475,7 +463,6 @@ class CustomCSSandJS_Admin {
 		}
 		return $where;
 	}
-
 
 	/**
 	 * Activate/deactivate a code
@@ -522,17 +509,21 @@ class CustomCSSandJS_Admin {
 		<script type="text/javascript">
 			 /* <![CDATA[ */
 			jQuery(window).ready(function($){
-				var h1 = '<?php _e( 'Custom Code', 'custom-css-js' ); ?> ';
-				h1 += '<a href="post-new.php?post_type=custom-css-js&language=css" class="page-title-action"><?php _e( 'Add CSS Code', 'custom-css-js' ); ?></a>';
-				h1 += '<a href="post-new.php?post_type=custom-css-js&language=js" class="page-title-action"><?php _e( 'Add JS Code', 'custom-css-js' ); ?></a>';
-				h1 += '<a href="post-new.php?post_type=custom-css-js&language=html" class="page-title-action"><?php _e( 'Add HTML Code', 'custom-css-js' ); ?></a>';
+				var h1 = '<?php
+ _e( 'Custom Code', 'custom-css-js' ); ?> ';
+				h1 += '<a href="post-new.php?post_type=custom-css-js&language=css" class="page-title-action"><?php
+ _e( 'Add CSS Code', 'custom-css-js' ); ?></a>';
+				h1 += '<a href="post-new.php?post_type=custom-css-js&language=js" class="page-title-action"><?php
+ _e( 'Add JS Code', 'custom-css-js' ); ?></a>';
+				h1 += '<a href="post-new.php?post_type=custom-css-js&language=html" class="page-title-action"><?php
+ _e( 'Add HTML Code', 'custom-css-js' ); ?></a>';
 				$("#wpbody-content h1").html(h1);
 			});
 
 		</script>
 		<?php
-	}
 
+	}
 
 	/**
 	 * Reformat the `post` screen
@@ -577,8 +568,10 @@ class CustomCSSandJS_Admin {
 		<script type="text/javascript">
 			 /* <![CDATA[ */
 			jQuery(window).ready(function($){
-				$("#wpbody-content h1").html('<?php echo $title; ?>');
-				$("#message.updated.notice").html('<p><?php _e( 'Code updated', 'custom-css-js' ); ?></p>');
+				$("#wpbody-content h1").html('<?php
+ echo $title; ?>');
+				$("#message.updated.notice").html('<p><?php
+ _e( 'Code updated', 'custom-css-js' ); ?></p>');
 
 				var from_top = -$("#normal-sortables").height();
 				if ( from_top != 0 ) {
@@ -590,8 +583,8 @@ class CustomCSSandJS_Admin {
 			/* ]]> */
 		</script>
 		<?php
-	}
 
+	}
 
 	/**
 	 * Remove unallowed metaboxes from custom-css-js edit page
@@ -629,8 +622,6 @@ class CustomCSSandJS_Admin {
 
 		unset( $wp_meta_boxes['custom-css-js']['advanced'] );
 	}
-
-
 
 	/**
 	 * Add the codemirror editor in the `post` screen
@@ -731,7 +722,8 @@ or the following one for loading the Bootstrap library from MaxCDN:
 					$post->post_content = '/* The following will be executed as if it were written in functions.php. */' . PHP_EOL . PHP_EOL;
 				}
 				$code_mirror_mode   = 'php';
-				$code_mirror_before = '<?php';
+				$code_mirror_before = '<?php
+';
 				$code_mirror_after  = '?>';
 
 				break;
@@ -762,22 +754,31 @@ End of comment */ ',
 			  <form style="position: relative; margin-top: .5em;">
 
 				<div class="code-mirror-buttons">
-				<div class="button-left"><span rel="tipsy" original-title="<?php _e( 'Beautify Code', 'custom-css-js-pro' ); ?>"><button type="button" tabindex="-1" id="ccj-beautifier"><i class="ccj-i-beautifier"></i></button></span></div>
-				<!--div class="button-left"><span rel="tipsy" original-title="<?php _e( 'Editor Settings', 'custom-css-js-pro' ); ?>"><button type="button" tabindex="-1" id="ccj-settings"><i class="ccj-i-settings"></i></button></span></div -->
-				<div class="button-right" id="ccj-fullscreen-button" alt="<?php _e( 'Distraction-free writing mode', 'custom-css-js-pro' ); ?>"><span rel="tipsy" original-title="<?php _e( 'Fullscreen', 'custom-css-js-pro' ); ?>"><button role="presentation" type="button" tabindex="-1"><i class="ccj-i-fullscreen"></i></button></span></div>
+				<div class="button-left"><span rel="tipsy" original-title="<?php
+ _e( 'Beautify Code', 'custom-css-js-pro' ); ?>"><button type="button" tabindex="-1" id="ccj-beautifier"><i class="ccj-i-beautifier"></i></button></span></div>
+				<!--div class="button-left"><span rel="tipsy" original-title="<?php
+ _e( 'Editor Settings', 'custom-css-js-pro' ); ?>"><button type="button" tabindex="-1" id="ccj-settings"><i class="ccj-i-settings"></i></button></span></div -->
+				<div class="button-right" id="ccj-fullscreen-button" alt="<?php
+ _e( 'Distraction-free writing mode', 'custom-css-js-pro' ); ?>"><span rel="tipsy" original-title="<?php
+ _e( 'Fullscreen', 'custom-css-js-pro' ); ?>"><button role="presentation" type="button" tabindex="-1"><i class="ccj-i-fullscreen"></i></button></span></div>
 <input type="hidden" name="fullscreen" id="ccj-fullscreen-hidden" value="false" />
 <!-- div class="button-right" id="ccj-search-button" alt="Search"><button role="presentation" type="button" tabindex="-1"><i class="ccj-i-find"></i></button></div -->
 
 				</div>
 
-				<div class="code-mirror-before"><div><?php echo htmlentities( $code_mirror_before ); ?></div></div>
-				<textarea class="wp-editor-area" id="ccj_content" mode="<?php echo htmlentities( $code_mirror_mode ); ?>" name="content"><?php echo $post->post_content; ?></textarea>
-				<div class="code-mirror-after"><div><?php echo htmlentities( $code_mirror_after ); ?></div></div>
+				<div class="code-mirror-before"><div><?php
+ echo htmlentities( $code_mirror_before ); ?></div></div>
+				<textarea class="wp-editor-area" id="ccj_content" mode="<?php
+ echo htmlentities( $code_mirror_mode ); ?>" name="content"><?php
+ echo $post->post_content; ?></textarea>
+				<div class="code-mirror-after"><div><?php
+ echo htmlentities( $code_mirror_after ); ?></div></div>
 
 				<table id="post-status-info"><tbody><tr>
 					<td class="autosave-info">
 					<span class="autosave-message">&nbsp;</span>
 				<?php
+
 				if ( 'auto-draft' != $post->post_status ) {
 					echo '<span id="last-edit">';
 					if ( $last_user = get_userdata( get_post_meta( $post->ID, '_edit_last', true ) ) ) {
@@ -791,14 +792,13 @@ End of comment */ ',
 					</td>
 				</tr></tbody></table>
 
-
-				<input type="hidden" id="update-post_<?php echo $post->ID; ?>" value="<?php echo wp_create_nonce( 'update-post_' . $post->ID ); ?>" />
+				<input type="hidden" id="update-post_<?php
+ echo $post->ID; ?>" value="<?php
+ echo wp_create_nonce( 'update-post_' . $post->ID ); ?>" />
 			  </form>
 		<?php
 
 	}
-
-
 
 	/**
 	 * Show the options form in the `post` screen
@@ -856,7 +856,8 @@ End of comment */ ',
 
 			?>
 
-			<input type="hidden" name="custom_code_language" value="<?php echo $options['language']; ?>" />
+			<input type="hidden" name="custom_code_language" value="<?php
+ echo $options['language']; ?>" />
 
 			<div style="clear: both;"></div>
 
@@ -864,14 +865,14 @@ End of comment */ ',
 
 			<div class="ccj_only_premium ccj_only_premium-right">
 				<div>
-				<a href="https://www.silkypress.com/simple-custom-css-js-pro/?utm_source=wordpress&utm_campaign=ccj_free&utm_medium=banner" target="_blank"><?php _e( 'Available only in <br />Simple Custom CSS and JS Pro', 'custom-css-js' ); ?></a>
+				<a href="https://www.silkypress.com/simple-custom-css-js-pro/?utm_source=wordpress&utm_campaign=ccj_free&utm_medium=banner" target="_blank"><?php
+ _e( 'Available only in <br />Simple Custom CSS and JS Pro', 'custom-css-js' ); ?></a>
 				</div>
 			</div>
 
-
 			<?php
-	}
 
+	}
 
 	/**
 	 * Get an array with all the information for building the code's options
@@ -975,7 +976,6 @@ End of comment */ ',
 		return $options;
 	}
 
-
 	/**
 	 * Get an array with all the information for building the code's options
 	 */
@@ -1067,7 +1067,6 @@ End of comment */ ',
 
 		return $options;
 	}
-
 
 	/**
 	 * Save the post and the metadata
@@ -1203,10 +1202,15 @@ End of comment */ ',
 		if ( ! file_exists( $dir ) ) :
 			?>
 			 <div class="notice notice-error is-dismissible">
-			 <p><?php printf( __( 'The %s directory could not be created', 'custom-css-js' ), '<b>custom-css-js</b>' ); ?></p>
-			 <p><?php _e( 'Please run the following commands in order to make the directory', 'custom-css-js' ); ?>: <br /><strong>mkdir <?php echo $dir; ?>; </strong><br /><strong>chmod 777 <?php echo $dir; ?>;</strong></p>
+			 <p><?php
+ printf( __( 'The %s directory could not be created', 'custom-css-js' ), '<b>custom-css-js</b>' ); ?></p>
+			 <p><?php
+ _e( 'Please run the following commands in order to make the directory', 'custom-css-js' ); ?>: <br /><strong>mkdir <?php
+ echo $dir; ?>; </strong><br /><strong>chmod 777 <?php
+ echo $dir; ?>;</strong></p>
 			</div>
 			<?php
+
 			return;
 endif;
 
@@ -1214,20 +1218,24 @@ endif;
 		if ( ! wp_is_writable( $dir ) ) :
 			?>
 			 <div class="notice notice-error is-dismissible">
-			 <p><?php printf( __( 'The %s directory is not writable, therefore the CSS and JS files cannot be saved.', 'custom-css-js' ), '<b>' . $dir . '</b>' ); ?></p>
-			 <p><?php _e( 'Please run the following command to make the directory writable', 'custom-css-js' ); ?>:<br /><strong>chmod 777 <?php echo $dir; ?> </strong></p>
+			 <p><?php
+ printf( __( 'The %s directory is not writable, therefore the CSS and JS files cannot be saved.', 'custom-css-js' ), '<b>' . $dir . '</b>' ); ?></p>
+			 <p><?php
+ _e( 'Please run the following command to make the directory writable', 'custom-css-js' ); ?>:<br /><strong>chmod 777 <?php
+ echo $dir; ?> </strong></p>
 			</div>
 			<?php
+
 			return;
 endif;
 
 		// Write a blank index.php
 		if ( ! file_exists( $dir . '/index.php' ) ) {
-			$content = '<?php' . PHP_EOL . '// Silence is golden.';
+			$content = '<?php
+' . PHP_EOL . '// Silence is golden.';
 			@file_put_contents( $dir . '/index.php', $content );
 		}
 	}
-
 
 	/**
 	 * Build a tree where you can quickly find the needed custom-css-js posts
@@ -1271,7 +1279,6 @@ endif;
 	function trash_post( $post_id ) {
 		$this->build_search_tree();
 	}
-
 
 	/**
 	 * Render the checkboxes, radios, selects and inputs
@@ -1326,7 +1333,6 @@ endif;
 
 	}
 
-
 	/**
 	 * Get the language for the current post
 	 */
@@ -1343,7 +1349,6 @@ endif;
 
 		return $language;
 	}
-
 
 	/**
 	 * Show the activate/deactivate link in the row's action area
@@ -1365,7 +1370,6 @@ endif;
 
 		return $actions;
 	}
-
 
 	/**
 	 * Show the activate/deactivate link in admin.
@@ -1395,12 +1399,16 @@ endif;
 			$action = __( 'Activate', 'custom-css-js' );
 		}
 		?>
-		<div id="activate-action"><span style="font-weight: bold;"><?php echo $text; ?></span>
-		(<a class="ccj_activate_deactivate" data-code-id="<?php echo $post->ID; ?>" href="<?php echo esc_url( $url ); ?>"><?php echo $action; ?></a>)
+		<div id="activate-action"><span style="font-weight: bold;"><?php
+ echo $text; ?></span>
+		(<a class="ccj_activate_deactivate" data-code-id="<?php
+ echo $post->ID; ?>" href="<?php
+ echo esc_url( $url ); ?>"><?php
+ echo $action; ?></a>)
 		</div>
 		<?php
-	}
 
+	}
 
 	/**
 	 * Show the Permalink edit form
@@ -1442,15 +1450,22 @@ endif;
 		<div class="inside">
 			<div id="edit-slug-box" class="hide-if-no-js">
 				<strong>Permalink:</strong>
-				<span id="sample-permalink"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( CCJ_UPLOAD_URL ) . '/'; ?><span id="editable-post-name"><?php echo esc_html( $filename ); ?></span>.<?php echo esc_html( $filetype ); ?></a></span>
+				<span id="sample-permalink"><a href="<?php
+ echo esc_url( $permalink ); ?>"><?php
+ echo esc_html( CCJ_UPLOAD_URL ) . '/'; ?><span id="editable-post-name"><?php
+ echo esc_html( $filename ); ?></span>.<?php
+ echo esc_html( $filetype ); ?></a></span>
 				&lrm;<span id="ccj-edit-slug-buttons"><button type="button" class="ccj-edit-slug button button-small hide-if-no-js" aria-label="Edit permalink">Edit</button></span>
-				<span id="editable-post-name-full" data-filetype="<?php echo $filetype; ?>"><?php echo esc_html( $filename ); ?></span>
+				<span id="editable-post-name-full" data-filetype="<?php
+ echo $filetype; ?>"><?php
+ echo esc_html( $filename ); ?></span>
 			</div>
-			<?php wp_nonce_field( 'ccj-permalink', 'ccj-permalink-nonce' ); ?>
+			<?php
+ wp_nonce_field( 'ccj-permalink', 'ccj-permalink-nonce' ); ?>
 		</div>
 		<?php
-	}
 
+	}
 
 	/**
 	 * AJAX save the Permalink slug
@@ -1479,7 +1494,6 @@ endif;
 		wp_die();
 	}
 
-
 	/**
 	 * Show contextual help for the Custom Code edit page
 	 */
@@ -1505,7 +1519,6 @@ endif;
 		);
 
 	}
-
 
 	/**
 	 * Remove the JS/CSS file from the disk when deleting the post
@@ -1537,7 +1550,6 @@ endif;
 			@unlink( CCJ_UPLOAD_DIR . '/' . $slug . '.' . $options['language'] );
 		}
 	}
-
 
 	/**
 	 * Fix for bug: white page Edit Custom Code for WordPress 5.0 with Classic Editor

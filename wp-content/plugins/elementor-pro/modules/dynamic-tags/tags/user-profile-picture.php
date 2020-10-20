@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\DynamicTags\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {

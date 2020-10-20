@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\DynamicTags\Tags;
 
 use Elementor\Controls_Manager;

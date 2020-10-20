@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\DynamicTags\Toolset;
 
 use Elementor\Modules\DynamicTags;

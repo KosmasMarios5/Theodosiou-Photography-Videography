@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Classes;
 
 // Exit if accessed directly

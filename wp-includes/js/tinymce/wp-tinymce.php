@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Not used in core since 5.1.
  * This is a back-compat for plugins that may be using this method of loading directly.

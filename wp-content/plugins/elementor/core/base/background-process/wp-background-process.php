@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Base\BackgroundProcess;
 
 if ( ! defined( 'ABSPATH' ) ) {

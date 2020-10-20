@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\WpCli;
 
 use Elementor\Plugin;

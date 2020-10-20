@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Logger\Loggers;
 
 use Elementor\Core\Logger\Items\Log_Item_Interface as Log_Item;

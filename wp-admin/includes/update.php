@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Administration Update API
  *
@@ -861,11 +862,13 @@ function wp_print_admin_notice_templates() {
 					<# if ( 1 === data.successes ) { #>
 						<# if ( 'plugin' === data.type ) { #>
 							<?php
+
 							/* translators: %s: Number of plugins. */
 							printf( __( '%s plugin successfully updated.' ), '{{ data.successes }}' );
 							?>
 						<# } else { #>
 							<?php
+
 							/* translators: %s: Number of themes. */
 							printf( __( '%s theme successfully updated.' ), '{{ data.successes }}' );
 							?>
@@ -873,11 +876,13 @@ function wp_print_admin_notice_templates() {
 					<# } else { #>
 						<# if ( 'plugin' === data.type ) { #>
 							<?php
+
 							/* translators: %s: Number of plugins. */
 							printf( __( '%s plugins successfully updated.' ), '{{ data.successes }}' );
 							?>
 						<# } else { #>
 							<?php
+
 							/* translators: %s: Number of themes. */
 							printf( __( '%s themes successfully updated.' ), '{{ data.successes }}' );
 							?>
@@ -888,16 +893,19 @@ function wp_print_admin_notice_templates() {
 					<button class="button-link bulk-action-errors-collapsed" aria-expanded="false">
 						<# if ( 1 === data.errors ) { #>
 							<?php
+
 							/* translators: %s: Number of failed updates. */
 							printf( __( '%s update failed.' ), '{{ data.errors }}' );
 							?>
 						<# } else { #>
 							<?php
+
 							/* translators: %s: Number of failed updates. */
 							printf( __( '%s updates failed.' ), '{{ data.errors }}' );
 							?>
 						<# } #>
-						<span class="screen-reader-text"><?php _e( 'Show more details' ); ?></span>
+						<span class="screen-reader-text"><?php
+ _e( 'Show more details' ); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
 					</button>
 				<# } #>
@@ -912,6 +920,7 @@ function wp_print_admin_notice_templates() {
 		</div>
 	</script>
 	<?php
+
 }
 
 /**
@@ -955,6 +964,7 @@ function wp_print_update_row_templates() {
 			<td colspan="{{ data.colspan }}" class="plugin-update colspanchange">
 				<# if ( data.plugin ) { #>
 					<?php
+
 					printf(
 						/* translators: %s: Plugin name. */
 						_x( '%s was successfully deleted.', 'plugin' ),
@@ -963,6 +973,7 @@ function wp_print_update_row_templates() {
 					?>
 				<# } else { #>
 					<?php
+
 					printf(
 						/* translators: %s: Theme name. */
 						_x( '%s was successfully deleted.', 'theme' ),
@@ -974,6 +985,7 @@ function wp_print_update_row_templates() {
 		</tr>
 	</script>
 	<?php
+
 }
 
 /**
@@ -994,6 +1006,7 @@ function wp_recovery_mode_nag() {
 	<div class="notice notice-info">
 		<p>
 			<?php
+
 			printf(
 				/* translators: %s: Recovery Mode exit link. */
 				__( 'You are in recovery mode. This means there may be an error with a theme or plugin. To exit recovery mode, log out or use the Exit button. <a href="%s">Exit Recovery Mode</a>' ),
@@ -1003,6 +1016,7 @@ function wp_recovery_mode_nag() {
 		</p>
 	</div>
 	<?php
+
 }
 
 /**

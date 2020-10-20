@@ -24,7 +24,6 @@ if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that acce
 // mpeg-audio streams
 define('GETID3_MP3_VALID_CHECK_FRAMES', 35);
 
-
 class getid3_mp3 extends getid3_handler
 {
 	/**
@@ -49,7 +48,6 @@ class getid3_mp3 extends getid3_handler
 				$this->getOnlyMPEGaudioInfoBruteForce();
 			}
 		}
-
 
 		if (isset($info['mpeg']['audio']['bitrate_mode'])) {
 			$info['audio']['bitrate_mode'] = strtolower($info['mpeg']['audio']['bitrate_mode']);
@@ -272,7 +270,6 @@ class getid3_mp3 extends getid3_handler
 
 				// http://gabriel.mp3-tech.org/mp3infotag.html
 				// int    Quality = (100 - 10 * gfp->VBR_q - gfp->quality)h
-
 
 				$LAME_V_value = 10 - ceil($thisfile_mpeg_audio_lame['vbr_quality'] / 10);
 				$LAME_q_value = 100 - $thisfile_mpeg_audio_lame['vbr_quality'] - ($LAME_V_value * 10);
@@ -558,7 +555,6 @@ class getid3_mp3 extends getid3_handler
 
 		}
 
-
 		if ($info['audio']['sample_rate'] > 0) {
 			$thisfile_mpeg_audio['framelength'] = self::MPEGaudioFrameLength($thisfile_mpeg_audio['bitrate'], $thisfile_mpeg_audio['version'], $thisfile_mpeg_audio['layer'], (int) $thisfile_mpeg_audio['padding'], $info['audio']['sample_rate']);
 		}
@@ -615,7 +611,6 @@ class getid3_mp3 extends getid3_handler
 				$previousbyteoffset += $Fraunhofer_OffsetN;
 			}
 
-
 		} else {
 
 			// Xing VBR header is hardcoded 'Xing' at a offset 0x0D (13), 0x15 (21) or 0x24 (36)
@@ -647,7 +642,6 @@ class getid3_mp3 extends getid3_handler
 				//  and corresponding Byte in file is then approximately at:
 				//  (TOC[25]/256) * 5000000
 				//116..119  VBR Scale
-
 
 				// should be safe to leave this at 'vbr' and let it be overriden to 'cbr' if a CBR preset/mode is used by LAME
 //				if (substr($headerstring, $VBRidOffset, strlen('Info')) == 'Xing') {
@@ -711,14 +705,12 @@ class getid3_mp3 extends getid3_handler
 					$thisfile_mpeg_audio['VBR_scale'] = getid3_lib::BigEndian2Int(substr($headerstring, $VBRidOffset + 116, 4));
 				}
 
-
 				// http://gabriel.mp3-tech.org/mp3infotag.html
 				if (substr($headerstring, $VBRidOffset + 120, 4) == 'LAME') {
 
 					// shortcut
 					$thisfile_mpeg_audio['LAME'] = array();
 					$thisfile_mpeg_audio_lame    = &$thisfile_mpeg_audio['LAME'];
-
 
 					$thisfile_mpeg_audio_lame['long_version']  = substr($headerstring, $VBRidOffset + 120, 20);
 					$thisfile_mpeg_audio_lame['short_version'] = substr($thisfile_mpeg_audio_lame['long_version'], 0, 9);
@@ -794,7 +786,6 @@ class getid3_mp3 extends getid3_handler
 						$thisfile_mpeg_audio_lame_raw['RGAD_track']      =   getid3_lib::BigEndian2Int(substr($headerstring, $LAMEtagOffsetContant + 0xAB, 2));
 						$thisfile_mpeg_audio_lame_raw['RGAD_album']      =   getid3_lib::BigEndian2Int(substr($headerstring, $LAMEtagOffsetContant + 0xAD, 2));
 
-
 						if ($thisfile_mpeg_audio_lame_raw['RGAD_track'] != 0) {
 
 							$thisfile_mpeg_audio_lame_RGAD_track['raw']['name']        = ($thisfile_mpeg_audio_lame_raw['RGAD_track'] & 0xE000) >> 13;
@@ -834,7 +825,6 @@ class getid3_mp3 extends getid3_handler
 						if (empty($thisfile_mpeg_audio_lame_RGAD)) {
 							unset($thisfile_mpeg_audio_lame['RGAD']);
 						}
-
 
 						// byte $AF  Encoding flags + ATH Type
 						$EncodingFlagsATHtype = getid3_lib::BigEndian2Int(substr($headerstring, $LAMEtagOffsetContant + 0xAF, 1));
@@ -899,7 +889,6 @@ class getid3_mp3 extends getid3_handler
 
 						// bytes $BE-$BF  CRC-16 of Info Tag
 						$thisfile_mpeg_audio_lame['lame_tag_crc'] = getid3_lib::BigEndian2Int(substr($headerstring, $LAMEtagOffsetContant + 0xBE, 2));
-
 
 						// LAME CBR
 						if ($thisfile_mpeg_audio_lame_raw['vbr_method'] == 1) {
@@ -1011,7 +1000,6 @@ class getid3_mp3 extends getid3_handler
 			}
 
 		}
-
 
 		//if (false) {
 		//    // experimental side info parsing section - not returning anything useful yet
@@ -1145,7 +1133,6 @@ class getid3_mp3 extends getid3_handler
 						return false;
 					}
 				}
-
 
 				// next frame is OK, get ready to check the one after that
 				if (isset($nextframetestarray['mpeg']['audio']['framelength']) && ($nextframetestarray['mpeg']['audio']['framelength'] > 0)) {
@@ -1378,7 +1365,6 @@ class getid3_mp3 extends getid3_handler
 		if (count($Distribution['frequency']) > 1) {
 			$this->error('Corrupt file - more than one MPEG sample rate detected');
 		}
-
 
 		$bittotal = 0;
 		foreach ($Distribution['bitrate'] as $bitratevalue => $bitratecount) {
@@ -1638,7 +1624,6 @@ class getid3_mp3 extends getid3_handler
 						$info['mpeg']['audio']['bitrate']     = ($bittotal / $framecounter);
 
 						$info['audio']['bitrate'] = $info['mpeg']['audio']['bitrate'];
-
 
 						// Definitively set VBR vs CBR, even if the Xing/LAME/VBRI header says differently
 						$distinct_bitrates = 0;

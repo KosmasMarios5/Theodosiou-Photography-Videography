@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Settings\General;
 
 use Elementor\Core\Files\CSS\Base;

@@ -1,4 +1,5 @@
 <?php
+
 defined('ABSPATH') or die("you do not have access to this page!");
 
 if ( ! class_exists( 'rsssl_server' ) ) {
@@ -17,7 +18,6 @@ if ( ! class_exists( 'rsssl_server' ) ) {
     return self::$_this;
   }
 
-
 /*
 
   @Since 2.5.1
@@ -25,7 +25,6 @@ if ( ! class_exists( 'rsssl_server' ) ) {
   returns: Boolean
 
 */
-
 
 public function uses_htaccess(){
 

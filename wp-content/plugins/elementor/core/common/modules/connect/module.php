@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Common\Modules\Connect;
 
 use Elementor\Core\Base\Module as BaseModule;

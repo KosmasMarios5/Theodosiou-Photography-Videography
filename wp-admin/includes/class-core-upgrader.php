@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Upgrade API: Core_Upgrader class
  *

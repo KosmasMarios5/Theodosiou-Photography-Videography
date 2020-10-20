@@ -119,7 +119,6 @@ if ( ! class_exists( 'rsssl_certificate' ) ) {
 
         }
 
-
         /**
          *
          * Check if the certificate is a wildcard certificate
@@ -206,7 +205,6 @@ if ( ! class_exists( 'rsssl_certificate' ) ) {
          * @access public
          *
          */
-
 
         public function custom_error_handling($errno, $errstr, $errfile, $errline, array $errcontext) {
             return true;

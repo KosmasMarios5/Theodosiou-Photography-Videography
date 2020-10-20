@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_Media_List_Table class
  *
@@ -197,6 +198,7 @@ class WP_Media_List_Table extends WP_List_Table {
 		?>
 		<div class="actions">
 		<?php
+
 		if ( ! $this->is_trash ) {
 			$this->months_dropdown( 'attachment' );
 		}
@@ -212,6 +214,7 @@ class WP_Media_List_Table extends WP_List_Table {
 		?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -264,11 +267,14 @@ class WP_Media_List_Table extends WP_List_Table {
 		?>
 <div class="wp-filter">
 	<div class="filter-items">
-		<?php $this->view_switcher( $mode ); ?>
+		<?php
+ $this->view_switcher( $mode ); ?>
 
-		<label for="attachment-filter" class="screen-reader-text"><?php _e( 'Filter by type' ); ?></label>
+		<label for="attachment-filter" class="screen-reader-text"><?php
+ _e( 'Filter by type' ); ?></label>
 		<select class="attachment-filters" name="attachment-filter" id="attachment-filter">
 			<?php
+
 			if ( ! empty( $views ) ) {
 				foreach ( $views as $class => $view ) {
 					echo "\t$view\n";
@@ -278,6 +284,7 @@ class WP_Media_List_Table extends WP_List_Table {
 		</select>
 
 		<?php
+
 		$this->extra_tablenav( 'bar' );
 
 		/** This filter is documented in wp-admin/inclues/class-wp-list-table.php */
@@ -295,10 +302,13 @@ class WP_Media_List_Table extends WP_List_Table {
 	</div>
 
 	<div class="search-form">
-		<label for="media-search-input" class="media-search-input-label"><?php esc_html_e( 'Search' ); ?></label>
-		<input type="search" id="media-search-input" class="search" name="s" value="<?php _admin_search_query(); ?>"></div>
+		<label for="media-search-input" class="media-search-input-label"><?php
+ esc_html_e( 'Search' ); ?></label>
+		<input type="search" id="media-search-input" class="search" name="s" value="<?php
+ _admin_search_query(); ?>"></div>
 	</div>
 		<?php
+
 	}
 
 	/**
@@ -380,14 +390,19 @@ class WP_Media_List_Table extends WP_List_Table {
 	public function column_cb( $post ) {
 		if ( current_user_can( 'edit_post', $post->ID ) ) {
 			?>
-			<label class="screen-reader-text" for="cb-select-<?php echo $post->ID; ?>">
+			<label class="screen-reader-text" for="cb-select-<?php
+ echo $post->ID; ?>">
 				<?php
+
 				/* translators: %s: Attachment title. */
 				printf( __( 'Select %s' ), _draft_or_post_title() );
 				?>
 			</label>
-			<input type="checkbox" name="media[]" id="cb-select-<?php echo $post->ID; ?>" value="<?php echo $post->ID; ?>" />
+			<input type="checkbox" name="media[]" id="cb-select-<?php
+ echo $post->ID; ?>" value="<?php
+ echo $post->ID; ?>" />
 			<?php
+
 		}
 	}
 
@@ -418,26 +433,34 @@ class WP_Media_List_Table extends WP_List_Table {
 
 		$class = $thumb ? ' class="has-media-icon"' : '';
 		?>
-		<strong<?php echo $class; ?>>
+		<strong<?php
+ echo $class; ?>>
 			<?php
+
 			echo $link_start;
 			if ( $thumb ) :
 				?>
-				<span class="media-icon <?php echo sanitize_html_class( $mime . '-icon' ); ?>"><?php echo $thumb; ?></span>
+				<span class="media-icon <?php
+ echo sanitize_html_class( $mime . '-icon' ); ?>"><?php
+ echo $thumb; ?></span>
 				<?php
+
 			endif;
 			echo $title . $link_end;
 			_media_states( $post );
 			?>
 		</strong>
 		<p class="filename">
-			<span class="screen-reader-text"><?php _e( 'File name:' ); ?> </span>
+			<span class="screen-reader-text"><?php
+ _e( 'File name:' ); ?> </span>
 			<?php
+
 			$file = get_attached_file( $post->ID );
 			echo esc_html( wp_basename( $file ) );
 			?>
 		</p>
 		<?php
+
 	}
 
 	/**
@@ -513,13 +536,18 @@ class WP_Media_List_Table extends WP_List_Table {
 
 			if ( $parent_type && $parent_type->show_ui && current_user_can( 'edit_post', $post->post_parent ) ) {
 				?>
-				<strong><a href="<?php echo get_edit_post_link( $post->post_parent ); ?>">
-					<?php echo $title; ?></a></strong>
+				<strong><a href="<?php
+ echo get_edit_post_link( $post->post_parent ); ?>">
+					<?php
+ echo $title; ?></a></strong>
 								<?php
+
 			} elseif ( $parent_type && current_user_can( 'read_post', $post->post_parent ) ) {
 				?>
-				<strong><?php echo $title; ?></strong>
+				<strong><?php
+ echo $title; ?></strong>
 									<?php
+
 			} else {
 				_e( '(Private post)' );
 			}
@@ -545,6 +573,7 @@ class WP_Media_List_Table extends WP_List_Table {
 			_e( '(Unattached)' );
 			?>
 			<?php
+
 			if ( $user_can_edit ) {
 				$title = _draft_or_post_title( $post->post_parent );
 				printf(
@@ -658,10 +687,14 @@ class WP_Media_List_Table extends WP_List_Table {
 			}
 			$post_owner = ( get_current_user_id() == $post->post_author ) ? 'self' : 'other';
 			?>
-			<tr id="post-<?php echo $post->ID; ?>" class="<?php echo trim( ' author-' . $post_owner . ' status-' . $post->post_status ); ?>">
-				<?php $this->single_row_columns( $post ); ?>
+			<tr id="post-<?php
+ echo $post->ID; ?>" class="<?php
+ echo trim( ' author-' . $post_owner . ' status-' . $post->post_status ); ?>">
+				<?php
+ $this->single_row_columns( $post ); ?>
 			</tr>
 			<?php
+
 		endwhile;
 	}
 

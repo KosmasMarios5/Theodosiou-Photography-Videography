@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Requests for PHP
  *
@@ -754,8 +755,6 @@ class Requests {
 		if (!preg_match('/^([0-9a-f]+)(?:;(?:[\w-]*)(?:=(?:(?:[\w-]*)*|"(?:[^\r\n])*"))?)*\r\n/i', trim($data))) {
 			return $data;
 		}
-
-
 
 		$decoded = '';
 		$encoded = $data;

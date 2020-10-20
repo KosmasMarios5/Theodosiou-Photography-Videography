@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Editor\Data\Globals\Endpoints;
 
 use Elementor\Plugin;

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\FlipBox\Widgets;
 
 use Elementor\Controls_Manager;
@@ -1423,61 +1424,91 @@ class Flip_Box extends Base_Widget {
 			<div class="elementor-flip-box__layer elementor-flip-box__front">
 				<div class="elementor-flip-box__layer__overlay">
 					<div class="elementor-flip-box__layer__inner">
-						<?php if ( 'image' === $settings['graphic_element'] && ! empty( $settings['image']['url'] ) ) : ?>
+						<?php
+ if ( 'image' === $settings['graphic_element'] && ! empty( $settings['image']['url'] ) ) : ?>
 							<div class="elementor-flip-box__image">
-								<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?>
+								<?php
+ echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?>
 							</div>
-						<?php elseif ( 'icon' === $settings['graphic_element'] && $has_icon ) : ?>
-							<div <?php echo $this->get_render_attribute_string( 'icon-wrapper' ); ?>>
+						<?php
+ elseif ( 'icon' === $settings['graphic_element'] && $has_icon ) : ?>
+							<div <?php
+ echo $this->get_render_attribute_string( 'icon-wrapper' ); ?>>
 								<div class="elementor-icon">
-									<?php if ( $is_new || $migrated ) :
+									<?php
+ if ( $is_new || $migrated ) :
 										Icons_Manager::render_icon( $settings['selected_icon'] );
 									else : ?>
-										<i <?php echo $this->get_render_attribute_string( 'icon' ); ?>></i>
-									<?php endif; ?>
+										<i <?php
+ echo $this->get_render_attribute_string( 'icon' ); ?>></i>
+									<?php
+ endif; ?>
 								</div>
 							</div>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 
-						<?php if ( ! empty( $settings['title_text_a'] ) ) : ?>
+						<?php
+ if ( ! empty( $settings['title_text_a'] ) ) : ?>
 							<h3 class="elementor-flip-box__layer__title">
-								<?php echo $settings['title_text_a']; ?>
+								<?php
+ echo $settings['title_text_a']; ?>
 							</h3>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 
-						<?php if ( ! empty( $settings['description_text_a'] ) ) : ?>
+						<?php
+ if ( ! empty( $settings['description_text_a'] ) ) : ?>
 							<div class="elementor-flip-box__layer__description">
-								<?php echo $settings['description_text_a']; ?>
+								<?php
+ echo $settings['description_text_a']; ?>
 							</div>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 					</div>
 				</div>
 			</div>
-			<<?php echo $wrapper_tag; ?> <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+			<<?php
+ echo $wrapper_tag; ?> <?php
+ echo $this->get_render_attribute_string( 'wrapper' ); ?>>
 			<div class="elementor-flip-box__layer__overlay">
 				<div class="elementor-flip-box__layer__inner">
-					<?php if ( ! empty( $settings['title_text_b'] ) ) : ?>
+					<?php
+ if ( ! empty( $settings['title_text_b'] ) ) : ?>
 						<h3 class="elementor-flip-box__layer__title">
-							<?php echo $settings['title_text_b']; ?>
+							<?php
+ echo $settings['title_text_b']; ?>
 						</h3>
-					<?php endif; ?>
+					<?php
+ endif; ?>
 
-					<?php if ( ! empty( $settings['description_text_b'] ) ) : ?>
+					<?php
+ if ( ! empty( $settings['description_text_b'] ) ) : ?>
 						<div class="elementor-flip-box__layer__description">
-							<?php echo $settings['description_text_b']; ?>
+							<?php
+ echo $settings['description_text_b']; ?>
 						</div>
-					<?php endif; ?>
+					<?php
+ endif; ?>
 
-					<?php if ( ! empty( $settings['button_text'] ) ) : ?>
-						<<?php echo $button_tag; ?> <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-						<?php echo $settings['button_text']; ?>
-						</<?php echo $button_tag; ?>>
-					<?php endif; ?>
+					<?php
+ if ( ! empty( $settings['button_text'] ) ) : ?>
+						<<?php
+ echo $button_tag; ?> <?php
+ echo $this->get_render_attribute_string( 'button' ); ?>>
+						<?php
+ echo $settings['button_text']; ?>
+						</<?php
+ echo $button_tag; ?>>
+					<?php
+ endif; ?>
 			</div>
 		</div>
-		</<?php echo $wrapper_tag; ?>>
+		</<?php
+ echo $wrapper_tag; ?>>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -1574,5 +1605,6 @@ class Flip_Box extends Base_Widget {
 		</{{ wrapperTag }}>
 		</div>
 		<?php
+
 	}
 }

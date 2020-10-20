@@ -762,6 +762,7 @@ trait Helper
             <div class="info-area">
                 <ul class="split-tabs">
                     <?php
+
 $step1_class = 'first active';
         $enable_login_reminder = false;
 
@@ -769,23 +770,33 @@ $step1_class = 'first active';
             $enable_login_reminder = true;
             $step1_class = '';
             ?>
-                        <li id="step-0" data-step="0" class="split-tab first active"><?php echo
+                        <li id="step-0" data-step="0" class="split-tab first active"><?php
+ echo
                 $settings['ea_woo_checkout_tab_login_text']; ?></li>
                         <?php
+
 }
         ?>
-                    <?php if (get_option('woocommerce_enable_coupons') !== 'no'): ?>
-                    <li id="step-1" class="split-tab <?php echo $step1_class; ?>" data-step="1"><?php echo
+                    <?php
+ if (get_option('woocommerce_enable_coupons') !== 'no'): ?>
+                    <li id="step-1" class="split-tab <?php
+ echo $step1_class; ?>" data-step="1"><?php
+ echo
             $settings['ea_woo_checkout_tab_coupon_text']; ?></li>
-                    <?php $step1_class = '';endif;?>
-                    <li id="step-2" class="split-tab <?php echo $step1_class; ?>"
-                        data-step="2"><?php echo $settings['ea_woo_checkout_tab_billing_shipping_text']; ?></li>
+                    <?php
+ $step1_class = '';endif;?>
+                    <li id="step-2" class="split-tab <?php
+ echo $step1_class; ?>"
+                        data-step="2"><?php
+ echo $settings['ea_woo_checkout_tab_billing_shipping_text']; ?></li>
                     <li id="step-3" class="split-tab last"
-                        data-step="3"><?php echo $settings['ea_woo_checkout_tab_payment_text']; ?></li>
+                        data-step="3"><?php
+ echo $settings['ea_woo_checkout_tab_payment_text']; ?></li>
                 </ul>
 
                 <div class="split-tabs-content">
                     <?php
+
 // If checkout registration is disabled and not logged in, the user cannot checkout.
         if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
             echo esc_html(apply_filters('woocommerce_checkout_must_be_logged_in_message',
@@ -794,46 +805,60 @@ $step1_class = 'first active';
         }
         ?>
 
-                    <?php do_action('woocommerce_before_checkout_form', $checkout);?>
+                    <?php
+ do_action('woocommerce_before_checkout_form', $checkout);?>
 
                     <form name="checkout" method="post" class="checkout woocommerce-checkout"
-                          action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+                          action="<?php
+ echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
-                        <?php if ($checkout->get_checkout_fields()): ?>
+                        <?php
+ if ($checkout->get_checkout_fields()): ?>
 
-                            <?php do_action('woocommerce_checkout_before_customer_details');?>
+                            <?php
+ do_action('woocommerce_checkout_before_customer_details');?>
 
                             <div class="col2-set" id="customer_details">
                                 <div class="col-1">
-                                    <?php do_action('woocommerce_checkout_billing');?>
+                                    <?php
+ do_action('woocommerce_checkout_billing');?>
                                 </div>
 
                                 <div class="col-2">
-                                    <?php do_action('woocommerce_checkout_shipping');?>
+                                    <?php
+ do_action('woocommerce_checkout_shipping');?>
                                 </div>
                             </div>
 
-                            <?php do_action('woocommerce_checkout_after_customer_details');?>
+                            <?php
+ do_action('woocommerce_checkout_after_customer_details');?>
 
-                        <?php endif;?>
+                        <?php
+ endif;?>
 
                         <div class="woo-checkout-payment">
                             <h3 id="payment-title"
-                                class="woo-checkout-section-title"><?php esc_html_e('Payment Methods',
+                                class="woo-checkout-section-title"><?php
+ esc_html_e('Payment Methods',
             'essential-addons-for-elementor-lite');?></h3>
 
-                            <?php woocommerce_checkout_payment();?>
+                            <?php
+ woocommerce_checkout_payment();?>
                         </div>
 
                     </form>
 
-                    <?php do_action('woocommerce_after_checkout_form', $checkout);?>
+                    <?php
+ do_action('woocommerce_after_checkout_form', $checkout);?>
 
                     <div class="steps-buttons">
-                        <button class="ea-woo-checkout-btn-prev"><?php echo $settings['ea_woo_checkout_tabs_btn_prev_text']; ?></button>
-                        <button class="ea-woo-checkout-btn-next" data-text="<?php echo htmlspecialchars(json_encode
+                        <button class="ea-woo-checkout-btn-prev"><?php
+ echo $settings['ea_woo_checkout_tabs_btn_prev_text']; ?></button>
+                        <button class="ea-woo-checkout-btn-next" data-text="<?php
+ echo htmlspecialchars(json_encode
             ($ea_woo_checkout_btn_next_data), ENT_QUOTES,
-            'UTF-8'); ?>"><?php echo $settings['ea_woo_checkout_tabs_btn_next_text']; ?></button>
+            'UTF-8'); ?>"><?php
+ echo $settings['ea_woo_checkout_tabs_btn_next_text']; ?></button>
                         <button type="submit" class="button alt" name="woocommerce_checkout_place_order"
                                 id="ea_place_order" value="Place order" data-value="Place order" style="display:none;">
                             Place order
@@ -844,11 +869,13 @@ $step1_class = 'first active';
 
             <div class="table-area">
                 <div class="ea-woo-checkout-order-review">
-                    <?php self::checkout_order_review_default($settings);?>
+                    <?php
+ self::checkout_order_review_default($settings);?>
                 </div>
             </div>
         </div>
-    <?php }
+    <?php
+ }
 
     /**
      * validate woocommerce post code
@@ -880,6 +907,7 @@ $step1_class = 'first active';
         <div class="layout-multi-steps-container">
             <ul class="ms-tabs">
                 <?php
+
 $step1_class = 'first active';
         $enable_login_reminder = false;
 
@@ -887,24 +915,34 @@ $step1_class = 'first active';
             $enable_login_reminder = true;
             $step1_class = '';
             ?>
-                    <li class="ms-tab first active" id="step-0" data-step="0"><?php echo
+                    <li class="ms-tab first active" id="step-0" data-step="0"><?php
+ echo
                 $settings['ea_woo_checkout_tab_login_text']; ?></li>
                     <?php
+
 }
         ?>
-                <?php if (get_option('woocommerce_enable_coupons') !== 'no'): ?>
-                <li class="ms-tab <?php echo $step1_class; ?>" id="step-1"
-                    data-step="1"><?php echo $settings['ea_woo_checkout_tab_coupon_text']; ?></li>
-                <?php $step1_class = '';endif;?>
-                <li class="ms-tab <?php echo $step1_class; ?>" id="step-2"
-                    data-step="2"><?php echo $settings['ea_woo_checkout_tab_billing_shipping_text']; ?></li>
+                <?php
+ if (get_option('woocommerce_enable_coupons') !== 'no'): ?>
+                <li class="ms-tab <?php
+ echo $step1_class; ?>" id="step-1"
+                    data-step="1"><?php
+ echo $settings['ea_woo_checkout_tab_coupon_text']; ?></li>
+                <?php
+ $step1_class = '';endif;?>
+                <li class="ms-tab <?php
+ echo $step1_class; ?>" id="step-2"
+                    data-step="2"><?php
+ echo $settings['ea_woo_checkout_tab_billing_shipping_text']; ?></li>
                 <li class="ms-tab last" id="step-3"
-                    data-step="3"><?php echo $settings['ea_woo_checkout_tab_payment_text']; ?></li>
+                    data-step="3"><?php
+ echo $settings['ea_woo_checkout_tab_payment_text']; ?></li>
             </ul>
 
             <div class="ms-tabs-content-wrap">
                 <div class="ms-tabs-content">
                     <?php
+
 // If checkout registration is disabled and not logged in, the user cannot checkout.
         if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
             echo esc_html(apply_filters('woocommerce_checkout_must_be_logged_in_message',
@@ -913,46 +951,60 @@ $step1_class = 'first active';
         }
         ?>
 
-                    <?php do_action('woocommerce_before_checkout_form', $checkout);?>
+                    <?php
+ do_action('woocommerce_before_checkout_form', $checkout);?>
 
                     <form name="checkout" method="post" class="checkout woocommerce-checkout"
-                          action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+                          action="<?php
+ echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
-                        <?php if ($checkout->get_checkout_fields()): ?>
+                        <?php
+ if ($checkout->get_checkout_fields()): ?>
 
-                            <?php do_action('woocommerce_checkout_before_customer_details');?>
+                            <?php
+ do_action('woocommerce_checkout_before_customer_details');?>
 
                             <div class="col2-set" id="customer_details">
                                 <div class="col-1">
-                                    <?php do_action('woocommerce_checkout_billing');?>
+                                    <?php
+ do_action('woocommerce_checkout_billing');?>
                                 </div>
 
                                 <div class="col-2">
-                                    <?php do_action('woocommerce_checkout_shipping');?>
+                                    <?php
+ do_action('woocommerce_checkout_shipping');?>
                                 </div>
                             </div>
 
-                            <?php do_action('woocommerce_checkout_after_customer_details');?>
+                            <?php
+ do_action('woocommerce_checkout_after_customer_details');?>
 
-                        <?php endif;?>
+                        <?php
+ endif;?>
 
                         <div class="woo-checkout-payment">
                             <h3 id="payment-title"
-                                class="woo-checkout-section-title"><?php esc_html_e('Payment Methods',
+                                class="woo-checkout-section-title"><?php
+ esc_html_e('Payment Methods',
             'essential-addons-for-elementor-lite');?></h3>
 
-                            <?php woocommerce_checkout_payment();?>
+                            <?php
+ woocommerce_checkout_payment();?>
                         </div>
 
                     </form>
 
-                    <?php do_action('woocommerce_after_checkout_form', $checkout);?>
+                    <?php
+ do_action('woocommerce_after_checkout_form', $checkout);?>
 
                     <div class="steps-buttons">
-                        <button class="ea-woo-checkout-btn-prev"><?php echo $settings['ea_woo_checkout_tabs_btn_prev_text']; ?></button>
-                        <button class="ea-woo-checkout-btn-next" data-text="<?php echo htmlspecialchars(json_encode
+                        <button class="ea-woo-checkout-btn-prev"><?php
+ echo $settings['ea_woo_checkout_tabs_btn_prev_text']; ?></button>
+                        <button class="ea-woo-checkout-btn-next" data-text="<?php
+ echo htmlspecialchars(json_encode
             ($ea_woo_checkout_btn_next_data), ENT_QUOTES,
-            'UTF-8'); ?>"><?php echo $settings['ea_woo_checkout_tabs_btn_next_text']; ?></button>
+            'UTF-8'); ?>"><?php
+ echo $settings['ea_woo_checkout_tabs_btn_next_text']; ?></button>
                         <button type="submit" class="button alt" name="woocommerce_checkout_place_order"
                                 id="ea_place_order" value="Place order" data-value="Place order" style="display:none;">
                             Place order
@@ -962,10 +1014,12 @@ $step1_class = 'first active';
 
                 <div class="table-area">
                     <div class="ea-woo-checkout-order-review">
-                        <?php self::checkout_order_review_default($settings);?>
+                        <?php
+ self::checkout_order_review_default($settings);?>
                     </div>
                 </div>
             </div>
         </div>
-    <?php }
+    <?php
+ }
 }

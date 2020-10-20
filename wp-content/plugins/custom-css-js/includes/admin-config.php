@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom CSS and JS
  *
@@ -42,12 +43,10 @@ class CustomCSSandJS_AdminConfig {
         add_action( 'admin_menu', array( $this, 'admin_menu' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
-
         add_action( 'ccj_settings_form', array( $this, 'general_extra_form' ), 11 );
         add_filter( 'ccj_settings_default', array( $this, 'general_extra_default' ) );
         add_filter( 'ccj_settings_save', array( $this, 'general_extra_save' ) );
     }
-
 
     /**
      * Add submenu pages
@@ -58,7 +57,6 @@ class CustomCSSandJS_AdminConfig {
         add_submenu_page( $menu_slug, __('Settings', 'custom-css-js'), __('Settings', 'custom-css-js'), 'manage_options', 'custom-css-js-config', array( $this, 'config_page' ) );
 
     }
-
 
     /**
      * Enqueue the scripts and styles
@@ -81,8 +79,6 @@ class CustomCSSandJS_AdminConfig {
         wp_enqueue_script( 'tipsy', $a . '/jquery.tipsy.js', array('jquery'), $v, false );
         wp_enqueue_style( 'tipsy', $a . '/tipsy.css', array(), $v );
     }
-
-
 
     /**
      * Template for the config page
@@ -121,17 +117,20 @@ class CustomCSSandJS_AdminConfig {
         ?>
         <div class="wrap">
 
-        <?php $this->config_page_header('editor'); ?>
+        <?php
+ $this->config_page_header('editor'); ?>
 
-        <form action="<?php echo admin_url('edit.php'); ?>?post_type=custom-css-js&page=custom-css-js-config" id="ccj_settings" method="post">
+        <form action="<?php
+ echo admin_url('edit.php'); ?>?post_type=custom-css-js&page=custom-css-js-config" id="ccj_settings" method="post">
 
-        <?php do_action( 'ccj_settings_form' ); ?>
+        <?php
+ do_action( 'ccj_settings_form' ); ?>
         
         </form>
         </div>
         <?php
-    }
 
+    }
 
     /**
      * Template for config page header 
@@ -149,12 +148,12 @@ class CustomCSSandJS_AdminConfig {
             .form-table { margin-left: 2%; width: 98%;}
             .form-table th { width: 500px; } 
         </style>
-        <h1><?php _e('Custom CSS & JS Settings'); ?></h1>
+        <h1><?php
+ _e('Custom CSS & JS Settings'); ?></h1>
 
-        <?php     
+        <?php
+     
     }
-
-
 
     /**
      * Add the defaults for the `General Settings` form 
@@ -169,7 +168,6 @@ class CustomCSSandJS_AdminConfig {
         ) );
     }
 
-
     /**
      * Add the `General Settings` form values to the $_POST for the Settings page
      */
@@ -182,7 +180,6 @@ class CustomCSSandJS_AdminConfig {
 
         return array_merge( $data, $values );
     }
-
 
     /**
      * Extra fields for the `General Settings` Form 
@@ -217,46 +214,62 @@ class CustomCSSandJS_AdminConfig {
 
         ?>
 
-        <h2><?php echo __('Editor Settings', 'custom-css-js'); ?></h2>
+        <h2><?php
+ echo __('Editor Settings', 'custom-css-js'); ?></h2>
         <table class="form-table">
         <tr>
-        <th scope="row"><label for="ccj_htmlentities"><?php _e('Keep the HTML entities, don\'t convert to its character', 'custom-css-js') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php echo $ccj_htmlentities_help; ?>"></span>
+        <th scope="row"><label for="ccj_htmlentities"><?php
+ _e('Keep the HTML entities, don\'t convert to its character', 'custom-css-js') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php
+ echo $ccj_htmlentities_help; ?>"></span>
         </label></th>
-        <td><input type="checkbox" name="ccj_htmlentities" id="ccj_htmlentities" value="1" <?php checked($settings['ccj_htmlentities'], true); ?> />
+        <td><input type="checkbox" name="ccj_htmlentities" id="ccj_htmlentities" value="1" <?php
+ checked($settings['ccj_htmlentities'], true); ?> />
         </td>
         </tr>
         <tr>
-        <th scope="row"><label for="ccj_htmlentities2"><?php _e('Encode the HTML entities', 'custom-css-js') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php echo $ccj_htmlentities2_help; ?>"></span></label></th>
-        <td><input type="checkbox" name="ccj_htmlentities2" id="ccj_htmlentities2" value="1" <?php checked($settings['ccj_htmlentities2'], true); ?> />
+        <th scope="row"><label for="ccj_htmlentities2"><?php
+ _e('Encode the HTML entities', 'custom-css-js') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php
+ echo $ccj_htmlentities2_help; ?>"></span></label></th>
+        <td><input type="checkbox" name="ccj_htmlentities2" id="ccj_htmlentities2" value="1" <?php
+ checked($settings['ccj_htmlentities2'], true); ?> />
         </td>
         </tr>
         <tr>
-        <th scope="row"><label for="ccj_autocomplete"><?php _e('Autocomplete in the editor', 'custom-css-js') ?></label></th>
-        <td><input type="checkbox" name="ccj_autocomplete" id="ccj_autocomplete" value="1" <?php checked($settings['ccj_autocomplete'], true); ?> />
+        <th scope="row"><label for="ccj_autocomplete"><?php
+ _e('Autocomplete in the editor', 'custom-css-js') ?></label></th>
+        <td><input type="checkbox" name="ccj_autocomplete" id="ccj_autocomplete" value="1" <?php
+ checked($settings['ccj_autocomplete'], true); ?> />
         </td>
         </tr>
-
-
 
         </table>
 
-
         
-        <?php if ( current_user_can('update_plugins') ) : ?> 
-            <?php $add_role_help = esc_html__('By default only the Administrator will be able to publish/edit/delete Custom Codes. By enabling this option there is also a "Web Designer" role created which can be assigned to a non-admin user in order to publish/edit/delete Custom Codes.', 'custom-css-js'); ?>
-            <h2><?php echo __('General Settings', 'custom-css-js'); ?></h2>
+        <?php
+ if ( current_user_can('update_plugins') ) : ?> 
+            <?php
+ $add_role_help = esc_html__('By default only the Administrator will be able to publish/edit/delete Custom Codes. By enabling this option there is also a "Web Designer" role created which can be assigned to a non-admin user in order to publish/edit/delete Custom Codes.', 'custom-css-js'); ?>
+            <h2><?php
+ echo __('General Settings', 'custom-css-js'); ?></h2>
             <table class="form-table">
             <tr>
-            <th scope="row"><label for="add_role"><?php _e('Add the "Web Designer" role', 'custom-css-js') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php echo $add_role_help; ?>"></span></label></th>
-            <td><input type="checkbox" name="add_role" id = "add_role" value="1" <?php checked($settings['add_role'], true); ?> />
+            <th scope="row"><label for="add_role"><?php
+ _e('Add the "Web Designer" role', 'custom-css-js') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php
+ echo $add_role_help; ?>"></span></label></th>
+            <td><input type="checkbox" name="add_role" id = "add_role" value="1" <?php
+ checked($settings['add_role'], true); ?> />
             </td>
             </tr>
             </table>
-        <?php endif; ?>
+        <?php
+ endif; ?>
         <table class="form-table">
         <tr>
-        <th scope="row"><label for="remove_comments"><?php _e('Remove the comments from HTML', 'custom-css-js') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php echo $remove_comments_help; ?>"></span></label></th>
-        <td><input type="checkbox" name="remove_comments" id = "remove_comments" value="1" <?php checked($settings['remove_comments'], true); ?> />
+        <th scope="row"><label for="remove_comments"><?php
+ _e('Remove the comments from HTML', 'custom-css-js') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php
+ echo $remove_comments_help; ?>"></span></label></th>
+        <td><input type="checkbox" name="remove_comments" id = "remove_comments" value="1" <?php
+ checked($settings['remove_comments'], true); ?> />
         </td>
         </tr>
         </table>
@@ -265,15 +278,17 @@ class CustomCSSandJS_AdminConfig {
         <tr>
         <th>&nbsp;</th>
         <td>
-        <input type="submit" name="Submit" class="button-primary" value="<?php _e('Save'); ?>" />
-        <?php wp_nonce_field('ccj_settings', 'ccj_settings-nonce', false); ?>
+        <input type="submit" name="Submit" class="button-primary" value="<?php
+ _e('Save'); ?>" />
+        <?php
+ wp_nonce_field('ccj_settings', 'ccj_settings-nonce', false); ?>
         </td>
         </tr>
         </table>
 
         <?php
-    }
 
+    }
 
 }
 

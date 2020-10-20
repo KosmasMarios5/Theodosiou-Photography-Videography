@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HTTP API: Requests hook bridge class
  *

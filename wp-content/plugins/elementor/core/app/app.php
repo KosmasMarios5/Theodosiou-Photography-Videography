@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\App;
 
 use Elementor\Core\Base\App as BaseApp;

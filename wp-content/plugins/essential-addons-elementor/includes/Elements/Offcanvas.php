@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -1310,21 +1311,34 @@ class Offcanvas extends Widget_Base
         ?>
         <div class="eael-offcanvas-header">
             <div class="eael-offcanvas-title">
-                <h3><?php echo esc_html($settings['eael_offcanvas_title']); ?></h3>
+                <h3><?php
+ echo esc_html($settings['eael_offcanvas_title']); ?></h3>
             </div>
-            <div <?php echo $this->get_render_attribute_string('close-button'); ?>>
-                <?php if (isset($settings['__fa4_migrated']['close_button_icon_new']) || empty($settings['close_button_icon'])) {?>
-                    <?php if( isset($settings['close_button_icon_new']['value']['url']) ) : ?>
-                        <img class="eael-offcanvas-close-svg-icon" src="<?php echo esc_url($settings['close_button_icon_new']['value']['url']); ?>" alt="<?php echo esc_attr(get_post_meta($settings['close_button_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>">
-                    <?php else : ?>
-                        <span class="<?php echo esc_attr($settings['close_button_icon_new']['value']); ?>"></span>
-                    <?php endif; ?>
-                <?php } else { ?>
-                    <span class="<?php echo esc_attr($settings['close_button_icon']); ?>"></span>
-                <?php } ?>
+            <div <?php
+ echo $this->get_render_attribute_string('close-button'); ?>>
+                <?php
+ if (isset($settings['__fa4_migrated']['close_button_icon_new']) || empty($settings['close_button_icon'])) {?>
+                    <?php
+ if( isset($settings['close_button_icon_new']['value']['url']) ) : ?>
+                        <img class="eael-offcanvas-close-svg-icon" src="<?php
+ echo esc_url($settings['close_button_icon_new']['value']['url']); ?>" alt="<?php
+ echo esc_attr(get_post_meta($settings['close_button_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>">
+                    <?php
+ else : ?>
+                        <span class="<?php
+ echo esc_attr($settings['close_button_icon_new']['value']); ?>"></span>
+                    <?php
+ endif; ?>
+                <?php
+ } else { ?>
+                    <span class="<?php
+ echo esc_attr($settings['close_button_icon']); ?>"></span>
+                <?php
+ } ?>
             </div>
         </div>
         <?php
+
     }
 
     /**
@@ -1361,12 +1375,15 @@ class Offcanvas extends Widget_Base
             foreach ($settings['custom_content'] as $key => $item) {
                 ?>
                 <div class="eael-offcanvas-custom-widget">
-                    <h3 class="eael-offcanvas-widget-title"><?php echo $item['title']; ?></h3>
+                    <h3 class="eael-offcanvas-widget-title"><?php
+ echo $item['title']; ?></h3>
                     <div class="eael-offcanvas-widget-content">
-                        <?php echo $item['description']; ?>
+                        <?php
+ echo $item['description']; ?>
                     </div>
                 </div>
                 <?php
+
 }
         }
 
@@ -1430,31 +1447,49 @@ class Offcanvas extends Widget_Base
         }
 
         ?>
-        <div <?php echo $this->get_render_attribute_string('content-wrap'); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string('content-wrap'); ?>>
 
-            <?php if ($settings['button_text'] != '' || $settings['button_text'] != ''): ?>
+            <?php
+ if ($settings['button_text'] != '' || $settings['button_text'] != ''): ?>
             <div class="eael-offcanvas-toggle-wrap">
-                <div <?php echo $this->get_render_attribute_string('toggle-button'); ?>>
-                    <?php if (isset($settings['__fa4_migrated']['button_icon_new']) || empty($settings['button_icon'])) {?>
-                        <?php if( isset($settings['button_icon_new']['value']['url']) ) : ?>
-                            <img class="eael-offcanvas-toggle-icon eael-offcanvas-toggle-svg-icon" src="<?php echo esc_url($settings['button_icon_new']['value']['url']); ?>" alt="<?php echo esc_attr(get_post_meta($settings['button_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>">
-                        <?php else : ?>
-                            <span class="eael-offcanvas-toggle-icon <?php echo esc_attr($settings['button_icon_new']['value']); ?>"></span>
-                        <?php endif; ?>
-                    <?php } else { ?>
-                        <span class="eael-offcanvas-toggle-icon <?php echo esc_attr($settings['button_icon']); ?>"></span>
-                    <?php } ?>
+                <div <?php
+ echo $this->get_render_attribute_string('toggle-button'); ?>>
+                    <?php
+ if (isset($settings['__fa4_migrated']['button_icon_new']) || empty($settings['button_icon'])) {?>
+                        <?php
+ if( isset($settings['button_icon_new']['value']['url']) ) : ?>
+                            <img class="eael-offcanvas-toggle-icon eael-offcanvas-toggle-svg-icon" src="<?php
+ echo esc_url($settings['button_icon_new']['value']['url']); ?>" alt="<?php
+ echo esc_attr(get_post_meta($settings['button_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>">
+                        <?php
+ else : ?>
+                            <span class="eael-offcanvas-toggle-icon <?php
+ echo esc_attr($settings['button_icon_new']['value']); ?>"></span>
+                        <?php
+ endif; ?>
+                    <?php
+ } else { ?>
+                        <span class="eael-offcanvas-toggle-icon <?php
+ echo esc_attr($settings['button_icon']); ?>"></span>
+                    <?php
+ } ?>
                     <span class="eael-toggle-text">
-                        <?php echo $settings['button_text']; ?>
+                        <?php
+ echo $settings['button_text']; ?>
                     </span>
                 </div>
             </div>
-            <?php endif; // end of if( $settings['button_text'] != '' || $settings['button_text'] != '' ) ?>
+            <?php
+ endif; // end of if( $settings['button_text'] != '' || $settings['button_text'] != '' ) ?>
 
-            <div <?php echo $this->get_render_attribute_string('content'); ?>>
-                <?php $this->render_close_button();?>
+            <div <?php
+ echo $this->get_render_attribute_string('content'); ?>>
+                <?php
+ $this->render_close_button();?>
                 <div class="eael-offcanvas-body">
                     <?php
+
                         if ('sidebar' == $settings['content_type']) {
 
                             $this->render_sidebar();

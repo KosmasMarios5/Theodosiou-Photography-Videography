@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Edit Posts Administration Screen.
  *
@@ -388,11 +389,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <div class="wrap">
 <h1 class="wp-heading-inline">
 <?php
+
 echo esc_html( $post_type_object->labels->name );
 ?>
 </h1>
 
 <?php
+
 if ( current_user_can( $post_type_object->cap->create_posts ) ) {
 	echo ' <a href="' . esc_url( admin_url( $post_new_file ) ) . '" class="page-title-action">' . esc_html( $post_type_object->labels->add_new ) . '</a>';
 }
@@ -406,6 +409,7 @@ if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 <hr class="wp-header-end">
 
 <?php
+
 // If we have a bulk message to issue:
 $messages = array();
 foreach ( $bulk_counts as $message => $count ) {
@@ -429,28 +433,39 @@ unset( $messages );
 $_SERVER['REQUEST_URI'] = remove_query_arg( array( 'locked', 'skipped', 'updated', 'deleted', 'trashed', 'untrashed' ), $_SERVER['REQUEST_URI'] );
 ?>
 
-<?php $wp_list_table->views(); ?>
+<?php
+ $wp_list_table->views(); ?>
 
 <form id="posts-filter" method="get">
 
-<?php $wp_list_table->search_box( $post_type_object->labels->search_items, 'post' ); ?>
+<?php
+ $wp_list_table->search_box( $post_type_object->labels->search_items, 'post' ); ?>
 
-<input type="hidden" name="post_status" class="post_status_page" value="<?php echo ! empty( $_REQUEST['post_status'] ) ? esc_attr( $_REQUEST['post_status'] ) : 'all'; ?>" />
-<input type="hidden" name="post_type" class="post_type_page" value="<?php echo $post_type; ?>" />
+<input type="hidden" name="post_status" class="post_status_page" value="<?php
+ echo ! empty( $_REQUEST['post_status'] ) ? esc_attr( $_REQUEST['post_status'] ) : 'all'; ?>" />
+<input type="hidden" name="post_type" class="post_type_page" value="<?php
+ echo $post_type; ?>" />
 
-<?php if ( ! empty( $_REQUEST['author'] ) ) { ?>
-<input type="hidden" name="author" value="<?php echo esc_attr( $_REQUEST['author'] ); ?>" />
-<?php } ?>
+<?php
+ if ( ! empty( $_REQUEST['author'] ) ) { ?>
+<input type="hidden" name="author" value="<?php
+ echo esc_attr( $_REQUEST['author'] ); ?>" />
+<?php
+ } ?>
 
-<?php if ( ! empty( $_REQUEST['show_sticky'] ) ) { ?>
+<?php
+ if ( ! empty( $_REQUEST['show_sticky'] ) ) { ?>
 <input type="hidden" name="show_sticky" value="1" />
-<?php } ?>
+<?php
+ } ?>
 
-<?php $wp_list_table->display(); ?>
+<?php
+ $wp_list_table->display(); ?>
 
 </form>
 
 <?php
+
 if ( $wp_list_table->has_items() ) {
 	$wp_list_table->inline_edit();
 }
@@ -461,4 +476,5 @@ if ( $wp_list_table->has_items() ) {
 </div>
 
 <?php
+
 require_once ABSPATH . 'wp-admin/admin-footer.php';

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Feed API: WP_SimplePie_Sanitize_KSES class
  *

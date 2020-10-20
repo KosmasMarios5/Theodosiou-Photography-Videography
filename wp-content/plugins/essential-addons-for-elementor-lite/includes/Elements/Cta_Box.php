@@ -690,8 +690,6 @@ class Cta_Box extends Widget_Base
             ]
         );
 
-
-
         $this->add_control(
             'eael_cta_btn_normal_bg_color',
             [
@@ -1103,17 +1101,22 @@ class Cta_Box extends Widget_Base
             $buttonMarkup .='<a href="'.esc_url($settings['eael_cta_secondary_btn_link']['url']).'" '.$target_secondary.' '.$nofollow_secondary.' class="cta-button cta-secondary-button '.esc_attr($cta_secondary_btn_effect).'">'.esc_html($settings['eael_cta_secondary_btn_text']).'</a>';
         }
     ?>
-	<?php if ('cta-basic' == $settings['eael_cta_type']): ?>
-	<div class="eael-call-to-action <?php echo esc_attr($cta_class); ?>">
+	<?php
+ if ('cta-basic' == $settings['eael_cta_type']): ?>
+	<div class="eael-call-to-action <?php
+ echo esc_attr($cta_class); ?>">
         <?php
             print $headingMarkup;
             print $contentMarkup;
             print $buttonMarkup;
         ?>
 	</div>
-	<?php endif;?>
-	<?php if ('cta-flex' == $settings['eael_cta_type']): ?>
-	<div class="eael-call-to-action cta-flex <?php echo esc_attr($cta_class); ?>">
+	<?php
+ endif;?>
+	<?php
+ if ('cta-flex' == $settings['eael_cta_type']): ?>
+	<div class="eael-call-to-action cta-flex <?php
+ echo esc_attr($cta_class); ?>">
 	    <div class="content">
             <?php
                 print $headingMarkup;
@@ -1121,22 +1124,36 @@ class Cta_Box extends Widget_Base
             ?>
 	    </div>
 	    <div class="action">
-	        <?php print $buttonMarkup; ?>
+	        <?php
+ print $buttonMarkup; ?>
 	    </div>
 	</div>
-	<?php endif;?>
-	<?php if ('cta-icon-flex' == $settings['eael_cta_type']): ?>
-	<div class="eael-call-to-action cta-icon-flex <?php echo esc_attr($cta_class); ?>">
+	<?php
+ endif;?>
+	<?php
+ if ('cta-icon-flex' == $settings['eael_cta_type']): ?>
+	<div class="eael-call-to-action cta-icon-flex <?php
+ echo esc_attr($cta_class); ?>">
 	    <div class="icon">
-			<?php if ($icon_is_new || $icon_migrated) {?>
-				<?php if (isset($settings['eael_cta_flex_grid_icon_new']['value']['url'])): ?>
-					<img src="<?php echo esc_attr($settings['eael_cta_flex_grid_icon_new']['value']['url']); ?>" alt="<?php echo esc_attr(get_post_meta($settings['eael_cta_flex_grid_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
-				<?php else: ?>
-					<i class="<?php echo esc_attr($settings['eael_cta_flex_grid_icon_new']['value']); ?>"></i>
-				<?php endif;?>
-			<?php } else {?>
-				<i class="<?php echo esc_attr($settings['eael_cta_flex_grid_icon']); ?>"></i>
-			<?php }?>
+			<?php
+ if ($icon_is_new || $icon_migrated) {?>
+				<?php
+ if (isset($settings['eael_cta_flex_grid_icon_new']['value']['url'])): ?>
+					<img src="<?php
+ echo esc_attr($settings['eael_cta_flex_grid_icon_new']['value']['url']); ?>" alt="<?php
+ echo esc_attr(get_post_meta($settings['eael_cta_flex_grid_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
+				<?php
+ else: ?>
+					<i class="<?php
+ echo esc_attr($settings['eael_cta_flex_grid_icon_new']['value']); ?>"></i>
+				<?php
+ endif;?>
+			<?php
+ } else {?>
+				<i class="<?php
+ echo esc_attr($settings['eael_cta_flex_grid_icon']); ?>"></i>
+			<?php
+ }?>
 	    </div>
 	    <div class="content">
             <?php
@@ -1145,10 +1162,12 @@ class Cta_Box extends Widget_Base
             ?>
 	    </div>
 	    <div class="action">
-            <?php print $buttonMarkup; ?>
+            <?php
+ print $buttonMarkup; ?>
 	    </div>
 	</div>
-	<?php endif;?>
+	<?php
+ endif;?>
 	<?php
     }
 }

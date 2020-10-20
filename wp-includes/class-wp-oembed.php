@@ -1,4 +1,5 @@
 <?php
+
 /**
  * API for fetching the HTML to embed remote content based on a provided URL
  *

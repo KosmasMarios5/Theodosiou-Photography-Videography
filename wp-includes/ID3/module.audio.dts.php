@@ -121,7 +121,6 @@ class getid3_dts extends getid3_handler
 		$info['dts']['flags']['surround_sum_diff']    = (bool) $this->readBinData($fhBS,  1);
 		$info['dts']['raw']['dialog_normalization']   =        $this->readBinData($fhBS,  4);
 
-
 		$info['dts']['bitrate']              = self::bitrateLookup($info['dts']['raw']['bitrate']);
 		$info['dts']['bits_per_sample']      = self::bitPerSampleLookup($info['dts']['raw']['bits_per_sample']);
 		$info['dts']['sample_rate']          = self::sampleRateLookup($info['dts']['raw']['sample_frequency']);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Blocks API: WP_Block_List class
  *

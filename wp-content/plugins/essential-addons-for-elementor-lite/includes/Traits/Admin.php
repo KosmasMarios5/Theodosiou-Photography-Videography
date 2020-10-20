@@ -68,8 +68,10 @@ trait Admin
                         <div class="template-cloud-install">
                             <div class="templately-left">
                                 <div class="templately-cloud-title">
-                                    <h1><?php echo __( 'Explore 100+ Free Templates', 'essential-addons-for-elementor-lite' ); ?></h1>
-                                    <p><?php echo __( 'From multipurpose themes to niche templates, you’ll always find something that catches your eye.', 'essential-addons-for-elementor-lite' ); ?></p>
+                                    <h1><?php
+ echo __( 'Explore 100+ Free Templates', 'essential-addons-for-elementor-lite' ); ?></h1>
+                                    <p><?php
+ echo __( 'From multipurpose themes to niche templates, you’ll always find something that catches your eye.', 'essential-addons-for-elementor-lite' ); ?></p>
                                 </div>
                             </div>
                             <div class="templately-installer-wrapper">
@@ -80,8 +82,10 @@ trait Admin
                                 </div>
                                 <div class="templately-right">
                                     <div class="templately-admin-install">
-                                        <p><?php echo __( 'Install Templately by Essential Addons to get access to the templates library and cloud.', 'essential-addons-for-elementor-lite' ); ?></p>
-                                        <button class="eae-activate-templately"><?php echo $button_text; ?></button>
+                                        <p><?php
+ echo __( 'Install Templately by Essential Addons to get access to the templates library and cloud.', 'essential-addons-for-elementor-lite' ); ?></p>
+                                        <button class="eae-activate-templately"><?php
+ echo $button_text; ?></button>
                                     </div>
                                 </div>
                             </div>
@@ -93,14 +97,18 @@ trait Admin
                         $( document ).ready(function( $ ){
                             $('body').on('click', '.eae-activate-templately', function( e ){
                                 var self = $(this);
-                                self.text('<?php echo !$installed ? esc_js('Installing...') : esc_js('Activating...'); ?>');
+                                self.text('<?php
+ echo !$installed ? esc_js('Installing...') : esc_js('Activating...'); ?>');
                                 e.preventDefault();
                                 $.ajax({
-                                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                                    url: '<?php
+ echo admin_url('admin-ajax.php'); ?>',
                                     type: 'POST',
                                     data: {
-                                        action: 'wpdeveloper_upsale_core_install_<?php echo $plugin_name; ?>',
-                                        _wpnonce: '<?php echo wp_create_nonce('wpdeveloper_upsale_core_install_' . $plugin_name); ?>',
+                                        action: 'wpdeveloper_upsale_core_install_<?php
+ echo $plugin_name; ?>',
+                                        _wpnonce: '<?php
+ echo wp_create_nonce('wpdeveloper_upsale_core_install_' . $plugin_name); ?>',
                                         slug : 'templately',
                                         file : 'templately.php'
                                     },
@@ -109,8 +117,10 @@ trait Admin
                                         self.removeClass('install-now updating-message');
                                     }
                                 }).done(function(){
-                                    self.text('<?php echo esc_js('Installed'); ?>').delay(3000);
-                                    window.location.href = '<?php echo admin_url("admin.php?page=templately"); ?>';
+                                    self.text('<?php
+ echo esc_js('Installed'); ?>').delay(3000);
+                                    window.location.href = '<?php
+ echo admin_url("admin.php?page=templately"); ?>';
                                 }).fail(function(){
                                     self.removeClass('install-now updating-message');
                                 });
@@ -189,23 +199,38 @@ trait Admin
 		  		<div class="eael-header-bar">
 					<div class="eael-header-left">
 						<div class="eael-admin-logo-inline">
-							<img src="<?php echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-ea-logo.svg'; ?>" alt="essential-addons-for-elementor">
+							<img src="<?php
+ echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-ea-logo.svg'; ?>" alt="essential-addons-for-elementor">
 						</div>
-						<h2 class="title"><?php echo __('Essential Addons Settings', 'essential-addons-for-elementor-lite'); ?></h2>
+						<h2 class="title"><?php
+ echo __('Essential Addons Settings', 'essential-addons-for-elementor-lite'); ?></h2>
 					</div>
 					<div class="eael-header-right">
-					<button type="submit" class="button eael-btn js-eael-settings-save"><?php echo __('Save settings', 'essential-addons-for-elementor-lite'); ?></button>
+					<button type="submit" class="button eael-btn js-eael-settings-save"><?php
+ echo __('Save settings', 'essential-addons-for-elementor-lite'); ?></button>
 					</div>
 				</div>
 			  	<div class="eael-settings-tabs">
 			    	<ul class="eael-tabs">
-				      	<li><a href="#general" class="active"><img src="<?php echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-general.svg'; ?>" alt="essential-addons-general-settings"><span><?php echo __('General', 'essential-addons-for-elementor-lite'); ?></span></a></li>
-				      	<li><a href="#elements"><img src="<?php echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-elements.svg'; ?>" alt="essential-addons-elements"><span><?php echo __('Elements', 'essential-addons-for-elementor-lite'); ?></span></a></li>
-                        <li><a href="#extensions"><img src="<?php echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-extensions.svg'; ?>" alt="essential-addons-extensions"><span><?php echo __('Extensions', 'essential-addons-for-elementor-lite'); ?></span></a></li>
-                        <li><a href="#tools"><img src="<?php echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-tools.svg'; ?>" alt="essential-addons-tools"><span><?php echo __('Tools', 'essential-addons-for-elementor-lite'); ?></span></a></li>
-                        <?php if (!$this->pro_enabled) {?>
-                            <li><a href="#go-pro"><img src="<?php echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-upgrade.svg'; ?>" alt="essential-addons-go-pro"><span><?php echo __('Go Premium', 'essential-addons-for-elementor-lite'); ?></span></a></li>
-                        <?php }?>
+				      	<li><a href="#general" class="active"><img src="<?php
+ echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-general.svg'; ?>" alt="essential-addons-general-settings"><span><?php
+ echo __('General', 'essential-addons-for-elementor-lite'); ?></span></a></li>
+				      	<li><a href="#elements"><img src="<?php
+ echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-elements.svg'; ?>" alt="essential-addons-elements"><span><?php
+ echo __('Elements', 'essential-addons-for-elementor-lite'); ?></span></a></li>
+                        <li><a href="#extensions"><img src="<?php
+ echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-extensions.svg'; ?>" alt="essential-addons-extensions"><span><?php
+ echo __('Extensions', 'essential-addons-for-elementor-lite'); ?></span></a></li>
+                        <li><a href="#tools"><img src="<?php
+ echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-tools.svg'; ?>" alt="essential-addons-tools"><span><?php
+ echo __('Tools', 'essential-addons-for-elementor-lite'); ?></span></a></li>
+                        <?php
+ if (!$this->pro_enabled) {?>
+                            <li><a href="#go-pro"><img src="<?php
+ echo EAEL_PLUGIN_URL . '/assets/admin/images/icon-upgrade.svg'; ?>" alt="essential-addons-go-pro"><span><?php
+ echo __('Go Premium', 'essential-addons-for-elementor-lite'); ?></span></a></li>
+                        <?php
+ }?>
                     </ul>
                     <?php
 include_once EAEL_PLUGIN_PATH . DIRECTORY_SEPARATOR . 'includes/templates/admin/general.php';

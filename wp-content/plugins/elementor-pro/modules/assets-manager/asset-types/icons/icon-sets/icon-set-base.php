@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\AssetsManager\AssetTypes\Icons\IconSets;
 
 use ElementorPro\Core\Utils;

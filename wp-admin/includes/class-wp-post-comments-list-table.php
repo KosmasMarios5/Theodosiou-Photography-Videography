@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_Post_Comments_List_Table class
  *
@@ -50,15 +51,18 @@ class WP_Post_Comments_List_Table extends WP_Comments_List_Table {
 
 		wp_nonce_field( 'fetch-list-' . get_class( $this ), '_ajax_fetch_list_nonce' );
 		?>
-<table class="<?php echo implode( ' ', $this->get_table_classes() ); ?>" style="display:none;">
+<table class="<?php
+ echo implode( ' ', $this->get_table_classes() ); ?>" style="display:none;">
 	<tbody id="the-comment-list"
 		<?php
+
 		if ( $singular ) {
 			echo " data-wp-lists='list:$singular'";
 		}
 		?>
 		>
 		<?php
+
 		if ( ! $output_empty ) {
 			$this->display_rows_or_placeholder();
 		}
@@ -66,6 +70,7 @@ class WP_Post_Comments_List_Table extends WP_Comments_List_Table {
 	</tbody>
 </table>
 		<?php
+
 	}
 
 	/**

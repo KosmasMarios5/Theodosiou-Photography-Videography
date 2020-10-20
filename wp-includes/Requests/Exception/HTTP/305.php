@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 305 Use Proxy responses
  *

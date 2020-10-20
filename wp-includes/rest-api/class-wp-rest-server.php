@@ -1,4 +1,5 @@
 <?php
+
 /**
  * REST API: WP_REST_Server class
  *
@@ -105,7 +106,6 @@ class WP_REST_Server {
 			),
 		);
 	}
-
 
 	/**
 	 * Checks the authentication headers if supplied.

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Debug\Classes;
 
 abstract class Inspection_Base {

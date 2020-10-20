@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Google Analytics Dashboard for WP (GADWP)
  * Plugin URI: https://exactmetrics.com
@@ -382,12 +383,14 @@ final class ExactMetrics_Lite {
 		<div class="error">
 			<p>
 				<?php
+
 				// Translators: Make version number bold and add a link to return to the plugins page.
 				echo sprintf( esc_html__( 'Sorry, but your version of WordPress does not meet ExactMetrics\'s required version of %1$s3.8%2$s to run properly. The plugin not been activated. %3$sClick here to return to the Dashboard%4$s.', 'google-analytics-dashboard-for-wp' ), '<strong>', '</strong>', '<a href="' . $url . '">', '</a>' );
 				?>
 			</p>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -408,6 +411,7 @@ final class ExactMetrics_Lite {
 		<div class="error">
 			<p>
 				<?php
+
 				// Translators: Adds a link to the plugins page.
 				echo sprintf( esc_html__( 'Please %1$suninstall%2$s the ExactMetrics Lite Plugin. Your Pro version of ExactMetrics may not work as expected until the Lite version is uninstalled.', 'google-analytics-dashboard-for-wp' ), '<a href="' . $url . '">', '</a>' );
 				?>
@@ -434,7 +438,6 @@ final class ExactMetrics_Lite {
 		require_once EXACTMETRICS_PLUGIN_DIR . 'includes/deprecated.php';
 		$exactmetrics_settings  = exactmetrics_get_options();
 	}
-
 
 	/**
 	 * Loads ExactMetrics License
@@ -639,7 +642,8 @@ register_uninstall_hook( __FILE__, 'exactmetrics_lite_uninstall_hook' );
  * Use this function like you would a global variable, except without needing
  * to declare the global.
  *
- * Example: <?php $exactmetrics = ExactMetrics_Lite(); ?>
+ * Example: <?php
+ $exactmetrics = ExactMetrics_Lite(); ?>
  *
  * @since 6.0.0
  *
@@ -683,7 +687,6 @@ function exactmetrics_lite_install_and_upgrade() {
 			return;
 		}
 	}
-
 
 	// Load settings and globals (so we can use/set them during the upgrade process)
 	ExactMetrics_Lite()->define_globals();
@@ -732,7 +735,8 @@ function exactmetrics_lite_call_install_and_upgrade(){
  * Prevents the need to do conditional global object logic when you have code that you want to work with
  * both Pro and Lite.
  *
- * Example: <?php $exactmetrics = ExactMetrics(); ?>
+ * Example: <?php
+ $exactmetrics = ExactMetrics(); ?>
  *
  * @since 6.0.0
  *

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Frontend\RenderModes;
 
 if ( ! defined( 'ABSPATH' ) ) {

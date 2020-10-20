@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\DynamicTags;
 
 use Elementor\Controls_Stack;
@@ -115,10 +116,12 @@ abstract class Base_Tag extends Controls_Stack {
 			return;
 		}
 		?><#
-		var key = <?php echo esc_html( $panel_template_setting_key ); ?>;
+		var key = <?php
+ echo esc_html( $panel_template_setting_key ); ?>;
 
 		if ( key ) {
-			var settingsKey = "<?php echo esc_html( $panel_template_setting_key ); ?>";
+			var settingsKey = "<?php
+ echo esc_html( $panel_template_setting_key ); ?>";
 
 			/*
 			 * If the tag has controls,
@@ -144,6 +147,7 @@ abstract class Base_Tag extends Controls_Stack {
 		}
 		#>
 		<?php
+
 	}
 
 	/**

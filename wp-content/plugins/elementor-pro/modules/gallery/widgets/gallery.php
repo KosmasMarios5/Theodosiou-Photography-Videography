@@ -1310,28 +1310,38 @@ class Gallery extends Base_Widget {
 					}
 				}
 			} ?>
-			<div <?php echo $this->get_render_attribute_string( 'titles-container' ); ?>>
-				<?php if ( $settings['show_all_galleries'] ) { ?>
-					<a data-gallery-index="all" class="elementor-item elementor-gallery-title"><?php echo $settings['show_all_galleries_label']; ?></a>
-				<?php } ?>
+			<div <?php
+ echo $this->get_render_attribute_string( 'titles-container' ); ?>>
+				<?php
+ if ( $settings['show_all_galleries'] ) { ?>
+					<a data-gallery-index="all" class="elementor-item elementor-gallery-title"><?php
+ echo $settings['show_all_galleries_label']; ?></a>
+				<?php
+ } ?>
 
-				<?php foreach ( $settings['galleries'] as $index => $gallery ) :
+				<?php
+ foreach ( $settings['galleries'] as $index => $gallery ) :
 					if ( ! $gallery['multiple_gallery'] ) {
 						continue;
 					}
 
 					$galleries[ $index ] = $gallery['multiple_gallery'];
 					?>
-					<a data-gallery-index="<?php echo $index; ?>" class="elementor-item elementor-gallery-title"><?php echo $gallery['gallery_title']; ?></a>
+					<a data-gallery-index="<?php
+ echo $index; ?>" class="elementor-item elementor-gallery-title"><?php
+ echo $gallery['gallery_title']; ?></a>
 					<?php
+
 				endforeach; ?>
 			</div>
 			<?php
+
 		} elseif ( $is_single ) {
 			$galleries[0] = $settings['gallery'];
 		} elseif ( Plugin::elementor()->editor->is_edit_mode() ) { ?>
 			<i class="elementor-widget-empty-icon eicon-gallery-justified"></i>
-		<?php }
+		<?php
+ }
 
 		$this->add_render_attribute( 'gallery_container', 'class', 'elementor-gallery__container' );
 
@@ -1372,8 +1382,10 @@ class Gallery extends Base_Widget {
 		}
 
 		if ( ! empty( $galleries ) ) { ?>
-		<div <?php echo $this->get_render_attribute_string( 'gallery_container' ); ?>>
+		<div <?php
+ echo $this->get_render_attribute_string( 'gallery_container' ); ?>>
 			<?php
+
 			foreach ( $gallery_items as $id => $tags ) :
 				$unique_index = $id; //$gallery_index . '_' . $index;
 				$image_src = wp_get_attachment_image_src( $id, $thumbnail_size );
@@ -1433,31 +1445,50 @@ class Gallery extends Base_Widget {
 						'alt' => $image_data['alt'],
 					]
 				);?>
-				<<?php echo $gallery_item_tag; ?> <?php echo $this->get_render_attribute_string( 'gallery_item_' . $unique_index ); ?>>
-					<div <?php echo $this->get_render_attribute_string( 'gallery_item_image_' . $unique_index ); ?> ></div>
-					<?php if ( ! empty( $settings['overlay_background'] ) ) : ?>
-					<div <?php echo $this->get_render_attribute_string( 'gallery_item_background_overlay' ); ?>></div>
-					<?php endif; ?>
-					<?php if ( $has_title || $has_description ) : ?>
-					<div <?php echo $this->get_render_attribute_string( 'gallery_item_content' ); ?>>
-						<?php if ( $has_title ) :
+				<<?php
+ echo $gallery_item_tag; ?> <?php
+ echo $this->get_render_attribute_string( 'gallery_item_' . $unique_index ); ?>>
+					<div <?php
+ echo $this->get_render_attribute_string( 'gallery_item_image_' . $unique_index ); ?> ></div>
+					<?php
+ if ( ! empty( $settings['overlay_background'] ) ) : ?>
+					<div <?php
+ echo $this->get_render_attribute_string( 'gallery_item_background_overlay' ); ?>></div>
+					<?php
+ endif; ?>
+					<?php
+ if ( $has_title || $has_description ) : ?>
+					<div <?php
+ echo $this->get_render_attribute_string( 'gallery_item_content' ); ?>>
+						<?php
+ if ( $has_title ) :
 							$title = $image_data[ $settings['overlay_title'] ];
 							if ( ! empty( $title ) ) : ?>
-							<div <?php echo $this->get_render_attribute_string( 'gallery_item_title' ); ?>><?php echo $title; ?></div>
-							<?php endif;
+							<div <?php
+ echo $this->get_render_attribute_string( 'gallery_item_title' ); ?>><?php
+ echo $title; ?></div>
+							<?php
+ endif;
 						endif;
 						if ( $has_description ) :
 							$description = $image_data[ $settings['overlay_description'] ];
 							if ( ! empty( $description ) ) :?>
-							<div <?php echo $this->get_render_attribute_string( 'gallery_item_description' ); ?>><?php echo $description; ?></div>
-							<?php endif;
+							<div <?php
+ echo $this->get_render_attribute_string( 'gallery_item_description' ); ?>><?php
+ echo $description; ?></div>
+							<?php
+ endif;
 						endif; ?>
 					</div>
-					<?php endif; ?>
-				</<?php echo $gallery_item_tag; ?>>
-			<?php endforeach;
+					<?php
+ endif; ?>
+				</<?php
+ echo $gallery_item_tag; ?>>
+			<?php
+ endforeach;
 			//endforeach; ?>
 		</div>
-	<?php }
+	<?php
+ }
 	}
 }

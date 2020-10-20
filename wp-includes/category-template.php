@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Taxonomy API: Core category-specific template tags
  *

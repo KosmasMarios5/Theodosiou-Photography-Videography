@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Theme Customize Screen.
  *
@@ -60,11 +61,14 @@ if ( $wp_customize->changeset_post_id() ) {
 		);
 		ob_start();
 		?>
-		<?php wp_print_scripts( array( 'wp-util' ) ); ?>
+		<?php
+ wp_print_scripts( array( 'wp-util' ) ); ?>
 		<script>
-			wp.ajax.post( 'customize_save', <?php echo wp_json_encode( $request_args ); ?> );
+			wp.ajax.post( 'customize_save', <?php
+ echo wp_json_encode( $request_args ); ?> );
 		</script>
 		<?php
+
 		$script = ob_get_clean();
 
 		wp_die(
@@ -83,7 +87,6 @@ if ( $wp_customize->changeset_post_id() ) {
 		);
 	}
 }
-
 
 wp_reset_vars( array( 'url', 'return', 'autofocus' ) );
 if ( ! empty( $url ) ) {
@@ -147,14 +150,17 @@ $body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( '_', '
 $admin_title = sprintf( $wp_customize->get_document_title_template(), __( 'Loading&hellip;' ) );
 
 ?>
-<title><?php echo esc_html( $admin_title ); ?></title>
+<title><?php
+ echo esc_html( $admin_title ); ?></title>
 
 <script type="text/javascript">
-var ajaxurl = <?php echo wp_json_encode( admin_url( 'admin-ajax.php', 'relative' ) ); ?>,
+var ajaxurl = <?php
+ echo wp_json_encode( admin_url( 'admin-ajax.php', 'relative' ) ); ?>,
 	pagenow = 'customize';
 </script>
 
 <?php
+
 /**
  * Fires when Customizer control styles are printed.
  *
@@ -177,39 +183,55 @@ do_action( 'customize_controls_print_scripts' );
 do_action( 'customize_controls_head' );
 ?>
 </head>
-<body class="<?php echo esc_attr( $body_class ); ?>">
+<body class="<?php
+ echo esc_attr( $body_class ); ?>">
 <div class="wp-full-overlay expanded">
 	<form id="customize-controls" class="wrap wp-full-overlay-sidebar">
 		<div id="customize-header-actions" class="wp-full-overlay-header">
 			<?php
+
 			$compatible_wp  = is_wp_version_compatible( $wp_customize->theme()->get( 'RequiresWP' ) );
 			$compatible_php = is_php_version_compatible( $wp_customize->theme()->get( 'RequiresPHP' ) );
 			?>
-			<?php if ( $compatible_wp && $compatible_php ) : ?>
-				<?php $save_text = $wp_customize->is_theme_active() ? __( 'Publish' ) : __( 'Activate &amp; Publish' ); ?>
+			<?php
+ if ( $compatible_wp && $compatible_php ) : ?>
+				<?php
+ $save_text = $wp_customize->is_theme_active() ? __( 'Publish' ) : __( 'Activate &amp; Publish' ); ?>
 				<div id="customize-save-button-wrapper" class="customize-save-button-wrapper" >
-					<?php submit_button( $save_text, 'primary save', 'save', false ); ?>
-					<button id="publish-settings" class="publish-settings button-primary button dashicons dashicons-admin-generic" aria-label="<?php esc_attr_e( 'Publish Settings' ); ?>" aria-expanded="false" disabled></button>
+					<?php
+ submit_button( $save_text, 'primary save', 'save', false ); ?>
+					<button id="publish-settings" class="publish-settings button-primary button dashicons dashicons-admin-generic" aria-label="<?php
+ esc_attr_e( 'Publish Settings' ); ?>" aria-expanded="false" disabled></button>
 				</div>
-			<?php else : ?>
-				<?php $save_text = _x( 'Cannot Activate', 'theme' ); ?>
+			<?php
+ else : ?>
+				<?php
+ $save_text = _x( 'Cannot Activate', 'theme' ); ?>
 				<div id="customize-save-button-wrapper" class="customize-save-button-wrapper disabled" >
-					<button class="button button-primary disabled" aria-label="<?php esc_attr_e( 'Publish Settings' ); ?>" aria-expanded="false" disabled><?php echo $save_text; ?></button>
+					<button class="button button-primary disabled" aria-label="<?php
+ esc_attr_e( 'Publish Settings' ); ?>" aria-expanded="false" disabled><?php
+ echo $save_text; ?></button>
 				</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 			<span class="spinner"></span>
 			<button type="button" class="customize-controls-preview-toggle">
-				<span class="controls"><?php _e( 'Customize' ); ?></span>
-				<span class="preview"><?php _e( 'Preview' ); ?></span>
+				<span class="controls"><?php
+ _e( 'Customize' ); ?></span>
+				<span class="preview"><?php
+ _e( 'Preview' ); ?></span>
 			</button>
-			<a class="customize-controls-close" href="<?php echo esc_url( $wp_customize->get_return_url() ); ?>">
-				<span class="screen-reader-text"><?php _e( 'Close the Customizer and go back to the previous page' ); ?></span>
+			<a class="customize-controls-close" href="<?php
+ echo esc_url( $wp_customize->get_return_url() ); ?>">
+				<span class="screen-reader-text"><?php
+ _e( 'Close the Customizer and go back to the previous page' ); ?></span>
 			</a>
 		</div>
 
 		<div id="customize-sidebar-outer-content">
 			<div id="customize-outer-theme-controls">
-				<ul class="customize-outer-pane-parent"><?php // Outer panel and sections are not implemented, but its here as a placeholder to avoid any side-effect in api.Section. ?></ul>
+				<ul class="customize-outer-pane-parent"><?php
+ // Outer panel and sections are not implemented, but its here as a placeholder to avoid any side-effect in api.Section. ?></ul>
 			</div>
 		</div>
 
@@ -222,36 +244,46 @@ do_action( 'customize_controls_head' );
 					<div class="accordion-section-title">
 						<span class="preview-notice">
 						<?php
+
 							/* translators: %s: The site/panel title in the Customizer. */
 							printf( __( 'You are customizing %s' ), '<strong class="panel-title site-title">' . get_bloginfo( 'name', 'display' ) . '</strong>' );
 						?>
 						</span>
-						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php
+ _e( 'Help' ); ?></span></button>
 					</div>
 					<div class="customize-panel-description">
 					<?php
+
 						_e( 'The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements.' );
 					?>
 					</div>
 				</div>
 
 				<div id="customize-theme-controls">
-					<ul class="customize-pane-parent"><?php // Panels and sections are managed here via JavaScript ?></ul>
+					<ul class="customize-pane-parent"><?php
+ // Panels and sections are managed here via JavaScript ?></ul>
 				</div>
 			</div>
 		</div>
 
 		<div id="customize-footer-actions" class="wp-full-overlay-footer">
-			<button type="button" class="collapse-sidebar button" aria-expanded="true" aria-label="<?php echo esc_attr( _x( 'Hide Controls', 'label for hide controls button without length constraints' ) ); ?>">
+			<button type="button" class="collapse-sidebar button" aria-expanded="true" aria-label="<?php
+ echo esc_attr( _x( 'Hide Controls', 'label for hide controls button without length constraints' ) ); ?>">
 				<span class="collapse-sidebar-arrow"></span>
-				<span class="collapse-sidebar-label"><?php _ex( 'Hide Controls', 'short (~12 characters) label for hide controls button' ); ?></span>
+				<span class="collapse-sidebar-label"><?php
+ _ex( 'Hide Controls', 'short (~12 characters) label for hide controls button' ); ?></span>
 			</button>
-			<?php $previewable_devices = $wp_customize->get_previewable_devices(); ?>
-			<?php if ( ! empty( $previewable_devices ) ) : ?>
+			<?php
+ $previewable_devices = $wp_customize->get_previewable_devices(); ?>
+			<?php
+ if ( ! empty( $previewable_devices ) ) : ?>
 			<div class="devices-wrapper">
 				<div class="devices">
-					<?php foreach ( (array) $previewable_devices as $device => $settings ) : ?>
+					<?php
+ foreach ( (array) $previewable_devices as $device => $settings ) : ?>
 						<?php
+
 						if ( empty( $settings['label'] ) ) {
 							continue;
 						}
@@ -261,13 +293,19 @@ do_action( 'customize_controls_head' );
 							$class .= ' active';
 						}
 						?>
-						<button type="button" class="<?php echo esc_attr( $class ); ?>" aria-pressed="<?php echo esc_attr( $active ); ?>" data-device="<?php echo esc_attr( $device ); ?>">
-							<span class="screen-reader-text"><?php echo esc_html( $settings['label'] ); ?></span>
+						<button type="button" class="<?php
+ echo esc_attr( $class ); ?>" aria-pressed="<?php
+ echo esc_attr( $active ); ?>" data-device="<?php
+ echo esc_attr( $device ); ?>">
+							<span class="screen-reader-text"><?php
+ echo esc_html( $settings['label'] ); ?></span>
 						</button>
-					<?php endforeach; ?>
+					<?php
+ endforeach; ?>
 				</div>
 			</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</div>
 	</form>
 	<div id="customize-preview" class="wp-full-overlay-main"></div>

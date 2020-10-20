@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Forms\Widgets;
 
 use Elementor\Controls_Manager;
@@ -1985,7 +1986,9 @@ class Form extends Form_Base {
 		if ( $is_new || $migrated ) {
 			Icons_Manager::render_icon( $settings['selected_button_icon'], [ 'aria-hidden' => 'true' ] );
 		} else {
-			?><i class="<?php echo esc_attr( $settings['button_icon'] ); ?>" aria-hidden="true"></i><?php
+			?><i class="<?php
+ echo esc_attr( $settings['button_icon'] ); ?>" aria-hidden="true"></i><?php
+
 		}
 	}
 
@@ -2073,18 +2076,26 @@ class Form extends Form_Base {
 		}
 
 		?>
-		<form class="elementor-form" method="post" <?php echo $this->get_render_attribute_string( 'form' ); ?>>
-			<input type="hidden" name="post_id" value="<?php echo Utils::get_current_post_id(); ?>"/>
-			<input type="hidden" name="form_id" value="<?php echo $this->get_id(); ?>"/>
+		<form class="elementor-form" method="post" <?php
+ echo $this->get_render_attribute_string( 'form' ); ?>>
+			<input type="hidden" name="post_id" value="<?php
+ echo Utils::get_current_post_id(); ?>"/>
+			<input type="hidden" name="form_id" value="<?php
+ echo $this->get_id(); ?>"/>
 
-			<?php if ( is_singular() ) {
+			<?php
+ if ( is_singular() ) {
 				// `queried_id` may be different from `post_id` on Single theme builder templates.
 				?>
-				<input type="hidden" name="queried_id" value="<?php echo get_the_ID(); ?>"/>
-			<?php } ?>
+				<input type="hidden" name="queried_id" value="<?php
+ echo get_the_ID(); ?>"/>
+			<?php
+ } ?>
 
-			<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+			<div <?php
+ echo $this->get_render_attribute_string( 'wrapper' ); ?>>
 				<?php
+
 				foreach ( $instance['form_fields'] as $item_index => $item ) :
 					$item['input_size'] = $instance['input_size'];
 					$this->form_fields_render_attributes( $item_index, $instance, $item );
@@ -2121,8 +2132,10 @@ class Form extends Form_Base {
 
 					$print_label = ! in_array( $item['field_type'], [ 'hidden', 'html', 'step' ], true );
 					?>
-				<div <?php echo $this->get_render_attribute_string( 'field-group' . $item_index ); ?>>
+				<div <?php
+ echo $this->get_render_attribute_string( 'field-group' . $item_index ); ?>>
 					<?php
+
 					if ( $print_label && $item['field_label'] ) {
 						echo '<label ' . $this->get_render_attribute_string( 'label' . $item_index ) . '>' . $item['field_label'] . '</label>';
 					}
@@ -2172,27 +2185,42 @@ class Form extends Form_Base {
 					endswitch;
 					?>
 				</div>
-				<?php endforeach; ?>
-				<div <?php echo $this->get_render_attribute_string( 'submit-group' ); ?>>
-					<button type="submit" <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-						<span <?php echo $this->get_render_attribute_string( 'content-wrapper' ); ?>>
-							<?php if ( ! empty( $instance['button_icon'] ) || ! empty( $instance['selected_button_icon'] ) ) : ?>
-								<span <?php echo $this->get_render_attribute_string( 'icon-align' ); ?>>
-									<?php $this->render_icon_with_fallback( $instance ); ?>
-									<?php if ( empty( $instance['button_text'] ) ) : ?>
-										<span class="elementor-screen-only"><?php _e( 'Submit', 'elementor-pro' ); ?></span>
-									<?php endif; ?>
+				<?php
+ endforeach; ?>
+				<div <?php
+ echo $this->get_render_attribute_string( 'submit-group' ); ?>>
+					<button type="submit" <?php
+ echo $this->get_render_attribute_string( 'button' ); ?>>
+						<span <?php
+ echo $this->get_render_attribute_string( 'content-wrapper' ); ?>>
+							<?php
+ if ( ! empty( $instance['button_icon'] ) || ! empty( $instance['selected_button_icon'] ) ) : ?>
+								<span <?php
+ echo $this->get_render_attribute_string( 'icon-align' ); ?>>
+									<?php
+ $this->render_icon_with_fallback( $instance ); ?>
+									<?php
+ if ( empty( $instance['button_text'] ) ) : ?>
+										<span class="elementor-screen-only"><?php
+ _e( 'Submit', 'elementor-pro' ); ?></span>
+									<?php
+ endif; ?>
 								</span>
-							<?php endif; ?>
-							<?php if ( ! empty( $instance['button_text'] ) ) : ?>
-								<span class="elementor-button-text"><?php echo $instance['button_text']; ?></span>
-							<?php endif; ?>
+							<?php
+ endif; ?>
+							<?php
+ if ( ! empty( $instance['button_text'] ) ) : ?>
+								<span class="elementor-button-text"><?php
+ echo $instance['button_text']; ?></span>
+							<?php
+ endif; ?>
 						</span>
 					</button>
 				</div>
 			</div>
 		</form>
 		<?php
+
 	}
 
 	/**
@@ -2366,7 +2394,6 @@ class Form extends Form_Base {
 						}
 					}
 
-
 					var buttonClasses = 'elementor-field-group elementor-column elementor-field-type-submit e-form__buttons';
 
 					buttonClasses += ' elementor-col-' + ( ( '' !== settings.button_width ) ? settings.button_width : '100' );
@@ -2394,7 +2421,8 @@ class Form extends Form_Base {
 										<# } else { #>
 											<i class="{{ settings.button_icon }}" aria-hidden="true"></i>
 										<# } #>
-										<span class="elementor-screen-only"><?php echo $submit_text; ?></span>
+										<span class="elementor-screen-only"><?php
+ echo $submit_text; ?></span>
 									</span>
 								<# } #>
 
@@ -2407,5 +2435,6 @@ class Form extends Form_Base {
 			</div>
 		</form>
 		<?php
+
 	}
 }

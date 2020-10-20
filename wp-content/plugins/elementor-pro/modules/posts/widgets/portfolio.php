@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Posts\Widgets;
 
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
@@ -548,9 +549,11 @@ class Portfolio extends Base_Widget {
 		$thumbnail_html = Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail_size' );
 		?>
 		<div class="elementor-portfolio-item__img elementor-post__thumbnail">
-			<?php echo $thumbnail_html; ?>
+			<?php
+ echo $thumbnail_html; ?>
 		</div>
 		<?php
+
 	}
 
 	protected function render_filter_menu() {
@@ -576,12 +579,18 @@ class Portfolio extends Base_Widget {
 
 		?>
 		<ul class="elementor-portfolio__filters">
-			<li class="elementor-portfolio__filter elementor-active" data-filter="__all"><?php echo __( 'All', 'elementor-pro' ); ?></li>
-			<?php foreach ( $terms as $term ) { ?>
-				<li class="elementor-portfolio__filter" data-filter="<?php echo esc_attr( $term->term_id ); ?>"><?php echo $term->name; ?></li>
-			<?php } ?>
+			<li class="elementor-portfolio__filter elementor-active" data-filter="__all"><?php
+ echo __( 'All', 'elementor-pro' ); ?></li>
+			<?php
+ foreach ( $terms as $term ) { ?>
+				<li class="elementor-portfolio__filter" data-filter="<?php
+ echo esc_attr( $term->term_id ); ?>"><?php
+ echo $term->name; ?></li>
+			<?php
+ } ?>
 		</ul>
 		<?php
+
 	}
 
 	protected function render_title() {
@@ -591,10 +600,14 @@ class Portfolio extends Base_Widget {
 
 		$tag = $this->get_settings( 'title_tag' );
 		?>
-		<<?php echo $tag; ?> class="elementor-portfolio-item__title">
-		<?php the_title(); ?>
-		</<?php echo $tag; ?>>
+		<<?php
+ echo $tag; ?> class="elementor-portfolio-item__title">
 		<?php
+ the_title(); ?>
+		</<?php
+ echo $tag; ?>>
+		<?php
+
 	}
 
 	protected function render_categories_names() {
@@ -614,9 +627,11 @@ class Portfolio extends Base_Widget {
 
 		?>
 		<div class="elementor-portfolio-item__tags">
-			<?php echo implode( $separator, $tags_array ); ?>
+			<?php
+ echo implode( $separator, $tags_array ); ?>
 		</div>
 		<?php
+
 	}
 
 	protected function render_post_header() {
@@ -633,9 +648,12 @@ class Portfolio extends Base_Widget {
 		];
 
 		?>
-		<article <?php post_class( $classes ); ?>>
-			<a class="elementor-post__thumbnail__link" href="<?php echo get_permalink(); ?>">
+		<article <?php
+ post_class( $classes ); ?>>
+			<a class="elementor-post__thumbnail__link" href="<?php
+ echo get_permalink(); ?>">
 		<?php
+
 	}
 
 	protected function render_post_footer() {
@@ -643,18 +661,21 @@ class Portfolio extends Base_Widget {
 		</a>
 		</article>
 		<?php
+
 	}
 
 	protected function render_overlay_header() {
 		?>
 		<div class="elementor-portfolio-item__overlay">
 		<?php
+
 	}
 
 	protected function render_overlay_footer() {
 		?>
 		</div>
 		<?php
+
 	}
 
 	protected function render_loop_header() {
@@ -664,12 +685,14 @@ class Portfolio extends Base_Widget {
 		?>
 		<div class="elementor-portfolio elementor-grid elementor-posts-container">
 		<?php
+
 	}
 
 	protected function render_loop_footer() {
 		?>
 		</div>
 		<?php
+
 	}
 
 	protected function render_post() {

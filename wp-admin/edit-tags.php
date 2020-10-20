@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Edit Tags Administration Screen.
  *
@@ -334,9 +335,11 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 ?>
 
 <div class="wrap nosubsub">
-<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+<h1 class="wp-heading-inline"><?php
+ echo esc_html( $title ); ?></h1>
 
 <?php
+
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 	/* translators: %s: Search query. */
 	printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', esc_html( wp_unslash( $_REQUEST['s'] ) ) );
@@ -345,23 +348,31 @@ if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 
 <hr class="wp-header-end">
 
-<?php if ( $message ) : ?>
-<div id="message" class="<?php echo $class; ?> notice is-dismissible"><p><?php echo $message; ?></p></div>
+<?php
+ if ( $message ) : ?>
+<div id="message" class="<?php
+ echo $class; ?> notice is-dismissible"><p><?php
+ echo $message; ?></p></div>
 	<?php
+
 	$_SERVER['REQUEST_URI'] = remove_query_arg( array( 'message', 'error' ), $_SERVER['REQUEST_URI'] );
 endif;
 ?>
 <div id="ajax-response"></div>
 
 <form class="search-form wp-clearfix" method="get">
-<input type="hidden" name="taxonomy" value="<?php echo esc_attr( $taxonomy ); ?>" />
-<input type="hidden" name="post_type" value="<?php echo esc_attr( $post_type ); ?>" />
+<input type="hidden" name="taxonomy" value="<?php
+ echo esc_attr( $taxonomy ); ?>" />
+<input type="hidden" name="post_type" value="<?php
+ echo esc_attr( $post_type ); ?>" />
 
-<?php $wp_list_table->search_box( $tax->labels->search_items, 'tag' ); ?>
+<?php
+ $wp_list_table->search_box( $tax->labels->search_items, 'tag' ); ?>
 
 </form>
 
 <?php
+
 $can_edit_terms = current_user_can( $tax->cap->edit_terms );
 
 if ( $can_edit_terms ) {
@@ -372,6 +383,7 @@ if ( $can_edit_terms ) {
 <div class="col-wrap">
 
 	<?php
+
 	if ( 'category' === $taxonomy ) {
 		/**
 		 * Fires before the Add Category form.
@@ -417,9 +429,11 @@ if ( $can_edit_terms ) {
 	?>
 
 <div class="form-wrap">
-<h2><?php echo $tax->labels->add_new_item; ?></h2>
+<h2><?php
+ echo $tax->labels->add_new_item; ?></h2>
 <form id="addtag" method="post" action="edit-tags.php" class="validate"
 	<?php
+
 	/**
 	 * Fires inside the Add Tag form tag.
 	 *
@@ -431,27 +445,40 @@ if ( $can_edit_terms ) {
 	?>
 >
 <input type="hidden" name="action" value="add-tag" />
-<input type="hidden" name="screen" value="<?php echo esc_attr( $current_screen->id ); ?>" />
-<input type="hidden" name="taxonomy" value="<?php echo esc_attr( $taxonomy ); ?>" />
-<input type="hidden" name="post_type" value="<?php echo esc_attr( $post_type ); ?>" />
-	<?php wp_nonce_field( 'add-tag', '_wpnonce_add-tag' ); ?>
+<input type="hidden" name="screen" value="<?php
+ echo esc_attr( $current_screen->id ); ?>" />
+<input type="hidden" name="taxonomy" value="<?php
+ echo esc_attr( $taxonomy ); ?>" />
+<input type="hidden" name="post_type" value="<?php
+ echo esc_attr( $post_type ); ?>" />
+	<?php
+ wp_nonce_field( 'add-tag', '_wpnonce_add-tag' ); ?>
 
 <div class="form-field form-required term-name-wrap">
-	<label for="tag-name"><?php _ex( 'Name', 'term name' ); ?></label>
+	<label for="tag-name"><?php
+ _ex( 'Name', 'term name' ); ?></label>
 	<input name="tag-name" id="tag-name" type="text" value="" size="40" aria-required="true" />
-	<p><?php _e( 'The name is how it appears on your site.' ); ?></p>
+	<p><?php
+ _e( 'The name is how it appears on your site.' ); ?></p>
 </div>
-	<?php if ( ! global_terms_enabled() ) : ?>
+	<?php
+ if ( ! global_terms_enabled() ) : ?>
 <div class="form-field term-slug-wrap">
-	<label for="tag-slug"><?php _e( 'Slug' ); ?></label>
+	<label for="tag-slug"><?php
+ _e( 'Slug' ); ?></label>
 	<input name="slug" id="tag-slug" type="text" value="" size="40" />
-	<p><?php _e( 'The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.' ); ?></p>
+	<p><?php
+ _e( 'The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.' ); ?></p>
 </div>
-<?php endif; // global_terms_enabled() ?>
-	<?php if ( is_taxonomy_hierarchical( $taxonomy ) ) : ?>
+<?php
+ endif; // global_terms_enabled() ?>
+	<?php
+ if ( is_taxonomy_hierarchical( $taxonomy ) ) : ?>
 <div class="form-field term-parent-wrap">
-	<label for="parent"><?php echo esc_html( $tax->labels->parent_item ); ?></label>
+	<label for="parent"><?php
+ echo esc_html( $tax->labels->parent_item ); ?></label>
 		<?php
+
 		$dropdown_args = array(
 			'hide_empty'       => 0,
 			'hide_if_empty'    => false,
@@ -487,20 +514,29 @@ if ( $can_edit_terms ) {
 
 		wp_dropdown_categories( $dropdown_args );
 		?>
-		<?php if ( 'category' === $taxonomy ) : ?>
-		<p><?php _e( 'Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have children categories for Bebop and Big Band. Totally optional.' ); ?></p>
-	<?php else : ?>
-		<p><?php _e( 'Assign a parent term to create a hierarchy. The term Jazz, for example, would be the parent of Bebop and Big Band.' ); ?></p>
-	<?php endif; ?>
+		<?php
+ if ( 'category' === $taxonomy ) : ?>
+		<p><?php
+ _e( 'Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have children categories for Bebop and Big Band. Totally optional.' ); ?></p>
+	<?php
+ else : ?>
+		<p><?php
+ _e( 'Assign a parent term to create a hierarchy. The term Jazz, for example, would be the parent of Bebop and Big Band.' ); ?></p>
+	<?php
+ endif; ?>
 </div>
-	<?php endif; // is_taxonomy_hierarchical() ?>
+	<?php
+ endif; // is_taxonomy_hierarchical() ?>
 <div class="form-field term-description-wrap">
-	<label for="tag-description"><?php _e( 'Description' ); ?></label>
+	<label for="tag-description"><?php
+ _e( 'Description' ); ?></label>
 	<textarea name="description" id="tag-description" rows="5" cols="40"></textarea>
-	<p><?php _e( 'The description is not prominent by default; however, some themes may show it.' ); ?></p>
+	<p><?php
+ _e( 'The description is not prominent by default; however, some themes may show it.' ); ?></p>
 </div>
 
 	<?php
+
 	if ( ! is_taxonomy_hierarchical( $taxonomy ) ) {
 		/**
 		 * Fires after the Add Tag form fields for non-hierarchical taxonomies.
@@ -524,10 +560,12 @@ if ( $can_edit_terms ) {
 	do_action( "{$taxonomy}_add_form_fields", $taxonomy );
 	?>
 	<p class="submit">
-		<?php submit_button( $tax->labels->add_new_item, 'primary', 'submit', false ); ?>
+		<?php
+ submit_button( $tax->labels->add_new_item, 'primary', 'submit', false ); ?>
 		<span class="spinner"></span>
 	</p>
 	<?php
+
 	if ( 'category' === $taxonomy ) {
 		/**
 		 * Fires at the end of the Edit Category form.
@@ -577,22 +615,29 @@ if ( $can_edit_terms ) {
 
 <div id="col-right">
 <div class="col-wrap">
-<?php } ?>
+<?php
+ } ?>
 
-<?php $wp_list_table->views(); ?>
+<?php
+ $wp_list_table->views(); ?>
 
 <form id="posts-filter" method="post">
-<input type="hidden" name="taxonomy" value="<?php echo esc_attr( $taxonomy ); ?>" />
-<input type="hidden" name="post_type" value="<?php echo esc_attr( $post_type ); ?>" />
+<input type="hidden" name="taxonomy" value="<?php
+ echo esc_attr( $taxonomy ); ?>" />
+<input type="hidden" name="post_type" value="<?php
+ echo esc_attr( $post_type ); ?>" />
 
-<?php $wp_list_table->display(); ?>
+<?php
+ $wp_list_table->display(); ?>
 
 </form>
 
-<?php if ( 'category' === $taxonomy ) : ?>
+<?php
+ if ( 'category' === $taxonomy ) : ?>
 <div class="form-wrap edit-term-notes">
 <p>
 	<?php
+
 	printf(
 		/* translators: %s: Default category. */
 		__( 'Deleting a category does not delete the posts in that category. Instead, posts that were only assigned to the deleted category are set to the default category %s. The default category cannot be deleted.' ),
@@ -601,9 +646,11 @@ if ( $can_edit_terms ) {
 	);
 	?>
 </p>
-	<?php if ( current_user_can( 'import' ) ) : ?>
+	<?php
+ if ( current_user_can( 'import' ) ) : ?>
 	<p>
 		<?php
+
 		printf(
 			/* translators: %s: URL to Categories to Tags Converter tool. */
 			__( 'Categories can be selectively converted to tags using the <a href="%s">category to tag converter</a>.' ),
@@ -611,12 +658,15 @@ if ( $can_edit_terms ) {
 		);
 		?>
 	</p>
-	<?php endif; ?>
+	<?php
+ endif; ?>
 </div>
-<?php elseif ( 'post_tag' === $taxonomy && current_user_can( 'import' ) ) : ?>
+<?php
+ elseif ( 'post_tag' === $taxonomy && current_user_can( 'import' ) ) : ?>
 <div class="form-wrap edit-term-notes">
 <p>
 	<?php
+
 	printf(
 		/* translators: %s: URL to Categories to Tags Converter tool. */
 		__( 'Tags can be selectively converted to categories using the <a href="%s">tag to category converter</a>.' ),
@@ -626,6 +676,7 @@ if ( $can_edit_terms ) {
 	</p>
 </div>
 	<?php
+
 endif;
 
 /**
@@ -645,15 +696,18 @@ if ( $can_edit_terms ) {
 </div><!-- /col-right -->
 
 </div><!-- /col-container -->
-<?php } ?>
+<?php
+ } ?>
 
 </div><!-- /wrap -->
 
-<?php if ( ! wp_is_mobile() ) : ?>
+<?php
+ if ( ! wp_is_mobile() ) : ?>
 <script type="text/javascript">
 try{document.forms.addtag['tag-name'].focus();}catch(e){}
 </script>
 	<?php
+
 endif;
 
 $wp_list_table->inline_edit();

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -105,5 +106,6 @@ abstract class Control_Base_Units extends Control_Base_Multiple {
 		</div>
 		<# } #>
 		<?php
+
 	}
 }

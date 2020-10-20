@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Sticky;
 
 use Elementor\Controls_Manager;

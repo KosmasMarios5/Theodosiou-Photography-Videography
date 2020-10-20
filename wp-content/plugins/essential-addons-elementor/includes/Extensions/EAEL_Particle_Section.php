@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Extensions;
 
 if (!defined('ABSPATH')) {
@@ -177,12 +178,15 @@ class EAEL_Particle_Section
 
         if (('section' == $type) && ($element->get_settings('eael_particle_switch') == 'yes')) { ?>
             <style>
-                .elementor-element-<?php echo $element->get_id(); ?>.eael-particles-section > canvas {
-                    z-index: <?php echo $zindex; ?>;
+                .elementor-element-<?php
+ echo $element->get_id(); ?>.eael-particles-section > canvas {
+                    z-index: <?php
+ echo $zindex; ?>;
                     position: absolute;
                     top:0;
                 }
             </style>
-        <?php }
+        <?php
+ }
     }
 }

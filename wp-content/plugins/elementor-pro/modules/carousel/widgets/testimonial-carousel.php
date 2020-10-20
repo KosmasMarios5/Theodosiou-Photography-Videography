@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Carousel\Widgets;
 
 use Elementor\Controls_Manager;
@@ -606,25 +607,35 @@ class Testimonial_Carousel extends Base {
 		}
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( $element_key . '-testimonial' ); ?>>
-			<?php if ( $slide['content'] ) : ?>
+		<div <?php
+ echo $this->get_render_attribute_string( $element_key . '-testimonial' ); ?>>
+			<?php
+ if ( $slide['content'] ) : ?>
 				<div class="elementor-testimonial__content">
 					<div class="elementor-testimonial__text">
-						<?php echo $slide['content']; ?>
+						<?php
+ echo $slide['content']; ?>
 					</div>
-					<?php echo $this->print_cite( $slide, 'outside' ); ?>
+					<?php
+ echo $this->print_cite( $slide, 'outside' ); ?>
 				</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 			<div class="elementor-testimonial__footer">
-				<?php if ( $slide['image']['url'] ) : ?>
+				<?php
+ if ( $slide['image']['url'] ) : ?>
 					<div class="elementor-testimonial__image">
-						<img <?php echo $this->get_render_attribute_string( $element_key . '-image' ); ?>>
+						<img <?php
+ echo $this->get_render_attribute_string( $element_key . '-image' ); ?>>
 					</div>
-				<?php endif; ?>
-				<?php echo $this->print_cite( $slide, 'inside' ); ?>
+				<?php
+ endif; ?>
+				<?php
+ echo $this->print_cite( $slide, 'inside' ); ?>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	protected function render() {

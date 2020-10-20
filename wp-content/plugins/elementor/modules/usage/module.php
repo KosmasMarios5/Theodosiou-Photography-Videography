@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\Usage;
 
 use Elementor\Core\Base\Document;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Tools Administration Screen.
  *
@@ -60,7 +61,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 ?>
 <div class="wrap">
-<h1><?php echo esc_html( $title ); ?></h1>
+<h1><?php
+ echo esc_html( $title ); ?></h1>
 <?php
 
 if ( current_user_can( 'import' ) ) :
@@ -69,9 +71,11 @@ if ( current_user_can( 'import' ) ) :
 	if ( current_user_can( $cats->cap->manage_terms ) || current_user_can( $tags->cap->manage_terms ) ) :
 		?>
 		<div class="card">
-			<h2 class="title"><?php _e( 'Categories and Tags Converter' ); ?></h2>
+			<h2 class="title"><?php
+ _e( 'Categories and Tags Converter' ); ?></h2>
 			<p>
 			<?php
+
 				printf(
 					/* translators: %s: URL to Import screen. */
 					__( 'If you want to convert your categories to tags (or vice versa), use the <a href="%s">Categories and Tags Converter</a> available from the Import screen.' ),
@@ -81,6 +85,7 @@ if ( current_user_can( 'import' ) ) :
 			</p>
 		</div>
 		<?php
+
 	endif;
 endif;
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ExactMetrics Installation and Automatic Upgrades.
  *
@@ -149,7 +150,6 @@ class ExactMetrics_Install {
 		 * Therefore you should never increment exactmetrics_db_version in this file and always increment exactmetrics_current_version.
 		 */
 	}
-
 
 	/**
 	 * New ExactMetrics Install routine.
@@ -389,7 +389,6 @@ class ExactMetrics_Install {
 
 		// Enable compat mode
 		$settings['gatracker_compatibility_mode'] = true;
-
 
 		$settings['gadwp_migrated'] = time();
 

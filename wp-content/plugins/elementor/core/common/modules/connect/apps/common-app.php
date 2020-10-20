@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Common\Modules\Connect\Apps;
 
 if ( ! defined( 'ABSPATH' ) ) {

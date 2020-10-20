@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Link Template Functions
  *
@@ -4011,7 +4012,6 @@ function the_shortlink( $text = '', $title = '', $before = '', $after = '' ) {
 	}
 }
 
-
 /**
  * Retrieves the avatar URL.
  *
@@ -4044,7 +4044,6 @@ function get_avatar_url( $id_or_email, $args = null ) {
 	return $args['url'];
 }
 
-
 /**
  * Check if this comment type allows avatars to be retrieved.
  *
@@ -4065,7 +4064,6 @@ function is_avatar_comment_type( $comment_type ) {
 
 	return in_array( $comment_type, (array) $allowed_comment_types, true );
 }
-
 
 /**
  * Retrieves default data about the avatar.

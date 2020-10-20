@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\RoleManager;
 
 use ElementorPro\Plugin;
@@ -42,11 +43,17 @@ class Module extends Module_Base {
 		$checked = isset( $options['advanced_options'][ $role_slug ] ) ? $options['advanced_options'][ $role_slug ] : [];
 
 		?>
-		<label for="<?php echo esc_attr( $id ); ?>">
-			<input type="checkbox" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $id ); ?>" value="design" <?php checked( in_array( 'design', $checked ), true ); ?>>
-			<?php esc_html_e( 'Access to edit content only', 'elementor-pro' ); ?>
+		<label for="<?php
+ echo esc_attr( $id ); ?>">
+			<input type="checkbox" name="<?php
+ echo esc_attr( $name ); ?>" id="<?php
+ echo esc_attr( $id ); ?>" value="design" <?php
+ checked( in_array( 'design', $checked ), true ); ?>>
+			<?php
+ esc_html_e( 'Access to edit content only', 'elementor-pro' ); ?>
 		</label>
 		<?php
+
 	}
 
 	public function register_admin_fields( RoleManagerBase $role_manager ) {

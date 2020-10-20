@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Core\DynamicTags\Manager;
@@ -408,7 +409,6 @@ class DB {
 
 		setup_postdata( $GLOBALS['post'] );
 	}
-
 
 	/**
 	 * Switch to query.

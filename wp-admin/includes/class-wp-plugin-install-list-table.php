@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_Plugin_Install_List_Table class
  *
@@ -274,12 +275,17 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 */
 	public function no_items() {
 		if ( isset( $this->error ) ) { ?>
-			<div class="inline error"><p><?php echo $this->error->get_error_message(); ?></p>
-				<p class="hide-if-no-js"><button class="button try-again"><?php _e( 'Try Again' ); ?></button></p>
+			<div class="inline error"><p><?php
+ echo $this->error->get_error_message(); ?></p>
+				<p class="hide-if-no-js"><button class="button try-again"><?php
+ _e( 'Try Again' ); ?></button></p>
 			</div>
-		<?php } else { ?>
-			<div class="no-plugin-results"><?php _e( 'No plugins found. Try a different search.' ); ?></div>
+		<?php
+ } else { ?>
+			<div class="no-plugin-results"><?php
+ _e( 'No plugins found. Try a different search.' ); ?></div>
 			<?php
+
 		}
 	}
 
@@ -318,6 +324,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 <div class="wp-filter">
 	<ul class="filter-links">
 		<?php
+
 		if ( ! empty( $views ) ) {
 			foreach ( $views as $class => $view ) {
 				$views[ $class ] = "\t<li class='$class'>$view";
@@ -327,9 +334,11 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		?>
 	</ul>
 
-		<?php install_search_form(); ?>
+		<?php
+ install_search_form(); ?>
 </div>
 		<?php
+
 	}
 
 	/**
@@ -351,15 +360,20 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		$this->display_tablenav( 'top' );
 
 		?>
-<div class="wp-list-table <?php echo implode( ' ', $this->get_table_classes() ); ?>">
+<div class="wp-list-table <?php
+ echo implode( ' ', $this->get_table_classes() ); ?>">
 		<?php
+
 		$this->screen->render_screen_reader_content( 'heading_list' );
 		?>
-	<div id="the-list"<?php echo $data_attr; ?>>
-		<?php $this->display_rows_or_placeholder(); ?>
+	<div id="the-list"<?php
+ echo $data_attr; ?>>
+		<?php
+ $this->display_rows_or_placeholder(); ?>
 	</div>
 </div>
 		<?php
+
 		$this->display_tablenav( 'bottom' );
 	}
 
@@ -379,6 +393,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			<div class="tablenav top">
 				<div class="alignleft actions">
 					<?php
+
 					/**
 					 * Fires before the Plugin Install table header pagination is displayed.
 					 *
@@ -387,15 +402,19 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 					do_action( 'install_plugins_table_header' );
 					?>
 				</div>
-				<?php $this->pagination( $which ); ?>
+				<?php
+ $this->pagination( $which ); ?>
 				<br class="clear" />
 			</div>
-		<?php } else { ?>
+		<?php
+ } else { ?>
 			<div class="tablenav bottom">
-				<?php $this->pagination( $which ); ?>
+				<?php
+ $this->pagination( $which ); ?>
 				<br class="clear" />
 			</div>
 			<?php
+
 		}
 	}
 
@@ -642,8 +661,10 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 
 			$last_updated_timestamp = strtotime( $plugin['last_updated'] );
 			?>
-		<div class="plugin-card plugin-card-<?php echo sanitize_html_class( $plugin['slug'] ); ?>">
+		<div class="plugin-card plugin-card-<?php
+ echo sanitize_html_class( $plugin['slug'] ); ?>">
 			<?php
+
 			if ( ! $compatible_php || ! $compatible_wp ) {
 				echo '<div class="notice inline notice-error notice-alt"><p>';
 				if ( ! $compatible_php && ! $compatible_wp ) {
@@ -696,27 +717,34 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			<div class="plugin-card-top">
 				<div class="name column-name">
 					<h3>
-						<a href="<?php echo esc_url( $details_link ); ?>" class="thickbox open-plugin-details-modal">
-						<?php echo $title; ?>
-						<img src="<?php echo esc_attr( $plugin_icon_url ); ?>" class="plugin-icon" alt="" />
+						<a href="<?php
+ echo esc_url( $details_link ); ?>" class="thickbox open-plugin-details-modal">
+						<?php
+ echo $title; ?>
+						<img src="<?php
+ echo esc_attr( $plugin_icon_url ); ?>" class="plugin-icon" alt="" />
 						</a>
 					</h3>
 				</div>
 				<div class="action-links">
 					<?php
+
 					if ( $action_links ) {
 						echo '<ul class="plugin-action-buttons"><li>' . implode( '</li><li>', $action_links ) . '</li></ul>';
 					}
 					?>
 				</div>
 				<div class="desc column-description">
-					<p><?php echo $description; ?></p>
-					<p class="authors"><?php echo $author; ?></p>
+					<p><?php
+ echo $description; ?></p>
+					<p class="authors"><?php
+ echo $author; ?></p>
 				</div>
 			</div>
 			<div class="plugin-card-bottom">
 				<div class="vers column-rating">
 					<?php
+
 					wp_star_rating(
 						array(
 							'rating' => $plugin['rating'],
@@ -725,17 +753,21 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 						)
 					);
 					?>
-					<span class="num-ratings" aria-hidden="true">(<?php echo number_format_i18n( $plugin['num_ratings'] ); ?>)</span>
+					<span class="num-ratings" aria-hidden="true">(<?php
+ echo number_format_i18n( $plugin['num_ratings'] ); ?>)</span>
 				</div>
 				<div class="column-updated">
-					<strong><?php _e( 'Last Updated:' ); ?></strong>
+					<strong><?php
+ _e( 'Last Updated:' ); ?></strong>
 					<?php
+
 						/* translators: %s: Human-readable time difference. */
 						printf( __( '%s ago' ), human_time_diff( $last_updated_timestamp ) );
 					?>
 				</div>
 				<div class="column-downloaded">
 					<?php
+
 					if ( $plugin['active_installs'] >= 1000000 ) {
 						$active_installs_millions = floor( $plugin['active_installs'] / 1000000 );
 						$active_installs_text     = sprintf(
@@ -754,6 +786,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 				</div>
 				<div class="column-compatibility">
 					<?php
+
 					if ( ! $tested_wp ) {
 						echo '<span class="compatibility-untested">' . __( 'Untested with your version of WordPress' ) . '</span>';
 					} elseif ( ! $compatible_wp ) {
@@ -766,6 +799,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			</div>
 		</div>
 			<?php
+
 		}
 
 		// Close off the group divs of the last one.

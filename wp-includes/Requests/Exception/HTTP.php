@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception based on HTTP response
  *

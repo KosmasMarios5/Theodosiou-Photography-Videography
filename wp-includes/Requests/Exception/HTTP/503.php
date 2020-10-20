@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 503 Service Unavailable responses
  *

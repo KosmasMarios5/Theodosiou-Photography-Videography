@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport;
 
 use ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager;

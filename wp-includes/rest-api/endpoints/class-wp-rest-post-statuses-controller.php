@@ -1,4 +1,5 @@
 <?php
+
 /**
  * REST API: WP_REST_Post_Statuses_Controller class
  *

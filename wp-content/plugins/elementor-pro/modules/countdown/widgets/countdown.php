@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Countdown\Widgets;
 
 use Elementor\Controls_Manager;
@@ -655,10 +656,13 @@ class Countdown extends Base_Widget {
 		] );
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'div' ); ?>>
-			<?php echo $string; ?>
+		<div <?php
+ echo $this->get_render_attribute_string( 'div' ); ?>>
+			<?php
+ echo $string; ?>
 		</div>
 		<?php
+
 		if ( $actions && is_array( $actions ) ) {
 			foreach ( $actions as $action ) {
 				if ( 'message' !== $action['type'] ) {

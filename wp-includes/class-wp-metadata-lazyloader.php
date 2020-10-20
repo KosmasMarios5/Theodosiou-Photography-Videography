@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Meta API: WP_Metadata_Lazyloader class
  *

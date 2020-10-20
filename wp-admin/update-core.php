@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Update Core administration panel.
  *
@@ -194,11 +195,14 @@ function dismissed_updates() {
 	<script type="text/javascript">
 		jQuery(function( $ ) {
 			$( 'dismissed-updates' ).show();
-			$( '#show-dismissed' ).toggle( function() { $( this ).text( '<?php echo $hide_text; ?>' ).attr( 'aria-expanded', 'true' ); }, function() { $( this ).text( '<?php echo $show_text; ?>' ).attr( 'aria-expanded', 'false' ); } );
+			$( '#show-dismissed' ).toggle( function() { $( this ).text( '<?php
+ echo $hide_text; ?>' ).attr( 'aria-expanded', 'true' ); }, function() { $( this ).text( '<?php
+ echo $show_text; ?>' ).attr( 'aria-expanded', 'false' ); } );
 			$( '#show-dismissed' ).click( function() { $( '#dismissed-updates' ).toggle( 'fast' ); } );
 		});
 	</script>
 		<?php
+
 		echo '<p class="hide-if-no-js"><button type="button" class="button" id="show-dismissed" aria-expanded="false">' . __( 'Show hidden updates' ) . '</button></p>';
 		echo '<ul id="dismissed-updates" class="core-updates dismissed">';
 		foreach ( (array) $dismissed as $update ) {
@@ -317,16 +321,22 @@ function list_plugin_updates() {
 		$core_update_version = $core_updates[0]->current;
 	}
 	?>
-<h2><?php _e( 'Plugins' ); ?></h2>
-<p><?php _e( 'The following plugins have new versions available. Check the ones you want to update and then click &#8220;Update Plugins&#8221;.' ); ?></p>
-<form method="post" action="<?php echo esc_url( $form_action ); ?>" name="upgrade-plugins" class="upgrade">
-	<?php wp_nonce_field( 'upgrade-core' ); ?>
-<p><input id="upgrade-plugins" class="button" type="submit" value="<?php esc_attr_e( 'Update Plugins' ); ?>" name="upgrade" /></p>
+<h2><?php
+ _e( 'Plugins' ); ?></h2>
+<p><?php
+ _e( 'The following plugins have new versions available. Check the ones you want to update and then click &#8220;Update Plugins&#8221;.' ); ?></p>
+<form method="post" action="<?php
+ echo esc_url( $form_action ); ?>" name="upgrade-plugins" class="upgrade">
+	<?php
+ wp_nonce_field( 'upgrade-core' ); ?>
+<p><input id="upgrade-plugins" class="button" type="submit" value="<?php
+ esc_attr_e( 'Update Plugins' ); ?>" name="upgrade" /></p>
 <table class="widefat updates-table" id="update-plugins-table">
 	<thead>
 	<tr>
 		<td class="manage-column check-column"><input type="checkbox" id="plugins-select-all" /></td>
-		<td class="manage-column"><label for="plugins-select-all"><?php _e( 'Select All' ); ?></label></td>
+		<td class="manage-column"><label for="plugins-select-all"><?php
+ _e( 'Select All' ); ?></label></td>
 	</tr>
 	</thead>
 
@@ -409,20 +419,29 @@ function list_plugin_updates() {
 		?>
 	<tr>
 		<td class="check-column">
-			<?php if ( $compatible_php ) : ?>
-				<input type="checkbox" name="checked[]" id="<?php echo $checkbox_id; ?>" value="<?php echo esc_attr( $plugin_file ); ?>" />
-				<label for="<?php echo $checkbox_id; ?>" class="screen-reader-text">
+			<?php
+ if ( $compatible_php ) : ?>
+				<input type="checkbox" name="checked[]" id="<?php
+ echo $checkbox_id; ?>" value="<?php
+ echo esc_attr( $plugin_file ); ?>" />
+				<label for="<?php
+ echo $checkbox_id; ?>" class="screen-reader-text">
 					<?php
+
 					/* translators: %s: Plugin name. */
 					printf( __( 'Select %s' ), $plugin_data->Name );
 					?>
 				</label>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</td>
 		<td class="plugin-title"><p>
-			<?php echo $icon; ?>
-			<strong><?php echo $plugin_data->Name; ?></strong>
 			<?php
+ echo $icon; ?>
+			<strong><?php
+ echo $plugin_data->Name; ?></strong>
+			<?php
+
 			printf(
 				/* translators: 1: Plugin version, 2: New version. */
 				__( 'You have version %1$s installed. Update to %2$s.' ),
@@ -439,6 +458,7 @@ function list_plugin_updates() {
 		</p></td>
 	</tr>
 			<?php
+
 	}
 	?>
 	</tbody>
@@ -446,13 +466,16 @@ function list_plugin_updates() {
 	<tfoot>
 	<tr>
 		<td class="manage-column check-column"><input type="checkbox" id="plugins-select-all-2" /></td>
-		<td class="manage-column"><label for="plugins-select-all-2"><?php _e( 'Select All' ); ?></label></td>
+		<td class="manage-column"><label for="plugins-select-all-2"><?php
+ _e( 'Select All' ); ?></label></td>
 	</tr>
 	</tfoot>
 </table>
-<p><input id="upgrade-plugins-2" class="button" type="submit" value="<?php esc_attr_e( 'Update Plugins' ); ?>" name="upgrade" /></p>
+<p><input id="upgrade-plugins-2" class="button" type="submit" value="<?php
+ esc_attr_e( 'Update Plugins' ); ?>" name="upgrade" /></p>
 </form>
 	<?php
+
 }
 
 /**
@@ -470,10 +493,13 @@ function list_theme_updates() {
 
 	$form_action = 'update-core.php?action=do-theme-upgrade';
 	?>
-<h2><?php _e( 'Themes' ); ?></h2>
-<p><?php _e( 'The following themes have new versions available. Check the ones you want to update and then click &#8220;Update Themes&#8221;.' ); ?></p>
+<h2><?php
+ _e( 'Themes' ); ?></h2>
+<p><?php
+ _e( 'The following themes have new versions available. Check the ones you want to update and then click &#8220;Update Themes&#8221;.' ); ?></p>
 <p>
 	<?php
+
 	printf(
 		/* translators: %s: Link to documentation on child themes. */
 		__( '<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using <a href="%s">child themes</a> for modifications.' ),
@@ -481,19 +507,24 @@ function list_theme_updates() {
 	);
 	?>
 </p>
-<form method="post" action="<?php echo esc_url( $form_action ); ?>" name="upgrade-themes" class="upgrade">
-	<?php wp_nonce_field( 'upgrade-core' ); ?>
-<p><input id="upgrade-themes" class="button" type="submit" value="<?php esc_attr_e( 'Update Themes' ); ?>" name="upgrade" /></p>
+<form method="post" action="<?php
+ echo esc_url( $form_action ); ?>" name="upgrade-themes" class="upgrade">
+	<?php
+ wp_nonce_field( 'upgrade-core' ); ?>
+<p><input id="upgrade-themes" class="button" type="submit" value="<?php
+ esc_attr_e( 'Update Themes' ); ?>" name="upgrade" /></p>
 <table class="widefat updates-table" id="update-themes-table">
 	<thead>
 	<tr>
 		<td class="manage-column check-column"><input type="checkbox" id="themes-select-all" /></td>
-		<td class="manage-column"><label for="themes-select-all"><?php _e( 'Select All' ); ?></label></td>
+		<td class="manage-column"><label for="themes-select-all"><?php
+ _e( 'Select All' ); ?></label></td>
 	</tr>
 	</thead>
 
 	<tbody class="plugins">
 	<?php
+
 	$auto_updates = array();
 	if ( wp_is_auto_update_enabled_for_type( 'theme' ) ) {
 		$auto_updates       = (array) get_site_option( 'auto_update_themes', array() );
@@ -573,20 +604,29 @@ function list_theme_updates() {
 		?>
 	<tr>
 		<td class="check-column">
-			<?php if ( $compatible_wp && $compatible_php ) : ?>
-				<input type="checkbox" name="checked[]" id="<?php echo $checkbox_id; ?>" value="<?php echo esc_attr( $stylesheet ); ?>" />
-				<label for="<?php echo $checkbox_id; ?>" class="screen-reader-text">
+			<?php
+ if ( $compatible_wp && $compatible_php ) : ?>
+				<input type="checkbox" name="checked[]" id="<?php
+ echo $checkbox_id; ?>" value="<?php
+ echo esc_attr( $stylesheet ); ?>" />
+				<label for="<?php
+ echo $checkbox_id; ?>" class="screen-reader-text">
 					<?php
+
 					/* translators: %s: Theme name. */
 					printf( __( 'Select %s' ), $theme->display( 'Name' ) );
 					?>
 				</label>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</td>
 		<td class="plugin-title"><p>
-			<img src="<?php echo esc_url( $theme->get_screenshot() ); ?>" width="85" height="64" class="updates-table-screenshot" alt="" />
-			<strong><?php echo $theme->display( 'Name' ); ?></strong>
+			<img src="<?php
+ echo esc_url( $theme->get_screenshot() ); ?>" width="85" height="64" class="updates-table-screenshot" alt="" />
+			<strong><?php
+ echo $theme->display( 'Name' ); ?></strong>
 			<?php
+
 			printf(
 				/* translators: 1: Theme version, 2: New version. */
 				__( 'You have version %1$s installed. Update to %2$s.' ),
@@ -603,6 +643,7 @@ function list_theme_updates() {
 		</p></td>
 	</tr>
 			<?php
+
 	}
 	?>
 	</tbody>
@@ -610,13 +651,16 @@ function list_theme_updates() {
 	<tfoot>
 	<tr>
 		<td class="manage-column check-column"><input type="checkbox" id="themes-select-all-2" /></td>
-		<td class="manage-column"><label for="themes-select-all-2"><?php _e( 'Select All' ); ?></label></td>
+		<td class="manage-column"><label for="themes-select-all-2"><?php
+ _e( 'Select All' ); ?></label></td>
 	</tr>
 	</tfoot>
 </table>
-<p><input id="upgrade-themes-2" class="button" type="submit" value="<?php esc_attr_e( 'Update Themes' ); ?>" name="upgrade" /></p>
+<p><input id="upgrade-themes-2" class="button" type="submit" value="<?php
+ esc_attr_e( 'Update Themes' ); ?>" name="upgrade" /></p>
 </form>
 	<?php
+
 }
 
 /**
@@ -636,13 +680,19 @@ function list_translation_updates() {
 
 	$form_action = 'update-core.php?action=do-translation-upgrade';
 	?>
-	<h2><?php _e( 'Translations' ); ?></h2>
-	<form method="post" action="<?php echo esc_url( $form_action ); ?>" name="upgrade-translations" class="upgrade">
-		<p><?php _e( 'New translations are available.' ); ?></p>
-		<?php wp_nonce_field( 'upgrade-translations' ); ?>
-		<p><input class="button" type="submit" value="<?php esc_attr_e( 'Update Translations' ); ?>" name="upgrade" /></p>
+	<h2><?php
+ _e( 'Translations' ); ?></h2>
+	<form method="post" action="<?php
+ echo esc_url( $form_action ); ?>" name="upgrade-translations" class="upgrade">
+		<p><?php
+ _e( 'New translations are available.' ); ?></p>
+		<?php
+ wp_nonce_field( 'upgrade-translations' ); ?>
+		<p><input class="button" type="submit" value="<?php
+ esc_attr_e( 'Update Translations' ); ?>" name="upgrade" /></p>
 	</form>
 	<?php
+
 }
 
 /**
@@ -679,7 +729,8 @@ function do_core_upgrade( $reinstall = false ) {
 
 	?>
 	<div class="wrap">
-	<h1><?php _e( 'Update WordPress' ); ?></h1>
+	<h1><?php
+ _e( 'Update WordPress' ); ?></h1>
 	<?php
 
 	$credentials = request_filesystem_credentials( $url, '', false, ABSPATH, array( 'version', 'locale' ), $allow_relaxed_file_ownership );
@@ -746,9 +797,11 @@ function do_core_upgrade( $reinstall = false ) {
 	?>
 	</div>
 	<script type="text/javascript">
-	window.location = '<?php echo self_admin_url( 'about.php?updated' ); ?>';
+	window.location = '<?php
+ echo self_admin_url( 'about.php?updated' ); ?>';
 	</script>
 	<?php
+
 }
 
 /**
@@ -855,8 +908,10 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
 	<div class="wrap">
-	<h1><?php _e( 'WordPress Updates' ); ?></h1>
+	<h1><?php
+ _e( 'WordPress Updates' ); ?></h1>
 	<?php
+
 	if ( $upgrade_error ) {
 		echo '<div class="error"><p>';
 		if ( 'themes' === $upgrade_error ) {
@@ -1010,8 +1065,11 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
 	<div class="wrap">
-		<h1><?php _e( 'Update Themes' ); ?></h1>
-		<iframe src="<?php echo $url; ?>" style="width: 100%; height: 100%; min-height: 750px;" frameborder="0" title="<?php esc_attr_e( 'Update progress' ); ?>"></iframe>
+		<h1><?php
+ _e( 'Update Themes' ); ?></h1>
+		<iframe src="<?php
+ echo $url; ?>" style="width: 100%; height: 100%; min-height: 750px;" frameborder="0" title="<?php
+ esc_attr_e( 'Update progress' ); ?>"></iframe>
 	</div>
 	<?php
 

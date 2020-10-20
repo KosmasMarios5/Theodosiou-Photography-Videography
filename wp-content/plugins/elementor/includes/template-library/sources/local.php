@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\TemplateLibrary;
 
 use Elementor\Core\Base\Document;
@@ -947,21 +948,27 @@ class Source_Local extends Source_Base {
 		$ajax = Plugin::$instance->common->get_component( 'ajax' );
 		?>
 		<div id="elementor-hidden-area">
-			<a id="elementor-import-template-trigger" class="page-title-action"><?php echo __( 'Import Templates', 'elementor' ); ?></a>
+			<a id="elementor-import-template-trigger" class="page-title-action"><?php
+ echo __( 'Import Templates', 'elementor' ); ?></a>
 			<div id="elementor-import-template-area">
-				<div id="elementor-import-template-title"><?php echo __( 'Choose an Elementor template JSON file or a .zip archive of Elementor templates, and add them to the list of templates available in your library.', 'elementor' ); ?></div>
-				<form id="elementor-import-template-form" method="post" action="<?php echo admin_url( 'admin-ajax.php' ); ?>" enctype="multipart/form-data">
+				<div id="elementor-import-template-title"><?php
+ echo __( 'Choose an Elementor template JSON file or a .zip archive of Elementor templates, and add them to the list of templates available in your library.', 'elementor' ); ?></div>
+				<form id="elementor-import-template-form" method="post" action="<?php
+ echo admin_url( 'admin-ajax.php' ); ?>" enctype="multipart/form-data">
 					<input type="hidden" name="action" value="elementor_library_direct_actions">
 					<input type="hidden" name="library_action" value="direct_import_template">
-					<input type="hidden" name="_nonce" value="<?php echo $ajax->create_nonce(); ?>">
+					<input type="hidden" name="_nonce" value="<?php
+ echo $ajax->create_nonce(); ?>">
 					<fieldset id="elementor-import-template-form-inputs">
 						<input type="file" name="file" accept=".json,application/json,.zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed" required>
-						<input type="submit" class="button" value="<?php echo esc_attr__( 'Import Now', 'elementor' ); ?>">
+						<input type="submit" class="button" value="<?php
+ echo esc_attr__( 'Import Now', 'elementor' ); ?>">
 					</fieldset>
 				</form>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -1211,8 +1218,11 @@ class Source_Local extends Source_Base {
 
 		?>
 		<div id="elementor-template-library-tabs-wrapper" class="nav-tab-wrapper">
-			<a class="nav-tab<?php echo $active_class; ?>" href="<?php echo $baseurl; ?>">
+			<a class="nav-tab<?php
+ echo $active_class; ?>" href="<?php
+ echo $baseurl; ?>">
 				<?php
+
 				$all_title = $this->get_library_title();
 				if ( ! $all_title ) {
 					$all_title = __( 'All', 'elementor' );
@@ -1220,6 +1230,7 @@ class Source_Local extends Source_Base {
 				echo $all_title; ?>
 			</a>
 			<?php
+
 			foreach ( $doc_types as $type => $class_name ) :
 				$active_class = '';
 
@@ -1235,6 +1246,7 @@ class Source_Local extends Source_Base {
 			?>
 		</div>
 		<?php
+
 		return $views;
 	}
 
@@ -1297,19 +1309,24 @@ class Source_Local extends Source_Base {
 
 		$current_type_label = $this->get_template_label_by_type( $current_type );
 		?>
-		<style type="text/css"><?php echo $inline_style; ?></style>
+		<style type="text/css"><?php
+ echo $inline_style; ?></style>
 		<div class="elementor-template_library-blank_state">
 			<div class="elementor-blank_state">
 				<i class="eicon-folder"></i>
 				<h2>
 					<?php
+
 					/* translators: %s: Template type label. */
 					printf( __( 'Create Your First %s', 'elementor' ), $current_type_label );
 					?>
 				</h2>
-				<p><?php echo __( 'Add templates and reuse them across your website. Easily export and import them to any other project, for an optimized workflow.', 'elementor' ); ?></p>
-				<a id="elementor-template-library-add-new" class="elementor-button elementor-button-success" href="<?php esc_url( Utils::get_pro_link( 'https://elementor.com/pro/?utm_source=wp-custom-fonts&utm_campaign=gopro&utm_medium=wp-dash' ) ); ?>">
+				<p><?php
+ echo __( 'Add templates and reuse them across your website. Easily export and import them to any other project, for an optimized workflow.', 'elementor' ); ?></p>
+				<a id="elementor-template-library-add-new" class="elementor-button elementor-button-success" href="<?php
+ esc_url( Utils::get_pro_link( 'https://elementor.com/pro/?utm_source=wp-custom-fonts&utm_campaign=gopro&utm_medium=wp-dash' ) ); ?>">
 					<?php
+
 					/* translators: %s: Template type label. */
 					printf( __( 'Add New %s', 'elementor' ), $current_type_label );
 					?>
@@ -1317,6 +1334,7 @@ class Source_Local extends Source_Base {
 			</div>
 		</div>
 		<?php
+
 	}
 
 	public function add_filter_by_category( $post_type ) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Dashboard Administration Screen
  *
@@ -112,9 +113,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
-	<h1><?php echo esc_html( $title ); ?></h1>
+	<h1><?php
+ echo esc_html( $title ); ?></h1>
 
 	<?php
+
 	if ( ! empty( $_GET['admin_email_remind_later'] ) ) :
 		/** This filter is documented in wp-login.php */
 		$remind_interval = (int) apply_filters( 'admin_email_remind_interval', 3 * DAY_IN_SECONDS );
@@ -132,6 +135,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		<div class="notice notice-success is-dismissible">
 			<p>
 				<?php
+
 				printf(
 					/* translators: %s: Human-readable time interval. */
 					__( 'The admin email verification page will reappear after %s.' ),
@@ -140,10 +144,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				?>
 			</p>
 		</div>
-		<?php endif; ?>
-	<?php endif; ?>
+		<?php
+ endif; ?>
+	<?php
+ endif; ?>
 
 <?php
+
 if ( has_action( 'welcome_panel' ) && current_user_can( 'edit_theme_options' ) ) :
 	$classes = 'welcome-panel';
 
@@ -155,10 +162,16 @@ if ( has_action( 'welcome_panel' ) && current_user_can( 'edit_theme_options' ) )
 	}
 	?>
 
-	<div id="welcome-panel" class="<?php echo esc_attr( $classes ); ?>">
-		<?php wp_nonce_field( 'welcome-panel-nonce', 'welcomepanelnonce', false ); ?>
-		<a class="welcome-panel-close" href="<?php echo esc_url( admin_url( '?welcome=0' ) ); ?>" aria-label="<?php esc_attr_e( 'Dismiss the welcome panel' ); ?>"><?php _e( 'Dismiss' ); ?></a>
+	<div id="welcome-panel" class="<?php
+ echo esc_attr( $classes ); ?>">
 		<?php
+ wp_nonce_field( 'welcome-panel-nonce', 'welcomepanelnonce', false ); ?>
+		<a class="welcome-panel-close" href="<?php
+ echo esc_url( admin_url( '?welcome=0' ) ); ?>" aria-label="<?php
+ esc_attr_e( 'Dismiss the welcome panel' ); ?>"><?php
+ _e( 'Dismiss' ); ?></a>
+		<?php
+
 		/**
 		 * Add content to the welcome panel on the admin dashboard.
 		 *
@@ -171,15 +184,18 @@ if ( has_action( 'welcome_panel' ) && current_user_can( 'edit_theme_options' ) )
 		do_action( 'welcome_panel' );
 		?>
 	</div>
-<?php endif; ?>
+<?php
+ endif; ?>
 
 	<div id="dashboard-widgets-wrap">
-	<?php wp_dashboard(); ?>
+	<?php
+ wp_dashboard(); ?>
 	</div><!-- dashboard-widgets-wrap -->
 
 </div><!-- wrap -->
 
 <?php
+
 wp_print_community_events_templates();
 
 require_once ABSPATH . 'wp-admin/admin-footer.php';

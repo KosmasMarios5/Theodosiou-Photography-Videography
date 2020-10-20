@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -45,16 +46,19 @@ class Control_Text extends Base_Data_Control {
 		?>
 		<div class="elementor-control-field">
 			<# if ( data.label ) {#>
-				<label for="<?php echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
+				<label for="<?php
+ echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
 			<# } #>
 			<div class="elementor-control-input-wrapper elementor-control-unit-5 elementor-control-dynamic-switcher-wrapper">
-				<input id="<?php echo $control_uid; ?>" type="{{ data.input_type }}" class="tooltip-target elementor-control-tag-area" data-tooltip="{{ data.title }}" title="{{ data.title }}" data-setting="{{ data.name }}" placeholder="{{ data.placeholder }}" />
+				<input id="<?php
+ echo $control_uid; ?>" type="{{ data.input_type }}" class="tooltip-target elementor-control-tag-area" data-tooltip="{{ data.title }}" title="{{ data.title }}" data-setting="{{ data.name }}" placeholder="{{ data.placeholder }}" />
 			</div>
 		</div>
 		<# if ( data.description ) { #>
 			<div class="elementor-control-field-description">{{{ data.description }}}</div>
 		<# } #>
 		<?php
+
 	}
 
 	/**

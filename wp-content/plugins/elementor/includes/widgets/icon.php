@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -425,16 +426,23 @@ class Widget_Icon extends Widget_Base {
 		$is_new = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-			<<?php echo $icon_tag . ' ' . $this->get_render_attribute_string( 'icon-wrapper' ); ?>>
-			<?php if ( $is_new || $migrated ) :
+		<div <?php
+ echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+			<<?php
+ echo $icon_tag . ' ' . $this->get_render_attribute_string( 'icon-wrapper' ); ?>>
+			<?php
+ if ( $is_new || $migrated ) :
 				Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 			else : ?>
-				<i <?php echo $this->get_render_attribute_string( 'icon' ); ?>></i>
-			<?php endif; ?>
-			</<?php echo $icon_tag; ?>>
+				<i <?php
+ echo $this->get_render_attribute_string( 'icon' ); ?>></i>
+			<?php
+ endif; ?>
+			</<?php
+ echo $icon_tag; ?>>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -462,5 +470,6 @@ class Widget_Icon extends Widget_Base {
 			</{{{ iconTag }}}>
 		</div>
 		<?php
+
 	}
 }

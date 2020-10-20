@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\RoleManager;
 
 use Elementor\Settings_Page;
@@ -83,12 +84,15 @@ class Role_Manager extends Settings_Page {
 		$this->get_tabs();
 		?>
 		<div class="wrap">
-			<h1><?php echo esc_html( $this->get_page_title() ); ?></h1>
+			<h1><?php
+ echo esc_html( $this->get_page_title() ); ?></h1>
 
 			<div id="elementor-role-manager">
-				<h3><?php echo __( 'Manage What Your Users Can Edit In Elementor', 'elementor' ); ?></h3>
+				<h3><?php
+ echo __( 'Manage What Your Users Can Edit In Elementor', 'elementor' ); ?></h3>
 				<form id="elementor-settings-form" method="post" action="options.php">
 					<?php
+
 					settings_fields( static::PAGE_ID );
 					echo '<div class="elementor-settings-form-page elementor-active">';
 					foreach ( get_editable_roles() as $role_slug => $role_data ) {
@@ -103,6 +107,7 @@ class Role_Manager extends Settings_Page {
 			</div>
 		</div><!-- /.wrap -->
 		<?php
+
 	}
 
 	/**
@@ -119,21 +124,28 @@ class Role_Manager extends Settings_Page {
 		}
 
 		?>
-		<div class="elementor-role-row <?php echo esc_attr( $role_slug ); ?>">
+		<div class="elementor-role-row <?php
+ echo esc_attr( $role_slug ); ?>">
 			<div class="elementor-role-label">
-				<span class="elementor-role-name"><?php echo esc_html( $role_data['name'] ); ?></span>
-				<span data-excluded-label="<?php esc_attr_e( 'Role Excluded', 'elementor' ); ?>" class="elementor-role-excluded-indicator"></span>
+				<span class="elementor-role-name"><?php
+ echo esc_html( $role_data['name'] ); ?></span>
+				<span data-excluded-label="<?php
+ esc_attr_e( 'Role Excluded', 'elementor' ); ?>" class="elementor-role-excluded-indicator"></span>
 				<span class="elementor-role-toggle"><span class="dashicons dashicons-arrow-down"></span></span>
 			</div>
 			<div class="elementor-role-controls hidden">
 				<div class="elementor-role-control">
 					<label>
-						<input type="checkbox" name="elementor_exclude_user_roles[]" value="<?php echo esc_attr( $role_slug ); ?>"<?php checked( in_array( $role_slug, $excluded_options, true ), true ); ?>>
-						<?php echo __( 'No access to editor', 'elementor' ); ?>
+						<input type="checkbox" name="elementor_exclude_user_roles[]" value="<?php
+ echo esc_attr( $role_slug ); ?>"<?php
+ checked( in_array( $role_slug, $excluded_options, true ), true ); ?>>
+						<?php
+ echo __( 'No access to editor', 'elementor' ); ?>
 					</label>
 				</div>
 				<div>
 					<?php
+
 					/**
 					 * Role restrictions controls.
 					 *
@@ -154,6 +166,7 @@ class Role_Manager extends Settings_Page {
 			</div>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -164,10 +177,14 @@ class Role_Manager extends Settings_Page {
 		$pro_link = Utils::get_pro_link( 'https://elementor.com/pro/?utm_source=wp-role-manager&utm_campaign=gopro&utm_medium=wp-dash' );
 		?>
 		<div class="elementor-role-go-pro">
-			<div class="elementor-role-go-pro__desc"><?php echo __( 'Want to give access only to content?', 'elementor' ); ?></div>
-			<div class="elementor-role-go-pro__link"><a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php echo esc_url( $pro_link ); ?>"><?php echo __( 'Go Pro', 'elementor' ); ?></a></div>
+			<div class="elementor-role-go-pro__desc"><?php
+ echo __( 'Want to give access only to content?', 'elementor' ); ?></div>
+			<div class="elementor-role-go-pro__link"><a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php
+ echo esc_url( $pro_link ); ?>"><?php
+ echo __( 'Go Pro', 'elementor' ); ?></a></div>
 		</div>
 		<?php
+
 	}
 
 	/**

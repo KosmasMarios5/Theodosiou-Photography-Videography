@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Tracking debug class.
  *

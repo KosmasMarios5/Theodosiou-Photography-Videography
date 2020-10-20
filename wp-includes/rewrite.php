@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Rewrite API
  *
@@ -334,7 +335,6 @@ function _wp_filter_taxonomy_base( $base ) {
 	}
 	return $base;
 }
-
 
 /**
  * Resolve numeric slugs that collide with date permalinks.

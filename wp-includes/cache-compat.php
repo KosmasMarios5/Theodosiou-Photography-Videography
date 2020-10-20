@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Object Cache API functions missing from 3rd party object caches.
  *

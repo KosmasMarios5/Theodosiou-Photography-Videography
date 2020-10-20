@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Session API: WP_Session_Tokens class
  *

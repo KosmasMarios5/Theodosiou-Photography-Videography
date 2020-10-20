@@ -1,21 +1,32 @@
-<?php get_header(); ?>
+<?php
+ get_header(); ?>
 
 <main role="main">
     <section>
-		<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<?php the_content(); // Dynamic Content ?>
+		<?php
+ if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
+            <article id="post-<?php
+ the_ID(); ?>" <?php
+ post_class(); ?>>
+				<?php
+ the_content(); // Dynamic Content ?>
             </article>
-		<?php endwhile; ?>
+		<?php
+ endwhile; ?>
 
-		<?php else: ?>
+		<?php
+ else: ?>
             <article>
-                <h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
+                <h1><?php
+ _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
             </article>
-		<?php endif; ?>
+		<?php
+ endif; ?>
     </section>
 </main>
 
-<?php get_sidebar(); ?>
+<?php
+ get_sidebar(); ?>
 
-<?php get_footer(); ?>
+<?php
+ get_footer(); ?>

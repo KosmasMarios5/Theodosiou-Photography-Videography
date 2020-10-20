@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Network installation administration panel.
  *
@@ -84,9 +85,11 @@ get_current_screen()->set_help_sidebar(
 require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 <div class="wrap">
-<h1><?php echo esc_html( $title ); ?></h1>
+<h1><?php
+ echo esc_html( $title ); ?></h1>
 
 <?php
+
 if ( $_POST ) {
 
 	check_admin_referer( 'install-network-1' );
@@ -118,4 +121,5 @@ if ( $_POST ) {
 ?>
 </div>
 
-<?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+<?php
+ require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>

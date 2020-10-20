@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Locale API: WP_Locale class
  *

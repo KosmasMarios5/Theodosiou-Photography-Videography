@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\System_Info\Reporters;
 
 if ( ! defined( 'ABSPATH' ) ) {

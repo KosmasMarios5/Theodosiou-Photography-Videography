@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Administration Privacy Tools API.
  *

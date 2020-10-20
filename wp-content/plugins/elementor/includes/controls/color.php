@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -52,6 +53,7 @@ class Control_Color extends Base_Data_Control {
 			</div>
 		</div>
 		<?php
+
 	}
 
 	/**

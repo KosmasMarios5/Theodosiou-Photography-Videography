@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WP_oEmbed_Controller class, used to provide an oEmbed endpoint.
  *

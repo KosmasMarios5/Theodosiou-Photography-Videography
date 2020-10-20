@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Tags;
 
 use ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag;

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -556,8 +557,10 @@ class Widget_Icon_List extends Widget_Base {
 			$this->add_render_attribute( 'list_item', 'class', 'elementor-inline-item' );
 		}
 		?>
-		<ul <?php echo $this->get_render_attribute_string( 'icon_list' ); ?>>
+		<ul <?php
+ echo $this->get_render_attribute_string( 'icon_list' ); ?>>
 			<?php
+
 			foreach ( $settings['icon_list'] as $index => $item ) :
 				$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'icon_list', $index );
 
@@ -566,8 +569,10 @@ class Widget_Icon_List extends Widget_Base {
 				$this->add_inline_editing_attributes( $repeater_setting_key );
 				$migration_allowed = Icons_Manager::is_migration_allowed();
 				?>
-				<li <?php echo $this->get_render_attribute_string( 'list_item' ); ?>>
+				<li <?php
+ echo $this->get_render_attribute_string( 'list_item' ); ?>>
 					<?php
+
 					if ( ! empty( $item['link']['url'] ) ) {
 						$link_key = 'link_' . $index;
 
@@ -587,23 +592,33 @@ class Widget_Icon_List extends Widget_Base {
 						?>
 						<span class="elementor-icon-list-icon">
 							<?php
+
 							if ( $is_new || $migrated ) {
 								Icons_Manager::render_icon( $item['selected_icon'], [ 'aria-hidden' => 'true' ] );
 							} else { ?>
-									<i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
-							<?php } ?>
+									<i class="<?php
+ echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+							<?php
+ } ?>
 						</span>
-					<?php endif; ?>
-					<span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); ?>><?php echo $item['text']; ?></span>
-					<?php if ( ! empty( $item['link']['url'] ) ) : ?>
+					<?php
+ endif; ?>
+					<span <?php
+ echo $this->get_render_attribute_string( $repeater_setting_key ); ?>><?php
+ echo $item['text']; ?></span>
+					<?php
+ if ( ! empty( $item['link']['url'] ) ) : ?>
 						</a>
-					<?php endif; ?>
+					<?php
+ endif; ?>
 				</li>
 				<?php
+
 			endforeach;
 			?>
 		</ul>
 		<?php
+
 	}
 
 	/**
@@ -665,6 +680,7 @@ class Widget_Icon_List extends Widget_Base {
 		<#	} #>
 
 		<?php
+
 	}
 
 	public function on_import( $element ) {

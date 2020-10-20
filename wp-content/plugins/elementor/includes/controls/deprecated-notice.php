@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -55,6 +56,7 @@ class Control_Deprecated_Notice extends Base_UI_Control {
 		#>
 		<div class="elementor-control-deprecated-notice elementor-panel-alert elementor-panel-alert-warning">{{{ notice }}}</div>
 		<?php
+
 	}
 
 	/**

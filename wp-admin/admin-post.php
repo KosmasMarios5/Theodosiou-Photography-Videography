@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Generic Request (POST/GET) Handler
  *

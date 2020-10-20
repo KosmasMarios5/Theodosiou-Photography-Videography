@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Atom Syndication Format PHP Library
  *
@@ -341,7 +342,6 @@ class AtomParser {
     function _default($parser, $data) {
         # when does this gets called?
     }
-
 
     function ns_to_prefix($qname, $attr=false) {
         # split 'http://www.w3.org/1999/xhtml:div' into ('http','//www.w3.org/1999/xhtml','div')

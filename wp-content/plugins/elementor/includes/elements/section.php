@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1394,11 +1395,14 @@ class Element_Section extends Element_Base {
 		<div class="elementor-shape elementor-shape-top"></div>
 		<div class="elementor-shape elementor-shape-bottom"></div>
 		<div class="elementor-container elementor-column-gap-{{ settings.gap }}">
-			<?php if ( Plugin::instance()->get_legacy_mode( 'elementWrappers' ) ) { ?>
+			<?php
+ if ( Plugin::instance()->get_legacy_mode( 'elementWrappers' ) ) { ?>
 				<div class="elementor-row"></div>
-			<?php } ?>
+			<?php
+ } ?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -1412,8 +1416,11 @@ class Element_Section extends Element_Base {
 	public function before_render() {
 		$settings = $this->get_settings_for_display();
 		?>
-		<<?php echo esc_html( $this->get_html_tag() ); ?> <?php $this->print_render_attribute_string( '_wrapper' ); ?>>
+		<<?php
+ echo esc_html( $this->get_html_tag() ); ?> <?php
+ $this->print_render_attribute_string( '_wrapper' ); ?>>
 			<?php
+
 			if ( 'video' === $settings['background_background'] ) :
 				if ( $settings['background_video_link'] ) :
 					$video_properties = Embed::get_video_properties( $settings['background_video_link'] );
@@ -1424,20 +1431,26 @@ class Element_Section extends Element_Base {
 						$this->add_render_attribute( 'background-video-container', 'class', 'elementor-hidden-phone' );
 					}
 					?>
-					<div <?php echo $this->get_render_attribute_string( 'background-video-container' ); ?>>
-						<?php if ( $video_properties ) : ?>
+					<div <?php
+ echo $this->get_render_attribute_string( 'background-video-container' ); ?>>
+						<?php
+ if ( $video_properties ) : ?>
 							<div class="elementor-background-video-embed"></div>
 							<?php
+
 						else :
 							$video_tag_attributes = 'autoplay muted playsinline';
 							if ( 'yes' !== $settings['background_play_once'] ) :
 								$video_tag_attributes .= ' loop';
 							endif;
 							?>
-							<video class="elementor-background-video-hosted elementor-html5-video" <?php echo $video_tag_attributes; ?>></video>
-						<?php endif; ?>
+							<video class="elementor-background-video-hosted elementor-html5-video" <?php
+ echo $video_tag_attributes; ?>></video>
+						<?php
+ endif; ?>
 					</div>
 					<?php
+
 				endif;
 			endif;
 
@@ -1448,6 +1461,7 @@ class Element_Section extends Element_Base {
 				?>
 				<div class="elementor-background-overlay"></div>
 				<?php
+
 			endif;
 
 			if ( $settings['shape_divider_top'] ) {
@@ -1458,10 +1472,13 @@ class Element_Section extends Element_Base {
 				$this->print_shape_divider( 'bottom' );
 			}
 			?>
-			<div class="elementor-container elementor-column-gap-<?php echo esc_attr( $settings['gap'] ); ?>">
-			<?php if ( Plugin::instance()->get_legacy_mode( 'elementWrappers' ) ) { ?>
+			<div class="elementor-container elementor-column-gap-<?php
+ echo esc_attr( $settings['gap'] ); ?>">
+			<?php
+ if ( Plugin::instance()->get_legacy_mode( 'elementWrappers' ) ) { ?>
 				<div class="elementor-row">
-			<?php }
+			<?php
+ }
 	}
 
 	/**
@@ -1474,12 +1491,16 @@ class Element_Section extends Element_Base {
 	 */
 	public function after_render() {
 		?>
-		<?php if ( Plugin::instance()->get_legacy_mode( 'elementWrappers' ) ) { ?>
-				</div>
-		<?php } ?>
-			</div>
-		</<?php echo esc_html( $this->get_html_tag() ); ?>>
 		<?php
+ if ( Plugin::instance()->get_legacy_mode( 'elementWrappers' ) ) { ?>
+				</div>
+		<?php
+ } ?>
+			</div>
+		</<?php
+ echo esc_html( $this->get_html_tag() ); ?>>
+		<?php
+
 	}
 
 	/**
@@ -1559,9 +1580,13 @@ class Element_Section extends Element_Base {
 			return;
 		}
 		?>
-		<div class="elementor-shape elementor-shape-<?php echo esc_attr( $side ); ?>" data-negative="<?php echo var_export( $negative ); ?>">
-			<?php echo file_get_contents( $shape_path ); ?>
+		<div class="elementor-shape elementor-shape-<?php
+ echo esc_attr( $side ); ?>" data-negative="<?php
+ echo var_export( $negative ); ?>">
+			<?php
+ echo file_get_contents( $shape_path ); ?>
 		</div>
 		<?php
+
 	}
 }

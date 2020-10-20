@@ -7,6 +7,7 @@
 <h1>#SSL TEST PAGE#</h1>
 <p>This page is used purely to test for SSL availability.</p>
 <?php
+
 $ssl = FALSE;
 if (isset($_SERVER['HTTPS'])) {
     if (strtolower($_SERVER['HTTPS']) == 'on') {

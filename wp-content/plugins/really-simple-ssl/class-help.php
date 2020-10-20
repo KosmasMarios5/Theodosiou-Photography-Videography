@@ -1,4 +1,5 @@
 <?php
+
 defined('ABSPATH') or die("you do not have access to this page!");
 if ( ! class_exists( 'rsssl_help' ) ) {
   class rsssl_help {
@@ -17,7 +18,8 @@ if ( ! class_exists( 'rsssl_help' ) ) {
 
   public function get_help_tip($str){
     ?>
-    <span class="rsssl-tooltip-right tooltip-right" data-rsssl-tooltip="<?php echo $str?>">
+    <span class="rsssl-tooltip-right tooltip-right" data-rsssl-tooltip="<?php
+ echo $str?>">
       <span class="dashicons dashicons-editor-help"></span>
     </span>
     <?php

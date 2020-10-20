@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -664,5 +665,6 @@ class Widget_Image_Box extends Widget_Base {
 		print( html );
 		#>
 		<?php
+
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template WordPress Administration API.
  *
@@ -238,10 +239,16 @@ function wp_popular_terms_checklist( $taxonomy, $default = 0, $number = 10, $ech
 		$checked = in_array( $term->term_id, $checked_terms, true ) ? 'checked="checked"' : '';
 		?>
 
-		<li id="<?php echo $id; ?>" class="popular-category">
+		<li id="<?php
+ echo $id; ?>" class="popular-category">
 			<label class="selectit">
-				<input id="in-<?php echo $id; ?>" type="checkbox" <?php echo $checked; ?> value="<?php echo (int) $term->term_id; ?>" <?php disabled( ! current_user_can( $tax->cap->assign_terms ) ); ?> />
+				<input id="in-<?php
+ echo $id; ?>" type="checkbox" <?php
+ echo $checked; ?> value="<?php
+ echo (int) $term->term_id; ?>" <?php
+ disabled( ! current_user_can( $tax->cap->assign_terms ) ); ?> />
 				<?php
+
 				/** This filter is documented in wp-includes/category-template.php */
 				echo esc_html( apply_filters( 'the_category', $term->name, '', '' ) );
 				?>
@@ -249,6 +256,7 @@ function wp_popular_terms_checklist( $taxonomy, $default = 0, $number = 10, $ech
 		</li>
 
 		<?php
+
 	}
 	return $popular_ids;
 }
@@ -443,21 +451,30 @@ function wp_comment_reply( $position = 1, $checkbox = false, $mode = 'single', $
 
 	?>
 <form method="get">
-	<?php if ( $table_row ) : ?>
-<table style="display:none;"><tbody id="com-reply"><tr id="replyrow" class="inline-edit-row" style="display:none;"><td colspan="<?php echo $wp_list_table->get_column_count(); ?>" class="colspanchange">
-<?php else : ?>
+	<?php
+ if ( $table_row ) : ?>
+<table style="display:none;"><tbody id="com-reply"><tr id="replyrow" class="inline-edit-row" style="display:none;"><td colspan="<?php
+ echo $wp_list_table->get_column_count(); ?>" class="colspanchange">
+<?php
+ else : ?>
 <div id="com-reply" style="display:none;"><div id="replyrow" style="display:none;">
-<?php endif; ?>
+<?php
+ endif; ?>
 	<fieldset class="comment-reply">
 	<legend>
-		<span class="hidden" id="editlegend"><?php _e( 'Edit Comment' ); ?></span>
-		<span class="hidden" id="replyhead"><?php _e( 'Reply to Comment' ); ?></span>
-		<span class="hidden" id="addhead"><?php _e( 'Add new Comment' ); ?></span>
+		<span class="hidden" id="editlegend"><?php
+ _e( 'Edit Comment' ); ?></span>
+		<span class="hidden" id="replyhead"><?php
+ _e( 'Reply to Comment' ); ?></span>
+		<span class="hidden" id="addhead"><?php
+ _e( 'Add new Comment' ); ?></span>
 	</legend>
 
 	<div id="replycontainer">
-	<label for="replycontent" class="screen-reader-text"><?php _e( 'Comment' ); ?></label>
+	<label for="replycontent" class="screen-reader-text"><?php
+ _e( 'Comment' ); ?></label>
 	<?php
+
 	$quicktags_settings = array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,close' );
 	wp_editor(
 		'',
@@ -473,17 +490,20 @@ function wp_comment_reply( $position = 1, $checkbox = false, $mode = 'single', $
 
 	<div id="edithead" style="display:none;">
 		<div class="inside">
-		<label for="author-name"><?php _e( 'Name' ); ?></label>
+		<label for="author-name"><?php
+ _e( 'Name' ); ?></label>
 		<input type="text" name="newcomment_author" size="50" value="" id="author-name" />
 		</div>
 
 		<div class="inside">
-		<label for="author-email"><?php _e( 'Email' ); ?></label>
+		<label for="author-email"><?php
+ _e( 'Email' ); ?></label>
 		<input type="text" name="newcomment_author_email" size="50" value="" id="author-email" />
 		</div>
 
 		<div class="inside">
-		<label for="author-url"><?php _e( 'URL' ); ?></label>
+		<label for="author-url"><?php
+ _e( 'URL' ); ?></label>
 		<input type="text" id="author-url" name="newcomment_author_url" class="code" size="103" value="" />
 		</div>
 	</div>
@@ -491,11 +511,15 @@ function wp_comment_reply( $position = 1, $checkbox = false, $mode = 'single', $
 	<div id="replysubmit" class="submit">
 		<p class="reply-submit-buttons">
 			<button type="button" class="save button button-primary">
-				<span id="addbtn" style="display: none;"><?php _e( 'Add Comment' ); ?></span>
-				<span id="savebtn" style="display: none;"><?php _e( 'Update Comment' ); ?></span>
-				<span id="replybtn" style="display: none;"><?php _e( 'Submit Reply' ); ?></span>
+				<span id="addbtn" style="display: none;"><?php
+ _e( 'Add Comment' ); ?></span>
+				<span id="savebtn" style="display: none;"><?php
+ _e( 'Update Comment' ); ?></span>
+				<span id="replybtn" style="display: none;"><?php
+ _e( 'Submit Reply' ); ?></span>
 			</button>
-			<button type="button" class="cancel button"><?php _e( 'Cancel' ); ?></button>
+			<button type="button" class="cancel button"><?php
+ _e( 'Cancel' ); ?></button>
 			<span class="waiting spinner"></span>
 		</p>
 		<div class="notice notice-error notice-alt inline hidden">
@@ -507,23 +531,31 @@ function wp_comment_reply( $position = 1, $checkbox = false, $mode = 'single', $
 	<input type="hidden" name="comment_ID" id="comment_ID" value="" />
 	<input type="hidden" name="comment_post_ID" id="comment_post_ID" value="" />
 	<input type="hidden" name="status" id="status" value="" />
-	<input type="hidden" name="position" id="position" value="<?php echo $position; ?>" />
-	<input type="hidden" name="checkbox" id="checkbox" value="<?php echo $checkbox ? 1 : 0; ?>" />
-	<input type="hidden" name="mode" id="mode" value="<?php echo esc_attr( $mode ); ?>" />
+	<input type="hidden" name="position" id="position" value="<?php
+ echo $position; ?>" />
+	<input type="hidden" name="checkbox" id="checkbox" value="<?php
+ echo $checkbox ? 1 : 0; ?>" />
+	<input type="hidden" name="mode" id="mode" value="<?php
+ echo esc_attr( $mode ); ?>" />
 	<?php
+
 		wp_nonce_field( 'replyto-comment', '_ajax_nonce-replyto-comment', false );
 	if ( current_user_can( 'unfiltered_html' ) ) {
 		wp_nonce_field( 'unfiltered-html-comment', '_wp_unfiltered_html_comment', false );
 	}
 	?>
 	</fieldset>
-	<?php if ( $table_row ) : ?>
+	<?php
+ if ( $table_row ) : ?>
 </td></tr></tbody></table>
-	<?php else : ?>
+	<?php
+ else : ?>
 </div></div>
-	<?php endif; ?>
+	<?php
+ endif; ?>
 </form>
 	<?php
+
 }
 
 /**
@@ -536,22 +568,27 @@ function wp_comment_trashnotice() {
 <div class="hidden" id="trash-undo-holder">
 	<div class="trash-undo-inside">
 		<?php
+
 		/* translators: %s: Comment author, filled by Ajax. */
 		printf( __( 'Comment by %s moved to the Trash.' ), '<strong></strong>' );
 		?>
-		<span class="undo untrash"><a href="#"><?php _e( 'Undo' ); ?></a></span>
+		<span class="undo untrash"><a href="#"><?php
+ _e( 'Undo' ); ?></a></span>
 	</div>
 </div>
 <div class="hidden" id="spam-undo-holder">
 	<div class="spam-undo-inside">
 		<?php
+
 		/* translators: %s: Comment author, filled by Ajax. */
 		printf( __( 'Comment by %s marked as spam.' ), '<strong></strong>' );
 		?>
-		<span class="undo unspam"><a href="#"><?php _e( 'Undo' ); ?></a></span>
+		<span class="undo unspam"><a href="#"><?php
+ _e( 'Undo' ); ?></a></span>
 	</div>
 </div>
 	<?php
+
 }
 
 /**
@@ -583,12 +620,15 @@ function list_meta( $meta ) {
 <table id="list-table">
 	<thead>
 	<tr>
-		<th class="left"><?php _ex( 'Name', 'meta name' ); ?></th>
-		<th><?php _e( 'Value' ); ?></th>
+		<th class="left"><?php
+ _ex( 'Name', 'meta name' ); ?></th>
+		<th><?php
+ _e( 'Value' ); ?></th>
 	</tr>
 	</thead>
 	<tbody id='the-list' data-wp-lists='list:meta'>
 	<?php
+
 	foreach ( $meta as $entry ) {
 		echo _list_meta_row( $entry, $count );
 	}
@@ -596,6 +636,7 @@ function list_meta( $meta ) {
 	</tbody>
 </table>
 	<?php
+
 }
 
 /**
@@ -711,22 +752,29 @@ function meta_form( $post = null ) {
 		$meta_key_input_id = 'metakeyinput';
 	}
 	?>
-<p><strong><?php _e( 'Add New Custom Field:' ); ?></strong></p>
+<p><strong><?php
+ _e( 'Add New Custom Field:' ); ?></strong></p>
 <table id="newmeta">
 <thead>
 <tr>
-<th class="left"><label for="<?php echo $meta_key_input_id; ?>"><?php _ex( 'Name', 'meta name' ); ?></label></th>
-<th><label for="metavalue"><?php _e( 'Value' ); ?></label></th>
+<th class="left"><label for="<?php
+ echo $meta_key_input_id; ?>"><?php
+ _ex( 'Name', 'meta name' ); ?></label></th>
+<th><label for="metavalue"><?php
+ _e( 'Value' ); ?></label></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td id="newmetaleft" class="left">
-	<?php if ( $keys ) { ?>
+	<?php
+ if ( $keys ) { ?>
 <select id="metakeyselect" name="metakeyselect">
-<option value="#NONE#"><?php _e( '&mdash; Select &mdash;' ); ?></option>
+<option value="#NONE#"><?php
+ _e( '&mdash; Select &mdash;' ); ?></option>
 		<?php
+
 		foreach ( $keys as $key ) {
 			if ( is_protected_meta( $key, 'post' ) || ! current_user_can( 'add_post_meta', $post->ID, $key ) ) {
 				continue;
@@ -737,11 +785,15 @@ function meta_form( $post = null ) {
 </select>
 <input class="hide-if-js" type="text" id="metakeyinput" name="metakeyinput" value="" />
 <a href="#postcustomstuff" class="hide-if-no-js" onclick="jQuery('#metakeyinput, #metakeyselect, #enternew, #cancelnew').toggle();return false;">
-<span id="enternew"><?php _e( 'Enter new' ); ?></span>
-<span id="cancelnew" class="hidden"><?php _e( 'Cancel' ); ?></span></a>
-<?php } else { ?>
+<span id="enternew"><?php
+ _e( 'Enter new' ); ?></span>
+<span id="cancelnew" class="hidden"><?php
+ _e( 'Cancel' ); ?></span></a>
+<?php
+ } else { ?>
 <input type="text" id="metakeyinput" name="metakeyinput" value="" />
-<?php } ?>
+<?php
+ } ?>
 </td>
 <td><textarea id="metavalue" name="metavalue" rows="2" cols="25"></textarea></td>
 </tr>
@@ -749,6 +801,7 @@ function meta_form( $post = null ) {
 <tr><td colspan="2">
 <div class="submit">
 	<?php
+
 	submit_button(
 		__( 'Add Custom Field' ),
 		'',
@@ -761,7 +814,8 @@ function meta_form( $post = null ) {
 	);
 	?>
 </div>
-	<?php wp_nonce_field( 'add-meta', '_ajax_nonce-add-meta', false ); ?>
+	<?php
+ wp_nonce_field( 'add-meta', '_ajax_nonce-add-meta', false ); ?>
 </td></tr>
 </tbody>
 </table>
@@ -858,10 +912,13 @@ function touch_time( $edit = 1, $for_post = 1, $tab_index = 0, $multi = 0 ) {
 	?>
 
 <p>
-<a href="#edit_timestamp" class="save-timestamp hide-if-no-js button"><?php _e( 'OK' ); ?></a>
-<a href="#edit_timestamp" class="cancel-timestamp hide-if-no-js button-cancel"><?php _e( 'Cancel' ); ?></a>
+<a href="#edit_timestamp" class="save-timestamp hide-if-no-js button"><?php
+ _e( 'OK' ); ?></a>
+<a href="#edit_timestamp" class="cancel-timestamp hide-if-no-js button-cancel"><?php
+ _e( 'Cancel' ); ?></a>
 </p>
 	<?php
+
 }
 
 /**
@@ -970,14 +1027,19 @@ function wp_import_upload_form( $action ) {
 	$upload_dir = wp_upload_dir();
 	if ( ! empty( $upload_dir['error'] ) ) :
 		?>
-		<div class="error"><p><?php _e( 'Before you can upload your import file, you will need to fix the following error:' ); ?></p>
-		<p><strong><?php echo $upload_dir['error']; ?></strong></p></div>
+		<div class="error"><p><?php
+ _e( 'Before you can upload your import file, you will need to fix the following error:' ); ?></p>
+		<p><strong><?php
+ echo $upload_dir['error']; ?></strong></p></div>
 								<?php
+
 	else :
 		?>
-<form enctype="multipart/form-data" id="import-upload-form" method="post" class="wp-upload-form" action="<?php echo esc_url( wp_nonce_url( $action, 'import-upload' ) ); ?>">
+<form enctype="multipart/form-data" id="import-upload-form" method="post" class="wp-upload-form" action="<?php
+ echo esc_url( wp_nonce_url( $action, 'import-upload' ) ); ?>">
 <p>
 		<?php
+
 		printf(
 			'<label for="upload">%s</label> (%s)',
 			__( 'Choose a file from your computer:' ),
@@ -987,11 +1049,14 @@ function wp_import_upload_form( $action ) {
 		?>
 <input type="file" id="upload" name="import" size="25" />
 <input type="hidden" name="action" value="save" />
-<input type="hidden" name="max_file_size" value="<?php echo $bytes; ?>" />
+<input type="hidden" name="max_file_size" value="<?php
+ echo $bytes; ?>" />
 </p>
-		<?php submit_button( __( 'Upload file and import' ), 'primary' ); ?>
+		<?php
+ submit_button( __( 'Upload file and import' ), 'primary' ); ?>
 </form>
 		<?php
+
 	endif;
 }
 
@@ -1116,7 +1181,6 @@ function add_meta_box( $id, $title, $callback, $screen = null, $context = 'advan
 		'args'     => $callback_args,
 	);
 }
-
 
 /**
  * Function that renders a "fake" meta box with an information message,
@@ -1377,12 +1441,14 @@ function do_meta_boxes( $screen, $context, $object ) {
 							<div class="error inline">
 								<p>
 									<?php
+
 										/* translators: %s: The name of the plugin that generated this meta box. */
 										printf( __( "This meta box, from the %s plugin, isn't compatible with the block editor." ), "<strong>{$plugin['Name']}</strong>" );
 									?>
 								</p>
 							</div>
 							<?php
+
 						}
 					}
 
@@ -1486,6 +1552,7 @@ function do_accordion_sections( $screen, $context, $object ) {
 	<div id="side-sortables" class="accordion-container">
 		<ul class="outer-border">
 	<?php
+
 	$i          = 0;
 	$first_open = false;
 
@@ -1506,18 +1573,27 @@ function do_accordion_sections( $screen, $context, $object ) {
 						$open_class = 'open';
 					}
 					?>
-					<li class="control-section accordion-section <?php echo $hidden_class; ?> <?php echo $open_class; ?> <?php echo esc_attr( $box['id'] ); ?>" id="<?php echo esc_attr( $box['id'] ); ?>">
+					<li class="control-section accordion-section <?php
+ echo $hidden_class; ?> <?php
+ echo $open_class; ?> <?php
+ echo esc_attr( $box['id'] ); ?>" id="<?php
+ echo esc_attr( $box['id'] ); ?>">
 						<h3 class="accordion-section-title hndle" tabindex="0">
-							<?php echo esc_html( $box['title'] ); ?>
-							<span class="screen-reader-text"><?php _e( 'Press return or enter to open this section' ); ?></span>
+							<?php
+ echo esc_html( $box['title'] ); ?>
+							<span class="screen-reader-text"><?php
+ _e( 'Press return or enter to open this section' ); ?></span>
 						</h3>
-						<div class="accordion-section-content <?php postbox_classes( $box['id'], $page ); ?>">
+						<div class="accordion-section-content <?php
+ postbox_classes( $box['id'], $page ); ?>">
 							<div class="inside">
-								<?php call_user_func( $box['callback'], $object, $box ); ?>
+								<?php
+ call_user_func( $box['callback'], $object, $box ); ?>
 							</div><!-- .inside -->
 						</div><!-- .accordion-section-content -->
 					</li><!-- .accordion-section -->
 					<?php
+
 				}
 			}
 		}
@@ -1526,6 +1602,7 @@ function do_accordion_sections( $screen, $context, $object ) {
 		</ul><!-- .outer-border -->
 	</div><!-- .accordion-container -->
 	<?php
+
 	return $i;
 }
 
@@ -1918,30 +1995,40 @@ function find_posts_div( $found_action = '' ) {
 	?>
 	<div id="find-posts" class="find-box" style="display: none;">
 		<div id="find-posts-head" class="find-box-head">
-			<?php _e( 'Attach to existing content' ); ?>
-			<button type="button" id="find-posts-close"><span class="screen-reader-text"><?php _e( 'Close media attachment panel' ); ?></span></button>
+			<?php
+ _e( 'Attach to existing content' ); ?>
+			<button type="button" id="find-posts-close"><span class="screen-reader-text"><?php
+ _e( 'Close media attachment panel' ); ?></span></button>
 		</div>
 		<div class="find-box-inside">
 			<div class="find-box-search">
-				<?php if ( $found_action ) { ?>
-					<input type="hidden" name="found_action" value="<?php echo esc_attr( $found_action ); ?>" />
-				<?php } ?>
+				<?php
+ if ( $found_action ) { ?>
+					<input type="hidden" name="found_action" value="<?php
+ echo esc_attr( $found_action ); ?>" />
+				<?php
+ } ?>
 				<input type="hidden" name="affected" id="affected" value="" />
-				<?php wp_nonce_field( 'find-posts', '_ajax_nonce', false ); ?>
-				<label class="screen-reader-text" for="find-posts-input"><?php _e( 'Search' ); ?></label>
+				<?php
+ wp_nonce_field( 'find-posts', '_ajax_nonce', false ); ?>
+				<label class="screen-reader-text" for="find-posts-input"><?php
+ _e( 'Search' ); ?></label>
 				<input type="text" id="find-posts-input" name="ps" value="" />
 				<span class="spinner"></span>
-				<input type="button" id="find-posts-search" value="<?php esc_attr_e( 'Search' ); ?>" class="button" />
+				<input type="button" id="find-posts-search" value="<?php
+ esc_attr_e( 'Search' ); ?>" class="button" />
 				<div class="clear"></div>
 			</div>
 			<div id="find-posts-response"></div>
 		</div>
 		<div class="find-box-buttons">
-			<?php submit_button( __( 'Select' ), 'primary alignright', 'find-posts-submit', false ); ?>
+			<?php
+ submit_button( __( 'Select' ), 'primary alignright', 'find-posts-submit', false ); ?>
 			<div class="clear"></div>
 		</div>
 	</div>
 	<?php
+
 }
 
 /**
@@ -2011,22 +2098,34 @@ function iframe_header( $title = '', $deprecated = false ) {
 	header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
 	_wp_admin_html_begin();
 	?>
-<title><?php bloginfo( 'name' ); ?> &rsaquo; <?php echo $title; ?> &#8212; <?php _e( 'WordPress' ); ?></title>
+<title><?php
+ bloginfo( 'name' ); ?> &rsaquo; <?php
+ echo $title; ?> &#8212; <?php
+ _e( 'WordPress' ); ?></title>
 	<?php
+
 	wp_enqueue_style( 'colors' );
 	?>
 <script type="text/javascript">
 addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
 function tb_close(){var win=window.dialogArguments||opener||parent||top;win.tb_remove();}
-var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
-	pagenow = '<?php echo $current_screen->id; ?>',
-	typenow = '<?php echo $current_screen->post_type; ?>',
-	adminpage = '<?php echo $admin_body_class; ?>',
-	thousandsSeparator = '<?php echo addslashes( $wp_locale->number_format['thousands_sep'] ); ?>',
-	decimalPoint = '<?php echo addslashes( $wp_locale->number_format['decimal_point'] ); ?>',
-	isRtl = <?php echo (int) is_rtl(); ?>;
+var ajaxurl = '<?php
+ echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
+	pagenow = '<?php
+ echo $current_screen->id; ?>',
+	typenow = '<?php
+ echo $current_screen->post_type; ?>',
+	adminpage = '<?php
+ echo $admin_body_class; ?>',
+	thousandsSeparator = '<?php
+ echo addslashes( $wp_locale->number_format['thousands_sep'] ); ?>',
+	decimalPoint = '<?php
+ echo addslashes( $wp_locale->number_format['decimal_point'] ); ?>',
+	isRtl = <?php
+ echo (int) is_rtl(); ?>;
 </script>
 	<?php
+
 	/** This action is documented in wp-admin/admin-header.php */
 	do_action( 'admin_enqueue_scripts', $hook_suffix );
 
@@ -2057,6 +2156,7 @@ var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
 	?>
 </head>
 	<?php
+
 	/**
 	 * @global string $body_id
 	 */
@@ -2066,7 +2166,9 @@ var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
 	$admin_body_classes = apply_filters( 'admin_body_class', '' );
 	$admin_body_classes = ltrim( $admin_body_classes . ' ' . $admin_body_class );
 	?>
-<body <?php echo $admin_body_id; ?>class="wp-admin wp-core-ui no-js iframe <?php echo $admin_body_classes; ?>">
+<body <?php
+ echo $admin_body_id; ?>class="wp-admin wp-core-ui no-js iframe <?php
+ echo $admin_body_classes; ?>">
 <script type="text/javascript">
 (function(){
 var c = document.body.className;
@@ -2075,6 +2177,7 @@ document.body.className = c;
 })();
 </script>
 	<?php
+
 }
 
 /**
@@ -2096,6 +2199,7 @@ function iframe_footer() {
 	?>
 	<div class="hidden">
 	<?php
+
 	/** This action is documented in wp-admin/admin-footer.php */
 	do_action( 'admin_footer', $hook_suffix );
 
@@ -2110,6 +2214,7 @@ function iframe_footer() {
 </body>
 </html>
 	<?php
+
 }
 
 /**
@@ -2323,7 +2428,8 @@ function _media_states( $post ) {
 function compression_test() {
 	?>
 	<script type="text/javascript">
-	var compressionNonce = <?php echo wp_json_encode( wp_create_nonce( 'update_can_compress_scripts' ) ); ?>;
+	var compressionNonce = <?php
+ echo wp_json_encode( wp_create_nonce( 'update_can_compress_scripts' ) ); ?>;
 	var testCompression = {
 		get : function(test) {
 			var x;
@@ -2372,6 +2478,7 @@ function compression_test() {
 	testCompression.check();
 	</script>
 	<?php
+
 }
 
 /**
@@ -2486,8 +2593,10 @@ function _wp_admin_html_begin() {
 
 	?>
 <!DOCTYPE html>
-<html class="<?php echo $admin_html_class; ?>"
+<html class="<?php
+ echo $admin_html_class; ?>"
 	<?php
+
 	/**
 	 * Fires inside the HTML tag in the admin header.
 	 *
@@ -2499,8 +2608,11 @@ function _wp_admin_html_begin() {
 	?>
 >
 <head>
-<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php echo get_option( 'blog_charset' ); ?>" />
+<meta http-equiv="Content-Type" content="<?php
+ bloginfo( 'html_type' ); ?>; charset=<?php
+ echo get_option( 'blog_charset' ); ?>" />
 	<?php
+
 }
 
 /**
@@ -2543,14 +2655,18 @@ function _local_storage_notice() {
 	?>
 	<div id="local-storage-notice" class="hidden notice is-dismissible">
 	<p class="local-restore">
-		<?php _e( 'The backup of this post in your browser is different from the version below.' ); ?>
-		<button type="button" class="button restore-backup"><?php _e( 'Restore the backup' ); ?></button>
+		<?php
+ _e( 'The backup of this post in your browser is different from the version below.' ); ?>
+		<button type="button" class="button restore-backup"><?php
+ _e( 'Restore the backup' ); ?></button>
 	</p>
 	<p class="help">
-		<?php _e( 'This will replace the current editor content with the last backup version. You can use undo and redo in the editor to get the old content back or to return to the restored version.' ); ?>
+		<?php
+ _e( 'This will replace the current editor content with the last backup version. You can use undo and redo in the editor to get the old content back or to return to the restored version.' ); ?>
 	</p>
 	</div>
 	<?php
+
 }
 
 /**

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Responsive;
 
 use Elementor\Core\Responsive\Files\Frontend;

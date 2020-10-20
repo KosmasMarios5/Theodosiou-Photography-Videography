@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\GlobalWidget;
 
 use Elementor\Core\Documents_Manager;

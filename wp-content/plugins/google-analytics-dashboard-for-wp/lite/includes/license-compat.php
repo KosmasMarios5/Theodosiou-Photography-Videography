@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This class is used to prevent fatal errors in legacy code
  * that others have written based on testing we've done.

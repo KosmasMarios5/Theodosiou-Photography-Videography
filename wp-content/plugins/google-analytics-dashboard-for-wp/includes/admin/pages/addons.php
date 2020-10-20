@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Addons class.
  *
@@ -12,7 +13,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
 
 /**
  * Callback to output the ExactMetrics addons page.

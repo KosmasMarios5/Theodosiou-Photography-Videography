@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -51,6 +52,7 @@ class Control_Section extends Base_UI_Control {
 			<div class="elementor-panel-heading-title elementor-section-title">{{{ data.label }}}</div>
 		</div>
 		<?php
+
 	}
 
 	/**

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Blockquote;
 
 use ElementorPro\Base\Module_Base;

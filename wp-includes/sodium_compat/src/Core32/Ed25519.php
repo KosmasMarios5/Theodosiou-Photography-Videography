@@ -130,7 +130,6 @@ abstract class ParagonIE_Sodium_Core32_Ed25519 extends ParagonIE_Sodium_Core32_C
             )
         );
 
-
         # fe_1(x);
         # fe_add(x, x, A.Y);
         # fe_mul(x, x, one_minus_y);

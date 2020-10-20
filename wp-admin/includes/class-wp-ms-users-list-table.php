@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_MS_Users_List_Table class
  *
@@ -235,14 +236,19 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 			return;
 		}
 		?>
-		<label class="screen-reader-text" for="blog_<?php echo $user->ID; ?>">
+		<label class="screen-reader-text" for="blog_<?php
+ echo $user->ID; ?>">
 			<?php
+
 			/* translators: %s: User login. */
 			printf( __( 'Select %s' ), $user->user_login );
 			?>
 		</label>
-		<input type="checkbox" id="blog_<?php echo $user->ID; ?>" name="allusers[]" value="<?php echo esc_attr( $user->ID ); ?>" />
+		<input type="checkbox" id="blog_<?php
+ echo $user->ID; ?>" name="allusers[]" value="<?php
+ echo esc_attr( $user->ID ); ?>" />
 		<?php
+
 	}
 
 	/**
@@ -279,6 +285,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 		?>
 		<strong>
 			<?php
+
 			echo $edit;
 
 			if ( in_array( $user->user_login, $super_admins, true ) ) {
@@ -287,6 +294,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 			?>
 		</strong>
 		<?php
+
 	}
 
 	/**
@@ -467,10 +475,13 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 			}
 
 			?>
-			<tr class="<?php echo trim( $class ); ?>">
-				<?php $this->single_row_columns( $user ); ?>
+			<tr class="<?php
+ echo trim( $class ); ?>">
+				<?php
+ $this->single_row_columns( $user ); ?>
 			</tr>
 			<?php
+
 		}
 	}
 

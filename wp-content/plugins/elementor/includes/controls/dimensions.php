@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -93,39 +94,52 @@ class Control_Dimensions extends Control_Base_Units {
 		?>
 		<div class="elementor-control-field">
 			<label class="elementor-control-title">{{{ data.label }}}</label>
-			<?php $this->print_units_template(); ?>
+			<?php
+ $this->print_units_template(); ?>
 			<div class="elementor-control-input-wrapper">
 				<ul class="elementor-control-dimensions">
 					<?php
+
 					foreach ( $dimensions as $dimension_key => $dimension_title ) :
 						$control_uid = $this->get_control_uid( $dimension_key );
 						?>
 						<li class="elementor-control-dimension">
-							<input id="<?php echo $control_uid; ?>" type="number" data-setting="<?php echo esc_attr( $dimension_key ); ?>"
+							<input id="<?php
+ echo $control_uid; ?>" type="number" data-setting="<?php
+ echo esc_attr( $dimension_key ); ?>"
 								   placeholder="<#
 							   if ( _.isObject( data.placeholder ) ) {
-								if ( ! _.isUndefined( data.placeholder.<?php echo $dimension_key; ?> ) ) {
-									print( data.placeholder.<?php echo $dimension_key; ?> );
+								if ( ! _.isUndefined( data.placeholder.<?php
+ echo $dimension_key; ?> ) ) {
+									print( data.placeholder.<?php
+ echo $dimension_key; ?> );
 								}
 							   } else {
 								print( data.placeholder );
 							   } #>"
-							<# if ( -1 === _.indexOf( allowed_dimensions, '<?php echo $dimension_key; ?>' ) ) { #>
+							<# if ( -1 === _.indexOf( allowed_dimensions, '<?php
+ echo $dimension_key; ?>' ) ) { #>
 								disabled
 								<# } #>
 									/>
-							<label for="<?php echo esc_attr( $control_uid ); ?>" class="elementor-control-dimension-label"><?php echo $dimension_title; ?></label>
+							<label for="<?php
+ echo esc_attr( $control_uid ); ?>" class="elementor-control-dimension-label"><?php
+ echo $dimension_title; ?></label>
 						</li>
-					<?php endforeach; ?>
+					<?php
+ endforeach; ?>
 					<li>
-						<button class="elementor-link-dimensions tooltip-target" data-tooltip="<?php echo esc_attr__( 'Link values together', 'elementor' ); ?>">
+						<button class="elementor-link-dimensions tooltip-target" data-tooltip="<?php
+ echo esc_attr__( 'Link values together', 'elementor' ); ?>">
 							<span class="elementor-linked">
 								<i class="eicon-link" aria-hidden="true"></i>
-								<span class="elementor-screen-only"><?php echo __( 'Link values together', 'elementor' ); ?></span>
+								<span class="elementor-screen-only"><?php
+ echo __( 'Link values together', 'elementor' ); ?></span>
 							</span>
 							<span class="elementor-unlinked">
 								<i class="eicon-chain-broken" aria-hidden="true"></i>
-								<span class="elementor-screen-only"><?php echo __( 'Unlinked values', 'elementor' ); ?></span>
+								<span class="elementor-screen-only"><?php
+ echo __( 'Unlinked values', 'elementor' ); ?></span>
 							</span>
 						</button>
 					</li>
@@ -136,5 +150,6 @@ class Control_Dimensions extends Control_Base_Units {
 		<div class="elementor-control-field-description">{{{ data.description }}}</div>
 		<# } #>
 		<?php
+
 	}
 }

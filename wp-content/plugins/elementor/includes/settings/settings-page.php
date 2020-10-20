@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -288,9 +289,11 @@ abstract class Settings_Page {
 		$tabs = $this->get_tabs();
 		?>
 		<div class="wrap">
-			<h1><?php echo $this->get_page_title(); ?></h1>
+			<h1><?php
+ echo $this->get_page_title(); ?></h1>
 			<div id="elementor-settings-tabs-wrapper" class="nav-tab-wrapper">
 				<?php
+
 				foreach ( $tabs as $tab_id => $tab ) {
 					if ( empty( $tab['sections'] ) ) {
 						continue;
@@ -308,6 +311,7 @@ abstract class Settings_Page {
 			</div>
 			<form id="elementor-settings-form" method="post" action="options.php">
 				<?php
+
 				settings_fields( static::PAGE_ID );
 
 				foreach ( $tabs as $tab_id => $tab ) {
@@ -349,6 +353,7 @@ abstract class Settings_Page {
 			</form>
 		</div><!-- /.wrap -->
 		<?php
+
 	}
 
 	/**

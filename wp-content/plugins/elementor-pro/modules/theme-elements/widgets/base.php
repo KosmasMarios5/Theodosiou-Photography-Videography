@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeElements\Widgets;
 
 use ElementorPro\Base\Base_Widget;

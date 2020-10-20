@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Manage the ExactMetrics Dashboard Widget
  *
@@ -133,17 +134,25 @@ class ExactMetrics_Dashboard_Widget {
 		}
 		?>
 		<div class="mi-dw-not-authed">
-			<h2><?php esc_html_e( 'Website Analytics is not Setup', 'google-analytics-dashboard-for-wp' ); ?></h2>
-			<?php if ( current_user_can( 'exactmetrics_save_settings' ) ) { ?>
-				<p><?php esc_html_e( 'To see your website stats, please connect ExactMetrics to Google Analytics.', 'google-analytics-dashboard-for-wp' ); ?></p>
-				<a href="<?php echo esc_url( $url ); ?>" class="mi-dw-btn-large"><?php esc_html_e( 'Setup Website Analytics', 'google-analytics-dashboard-for-wp' ); ?></a>
-			<?php } else { ?>
-				<p><?php esc_html_e( 'To see your website stats, please ask your webmaster to connect ExactMetrics to Google Analytics.', 'google-analytics-dashboard-for-wp' ); ?></p>
-			<?php } ?>
+			<h2><?php
+ esc_html_e( 'Website Analytics is not Setup', 'google-analytics-dashboard-for-wp' ); ?></h2>
+			<?php
+ if ( current_user_can( 'exactmetrics_save_settings' ) ) { ?>
+				<p><?php
+ esc_html_e( 'To see your website stats, please connect ExactMetrics to Google Analytics.', 'google-analytics-dashboard-for-wp' ); ?></p>
+				<a href="<?php
+ echo esc_url( $url ); ?>" class="mi-dw-btn-large"><?php
+ esc_html_e( 'Setup Website Analytics', 'google-analytics-dashboard-for-wp' ); ?></a>
+			<?php
+ } else { ?>
+				<p><?php
+ esc_html_e( 'To see your website stats, please ask your webmaster to connect ExactMetrics to Google Analytics.', 'google-analytics-dashboard-for-wp' ); ?></p>
+			<?php
+ } ?>
 		</div>
 		<?php
-	}
 
+	}
 
 	/**
 	 * Load widget-specific scripts.
@@ -309,6 +318,7 @@ class ExactMetrics_Dashboard_Widget {
 			?>
 			<div id="exactmetrics-reminder-notice"></div>
 			<?php
+
 		}
 
 	}

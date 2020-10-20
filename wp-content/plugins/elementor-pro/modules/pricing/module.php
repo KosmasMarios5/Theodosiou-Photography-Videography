@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Pricing;
 
 use ElementorPro\Base\Module_Base;

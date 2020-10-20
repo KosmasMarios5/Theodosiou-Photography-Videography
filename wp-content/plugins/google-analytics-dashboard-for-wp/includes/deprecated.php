@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Deprecated functions.
  *
@@ -227,7 +228,6 @@ function _exactmetrics_deprecated( $message ) {
 		trigger_error( esc_html( $message ) );
 	}
 }
-
 
 /**
  * Start Deprecated Actions & Filters.

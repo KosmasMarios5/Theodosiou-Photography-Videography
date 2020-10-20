@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Check to see if the plugin file path matches the main pro plugin or an add-on of ours
  *
@@ -192,7 +193,6 @@ add_filter( 'auto_update_plugin', 'exactmetrics_automatic_updates', 10, 2 );
  * - Because WP's updater asks the OS if the file is writable, make sure you do not have any files/folders for the plugin you are trying to autoupdate open when testing.
  * - You may need to delete the plugin info transient to get it to hard refresh the plugin info.
  */
-
 
 function exactmetrics_get_major_version( $version ) {
     $exploded_version = explode( '.', $version );

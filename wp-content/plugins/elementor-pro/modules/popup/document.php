@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Popup;
 
 use Elementor\Controls_Manager;

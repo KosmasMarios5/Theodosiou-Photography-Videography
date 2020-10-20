@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Server-side rendering of the `core/categories` block.
  *
@@ -71,10 +72,12 @@ function build_dropdown_script_block_core_categories( $dropdown_id ) {
 	<script type='text/javascript'>
 	/* <![CDATA[ */
 	( function() {
-		var dropdown = document.getElementById( '<?php echo esc_js( $dropdown_id ); ?>' );
+		var dropdown = document.getElementById( '<?php
+ echo esc_js( $dropdown_id ); ?>' );
 		function onCatChange() {
 			if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
-				location.href = "<?php echo home_url(); ?>/?cat=" + dropdown.options[ dropdown.selectedIndex ].value;
+				location.href = "<?php
+ echo home_url(); ?>/?cat=" + dropdown.options[ dropdown.selectedIndex ].value;
 			}
 		}
 		dropdown.onchange = onCatChange;
@@ -82,6 +85,7 @@ function build_dropdown_script_block_core_categories( $dropdown_id ) {
 	/* ]]> */
 	</script>
 	<?php
+
 	return ob_get_clean();
 }
 

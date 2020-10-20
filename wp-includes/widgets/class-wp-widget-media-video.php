@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Widget_Media_Video class
  *
@@ -229,15 +230,18 @@ class WP_Widget_Media_Video extends WP_Widget_Media {
 		<script type="text/html" id="tmpl-wp-media-widget-video-preview">
 			<# if ( data.error && 'missing_attachment' === data.error ) { #>
 				<div class="notice notice-error notice-alt notice-missing-attachment">
-					<p><?php echo $this->l10n['missing_attachment']; ?></p>
+					<p><?php
+ echo $this->l10n['missing_attachment']; ?></p>
 				</div>
 			<# } else if ( data.error && 'unsupported_file_type' === data.error ) { #>
 				<div class="notice notice-error notice-alt notice-missing-attachment">
-					<p><?php echo $this->l10n['unsupported_file_type']; ?></p>
+					<p><?php
+ echo $this->l10n['unsupported_file_type']; ?></p>
 				</div>
 			<# } else if ( data.error ) { #>
 				<div class="notice notice-error notice-alt">
-					<p><?php _e( 'Unable to preview media due to an unknown error.' ); ?></p>
+					<p><?php
+ _e( 'Unable to preview media due to an unknown error.' ); ?></p>
 				</div>
 			<# } else if ( data.is_oembed && data.model.poster ) { #>
 				<a href="{{ data.model.src }}" target="_blank" class="media-widget-video-link">
@@ -248,9 +252,11 @@ class WP_Widget_Media_Video extends WP_Widget_Media {
 					<span class="dashicons dashicons-format-video"></span>
 				</a>
 			<# } else if ( data.model.src ) { #>
-				<?php wp_underscore_video_template(); ?>
+				<?php
+ wp_underscore_video_template(); ?>
 			<# } #>
 		</script>
 		<?php
+
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Extensions;
 
 if (!defined('ABSPATH')) {

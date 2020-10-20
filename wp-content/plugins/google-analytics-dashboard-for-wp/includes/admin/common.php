@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Common admin class.
  *
@@ -733,11 +734,13 @@ function exactmetrics_ublock_notice() {
 	ob_start(); ?>
 	<div id="exactmetrics-ublock-origin-error" class="error inline" style="display:none;">
 		<?php
+
 		// Translators: Placeholders are for links to fix the issue.
 		echo sprintf( esc_html__( 'ExactMetrics has detected that it\'s files are being blocked. This is usually caused by a adblock browser plugin (particularly uBlock Origin), or a conflicting WordPress theme or plugin. This issue only affects the admin side of ExactMetrics. To solve this, ensure ExactMetrics is whitelisted for your website URL in any adblock browser plugin you use. For step by step directions on how to do this, %1$sclick here%2$s. If this doesn\'t solve the issue (rare), send us a ticket %3$shere%2$s and we\'ll be happy to help diagnose the issue.', 'google-analytics-dashboard-for-wp' ), '<a href="https://exactmetrics.com/docs/exactmetrics-asset-files-blocked/" target="_blank" rel="noopener noreferrer" referrer="no-referrer">', '</a>', '<a href="https://exactmetrics.com/contact/" target="_blank" rel="noopener noreferrer" referrer="no-referrer">' );
 		?>
 	</div>
 	<?php
+
 	return ob_get_clean();
 }
 
@@ -854,15 +857,19 @@ function exactmetrics_yearinreview_admin_menu_tooltip() {
 			<span class="exactmetrics-yearinreview-admin-menu-tooltip-icon">
 				<span class="dashicons dashicons-megaphone"></span>
 			</span>
-			<?php esc_html_e( 'Your 2019 Analytics Report', 'google-analytics-dashboard-for-wp' ); ?>
+			<?php
+ esc_html_e( 'Your 2019 Analytics Report', 'google-analytics-dashboard-for-wp' ); ?>
 			<a href="#" class="exactmetrics-yearinreview-admin-menu-tooltip-close">
 				<span class="dashicons dashicons-dismiss"></span>
 			</a>
 		</div>
 		<div class="exactmetrics-yearinreview-admin-menu-tooltip-content">
-			<strong><?php esc_html_e( 'See how your website performed this year and find tips along the way to help grow even more in 2020!', 'google-analytics-dashboard-for-wp' ); ?></strong>
+			<strong><?php
+ esc_html_e( 'See how your website performed this year and find tips along the way to help grow even more in 2020!', 'google-analytics-dashboard-for-wp' ); ?></strong>
 			<p>
-				<a href="<?php echo esc_url( $url ); ?>" class="button button-primary exactmetrics-yearinreview-admin-menu-tooltip-btn-link"><?php esc_html_e( 'View 2019 Year in Review report!', 'google-analytics-dashboard-for-wp' ); ?></a>
+				<a href="<?php
+ echo esc_url( $url ); ?>" class="button button-primary exactmetrics-yearinreview-admin-menu-tooltip-btn-link"><?php
+ esc_html_e( 'View 2019 Year in Review report!', 'google-analytics-dashboard-for-wp' ); ?></a>
 			</p>
 		</div>
 	</div>
@@ -1031,13 +1038,15 @@ function exactmetrics_yearinreview_admin_menu_tooltip() {
 					$tooltip.addClass( 'exactmetrics-yearinreview-admin-menu-tooltip-hide' );
 					$.post( ajaxurl, {
 						action: 'exactmetrics_yearinreview_hide_admin_tooltip',
-						nonce: '<?php echo esc_js( wp_create_nonce( 'mi-admin-nonce' ) ); ?>',
+						nonce: '<?php
+ echo esc_js( wp_create_nonce( 'mi-admin-nonce' ) ); ?>',
 					} );
 				}
 			} );
 		}
 	</script>
 	<?php
+
 }
 
 add_action( 'adminmenu', 'exactmetrics_yearinreview_admin_menu_tooltip', 5 );

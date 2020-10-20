@@ -1506,22 +1506,32 @@ class Caldera_Forms extends Widget_Base
         }
 
         if (!empty($settings['contact_form_list'])) {?>
-            <div <?php echo $this->get_render_attribute_string('contact-form'); ?>>
-                <?php if ($settings['custom_title_description'] == 'yes') {?>
+            <div <?php
+ echo $this->get_render_attribute_string('contact-form'); ?>>
+                <?php
+ if ($settings['custom_title_description'] == 'yes') {?>
                     <div class="eael-caldera-form-heading">
-                        <?php if ($settings['form_title_custom'] != '') {?>
+                        <?php
+ if ($settings['form_title_custom'] != '') {?>
                             <h3 class="eael-contact-form-title eael-caldera-form-title">
-                                <?php echo esc_attr($settings['form_title_custom']); ?>
+                                <?php
+ echo esc_attr($settings['form_title_custom']); ?>
                             </h3>
-                        <?php }?>
-                        <?php if ($settings['form_description_custom'] != '') {?>
+                        <?php
+ }?>
+                        <?php
+ if ($settings['form_description_custom'] != '') {?>
                             <div class="eael-contact-form-description eael-caldera-form-description">
-                                <?php echo $this->parse_text_editor($settings['form_description_custom']); ?>
+                                <?php
+ echo $this->parse_text_editor($settings['form_description_custom']); ?>
                             </div>
-                        <?php }?>
+                        <?php
+ }?>
                     </div>
-                <?php }?>
-                <?php echo do_shortcode('[caldera_form id="' . $settings['contact_form_list'] . '" ]'); ?>
+                <?php
+ }?>
+                <?php
+ echo do_shortcode('[caldera_form id="' . $settings['contact_form_list'] . '" ]'); ?>
             </div>
             <?php
         }

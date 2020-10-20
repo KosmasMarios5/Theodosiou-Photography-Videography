@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The block editor page.
  *
@@ -126,7 +127,6 @@ $meta_box_url = add_query_arg(
 	$meta_box_url
 );
 wp_localize_script( 'wp-editor', '_wpMetaBoxUrl', $meta_box_url );
-
 
 /*
  * Initialize the editor.
@@ -366,7 +366,6 @@ wp_enqueue_media(
 wp_tinymce_inline_scripts();
 wp_enqueue_editor();
 
-
 /**
  * Styles
  */
@@ -428,18 +427,23 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="block-editor">
-	<h1 class="screen-reader-text hide-if-no-js"><?php echo esc_html( $title ); ?></h1>
+	<h1 class="screen-reader-text hide-if-no-js"><?php
+ echo esc_html( $title ); ?></h1>
 	<div id="editor" class="block-editor__container hide-if-no-js"></div>
 	<div id="metaboxes" class="hidden">
-		<?php the_block_editor_meta_boxes(); ?>
+		<?php
+ the_block_editor_meta_boxes(); ?>
 	</div>
 
-	<?php // JavaScript is disabled. ?>
+	<?php
+ // JavaScript is disabled. ?>
 	<div class="wrap hide-if-js block-editor-no-js">
-		<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+		<h1 class="wp-heading-inline"><?php
+ echo esc_html( $title ); ?></h1>
 		<div class="notice notice-error notice-alt">
 			<p>
 				<?php
+
 					$message = sprintf(
 						/* translators: %s: A link to install the Classic Editor plugin. */
 						__( 'The block editor requires JavaScript. Please enable JavaScript in your browser settings, or try the <a href="%s">Classic Editor plugin</a>.' ),

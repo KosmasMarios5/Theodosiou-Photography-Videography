@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Revisions administration panel
  *
@@ -163,10 +164,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
-	<h1 class="long-header"><?php echo $h1; ?></h1>
-	<?php echo $return_to_post; ?>
+	<h1 class="long-header"><?php
+ echo $h1; ?></h1>
+	<?php
+ echo $return_to_post; ?>
 </div>
 <?php
+
 wp_print_revision_templates();
 
 require_once ABSPATH . 'wp-admin/admin-footer.php';

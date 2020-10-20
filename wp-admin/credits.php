@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Credits administration panel.
  *
@@ -22,32 +23,43 @@ $credits = wp_credits();
 
 	<div class="about__header">
 		<div class="about__header-text">
-			<?php _e( 'Speed. Search. Security.' ); ?>
+			<?php
+ _e( 'Speed. Search. Security.' ); ?>
 		</div>
 
 		<div class="about__header-title">
 			<p>
-				<?php _e( 'WordPress' ); ?>
-				<span><?php echo $display_version; ?></span>
+				<?php
+ _e( 'WordPress' ); ?>
+				<span><?php
+ echo $display_version; ?></span>
 			</p>
 		</div>
 
-		<nav class="about__header-navigation nav-tab-wrapper wp-clearfix" aria-label="<?php esc_attr_e( 'Secondary menu' ); ?>">
-			<a href="about.php" class="nav-tab"><?php _e( 'What&#8217;s New' ); ?></a>
-			<a href="credits.php" class="nav-tab nav-tab-active" aria-current="page"><?php _e( 'Credits' ); ?></a>
-			<a href="freedoms.php" class="nav-tab"><?php _e( 'Freedoms' ); ?></a>
-			<a href="privacy.php" class="nav-tab"><?php _e( 'Privacy' ); ?></a>
+		<nav class="about__header-navigation nav-tab-wrapper wp-clearfix" aria-label="<?php
+ esc_attr_e( 'Secondary menu' ); ?>">
+			<a href="about.php" class="nav-tab"><?php
+ _e( 'What&#8217;s New' ); ?></a>
+			<a href="credits.php" class="nav-tab nav-tab-active" aria-current="page"><?php
+ _e( 'Credits' ); ?></a>
+			<a href="freedoms.php" class="nav-tab"><?php
+ _e( 'Freedoms' ); ?></a>
+			<a href="privacy.php" class="nav-tab"><?php
+ _e( 'Privacy' ); ?></a>
 		</nav>
 	</div>
 
 	<div class="about__section is-feature">
 		<div class="column">
-			<h1><?php _e( 'Credits' ); ?></h1>
+			<h1><?php
+ _e( 'Credits' ); ?></h1>
 
-			<?php if ( ! $credits ) : ?>
+			<?php
+ if ( ! $credits ) : ?>
 
 			<p>
 				<?php
+
 				printf(
 					/* translators: 1: https://wordpress.org/about/, 2: https://make.wordpress.org/ */
 					__( 'WordPress is created by a <a href="%1$s">worldwide team</a> of passionate individuals. <a href="%2$s">Get involved in WordPress</a>.' ),
@@ -57,13 +69,16 @@ $credits = wp_credits();
 				?>
 			</p>
 
-			<?php else : ?>
+			<?php
+ else : ?>
 
 			<p>
-				<?php _e( 'WordPress is created by a worldwide team of passionate individuals.' ); ?>
+				<?php
+ _e( 'WordPress is created by a worldwide team of passionate individuals.' ); ?>
 			</p>
 			<p>
 				<?php
+
 				printf(
 					/* translators: %s: https://make.wordpress.org/ */
 					__( 'Want to see your name in lights on this page? <a href="%s">Get involved in WordPress</a>.' ),
@@ -72,11 +87,13 @@ $credits = wp_credits();
 				?>
 			</p>
 
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</div>
 	</div>
 
 <?php
+
 if ( ! $credits ) {
 	echo '</div>';
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
@@ -88,9 +105,12 @@ if ( ! $credits ) {
 
 	<div class="about__section">
 		<div class="column has-subtle-background-color">
-			<?php wp_credits_section_title( $credits['groups']['core-developers'] ); ?>
-			<?php wp_credits_section_list( $credits, 'core-developers' ); ?>
-			<?php wp_credits_section_list( $credits, 'contributing-developers' ); ?>
+			<?php
+ wp_credits_section_title( $credits['groups']['core-developers'] ); ?>
+			<?php
+ wp_credits_section_list( $credits, 'core-developers' ); ?>
+			<?php
+ wp_credits_section_list( $credits, 'contributing-developers' ); ?>
 		</div>
 	</div>
 
@@ -98,29 +118,38 @@ if ( ! $credits ) {
 
 	<div class="about__section">
 		<div class="column">
-			<?php wp_credits_section_title( $credits['groups']['props'] ); ?>
-			<?php wp_credits_section_list( $credits, 'props' ); ?>
+			<?php
+ wp_credits_section_title( $credits['groups']['props'] ); ?>
+			<?php
+ wp_credits_section_list( $credits, 'props' ); ?>
 		</div>
 	</div>
 
 	<hr />
 
-	<?php if ( isset( $credits['groups']['translators'] ) || isset( $credits['groups']['validators'] ) ) : ?>
+	<?php
+ if ( isset( $credits['groups']['translators'] ) || isset( $credits['groups']['validators'] ) ) : ?>
 	<div class="about__section">
 		<div class="column">
-			<?php wp_credits_section_title( $credits['groups']['validators'] ); ?>
-			<?php wp_credits_section_list( $credits, 'validators' ); ?>
-			<?php wp_credits_section_list( $credits, 'translators' ); ?>
+			<?php
+ wp_credits_section_title( $credits['groups']['validators'] ); ?>
+			<?php
+ wp_credits_section_list( $credits, 'validators' ); ?>
+			<?php
+ wp_credits_section_list( $credits, 'translators' ); ?>
 		</div>
 	</div>
 
 	<hr />
-	<?php endif; ?>
+	<?php
+ endif; ?>
 
 	<div class="about__section">
 		<div class="column">
-			<?php wp_credits_section_title( $credits['groups']['libraries'] ); ?>
-			<?php wp_credits_section_list( $credits, 'libraries' ); ?>
+			<?php
+ wp_credits_section_title( $credits['groups']['libraries'] ); ?>
+			<?php
+ wp_credits_section_list( $credits, 'libraries' ); ?>
 		</div>
 	</div>
 </div>

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Pricing\Widgets;
 
 use Elementor\Controls_Manager;
@@ -1438,47 +1439,76 @@ class Price_Table extends Base_Widget {
 		?>
 
 		<div class="elementor-price-table">
-			<?php if ( $settings['heading'] || $settings['sub_heading'] ) : ?>
+			<?php
+ if ( $settings['heading'] || $settings['sub_heading'] ) : ?>
 				<div class="elementor-price-table__header">
-					<?php if ( ! empty( $settings['heading'] ) ) : ?>
-						<<?php echo $heading_tag . ' ' . $this->get_render_attribute_string( 'heading' ); ?>><?php echo $settings['heading'] . '</' . $heading_tag; ?>>
-					<?php endif; ?>
+					<?php
+ if ( ! empty( $settings['heading'] ) ) : ?>
+						<<?php
+ echo $heading_tag . ' ' . $this->get_render_attribute_string( 'heading' ); ?>><?php
+ echo $settings['heading'] . '</' . $heading_tag; ?>>
+					<?php
+ endif; ?>
 
-					<?php if ( ! empty( $settings['sub_heading'] ) ) : ?>
-						<span <?php echo $this->get_render_attribute_string( 'sub_heading' ); ?>><?php echo $settings['sub_heading']; ?></span>
-					<?php endif; ?>
+					<?php
+ if ( ! empty( $settings['sub_heading'] ) ) : ?>
+						<span <?php
+ echo $this->get_render_attribute_string( 'sub_heading' ); ?>><?php
+ echo $settings['sub_heading']; ?></span>
+					<?php
+ endif; ?>
 				</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 
 			<div class="elementor-price-table__price">
-				<?php if ( 'yes' === $settings['sale'] && ! empty( $settings['original_price'] ) ) : ?>
-					<div class="elementor-price-table__original-price elementor-typo-excluded"><?php echo $symbol . $settings['original_price']; ?></div>
-				<?php endif; ?>
-				<?php $this->render_currency_symbol( $symbol, 'before' ); ?>
-				<?php if ( ! empty( $intpart ) || 0 <= $intpart ) : ?>
-					<span class="elementor-price-table__integer-part"><?php echo $intpart; ?></span>
-				<?php endif; ?>
+				<?php
+ if ( 'yes' === $settings['sale'] && ! empty( $settings['original_price'] ) ) : ?>
+					<div class="elementor-price-table__original-price elementor-typo-excluded"><?php
+ echo $symbol . $settings['original_price']; ?></div>
+				<?php
+ endif; ?>
+				<?php
+ $this->render_currency_symbol( $symbol, 'before' ); ?>
+				<?php
+ if ( ! empty( $intpart ) || 0 <= $intpart ) : ?>
+					<span class="elementor-price-table__integer-part"><?php
+ echo $intpart; ?></span>
+				<?php
+ endif; ?>
 
-				<?php if ( '' !== $fraction || ( ! empty( $settings['period'] ) && 'beside' === $period_position ) ) : ?>
+				<?php
+ if ( '' !== $fraction || ( ! empty( $settings['period'] ) && 'beside' === $period_position ) ) : ?>
 					<div class="elementor-price-table__after-price">
-						<span class="elementor-price-table__fractional-part"><?php echo $fraction; ?></span>
+						<span class="elementor-price-table__fractional-part"><?php
+ echo $fraction; ?></span>
 
-						<?php if ( ! empty( $settings['period'] ) && 'beside' === $period_position ) : ?>
-							<?php echo $period_element; ?>
-						<?php endif; ?>
+						<?php
+ if ( ! empty( $settings['period'] ) && 'beside' === $period_position ) : ?>
+							<?php
+ echo $period_element; ?>
+						<?php
+ endif; ?>
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 
-				<?php $this->render_currency_symbol( $symbol, 'after' ); ?>
+				<?php
+ $this->render_currency_symbol( $symbol, 'after' ); ?>
 
-				<?php if ( ! empty( $settings['period'] ) && 'below' === $period_position ) : ?>
-					<?php echo $period_element; ?>
-				<?php endif; ?>
+				<?php
+ if ( ! empty( $settings['period'] ) && 'below' === $period_position ) : ?>
+					<?php
+ echo $period_element; ?>
+				<?php
+ endif; ?>
 			</div>
 
-			<?php if ( ! empty( $settings['features_list'] ) ) : ?>
+			<?php
+ if ( ! empty( $settings['features_list'] ) ) : ?>
 				<ul class="elementor-price-table__features-list">
 					<?php
+
 					foreach ( $settings['features_list'] as $index => $item ) :
 						$repeater_setting_key = $this->get_repeater_setting_key( 'item_text', 'features_list', $index );
 						$this->add_inline_editing_attributes( $repeater_setting_key );
@@ -1490,45 +1520,66 @@ class Price_Table extends Base_Widget {
 						}
 						$is_new = ! isset( $item['item_icon'] ) && $migration_allowed;
 						?>
-						<li class="elementor-repeater-item-<?php echo $item['_id']; ?>">
+						<li class="elementor-repeater-item-<?php
+ echo $item['_id']; ?>">
 							<div class="elementor-price-table__feature-inner">
-								<?php if ( ! empty( $item['item_icon'] ) || ! empty( $item['selected_item_icon'] ) ) :
+								<?php
+ if ( ! empty( $item['item_icon'] ) || ! empty( $item['selected_item_icon'] ) ) :
 									if ( $is_new || $migrated ) :
 										Icons_Manager::render_icon( $item['selected_item_icon'], [ 'aria-hidden' => 'true' ] );
 									else : ?>
-										<i class="<?php echo esc_attr( $item['item_icon'] ); ?>" aria-hidden="true"></i>
+										<i class="<?php
+ echo esc_attr( $item['item_icon'] ); ?>" aria-hidden="true"></i>
 										<?php
+
 									endif;
 								endif; ?>
-								<?php if ( ! empty( $item['item_text'] ) ) : ?>
-									<span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); ?>>
-										<?php echo $item['item_text']; ?>
+								<?php
+ if ( ! empty( $item['item_text'] ) ) : ?>
+									<span <?php
+ echo $this->get_render_attribute_string( $repeater_setting_key ); ?>>
+										<?php
+ echo $item['item_text']; ?>
 									</span>
 									<?php
+
 								else :
 									echo '&nbsp;';
 								endif;
 								?>
 							</div>
 						</li>
-					<?php endforeach; ?>
+					<?php
+ endforeach; ?>
 				</ul>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 
-			<?php if ( ! empty( $settings['button_text'] ) || ! empty( $settings['footer_additional_info'] ) ) : ?>
+			<?php
+ if ( ! empty( $settings['button_text'] ) || ! empty( $settings['footer_additional_info'] ) ) : ?>
 				<div class="elementor-price-table__footer">
-					<?php if ( ! empty( $settings['button_text'] ) ) : ?>
-						<a <?php echo $this->get_render_attribute_string( 'button_text' ); ?>><?php echo $settings['button_text']; ?></a>
-					<?php endif; ?>
+					<?php
+ if ( ! empty( $settings['button_text'] ) ) : ?>
+						<a <?php
+ echo $this->get_render_attribute_string( 'button_text' ); ?>><?php
+ echo $settings['button_text']; ?></a>
+					<?php
+ endif; ?>
 
-					<?php if ( ! empty( $settings['footer_additional_info'] ) ) : ?>
-						<div <?php echo $this->get_render_attribute_string( 'footer_additional_info' ); ?>><?php echo $settings['footer_additional_info']; ?></div>
-					<?php endif; ?>
+					<?php
+ if ( ! empty( $settings['footer_additional_info'] ) ) : ?>
+						<div <?php
+ echo $this->get_render_attribute_string( 'footer_additional_info' ); ?>><?php
+ echo $settings['footer_additional_info']; ?></div>
+					<?php
+ endif; ?>
 				</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</div>
 
 		<?php
+
 		if ( 'yes' === $settings['show_ribbon'] && ! empty( $settings['ribbon_title'] ) ) :
 			$this->add_render_attribute( 'ribbon-wrapper', 'class', 'elementor-price-table__ribbon' );
 
@@ -1537,10 +1588,14 @@ class Price_Table extends Base_Widget {
 			endif;
 
 			?>
-			<div <?php echo $this->get_render_attribute_string( 'ribbon-wrapper' ); ?>>
-				<div <?php echo $this->get_render_attribute_string( 'ribbon_title' ); ?>><?php echo $settings['ribbon_title']; ?></div>
+			<div <?php
+ echo $this->get_render_attribute_string( 'ribbon-wrapper' ); ?>>
+				<div <?php
+ echo $this->get_render_attribute_string( 'ribbon_title' ); ?>><?php
+ echo $settings['ribbon_title']; ?></div>
 			</div>
 			<?php
+
 		endif;
 	}
 
@@ -1707,5 +1762,6 @@ class Price_Table extends Base_Widget {
 			</div>
 		<# } #>
 		<?php
+
 	}
 }

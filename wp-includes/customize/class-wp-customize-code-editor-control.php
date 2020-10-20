@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Code_Editor_Control class
  *
@@ -107,5 +108,6 @@ class WP_Customize_Code_Editor_Control extends WP_Customize_Control {
 			<# }); #>
 			></textarea>
 		<?php
+
 	}
 }

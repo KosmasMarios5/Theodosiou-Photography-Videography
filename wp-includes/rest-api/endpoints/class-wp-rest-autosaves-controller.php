@@ -1,4 +1,5 @@
 <?php
+
 /**
  * REST API: WP_REST_Autosaves_Controller class.
  *
@@ -304,7 +305,6 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 
 		return rest_ensure_response( $response );
 	}
-
 
 	/**
 	 * Retrieves the autosave's schema, conforming to JSON Schema.

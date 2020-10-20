@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Common\Modules\Finder\Categories;
 
 use Elementor\Core\Common\Modules\Finder\Base_Category;

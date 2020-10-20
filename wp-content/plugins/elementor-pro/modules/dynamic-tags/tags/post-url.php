@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\DynamicTags\Tags;
 
 use ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag;
@@ -7,7 +8,6 @@ use ElementorPro\Modules\DynamicTags\Module;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
 
 class Post_URL extends Data_Tag {
 

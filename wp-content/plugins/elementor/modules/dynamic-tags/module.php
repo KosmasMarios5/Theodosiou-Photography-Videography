@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\DynamicTags;
 
 use Elementor\Core\Base\Module as BaseModule;

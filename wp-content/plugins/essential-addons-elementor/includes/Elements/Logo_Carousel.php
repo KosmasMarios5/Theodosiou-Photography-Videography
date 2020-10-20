@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -1179,10 +1180,13 @@ class Logo_Carousel extends Widget_Base {
             $this->add_render_attribute( 'logo-carousel', 'data-arrows', '1' );
         }
         ?>
-        <div <?php echo $this->get_render_attribute_string( 'logo-carousel-wrap' ); ?>>
-            <div <?php echo $this->get_render_attribute_string( 'logo-carousel' ); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string( 'logo-carousel-wrap' ); ?>>
+            <div <?php
+ echo $this->get_render_attribute_string( 'logo-carousel' ); ?>>
                 <div class="swiper-wrapper">
                 <?php
+
 $i = 1;
         foreach ( $settings['carousel_slides'] as $index => $item ):
             if ( $item['logo_carousel_slide'] ): ?>
@@ -1190,6 +1194,7 @@ $i = 1;
 																								                                <div class="eael-lc-logo-wrap">
 																								                                    <div class="eael-lc-logo">
 																								                                        <?php
+
     if ( !empty( $item['logo_carousel_slide']['url'] ) ) {
 
                 if ( !empty( $item['link']['url'] ) ) {
@@ -1218,6 +1223,7 @@ $i = 1;
             ?>
 																								                                    </div>
 																								                                    <?php
+
     if ( !empty( $item['logo_title'] ) ) {
                 printf( '<%1$s class="eael-logo-carousel-title">', $settings['title_html_tag'] );
                 if ( !empty( $item['link']['url'] ) ) {
@@ -1233,6 +1239,7 @@ $i = 1;
 																								                                </div>
 																								                            </div>
 																								                            <?php
+
 endif;
         $i++;
         endforeach;
@@ -1240,12 +1247,14 @@ endif;
                 </div>
             </div>
             <?php
+
 $this->render_dots();
 
         $this->render_arrows();
         ?>
         </div>
         <?php
+
 }
 
     /**
@@ -1260,8 +1269,10 @@ $this->render_dots();
 
         if ( $settings['dots'] == 'yes' ) {?>
             <!-- Add Pagination -->
-            <div class="swiper-pagination swiper-pagination-<?php echo esc_attr( $this->get_id() ); ?>"></div>
-        <?php }
+            <div class="swiper-pagination swiper-pagination-<?php
+ echo esc_attr( $this->get_id() ); ?>"></div>
+        <?php
+ }
     }
 
     /**
@@ -1276,6 +1287,7 @@ $this->render_dots();
 
         if ( $settings['arrows'] == 'yes' ) {?>
             <?php
+
 if ( isset( $settings['__fa4_migrated']['arrow_new'] ) || empty( $settings['arrow'] ) ) {
             $arrow = $settings['arrow_new']['value'];
         } else {
@@ -1283,20 +1295,35 @@ if ( isset( $settings['__fa4_migrated']['arrow_new'] ) || empty( $settings['arro
         }
             ?>
             <!-- Add Arrows -->
-            <div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-                <?php if ( isset( $arrow['url'] ) ): ?>
-                    <img class="eael-logo-carousel-svg-icon" src="<?php echo esc_url( $arrow['url'] ); ?>" alt="<?php echo esc_attr( get_post_meta( $arrow['id'], '_wp_attachment_image_alt', true ) ); ?>">
-                <?php else: ?>
-                    <i class="<?php echo esc_attr( $arrow ); ?>"></i>
-                <?php endif;?>
+            <div class="swiper-button-next swiper-button-next-<?php
+ echo esc_attr( $this->get_id() ); ?>">
+                <?php
+ if ( isset( $arrow['url'] ) ): ?>
+                    <img class="eael-logo-carousel-svg-icon" src="<?php
+ echo esc_url( $arrow['url'] ); ?>" alt="<?php
+ echo esc_attr( get_post_meta( $arrow['id'], '_wp_attachment_image_alt', true ) ); ?>">
+                <?php
+ else: ?>
+                    <i class="<?php
+ echo esc_attr( $arrow ); ?>"></i>
+                <?php
+ endif;?>
             </div>
-            <div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-                <?php if ( isset( $settings['arrow_previous']['value']['url'] ) ): ?>
-                    <img class="eael-logo-carousel-svg-icon" src="<?php echo esc_url( $settings['arrow_previous']['value']['url'] ); ?>" alt="<?php echo esc_attr( get_post_meta( $settings['arrow_previous']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
-                <?php else: ?>
-                    <i class="<?php echo esc_attr( $settings['arrow_previous']['value'] ); ?>"></i>
-                <?php endif;?>
+            <div class="swiper-button-prev swiper-button-prev-<?php
+ echo esc_attr( $this->get_id() ); ?>">
+                <?php
+ if ( isset( $settings['arrow_previous']['value']['url'] ) ): ?>
+                    <img class="eael-logo-carousel-svg-icon" src="<?php
+ echo esc_url( $settings['arrow_previous']['value']['url'] ); ?>" alt="<?php
+ echo esc_attr( get_post_meta( $settings['arrow_previous']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
+                <?php
+ else: ?>
+                    <i class="<?php
+ echo esc_attr( $settings['arrow_previous']['value'] ); ?>"></i>
+                <?php
+ endif;?>
             </div>
-        <?php }
+        <?php
+ }
     }
 }

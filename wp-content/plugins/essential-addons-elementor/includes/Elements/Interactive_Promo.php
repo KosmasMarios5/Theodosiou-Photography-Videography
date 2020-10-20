@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -311,20 +312,31 @@ class Interactive_Promo extends Widget_Base
         $settings = $this->get_settings_for_display();
         $promo_image = $this->get_settings('promo_image');
         ?>
-		<div id="eael-promo-<?php echo esc_attr($this->get_id()); ?>" class="eael-interactive-promo">
-			<figure class="<?php echo esc_attr($settings['promo_effect']); ?>">
-				<?php echo '<img alt="' . $settings['promo_image_alt'] . '" src="' . $promo_image['url'] . '">'; ?>
+		<div id="eael-promo-<?php
+ echo esc_attr($this->get_id()); ?>" class="eael-interactive-promo">
+			<figure class="<?php
+ echo esc_attr($settings['promo_effect']); ?>">
+				<?php
+ echo '<img alt="' . $settings['promo_image_alt'] . '" src="' . $promo_image['url'] . '">'; ?>
 				<figcaption>
 					<div>
-						<?php if (!empty($settings['promo_heading'])): ?>
-						<h2><?php echo esc_attr($settings['promo_heading']); ?></h2>
-						<?php endif;?>
+						<?php
+ if (!empty($settings['promo_heading'])): ?>
+						<h2><?php
+ echo esc_attr($settings['promo_heading']); ?></h2>
+						<?php
+ endif;?>
 
-						<p><?php echo $settings['promo_content']; ?></p>
+						<p><?php
+ echo $settings['promo_content']; ?></p>
 					</div>
-					<?php if (isset($settings['promo_link_url']) && !empty($settings['promo_link_url'])): ?>
-						<a href="<?php echo esc_attr($settings['promo_link_url']); ?>" target="<?php echo esc_attr($settings['promo_link_target']); ?>"></a>
-					<?php endif;?>
+					<?php
+ if (isset($settings['promo_link_url']) && !empty($settings['promo_link_url'])): ?>
+						<a href="<?php
+ echo esc_attr($settings['promo_link_url']); ?>" target="<?php
+ echo esc_attr($settings['promo_link_target']); ?>"></a>
+					<?php
+ endif;?>
 				</figcaption>
 			</figure>
 		</div>

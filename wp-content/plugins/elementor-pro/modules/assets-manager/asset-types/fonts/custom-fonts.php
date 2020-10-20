@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\AssetsManager\AssetTypes\Fonts;
 
 use Elementor\Core\Files\Assets\Files_Upload_Handler;

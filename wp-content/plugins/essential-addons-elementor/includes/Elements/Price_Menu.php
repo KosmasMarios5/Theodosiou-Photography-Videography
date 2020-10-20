@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -980,10 +981,13 @@ class Price_Menu extends Widget_Base {
 			$this->add_render_attribute( 'price-menu', 'class', 'eael-restaurant-menu-' . $settings['menu_style'] );
 		}
         ?>
-        <div <?php echo $this->get_render_attribute_string( 'price-menu' ); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string( 'price-menu' ); ?>>
             <div class="eael-restaurant-menu-items">
-                <?php foreach ( $settings['menu_items'] as $index => $item ) : ?>
+                <?php
+ foreach ( $settings['menu_items'] as $index => $item ) : ?>
                     <?php
+
                         $title_key = $this->get_repeater_setting_key( 'menu_title', 'menu_items', $index );
                         $this->add_render_attribute( $title_key, 'class', 'eael-restaurant-menu-title-text' );
                         $this->add_inline_editing_attributes( $title_key, 'none' );
@@ -1002,23 +1006,31 @@ class Price_Menu extends Widget_Base {
                     ?>
                     <div class="eael-restaurant-menu-item-wrap">
                         <div class="eael-restaurant-menu-item">
-                            <?php if ( $item['image_switch'] == 'yes' ) { ?>
+                            <?php
+ if ( $item['image_switch'] == 'yes' ) { ?>
                                 <div class="eael-restaurant-menu-image">
                                     <?php
+
                                         if ( ! empty( $item['image']['url'] ) ) :
                                             $image = $item['image'];
                                             $image_url = Group_Control_Image_Size::get_attachment_image_src( $image['id'], 'image_size', $settings );
                                         ?>
-                                        <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr(get_post_meta($image['id'], '_wp_attachment_image_alt', true)); ?>">	
-                                     <?php endif; ?>
+                                        <img src="<?php
+ echo esc_url( $image_url ); ?>" alt="<?php
+ echo esc_attr(get_post_meta($image['id'], '_wp_attachment_image_alt', true)); ?>">	
+                                     <?php
+ endif; ?>
                                 </div>
-                            <?php } ?>
+                            <?php
+ } ?>
 
                             <div class="eael-restaurant-menu-content">
                                 <div class="eael-restaurant-menu-header">
-                                    <?php if ( ! empty( $item['menu_title'] ) ) { ?>
+                                    <?php
+ if ( ! empty( $item['menu_title'] ) ) { ?>
                                         <h4 class="eael-restaurant-menu-title">
                                             <?php
+
                                                 if ( ! empty( $item['link']['url'] ) ) {
                                                     $this->add_render_attribute( 'price-menu-link' . $i, 'href', $item['link']['url'] );
 
@@ -1026,50 +1038,73 @@ class Price_Menu extends Widget_Base {
                                                         $this->add_render_attribute( 'price-menu-link' . $i, 'target', '_blank' );
                                                     }
                                                     ?>
-                                                    <a <?php echo $this->get_render_attribute_string( 'price-menu-link' . $i ); ?>>
-                                                        <span <?php echo $this->get_render_attribute_string( $title_key ); ?>>
-                                                            <?php echo $item['menu_title']; ?>
+                                                    <a <?php
+ echo $this->get_render_attribute_string( 'price-menu-link' . $i ); ?>>
+                                                        <span <?php
+ echo $this->get_render_attribute_string( $title_key ); ?>>
+                                                            <?php
+ echo $item['menu_title']; ?>
                                                         </span>
                                                     </a>
                                                     <?php
+
                                                 } else {
                                                     ?>
-                                                    <span <?php echo $this->get_render_attribute_string( $title_key ); ?>>
-                                                        <?php echo $item['menu_title']; ?>
+                                                    <span <?php
+ echo $this->get_render_attribute_string( $title_key ); ?>>
+                                                        <?php
+ echo $item['menu_title']; ?>
                                                     </span>
                                                     <?php
+
                                                 }
                                             ?>
                                         </h4>
-                                    <?php } ?>
+                                    <?php
+ } ?>
                                     
-                                    <?php if ( $settings['title_price_connector'] == 'yes' ) { ?>
+                                    <?php
+ if ( $settings['title_price_connector'] == 'yes' ) { ?>
                                         <span class="eael-price-title-connector"></span>
-                                    <?php } ?>
+                                    <?php
+ } ?>
                                     
-                                    <?php if ( $settings['menu_style'] == 'style-1' ) { ?>
-                                        <?php if ( ! empty( $item['menu_price'] ) ) { ?>
+                                    <?php
+ if ( $settings['menu_style'] == 'style-1' ) { ?>
+                                        <?php
+ if ( ! empty( $item['menu_price'] ) ) { ?>
                                             <span class="eael-restaurant-menu-price">
-                                                <?php if ( $item['discount'] == 'yes' ) { ?>
-                                                    <span <?php echo $this->get_render_attribute_string( $original_price_key ); ?>>
-                                                        <?php echo esc_attr( $item['original_price'] ); ?>
+                                                <?php
+ if ( $item['discount'] == 'yes' ) { ?>
+                                                    <span <?php
+ echo $this->get_render_attribute_string( $original_price_key ); ?>>
+                                                        <?php
+ echo esc_attr( $item['original_price'] ); ?>
                                                     </span>
-                                                <?php } ?>
-                                                <span <?php echo $this->get_render_attribute_string( $discount_price_key ); ?>>
-                                                    <?php echo esc_attr( $item['menu_price'] ); ?>
+                                                <?php
+ } ?>
+                                                <span <?php
+ echo $this->get_render_attribute_string( $discount_price_key ); ?>>
+                                                    <?php
+ echo esc_attr( $item['menu_price'] ); ?>
                                                 </span>
                                             </span>
-                                        <?php } ?>
-                                    <?php } ?>
+                                        <?php
+ } ?>
+                                    <?php
+ } ?>
                                 </div>
                                 
-                                <?php if ( $settings['title_separator'] == 'yes' ) { ?>
+                                <?php
+ if ( $settings['title_separator'] == 'yes' ) { ?>
                                     <div class="eael-price-menu-divider-wrap">
                                         <div class="eael-price-menu-divider"></div>
                                     </div>
-                                <?php } ?>
+                                <?php
+ } ?>
 
                                 <?php
+
                                     if ( ! empty( $item['menu_description'] ) ) {
                                         $description_html = sprintf( '<div %1$s>%2$s</div>', $this->get_render_attribute_string( $description_key ), $item['menu_description'] );
                                         
@@ -1077,27 +1112,39 @@ class Price_Menu extends Widget_Base {
                                     }
                                 ?>
 
-                                <?php if ( $settings['menu_style'] != 'style-1' ) { ?>
-                                    <?php if ( ! empty( $item['menu_price'] ) ) { ?>
+                                <?php
+ if ( $settings['menu_style'] != 'style-1' ) { ?>
+                                    <?php
+ if ( ! empty( $item['menu_price'] ) ) { ?>
                                         <span class="eael-restaurant-menu-price">
-                                            <?php if ( $item['discount'] == 'yes' ) { ?>
-                                                <span <?php echo $this->get_render_attribute_string( $original_price_key ); ?>>
-                                                    <?php echo esc_attr( $item['original_price'] ); ?>
+                                            <?php
+ if ( $item['discount'] == 'yes' ) { ?>
+                                                <span <?php
+ echo $this->get_render_attribute_string( $original_price_key ); ?>>
+                                                    <?php
+ echo esc_attr( $item['original_price'] ); ?>
                                                 </span>
-                                            <?php } ?>
-                                            <span <?php echo $this->get_render_attribute_string( $discount_price_key ); ?>>
-                                                <?php echo esc_attr( $item['menu_price'] ); ?>
+                                            <?php
+ } ?>
+                                            <span <?php
+ echo $this->get_render_attribute_string( $discount_price_key ); ?>>
+                                                <?php
+ echo esc_attr( $item['menu_price'] ); ?>
                                             </span>
                                         </span>
-                                    <?php } ?>
-                                <?php } ?>
+                                    <?php
+ } ?>
+                                <?php
+ } ?>
                             </div>
                         </div>
                     </div>
-                <?php $i++; endforeach; ?>
+                <?php
+ $i++; endforeach; ?>
             </div>
         </div>
         <?php
+
     }
 
     protected function _content_template() { }

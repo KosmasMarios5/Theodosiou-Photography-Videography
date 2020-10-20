@@ -10,7 +10,6 @@ class Disable_Search_Test extends WP_UnitTestCase {
 	 *
 	 */
 
-
 	public function output_search_form() {
 		return '<form><label for="s"><input type="search" name="s" /></label><input type="submit" name="Submit" /></form>';
 	}
@@ -69,13 +68,11 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		$this->assertTrue( $passed, $message );
 	}
 
-
 	//
 	//
 	// DATA PROVIDERS
 	//
 	//
-
 
 	public static function get_default_hooks() {
 		return array(
@@ -87,13 +84,11 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		);
 	}
 
-
 	//
 	//
 	// TESTS
 	//
 	//
-
 
 	public function test_class_name() {
 		$this->assertTrue( class_exists( 'c2c_DisableSearch' ) );

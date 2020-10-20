@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class for generating SQL clauses that filter a primary query according to date.
  *

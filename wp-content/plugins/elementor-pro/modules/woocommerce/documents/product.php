@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Documents;
 
 use Elementor\Controls_Manager;

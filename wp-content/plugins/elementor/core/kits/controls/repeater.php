@@ -67,5 +67,6 @@ class Repeater extends Control_Repeater {
 			</div>
 		<# } #>
 		<?php
+
 	}
 }

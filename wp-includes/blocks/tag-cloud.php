@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Server-side rendering of the `core/tag-cloud` block.
  *

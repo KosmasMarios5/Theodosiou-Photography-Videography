@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Administration Template Header
  *
@@ -71,7 +72,8 @@ wp_user_settings();
 
 _wp_admin_html_begin();
 ?>
-<title><?php echo esc_html( $admin_title ); ?></title>
+<title><?php
+ echo esc_html( $admin_title ); ?></title>
 <?php
 
 wp_enqueue_style( 'colors' );
@@ -82,13 +84,20 @@ $admin_body_class = preg_replace( '/[^a-z0-9_-]+/i', '-', $hook_suffix );
 ?>
 <script type="text/javascript">
 addLoadEvent = function(func){if(typeof jQuery!=='undefined')jQuery(document).ready(func);else if(typeof wpOnload!=='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
-var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
-	pagenow = '<?php echo $current_screen->id; ?>',
-	typenow = '<?php echo $current_screen->post_type; ?>',
-	adminpage = '<?php echo $admin_body_class; ?>',
-	thousandsSeparator = '<?php echo addslashes( $wp_locale->number_format['thousands_sep'] ); ?>',
-	decimalPoint = '<?php echo addslashes( $wp_locale->number_format['decimal_point'] ); ?>',
-	isRtl = <?php echo (int) is_rtl(); ?>;
+var ajaxurl = '<?php
+ echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
+	pagenow = '<?php
+ echo $current_screen->id; ?>',
+	typenow = '<?php
+ echo $current_screen->post_type; ?>',
+	adminpage = '<?php
+ echo $admin_body_class; ?>',
+	thousandsSeparator = '<?php
+ echo addslashes( $wp_locale->number_format['thousands_sep'] ); ?>',
+	decimalPoint = '<?php
+ echo addslashes( $wp_locale->number_format['decimal_point'] ); ?>',
+	isRtl = <?php
+ echo (int) is_rtl(); ?>;
 </script>
 <?php
 
@@ -214,6 +223,7 @@ unset( $error );
 ?>
 </head>
 <?php
+
 /**
  * Filters the CSS classes for the body tag in the admin.
  *
@@ -231,12 +241,14 @@ unset( $error );
 $admin_body_classes = apply_filters( 'admin_body_class', '' );
 $admin_body_classes = ltrim( $admin_body_classes . ' ' . $admin_body_class );
 ?>
-<body class="wp-admin wp-core-ui no-js <?php echo $admin_body_classes; ?>">
+<body class="wp-admin wp-core-ui no-js <?php
+ echo $admin_body_classes; ?>">
 <script type="text/javascript">
 	document.body.className = document.body.className.replace('no-js','js');
 </script>
 
 <?php
+
 // Make sure the customize body classes are correct as early as possible.
 if ( current_user_can( 'customize' ) ) {
 	wp_customize_support_script();
@@ -244,10 +256,12 @@ if ( current_user_can( 'customize' ) ) {
 ?>
 
 <div id="wpwrap">
-<?php require ABSPATH . 'wp-admin/menu-header.php'; ?>
+<?php
+ require ABSPATH . 'wp-admin/menu-header.php'; ?>
 <div id="wpcontent">
 
 <?php
+
 /**
  * Fires at the beginning of the content section in an admin page.
  *
@@ -258,6 +272,7 @@ do_action( 'in_admin_header' );
 
 <div id="wpbody" role="main">
 <?php
+
 unset( $blog_name, $total_update_count, $update_title );
 
 $current_screen->set_parentage( $parent_file );

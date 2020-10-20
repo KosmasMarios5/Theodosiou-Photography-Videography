@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -61,14 +62,17 @@ class Control_Date_Time extends Base_Data_Control {
 		$control_uid = $this->get_control_uid();
 		?>
 		<div class="elementor-control-field">
-			<label for="<?php echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
+			<label for="<?php
+ echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
 			<div class="elementor-control-input-wrapper">
-				<input id="<?php echo $control_uid; ?>" placeholder="{{ data.placeholder }}" class="elementor-date-time-picker flatpickr" type="text" data-setting="{{ data.name }}">
+				<input id="<?php
+ echo $control_uid; ?>" placeholder="{{ data.placeholder }}" class="elementor-date-time-picker flatpickr" type="text" data-setting="{{ data.name }}">
 			</div>
 		</div>
 		<# if ( data.description ) { #>
 			<div class="elementor-control-field-description">{{{ data.description }}}</div>
 		<# } #>
 		<?php
+
 	}
 }

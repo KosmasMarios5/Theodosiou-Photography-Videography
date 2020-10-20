@@ -1,11 +1,11 @@
 <?php
+
 /**
  * WordPress Translation Installation Administration API
  *
  * @package WordPress
  * @subpackage Administration
  */
-
 
 /**
  * Retrieve translations from WordPress Translation API.

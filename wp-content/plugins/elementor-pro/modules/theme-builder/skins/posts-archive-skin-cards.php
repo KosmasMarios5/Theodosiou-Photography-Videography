@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Skins;
 
 use ElementorPro\Modules\Posts\Skins\Skin_Cards;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Edit Site Settings Administration Screen
  *
@@ -90,8 +91,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
-<h1 id="edit-site"><?php echo $title; ?></h1>
-<p class="edit-site-actions"><a href="<?php echo esc_url( get_home_url( $id, '/' ) ); ?>"><?php _e( 'Visit' ); ?></a> | <a href="<?php echo esc_url( get_admin_url( $id ) ); ?>"><?php _e( 'Dashboard' ); ?></a></p>
+<h1 id="edit-site"><?php
+ echo $title; ?></h1>
+<p class="edit-site-actions"><a href="<?php
+ echo esc_url( get_home_url( $id, '/' ) ); ?>"><?php
+ _e( 'Visit' ); ?></a> | <a href="<?php
+ echo esc_url( get_admin_url( $id ) ); ?>"><?php
+ _e( 'Dashboard' ); ?></a></p>
 
 <?php
 
@@ -109,10 +115,13 @@ if ( ! empty( $messages ) ) {
 }
 ?>
 <form method="post" action="site-settings.php?action=update-site">
-	<?php wp_nonce_field( 'edit-site' ); ?>
-	<input type="hidden" name="id" value="<?php echo esc_attr( $id ); ?>" />
+	<?php
+ wp_nonce_field( 'edit-site' ); ?>
+	<input type="hidden" name="id" value="<?php
+ echo esc_attr( $id ); ?>" />
 	<table class="form-table" role="presentation">
 		<?php
+
 		$blog_prefix = $wpdb->get_blog_prefix( $id );
 		$sql         = "SELECT * FROM {$blog_prefix}options
 			WHERE option_name NOT LIKE %s
@@ -145,21 +154,41 @@ if ( ! empty( $messages ) ) {
 			if ( strpos( $option->option_value, "\n" ) !== false ) {
 				?>
 				<tr class="form-field">
-					<th scope="row"><label for="<?php echo esc_attr( $option->option_name ); ?>"><?php echo ucwords( str_replace( '_', ' ', $option->option_name ) ); ?></label></th>
-					<td><textarea class="<?php echo $class; ?>" rows="5" cols="40" name="option[<?php echo esc_attr( $option->option_name ); ?>]" id="<?php echo esc_attr( $option->option_name ); ?>"<?php disabled( $disabled ); ?>><?php echo esc_textarea( $option->option_value ); ?></textarea></td>
+					<th scope="row"><label for="<?php
+ echo esc_attr( $option->option_name ); ?>"><?php
+ echo ucwords( str_replace( '_', ' ', $option->option_name ) ); ?></label></th>
+					<td><textarea class="<?php
+ echo $class; ?>" rows="5" cols="40" name="option[<?php
+ echo esc_attr( $option->option_name ); ?>]" id="<?php
+ echo esc_attr( $option->option_name ); ?>"<?php
+ disabled( $disabled ); ?>><?php
+ echo esc_textarea( $option->option_value ); ?></textarea></td>
 				</tr>
 				<?php
+
 			} else {
 				?>
 				<tr class="form-field">
-					<th scope="row"><label for="<?php echo esc_attr( $option->option_name ); ?>"><?php echo esc_html( ucwords( str_replace( '_', ' ', $option->option_name ) ) ); ?></label></th>
-					<?php if ( $is_main_site && in_array( $option->option_name, array( 'siteurl', 'home' ), true ) ) { ?>
-					<td><code><?php echo esc_html( $option->option_value ); ?></code></td>
-					<?php } else { ?>
-					<td><input class="<?php echo $class; ?>" name="option[<?php echo esc_attr( $option->option_name ); ?>]" type="text" id="<?php echo esc_attr( $option->option_name ); ?>" value="<?php echo esc_attr( $option->option_value ); ?>" size="40" <?php disabled( $disabled ); ?> /></td>
-					<?php } ?>
+					<th scope="row"><label for="<?php
+ echo esc_attr( $option->option_name ); ?>"><?php
+ echo esc_html( ucwords( str_replace( '_', ' ', $option->option_name ) ) ); ?></label></th>
+					<?php
+ if ( $is_main_site && in_array( $option->option_name, array( 'siteurl', 'home' ), true ) ) { ?>
+					<td><code><?php
+ echo esc_html( $option->option_value ); ?></code></td>
+					<?php
+ } else { ?>
+					<td><input class="<?php
+ echo $class; ?>" name="option[<?php
+ echo esc_attr( $option->option_name ); ?>]" type="text" id="<?php
+ echo esc_attr( $option->option_name ); ?>" value="<?php
+ echo esc_attr( $option->option_value ); ?>" size="40" <?php
+ disabled( $disabled ); ?> /></td>
+					<?php
+ } ?>
 				</tr>
 				<?php
+
 			}
 		} // End foreach.
 
@@ -173,9 +202,11 @@ if ( ! empty( $messages ) ) {
 		do_action( 'wpmueditblogaction', $id );
 		?>
 	</table>
-	<?php submit_button(); ?>
+	<?php
+ submit_button(); ?>
 </form>
 
 </div>
 <?php
+
 require_once ABSPATH . 'wp-admin/admin-footer.php';

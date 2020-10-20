@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -60,5 +61,6 @@ class Control_WP_Widget extends Base_Data_Control {
 			<div class="wp-widget-form-loading">Loading..</div>
 		</form>
 		<?php
+
 	}
 }

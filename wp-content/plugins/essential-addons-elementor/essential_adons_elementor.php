@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Essential Addons for Elementor - Pro
  * Description: The Essential plugin you install after Elementor! 65+ Premium elements, including WooCommerce, Event Calender, Data Table, Post Grid

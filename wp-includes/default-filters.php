@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Sets up the default filters and actions for most
  * of the WordPress hooks.
@@ -327,7 +328,6 @@ foreach ( array( 'rss2_head', 'commentsrss2_head', 'rss_head', 'rdf_header', 'at
 // Feed Site Icon.
 add_action( 'atom_head', 'atom_site_icon' );
 add_action( 'rss2_head', 'rss2_site_icon' );
-
 
 // WP Cron.
 if ( ! defined( 'DOING_CRON' ) ) {

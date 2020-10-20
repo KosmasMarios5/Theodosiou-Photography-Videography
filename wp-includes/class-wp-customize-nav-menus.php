@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Customize Nav Menus classes
  *
@@ -1073,6 +1074,7 @@ final class WP_Customize_Nav_Menus {
 						<button type="button" class="button-link item-add">
 							<span class="screen-reader-text">
 							<?php
+
 								/* translators: 1: Title of a menu item, 2: Type of a menu item. */
 								printf( __( 'Add to menu: %1$s (%2$s)' ), '{{ data.title || wp.customize.Menus.data.l10n.untitled }}', '{{ data.type_label }}' );
 							?>
@@ -1086,6 +1088,7 @@ final class WP_Customize_Nav_Menus {
 		<script type="text/html" id="tmpl-menu-item-reorder-nav">
 			<div class="menu-item-reorder-nav">
 				<?php
+
 				printf(
 					'<button type="button" class="menus-move-up">%1$s</button><button type="button" class="menus-move-down">%2$s</button><button type="button" class="menus-move-left">%3$s</button><button type="button" class="menus-move-right">%4$s</button>',
 					__( 'Move up' ),
@@ -1100,14 +1103,17 @@ final class WP_Customize_Nav_Menus {
 		<script type="text/html" id="tmpl-nav-menu-delete-button">
 			<div class="menu-delete-item">
 				<button type="button" class="button-link button-link-delete">
-					<?php _e( 'Delete Menu' ); ?>
+					<?php
+ _e( 'Delete Menu' ); ?>
 				</button>
 			</div>
 		</script>
 
 		<script type="text/html" id="tmpl-nav-menu-submit-new-button">
-			<p id="customize-new-menu-submit-description"><?php _e( 'Click &#8220;Next&#8221; to start adding links to your new menu.' ); ?></p>
-			<button id="customize-new-menu-submit" type="button" class="button" aria-describedby="customize-new-menu-submit-description"><?php _e( 'Next' ); ?></button>
+			<p id="customize-new-menu-submit-description"><?php
+ _e( 'Click &#8220;Next&#8221; to start adding links to your new menu.' ); ?></p>
+			<button id="customize-new-menu-submit" type="button" class="button" aria-describedby="customize-new-menu-submit-description"><?php
+ _e( 'Next' ); ?></button>
 		</script>
 
 		<script type="text/html" id="tmpl-nav-menu-locations-header">
@@ -1117,18 +1123,22 @@ final class WP_Customize_Nav_Menus {
 
 		<script type="text/html" id="tmpl-nav-menu-create-menu-section-title">
 			<p class="add-new-menu-notice">
-				<?php _e( 'It doesn&#8217;t look like your site has any menus yet. Want to build one? Click the button to start.' ); ?>
+				<?php
+ _e( 'It doesn&#8217;t look like your site has any menus yet. Want to build one? Click the button to start.' ); ?>
 			</p>
 			<p class="add-new-menu-notice">
-				<?php _e( 'You&#8217;ll create a menu, assign it a location, and add menu items like links to pages and categories. If your theme has multiple menu areas, you might need to create more than one.' ); ?>
+				<?php
+ _e( 'You&#8217;ll create a menu, assign it a location, and add menu items like links to pages and categories. If your theme has multiple menu areas, you might need to create more than one.' ); ?>
 			</p>
 			<h3>
 				<button type="button" class="button customize-add-menu-button">
-					<?php _e( 'Create New Menu' ); ?>
+					<?php
+ _e( 'Create New Menu' ); ?>
 				</button>
 			</h3>
 		</script>
 		<?php
+
 	}
 
 	/**
@@ -1141,27 +1151,34 @@ final class WP_Customize_Nav_Menus {
 		<div id="available-menu-items" class="accordion-container">
 			<div class="customize-section-title">
 				<button type="button" class="customize-section-back" tabindex="-1">
-					<span class="screen-reader-text"><?php _e( 'Back' ); ?></span>
+					<span class="screen-reader-text"><?php
+ _e( 'Back' ); ?></span>
 				</button>
 				<h3>
 					<span class="customize-action">
 						<?php
+
 							/* translators: &#9656; is the unicode right-pointing triangle. %s: Section title in the Customizer. */
 							printf( __( 'Customizing &#9656; %s' ), esc_html( $this->manager->get_panel( 'nav_menus' )->title ) );
 						?>
 					</span>
-					<?php _e( 'Add Menu Items' ); ?>
+					<?php
+ _e( 'Add Menu Items' ); ?>
 				</h3>
 			</div>
 			<div id="available-menu-items-search" class="accordion-section cannot-expand">
 				<div class="accordion-section-title">
-					<label class="screen-reader-text" for="menu-items-search"><?php _e( 'Search Menu Items' ); ?></label>
-					<input type="text" id="menu-items-search" placeholder="<?php esc_attr_e( 'Search menu items&hellip;' ); ?>" aria-describedby="menu-items-search-desc" />
-					<p class="screen-reader-text" id="menu-items-search-desc"><?php _e( 'The search results will be updated as you type.' ); ?></p>
+					<label class="screen-reader-text" for="menu-items-search"><?php
+ _e( 'Search Menu Items' ); ?></label>
+					<input type="text" id="menu-items-search" placeholder="<?php
+ esc_attr_e( 'Search menu items&hellip;' ); ?>" aria-describedby="menu-items-search-desc" />
+					<p class="screen-reader-text" id="menu-items-search-desc"><?php
+ _e( 'The search results will be updated as you type.' ); ?></p>
 					<span class="spinner"></span>
 				</div>
 				<div class="search-icon" aria-hidden="true"></div>
-				<button type="button" class="clear-results"><span class="screen-reader-text"><?php _e( 'Clear Results' ); ?></span></button>
+				<button type="button" class="clear-results"><span class="screen-reader-text"><?php
+ _e( 'Clear Results' ); ?></span></button>
 				<ul class="accordion-section-content available-menu-items-list" data-type="search"></ul>
 			</div>
 			<?php
@@ -1187,6 +1204,7 @@ final class WP_Customize_Nav_Menus {
 			?>
 		</div><!-- #available-menu-items -->
 		<?php
+
 	}
 
 	/**
@@ -1202,14 +1220,18 @@ final class WP_Customize_Nav_Menus {
 	protected function print_post_type_container( $available_item_type ) {
 		$id = sprintf( 'available-menu-items-%s-%s', $available_item_type['type'], $available_item_type['object'] );
 		?>
-		<div id="<?php echo esc_attr( $id ); ?>" class="accordion-section">
+		<div id="<?php
+ echo esc_attr( $id ); ?>" class="accordion-section">
 			<h4 class="accordion-section-title" role="presentation">
-				<?php echo esc_html( $available_item_type['title'] ); ?>
+				<?php
+ echo esc_html( $available_item_type['title'] ); ?>
 				<span class="spinner"></span>
-				<span class="no-items"><?php _e( 'No items' ); ?></span>
+				<span class="no-items"><?php
+ _e( 'No items' ); ?></span>
 				<button type="button" class="button-link" aria-expanded="false">
 					<span class="screen-reader-text">
 					<?php
+
 						/* translators: %s: Title of a section with menu items. */
 						printf( __( 'Toggle section: %s' ), esc_html( $available_item_type['title'] ) );
 					?>
@@ -1218,20 +1240,34 @@ final class WP_Customize_Nav_Menus {
 				</button>
 			</h4>
 			<div class="accordion-section-content">
-				<?php if ( 'post_type' === $available_item_type['type'] ) : ?>
-					<?php $post_type_obj = get_post_type_object( $available_item_type['object'] ); ?>
-					<?php if ( current_user_can( $post_type_obj->cap->create_posts ) && current_user_can( $post_type_obj->cap->publish_posts ) ) : ?>
+				<?php
+ if ( 'post_type' === $available_item_type['type'] ) : ?>
+					<?php
+ $post_type_obj = get_post_type_object( $available_item_type['object'] ); ?>
+					<?php
+ if ( current_user_can( $post_type_obj->cap->create_posts ) && current_user_can( $post_type_obj->cap->publish_posts ) ) : ?>
 						<div class="new-content-item">
-							<label for="<?php echo esc_attr( 'create-item-input-' . $available_item_type['object'] ); ?>" class="screen-reader-text"><?php echo esc_html( $post_type_obj->labels->add_new_item ); ?></label>
-							<input type="text" id="<?php echo esc_attr( 'create-item-input-' . $available_item_type['object'] ); ?>" class="create-item-input" placeholder="<?php echo esc_attr( $post_type_obj->labels->add_new_item ); ?>">
-							<button type="button" class="button add-content"><?php _e( 'Add' ); ?></button>
+							<label for="<?php
+ echo esc_attr( 'create-item-input-' . $available_item_type['object'] ); ?>" class="screen-reader-text"><?php
+ echo esc_html( $post_type_obj->labels->add_new_item ); ?></label>
+							<input type="text" id="<?php
+ echo esc_attr( 'create-item-input-' . $available_item_type['object'] ); ?>" class="create-item-input" placeholder="<?php
+ echo esc_attr( $post_type_obj->labels->add_new_item ); ?>">
+							<button type="button" class="button add-content"><?php
+ _e( 'Add' ); ?></button>
 						</div>
-					<?php endif; ?>
-				<?php endif; ?>
-				<ul class="available-menu-items-list" data-type="<?php echo esc_attr( $available_item_type['type'] ); ?>" data-object="<?php echo esc_attr( $available_item_type['object'] ); ?>" data-type_label="<?php echo esc_attr( isset( $available_item_type['type_label'] ) ? $available_item_type['type_label'] : $available_item_type['type'] ); ?>"></ul>
+					<?php
+ endif; ?>
+				<?php
+ endif; ?>
+				<ul class="available-menu-items-list" data-type="<?php
+ echo esc_attr( $available_item_type['type'] ); ?>" data-object="<?php
+ echo esc_attr( $available_item_type['object'] ); ?>" data-type_label="<?php
+ echo esc_attr( isset( $available_item_type['type_label'] ) ? $available_item_type['type_label'] : $available_item_type['type'] ); ?>"></ul>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -1245,31 +1281,37 @@ final class WP_Customize_Nav_Menus {
 		?>
 		<div id="new-custom-menu-item" class="accordion-section">
 			<h4 class="accordion-section-title" role="presentation">
-				<?php _e( 'Custom Links' ); ?>
+				<?php
+ _e( 'Custom Links' ); ?>
 				<button type="button" class="button-link" aria-expanded="false">
-					<span class="screen-reader-text"><?php _e( 'Toggle section: Custom Links' ); ?></span>
+					<span class="screen-reader-text"><?php
+ _e( 'Toggle section: Custom Links' ); ?></span>
 					<span class="toggle-indicator" aria-hidden="true"></span>
 				</button>
 			</h4>
 			<div class="accordion-section-content customlinkdiv">
 				<input type="hidden" value="custom" id="custom-menu-item-type" name="menu-item[-1][menu-item-type]" />
 				<p id="menu-item-url-wrap" class="wp-clearfix">
-					<label class="howto" for="custom-menu-item-url"><?php _e( 'URL' ); ?></label>
+					<label class="howto" for="custom-menu-item-url"><?php
+ _e( 'URL' ); ?></label>
 					<input id="custom-menu-item-url" name="menu-item[-1][menu-item-url]" type="text" class="code menu-item-textbox" placeholder="https://">
 				</p>
 				<p id="menu-item-name-wrap" class="wp-clearfix">
-					<label class="howto" for="custom-menu-item-name"><?php _e( 'Link Text' ); ?></label>
+					<label class="howto" for="custom-menu-item-name"><?php
+ _e( 'Link Text' ); ?></label>
 					<input id="custom-menu-item-name" name="menu-item[-1][menu-item-title]" type="text" class="regular-text menu-item-textbox">
 				</p>
 				<p class="button-controls">
 					<span class="add-to-menu">
-						<input type="submit" class="button submit-add-to-menu right" value="<?php esc_attr_e( 'Add to Menu' ); ?>" name="add-custom-menu-item" id="custom-menu-item-submit">
+						<input type="submit" class="button submit-add-to-menu right" value="<?php
+ esc_attr_e( 'Add to Menu' ); ?>" name="add-custom-menu-item" id="custom-menu-item-submit">
 						<span class="spinner"></span>
 					</span>
 				</p>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	//

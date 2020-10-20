@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -397,12 +398,17 @@ class Widget_Star_Rating extends Widget_Base {
 		?>
 
 		<div class="elementor-star-rating__wrapper">
-			<?php if ( ! Utils::is_empty( $settings['title'] ) ) : ?>
-				<div class="elementor-star-rating__title"><?php echo $settings['title']; ?></div>
-			<?php endif; ?>
-			<?php echo $stars_element; ?>
+			<?php
+ if ( ! Utils::is_empty( $settings['title'] ) ) : ?>
+				<div class="elementor-star-rating__title"><?php
+ echo $settings['title']; ?></div>
+			<?php
+ endif; ?>
+			<?php
+ echo $stars_element; ?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -471,5 +477,6 @@ class Widget_Star_Rating extends Widget_Base {
 		</div>
 
 		<?php
+
 	}
 }

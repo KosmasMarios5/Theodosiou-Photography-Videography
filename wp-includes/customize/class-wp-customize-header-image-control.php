@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Header_Image_Control class
  *
@@ -121,9 +122,11 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 			<button type="button" class="button display-options random">
 				<span class="dashicons dashicons-randomize dice"></span>
 				<# if ( data.type === 'uploaded' ) { #>
-					<?php _e( 'Randomize uploaded headers' ); ?>
+					<?php
+ _e( 'Randomize uploaded headers' ); ?>
 				<# } else if ( data.type === 'default' ) { #>
-					<?php _e( 'Randomize suggested headers' ); ?>
+					<?php
+ _e( 'Randomize suggested headers' ); ?>
 				<# } #>
 			</button>
 
@@ -132,12 +135,14 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 			<button type="button" class="choice thumbnail"
 				data-customize-image-value="{{{data.header.url}}}"
 				data-customize-header-image-data="{{JSON.stringify(data.header)}}">
-				<span class="screen-reader-text"><?php _e( 'Set image' ); ?></span>
+				<span class="screen-reader-text"><?php
+ _e( 'Set image' ); ?></span>
 				<img src="{{{data.header.thumbnail_url}}}" alt="{{{data.header.alt_text || data.header.description}}}">
 			</button>
 
 			<# if ( data.type === 'uploaded' ) { #>
-				<button type="button" class="dashicons dashicons-no close"><span class="screen-reader-text"><?php _e( 'Remove image' ); ?></span></button>
+				<button type="button" class="dashicons dashicons-no close"><span class="screen-reader-text"><?php
+ _e( 'Remove image' ); ?></span></button>
 			<# } #>
 
 			<# } #>
@@ -150,9 +155,11 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 			<div class="placeholder">
 				<span class="dashicons dashicons-randomize dice"></span>
 				<# if ( data.type === 'uploaded' ) { #>
-					<?php _e( 'Randomizing uploaded headers' ); ?>
+					<?php
+ _e( 'Randomizing uploaded headers' ); ?>
 				<# } else if ( data.type === 'default' ) { #>
-					<?php _e( 'Randomizing suggested headers' ); ?>
+					<?php
+ _e( 'Randomizing suggested headers' ); ?>
 				<# } #>
 			</div>
 
@@ -164,12 +171,14 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 			<# } else { #>
 
 			<div class="placeholder">
-				<?php _e( 'No image set' ); ?>
+				<?php
+ _e( 'No image set' ); ?>
 			</div>
 
 			<# } #>
 		</script>
 		<?php
+
 	}
 
 	/**
@@ -192,6 +201,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 		?>
 		<div class="customize-control-content">
 			<?php
+
 			if ( current_theme_supports( 'custom-header', 'video' ) ) {
 				echo '<span class="customize-control-title">' . $this->label . '</span>';
 			}
@@ -199,6 +209,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 			<div class="customize-control-notifications-container"></div>
 			<p class="customizer-section-intro customize-control-description">
 				<?php
+
 				if ( current_theme_supports( 'custom-header', 'video' ) ) {
 					_e( 'Click &#8220;Add new image&#8221; to upload an image file from your computer. Your theme works best with an image that matches the size of your video &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit.' );
 				} elseif ( $width && $height ) {
@@ -225,28 +236,38 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 			<div class="current">
 				<label for="header_image-button">
 					<span class="customize-control-title">
-						<?php _e( 'Current header' ); ?>
+						<?php
+ _e( 'Current header' ); ?>
 					</span>
 				</label>
 				<div class="container">
 				</div>
 			</div>
 			<div class="actions">
-				<?php if ( current_user_can( 'upload_files' ) ) : ?>
-				<button type="button"<?php echo $visibility; ?> class="button remove" aria-label="<?php esc_attr_e( 'Hide header image' ); ?>"><?php _e( 'Hide image' ); ?></button>
-				<button type="button" class="button new" id="header_image-button" aria-label="<?php esc_attr_e( 'Add new header image' ); ?>"><?php _e( 'Add new image' ); ?></button>
-				<?php endif; ?>
+				<?php
+ if ( current_user_can( 'upload_files' ) ) : ?>
+				<button type="button"<?php
+ echo $visibility; ?> class="button remove" aria-label="<?php
+ esc_attr_e( 'Hide header image' ); ?>"><?php
+ _e( 'Hide image' ); ?></button>
+				<button type="button" class="button new" id="header_image-button" aria-label="<?php
+ esc_attr_e( 'Add new header image' ); ?>"><?php
+ _e( 'Add new image' ); ?></button>
+				<?php
+ endif; ?>
 			</div>
 			<div class="choices">
 				<span class="customize-control-title header-previously-uploaded">
-					<?php _ex( 'Previously uploaded', 'custom headers' ); ?>
+					<?php
+ _ex( 'Previously uploaded', 'custom headers' ); ?>
 				</span>
 				<div class="uploaded">
 					<div class="list">
 					</div>
 				</div>
 				<span class="customize-control-title header-default">
-					<?php _ex( 'Suggested', 'custom headers' ); ?>
+					<?php
+ _ex( 'Suggested', 'custom headers' ); ?>
 				</span>
 				<div class="default">
 					<div class="list">
@@ -255,5 +276,6 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 			</div>
 		</div>
 		<?php
+
 	}
 }

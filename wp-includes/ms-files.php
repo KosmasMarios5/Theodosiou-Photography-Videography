@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite upload handler.
  *

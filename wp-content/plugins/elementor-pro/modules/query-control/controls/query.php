@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\QueryControl\Controls;
 
 use Elementor\Control_Select2;

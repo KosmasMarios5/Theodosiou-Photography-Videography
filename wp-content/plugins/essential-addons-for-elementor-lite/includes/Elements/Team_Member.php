@@ -844,50 +844,84 @@ class Team_Member extends Widget_Base {
 	?>
 
 
-	<div id="eael-team-member-<?php echo esc_attr($this->get_id()); ?>" class="eael-team-item <?php echo $team_member_classes; ?>">
+	<div id="eael-team-member-<?php
+ echo esc_attr($this->get_id()); ?>" class="eael-team-item <?php
+ echo $team_member_classes; ?>">
 		<div class="eael-team-item-inner">
 			<div class="eael-team-image">
 				<figure>
-					<img src="<?php echo esc_url($team_member_image_url);?>" alt="<?php echo esc_attr( get_post_meta($team_member_image['id'], '_wp_attachment_image_alt', true) ); ?>">
+					<img src="<?php
+ echo esc_url($team_member_image_url);?>" alt="<?php
+ echo esc_attr( get_post_meta($team_member_image['id'], '_wp_attachment_image_alt', true) ); ?>">
 				</figure>
-				<?php if( 'eael-team-members-social-right' === $settings['eael_team_members_preset'] ) : ?>
-					<?php do_action('eael/team_member_social_right_markup', $settings); ?>
-				<?php endif; ?>
+				<?php
+ if( 'eael-team-members-social-right' === $settings['eael_team_members_preset'] ) : ?>
+					<?php
+ do_action('eael/team_member_social_right_markup', $settings); ?>
+				<?php
+ endif; ?>
 			</div>
 
 			<div class="eael-team-content">
-				<h3 class="eael-team-member-name"><?php echo $settings['eael_team_member_name']; ?></h3>
-				<h4 class="eael-team-member-position"><?php echo $settings['eael_team_member_job_title']; ?></h4>
+				<h3 class="eael-team-member-name"><?php
+ echo $settings['eael_team_member_name']; ?></h3>
+				<h4 class="eael-team-member-position"><?php
+ echo $settings['eael_team_member_job_title']; ?></h4>
 
-				<?php if( 'eael-team-members-social-bottom' === $settings['eael_team_members_preset'] ) : ?>
-					<?php do_action('eael/team_member_social_botton_markup', $settings); ?>
-				<?php else: ?>
-					<?php if ( ! empty( $settings['eael_team_member_enable_social_profiles'] ) && 'eael-team-members-social-right' !== $settings['eael_team_members_preset'] ): ?>
+				<?php
+ if( 'eael-team-members-social-bottom' === $settings['eael_team_members_preset'] ) : ?>
+					<?php
+ do_action('eael/team_member_social_botton_markup', $settings); ?>
+				<?php
+ else: ?>
+					<?php
+ if ( ! empty( $settings['eael_team_member_enable_social_profiles'] ) && 'eael-team-members-social-right' !== $settings['eael_team_members_preset'] ): ?>
 						<ul class="eael-team-member-social-profiles">
-							<?php foreach ( $settings['eael_team_member_social_profile_links'] as $item ) : ?>
-								<?php $icon_migrated = isset($item['__fa4_migrated']['social_new']);
+							<?php
+ foreach ( $settings['eael_team_member_social_profile_links'] as $item ) : ?>
+								<?php
+ $icon_migrated = isset($item['__fa4_migrated']['social_new']);
 								$icon_is_new = empty($item['social']); ?>
-								<?php if ( ! empty( $item['social'] ) || !empty($item['social_new'])) : ?>
-									<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
+								<?php
+ if ( ! empty( $item['social'] ) || !empty($item['social_new'])) : ?>
+									<?php
+ $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
 									<li class="eael-team-member-social-link">
-										<a href="<?php echo esc_attr( $item['link']['url'] ); ?>" <?php echo $target; ?>>
-											<?php if ($icon_is_new || $icon_migrated) { ?>
-												<?php if( isset( $item['social_new']['value']['url'] ) ) : ?>
-													<img src="<?php echo esc_attr($item['social_new']['value']['url'] ); ?>" alt="<?php echo esc_attr(get_post_meta($item['social_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
-												<?php else : ?>
-													<i class="<?php echo esc_attr($item['social_new']['value'] ); ?>"></i>
-												<?php endif; ?>
-											<?php } else { ?>
-												<i class="<?php echo esc_attr($item['social'] ); ?>"></i>
-											<?php } ?>
+										<a href="<?php
+ echo esc_attr( $item['link']['url'] ); ?>" <?php
+ echo $target; ?>>
+											<?php
+ if ($icon_is_new || $icon_migrated) { ?>
+												<?php
+ if( isset( $item['social_new']['value']['url'] ) ) : ?>
+													<img src="<?php
+ echo esc_attr($item['social_new']['value']['url'] ); ?>" alt="<?php
+ echo esc_attr(get_post_meta($item['social_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
+												<?php
+ else : ?>
+													<i class="<?php
+ echo esc_attr($item['social_new']['value'] ); ?>"></i>
+												<?php
+ endif; ?>
+											<?php
+ } else { ?>
+												<i class="<?php
+ echo esc_attr($item['social'] ); ?>"></i>
+											<?php
+ } ?>
 										</a>
 									</li>
-								<?php endif; ?>
-							<?php endforeach; ?>
+								<?php
+ endif; ?>
+							<?php
+ endforeach; ?>
 						</ul>
-					<?php endif; ?>
-					<p class="eael-team-text"><?php echo $settings['eael_team_member_description']; ?></p>
-				<?php endif; ?>
+					<?php
+ endif; ?>
+					<p class="eael-team-text"><?php
+ echo $settings['eael_team_member_description']; ?></p>
+				<?php
+ endif; ?>
 			</div>
 		</div>
 	</div>

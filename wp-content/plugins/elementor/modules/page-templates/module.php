@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\PageTemplates;
 
 use Elementor\Controls_Manager;

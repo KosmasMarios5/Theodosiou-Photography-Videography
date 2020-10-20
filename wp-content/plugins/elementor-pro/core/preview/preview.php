@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core\Preview;
 
 use Elementor\Core\Base\App;

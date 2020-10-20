@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Report Abstract
  *
@@ -307,23 +308,30 @@ class ExactMetrics_Report {
 		// Translators: Placeholders add the license level and the report title.
 		$message   = sprintf( __( 'You currently have a %1$s level license, but this report requires at least a %2$s level license to view the %3$s. Please upgrade to view this report.', 'google-analytics-dashboard-for-wp' ), $has_level, $this->level, $this->title );
 		ob_start(); ?>
-        <div class="exactmetrics-upsell-report-container exactmetrics-upsell-report-<?php echo $this->name; ?>-bg">
+        <div class="exactmetrics-upsell-report-container exactmetrics-upsell-report-<?php
+ echo $this->name; ?>-bg">
             <div class="exactmetrics-upsell-container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 col-lg-offset-1 align-self-center">
                         <div class="exactmetrics-upsell-card">
                             <img class="exactmetrics-upgrade-mascot"
-                                 src="<?php echo trailingslashit( EXACTMETRICS_PLUGIN_URL ); ?>assets/css/images/em-mascot.png"
-                                 srcset="<?php echo trailingslashit( EXACTMETRICS_PLUGIN_URL ); ?>assets/css/images/mascot@2x.png 2x"
+                                 src="<?php
+ echo trailingslashit( EXACTMETRICS_PLUGIN_URL ); ?>assets/css/images/em-mascot.png"
+                                 srcset="<?php
+ echo trailingslashit( EXACTMETRICS_PLUGIN_URL ); ?>assets/css/images/mascot@2x.png 2x"
                                  alt="">
                             <div class="exactmetrics-upsell-card-card-content">
-                                <span class="exactmetrics-upsell-card-title"><?php esc_html_e( 'Ready to Get Analytics Super-Powers?', 'google-analytics-dashboard-for-wp' ); ?></span>
+                                <span class="exactmetrics-upsell-card-title"><?php
+ esc_html_e( 'Ready to Get Analytics Super-Powers?', 'google-analytics-dashboard-for-wp' ); ?></span>
                                 <p class="exactmetrics-upsell-card-subtitle">
-                                    <strong><?php esc_html_e( '(And Crush Your Competition?)', 'google-analytics-dashboard-for-wp' ); ?></strong>
+                                    <strong><?php
+ esc_html_e( '(And Crush Your Competition?)', 'google-analytics-dashboard-for-wp' ); ?></strong>
                                 </p> &nbsp;
-								<?php if ( exactmetrics_is_pro_version() ) { ?>
+								<?php
+ if ( exactmetrics_is_pro_version() ) { ?>
                                     <p>
 										<?php
+
 										// Translators: License level and smiley.
 										echo sprintf( esc_html__( 'Hey there! It looks like you\'ve got the %1$s license installed on your site. That\'s awesome! %s', 'google-analytics-dashboard-for-wp' ), $has_level, '<span class="dashicons dashicons-smiley"></span>' );
 										?>
@@ -331,6 +339,7 @@ class ExactMetrics_Report {
                                     &nbsp;
                                     <p>
 										<?php
+
 										// Translators: Placeholders add the report title and license level.
 										echo sprintf( esc_html__( 'Do you want to access to %1$s reporting right now%2$s in your WordPress Dashboard? That comes with the %3$s level%4$s of our paid packages. You\'ll need to upgrade your license to get instant access.', 'google-analytics-dashboard-for-wp' ), '<strong>' . $this->title, '</strong>', '<strong><a href="' . exactmetrics_get_url( 'reports-page', $this->name . '-report-upsell-license-link', 'https://exactmetrics.com/my-account/' ) . '">' . $this->level, '</a></strong>' );
 										?>
@@ -338,15 +347,19 @@ class ExactMetrics_Report {
                                     &nbsp;
                                     <p>
 										<?php
+
 										// Translators: Placeholdes add links to the account area and a guide.
 										echo sprintf( esc_html__( 'It\'s easy! To upgrade, navigate to %1$sMy Account%2$s on ExactMetrics.com, go to the licenses tab, and click upgrade. We also have a %3$sstep by step guide%4$s with pictures of this process.', 'google-analytics-dashboard-for-wp' ), '<a href="' . exactmetrics_get_url( 'reports-page', $this->name . '-report-upsell-license-link', 'https://exactmetrics.com/my-account/' ) . '"><strong>', '</strong></a>', '<a href="' . exactmetrics_get_url( 'reports-page', $this->name . '-report-upsell-license-link', 'https://www.exactmetrics.com/docs/upgrade-exactmetrics-license/' ) . '" style="text-decoration:underline !important">', '</a>' );
 										?>
 									</p>
                                     &nbsp;
-                                    <p><?php esc_html_e( 'If you have any questions, don\'t hesitate to reach out. We\'re here to help.', 'google-analytics-dashboard-for-wp' ); ?></p>
-								<?php } else { ?>
+                                    <p><?php
+ esc_html_e( 'If you have any questions, don\'t hesitate to reach out. We\'re here to help.', 'google-analytics-dashboard-for-wp' ); ?></p>
+								<?php
+ } else { ?>
                                     <p>
 										<?php
+
 										// Translators: Placeholder adds a smiley face.
 										echo sprintf( esc_html__( 'Hey there! %s It looks like you\'ve got the free version of ExactMetrics installed on your site. That\'s awesome!', 'google-analytics-dashboard-for-wp' ), '<span class="dashicons dashicons-smiley"></span>' );
 										?>
@@ -354,6 +367,7 @@ class ExactMetrics_Report {
                                     &nbsp;
                                     <p>
 										<?php
+
 										// Translators: Placeholders make the text bold, add the license level and add a link to upgrade.
 										echo sprintf( esc_html__( 'Do you you want to access to %1$s reporting right now%2$s in your WordPress Dashboard? That comes with %3$s level%4$s of our paid packages. To get instant access, you\'ll want to buy a ExactMetrics license, which also gives you access to powerful addons, expanded reporting (including the ability to use custom date ranges), comprehensive tracking features (like UserID tracking) and access to our world-class support team.', 'google-analytics-dashboard-for-wp' ), '<strong>' . $this->title, '</strong>', '<a href="' . exactmetrics_get_upgrade_link( 'reports-page', $this->name . '-report-upsell-license-link' ) . '">' . $this->level, '</a>' );
 										?>
@@ -361,22 +375,32 @@ class ExactMetrics_Report {
                                     &nbsp;
                                     <p>
 										<?php
+
 										// Translators: Placeholders make the text bold, add the license level and add a link to upgrade.
 										echo sprintf( esc_html__( 'Upgrading is easy! To upgrade, navigate to %1$ssour pricing page%2$s, purchase the required license, and then follow the %3$sinstructions in the email receipt%4$s to upgrade. It only takes a few minutes to unlock the most powerful, yet easy to use analytics tracking system for WordPress.', 'google-analytics-dashboard-for-wp' ), '<a href="' . exactmetrics_get_upgrade_link( 'reports-page', $this->name . '-report-upsell-license-link' ) . '"><strong>', '</strong></a>', '<a style="text-decoration:underline !important" href="' . exactmetrics_get_url( 'reports-page', $this->name . '-report-go-lite-pro-link', 'https://www.exactmetrics.com/docs/go-lite-pro/' ) . '">', '</a>' );
 										?>
 									</p>
                                     &nbsp;
-                                    <p><?php esc_html_e( 'If you have any questions, don\'t hesitate to reach out. We\'re here to help.', 'google-analytics-dashboard-for-wp' ); ?></p>
-								<?php } ?>
+                                    <p><?php
+ esc_html_e( 'If you have any questions, don\'t hesitate to reach out. We\'re here to help.', 'google-analytics-dashboard-for-wp' ); ?></p>
+								<?php
+ } ?>
                             </div>
                             <div class="exactmetrics-upsell-card-action">
-								<?php if ( exactmetrics_is_pro_version() ) { ?>
-                                    <a href="<?php echo exactmetrics_get_upgrade_link( 'reports-page', $this->name . '-report-upsell-license-link' ); ?>"
-                                       class="exactmetrics-upsell-card-button"><?php esc_html_e( 'Upgrade Now', 'google-analytics-dashboard-for-wp' ); ?></a>
-								<?php } else { ?>
-                                    <a href="<?php echo exactmetrics_get_url( 'reports-page', $this->name . '-report-upsell-license-link', 'https://www.exactmetrics.com/docs/upgrade-exactmetrics-license/' ); ?>"
-                                       class="exactmetrics-upsell-card-button"><?php esc_html_e( 'Get ExactMetrics Pro', 'google-analytics-dashboard-for-wp' ); ?></a>
-								<?php } ?>
+								<?php
+ if ( exactmetrics_is_pro_version() ) { ?>
+                                    <a href="<?php
+ echo exactmetrics_get_upgrade_link( 'reports-page', $this->name . '-report-upsell-license-link' ); ?>"
+                                       class="exactmetrics-upsell-card-button"><?php
+ esc_html_e( 'Upgrade Now', 'google-analytics-dashboard-for-wp' ); ?></a>
+								<?php
+ } else { ?>
+                                    <a href="<?php
+ echo exactmetrics_get_url( 'reports-page', $this->name . '-report-upsell-license-link', 'https://www.exactmetrics.com/docs/upgrade-exactmetrics-license/' ); ?>"
+                                       class="exactmetrics-upsell-card-button"><?php
+ esc_html_e( 'Get ExactMetrics Pro', 'google-analytics-dashboard-for-wp' ); ?></a>
+								<?php
+ } ?>
                             </div>
                         </div>
                     </div>
@@ -385,6 +409,7 @@ class ExactMetrics_Report {
         </div>
         </div>
 		<?php
+
 		return ob_get_clean();
 	}
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -615,10 +616,7 @@ class Flip_Carousel extends Widget_Base {
 
 		$this->end_controls_section();
 
-
-
 	}
-
 
 	protected function render( ) {
 
@@ -681,37 +679,56 @@ class Flip_Carousel extends Widget_Base {
 		$this->add_render_attribute('eael-flip-carousel-wrap', 'data-buttonnext', $nav_next );
 	}
 
-
 	?>
-	<div <?php echo $this->get_render_attribute_string('eael-flip-carousel-wrap'); ?>>
+	<div <?php
+ echo $this->get_render_attribute_string('eael-flip-carousel-wrap'); ?>>
 	    <ul class="flip-items">
 			<?php
+
 				foreach( $settings['eael_flip_carousel_slides'] as $slides ) :
 					$image_alt_text  = get_post_meta($slides['eael_flip_carousel_slide']['id'], '_wp_attachment_image_alt', true);
 			?>
 		        <li>
-		        	<?php if( 'true' == $slides['eael_flip_carousel_enable_slide_link'] ) :
+		        	<?php
+ if( 'true' == $slides['eael_flip_carousel_enable_slide_link'] ) :
 		        		$eael_slide_link = $slides['eael_flip_carousel_slide_link']['url'];
 		        		$target          = $slides['eael_flip_carousel_slide_link']['is_external'] ? 'target="_blank"' : '';
 		        		$nofollow        = $slides['eael_flip_carousel_slide_link']['nofollow'] ? 'rel="nofollow"' : '';
 		        		?>
-						<a href="<?php echo esc_url($eael_slide_link); ?>" <?php echo $target; ?> <?php echo $nofollow; ?>>
-							<img src="<?php echo $slides['eael_flip_carousel_slide']['url'] ?>" alt="<?php echo esc_attr($image_alt_text); ?>">
+						<a href="<?php
+ echo esc_url($eael_slide_link); ?>" <?php
+ echo $target; ?> <?php
+ echo $nofollow; ?>>
+							<img src="<?php
+ echo $slides['eael_flip_carousel_slide']['url'] ?>" alt="<?php
+ echo esc_attr($image_alt_text); ?>">
 						</a>
-		            	<?php if( $slides['eael_flip_carousel_slide_text'] !='' ) : ?>
-		            		<p class="flip-carousel-text"><?php echo esc_html__( $slides['eael_flip_carousel_slide_text'] ); ?></p>
-		        		<?php endif; ?>
-		        	<?php else: ?>
-						<img src="<?php echo $slides['eael_flip_carousel_slide']['url'] ?>" alt="<?php echo esc_attr($image_alt_text); ?>">
-		            	<?php if( $slides['eael_flip_carousel_slide_text'] !='' ) : ?>
-		            		<p class="flip-carousel-text"><?php echo esc_html__( $slides['eael_flip_carousel_slide_text'] ); ?></p>
-		        		<?php endif; ?>
-		        	<?php endif; ?>
+		            	<?php
+ if( $slides['eael_flip_carousel_slide_text'] !='' ) : ?>
+		            		<p class="flip-carousel-text"><?php
+ echo esc_html__( $slides['eael_flip_carousel_slide_text'] ); ?></p>
+		        		<?php
+ endif; ?>
+		        	<?php
+ else: ?>
+						<img src="<?php
+ echo $slides['eael_flip_carousel_slide']['url'] ?>" alt="<?php
+ echo esc_attr($image_alt_text); ?>">
+		            	<?php
+ if( $slides['eael_flip_carousel_slide_text'] !='' ) : ?>
+		            		<p class="flip-carousel-text"><?php
+ echo esc_html__( $slides['eael_flip_carousel_slide_text'] ); ?></p>
+		        		<?php
+ endif; ?>
+		        	<?php
+ endif; ?>
 
 		        </li>
-	    	<?php endforeach; ?>
+	    	<?php
+ endforeach; ?>
 	    </ul>
 	</div>
 	<?php
+
 	}
 }

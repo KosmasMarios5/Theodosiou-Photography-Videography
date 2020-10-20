@@ -129,7 +129,6 @@ class Bootstrap
 	    add_action( 'eael/login-register/register-rf-default', [$this, 'lr_add_register_fields_default_icons']);
 	    add_action( 'eael/login-register/after-password-field', [$this, 'lr_show_password_strength_meter']);
 
-
 	    // ajax
 	    add_action( 'wp_ajax_eael_woo_checkout_post_code_validate', [$this, 'eael_woo_checkout_post_code_validate']);
 	    add_action( 'wp_ajax_nopriv_eael_woo_checkout_post_code_validate', [$this, 'eael_woo_checkout_post_code_validate']);

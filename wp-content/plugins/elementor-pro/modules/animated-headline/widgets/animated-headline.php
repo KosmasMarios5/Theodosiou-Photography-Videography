@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\AnimatedHeadline\Widgets;
 
 use Elementor\Controls_Manager;
@@ -391,15 +392,24 @@ class Animated_Headline extends Base_Widget {
 		}
 
 		?>
-		<<?php echo $tag; ?> <?php echo $this->get_render_attribute_string( 'headline' ); ?>>
-			<?php if ( ! empty( $settings['before_text'] ) ) : ?>
-				<span class="elementor-headline-plain-text elementor-headline-text-wrapper"><?php echo $settings['before_text']; ?></span>
-			<?php endif; ?>
+		<<?php
+ echo $tag; ?> <?php
+ echo $this->get_render_attribute_string( 'headline' ); ?>>
+			<?php
+ if ( ! empty( $settings['before_text'] ) ) : ?>
+				<span class="elementor-headline-plain-text elementor-headline-text-wrapper"><?php
+ echo $settings['before_text']; ?></span>
+			<?php
+ endif; ?>
 			<span class="elementor-headline-dynamic-wrapper elementor-headline-text-wrapper"></span>
-			<?php if ( ! empty( $settings['after_text'] ) ) : ?>
-				<span class="elementor-headline-plain-text elementor-headline-text-wrapper"><?php echo $settings['after_text']; ?></span>
-			<?php endif; ?>
-		</<?php echo $tag; ?>>
+			<?php
+ if ( ! empty( $settings['after_text'] ) ) : ?>
+				<span class="elementor-headline-plain-text elementor-headline-text-wrapper"><?php
+ echo $settings['after_text']; ?></span>
+			<?php
+ endif; ?>
+		</<?php
+ echo $tag; ?>>
 		<?php
 
 		if ( ! empty( $settings['link']['url'] ) ) {
@@ -451,5 +461,6 @@ class Animated_Headline extends Base_Widget {
 			</a>
 		<# } #>
 		<?php
+
 	}
 }

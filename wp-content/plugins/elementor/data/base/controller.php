@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Data\Base;
 
 use Elementor\Data\Manager;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Color_Control class
  *
@@ -118,5 +119,6 @@ class WP_Customize_Color_Control extends WP_Customize_Control {
 			</label>
 		</div>
 		<?php
+
 	}
 }

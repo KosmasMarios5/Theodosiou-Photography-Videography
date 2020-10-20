@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Editor;
 
 use Elementor\Api;

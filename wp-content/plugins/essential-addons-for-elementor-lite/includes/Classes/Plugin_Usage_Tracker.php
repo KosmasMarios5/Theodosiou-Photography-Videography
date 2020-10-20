@@ -674,15 +674,22 @@ class Plugin_Usage_Tracker
             $notice_text = apply_filters('wpins_notice_text_' . esc_attr($this->plugin_name), $notice_text);?>
 
 			<div class="notice notice-info updated put-dismiss-notice">
-				<p><?php echo __($notice_text); ?></p>
+				<p><?php
+ echo __($notice_text); ?></p>
 				<div class="eael-insights-data" style="display: none;">
-					<p><?php echo __('We collect non-sensitive diagnostic data and plugin usage information. Your site URL, WordPress & PHP version, plugins & themes and email address to send you the discount coupon. This data lets us make sure this plugin always stays compatible with the most popular plugins and themes. No spam, I promise.'); ?></p>
+					<p><?php
+ echo __('We collect non-sensitive diagnostic data and plugin usage information. Your site URL, WordPress & PHP version, plugins & themes and email address to send you the discount coupon. This data lets us make sure this plugin always stays compatible with the most popular plugins and themes. No spam, I promise.'); ?></p>
 				</div>
 				<p>
-					<a href="<?php echo esc_url($url_yes); ?>" class="button-primary"><?php _e('Sure, I\'d like to help', 'essential-addons-for-elementor-lite');?></a>
-					<a href="<?php echo esc_url($url_no); ?>" class="button-secondary"><?php _e('No Thanks', 'essential-addons-for-elementor-lite');?></a>
+					<a href="<?php
+ echo esc_url($url_yes); ?>" class="button-primary"><?php
+ _e('Sure, I\'d like to help', 'essential-addons-for-elementor-lite');?></a>
+					<a href="<?php
+ echo esc_url($url_no); ?>" class="button-secondary"><?php
+ _e('No Thanks', 'essential-addons-for-elementor-lite');?></a>
 				</p>
-				<?php echo "<script type='text/javascript'>jQuery('.insights-data-we-collect').on('click', function(e) {
+				<?php
+ echo "<script type='text/javascript'>jQuery('.insights-data-we-collect').on('click', function(e) {
 						e.preventDefault();
 						jQuery('.eael-insights-data').slideToggle('fast');
 					});
@@ -724,14 +731,21 @@ class Plugin_Usage_Tracker
             $marketing_text = apply_filters('wpins_marketing_text_' . esc_attr($this->plugin_name), $marketing_text);?>
 
 			<div class="notice notice-info updated put-dismiss-notice">
-				<p><?php echo '<strong>' . esc_html($plugin_name) . '</strong>'; ?></p>
-				<p><?php echo esc_html($marketing_text); ?></p>
+				<p><?php
+ echo '<strong>' . esc_html($plugin_name) . '</strong>'; ?></p>
+				<p><?php
+ echo esc_html($marketing_text); ?></p>
 				<p>
-					<a href="<?php echo esc_url($url_yes); ?>" data-putnotice="yes" class="button-secondary"><?php _e('Yes Please', 'essential-addons-for-elementor-lite');?></a>
-					<a href="<?php echo esc_url($url_no); ?>" data-putnotice="no" class="button-secondary"><?php _e('No Thank You', 'essential-addons-for-elementor-lite');?></a>
+					<a href="<?php
+ echo esc_url($url_yes); ?>" data-putnotice="yes" class="button-secondary"><?php
+ _e('Yes Please', 'essential-addons-for-elementor-lite');?></a>
+					<a href="<?php
+ echo esc_url($url_no); ?>" data-putnotice="no" class="button-secondary"><?php
+ _e('No Thank You', 'essential-addons-for-elementor-lite');?></a>
 				</p>
 			</div>
-			<?php }
+			<?php
+ }
     }
 
     /**
@@ -840,7 +854,9 @@ class Plugin_Usage_Tracker
         $html .= '<p class="deactivating-spinner"><span class="spinner"></span> ' . __('Submitting form', 'essential-addons-for-elementor-lite') . '</p>';
         ?>
 		<style type="text/css">
-			.wpdev-put-form-active-<?php echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form-bg-<?php echo esc_attr($this->plugin_name); ?> {
+			.wpdev-put-form-active-<?php
+ echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form-bg-<?php
+ echo esc_attr($this->plugin_name); ?> {
 				background: rgba( 0, 0, 0, .8 );
 				position: fixed;
 				top: 0;
@@ -849,11 +865,14 @@ class Plugin_Usage_Tracker
 				height: 100%;
 				z-index: 9;
 			}
-			.wpdev-put-goodbye-form-wrapper-<?php echo esc_attr($this->plugin_name); ?> {
+			.wpdev-put-goodbye-form-wrapper-<?php
+ echo esc_attr($this->plugin_name); ?> {
 				position: relative;
 				display: none;
 			}
-			.wpdev-put-form-active-<?php echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form-wrapper-<?php echo esc_attr($this->plugin_name); ?> {
+			.wpdev-put-form-active-<?php
+ echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form-wrapper-<?php
+ echo esc_attr($this->plugin_name); ?> {
 				display: flex !important;
 				align-items: center;
 				justify-content: center;
@@ -866,7 +885,8 @@ class Plugin_Usage_Tracker
 			.wpdev-put-goodbye-form {
 				display: none;
 			}
-			.wpdev-put-form-active-<?php echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form {
+			.wpdev-put-form-active-<?php
+ echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form {
 				position: relative !important;
 				width: 550px;
 				max-width: 80%;
@@ -902,10 +922,12 @@ class Plugin_Usage_Tracker
 				color: #495157;
 				line-height: 1.4;
 			}
-			.wpdev-put-goodbye-form-body #wpdev-<?php echo esc_attr($this->plugin_name); ?>-goodbye-options {
+			.wpdev-put-goodbye-form-body #wpdev-<?php
+ echo esc_attr($this->plugin_name); ?>-goodbye-options {
 				padding-top: 5px;
 			}
-			.wpdev-put-goodbye-form-body #wpdev-<?php echo esc_attr($this->plugin_name); ?>-goodbye-options ul > li {
+			.wpdev-put-goodbye-form-body #wpdev-<?php
+ echo esc_attr($this->plugin_name); ?>-goodbye-options ul > li {
 				margin-bottom: 15px;
 			}
 			.deactivating-spinner {
@@ -945,11 +967,14 @@ class Plugin_Usage_Tracker
 				width: auto;
 				text-decoration: underline;
 			}
-			#wpdev-<?php echo esc_attr($this->plugin_name); ?>-goodbye-options ul li > div {
+			#wpdev-<?php
+ echo esc_attr($this->plugin_name); ?>-goodbye-options ul li > div {
 				display: inline;
 				padding-left: 3px;
 			}
-			#wpdev-<?php echo esc_attr($this->plugin_name); ?>-goodbye-options ul li > div > input, #wpdev-<?php echo esc_attr($this->plugin_name); ?>-goodbye-options ul li > div > textarea {
+			#wpdev-<?php
+ echo esc_attr($this->plugin_name); ?>-goodbye-options ul li > div > input, #wpdev-<?php
+ echo esc_attr($this->plugin_name); ?>-goodbye-options ul li > div > textarea {
 				margin: 10px 18px;
 				padding: 8px;
 				width: 80%;
@@ -957,20 +982,34 @@ class Plugin_Usage_Tracker
 		</style>
 		<script>
 			jQuery(document).ready(function($){
-				$("#wpdev-put-goodbye-link-<?php echo esc_attr($this->plugin_name); ?>").on("click",function(){
+				$("#wpdev-put-goodbye-link-<?php
+ echo esc_attr($this->plugin_name); ?>").on("click",function(){
 					// We'll send the user to this deactivation link when they've completed or dismissed the form
-					var url = document.getElementById("wpdev-put-goodbye-link-<?php echo esc_attr($this->plugin_name); ?>");
-					$('body').toggleClass('wpdev-put-form-active-<?php echo esc_attr($this->plugin_name); ?>');
-					$("#wpdev-put-goodbye-form-<?php echo esc_attr($this->plugin_name); ?>").fadeIn();
-					$("#wpdev-put-goodbye-form-<?php echo esc_attr($this->plugin_name); ?>").html( '<?php echo $html; ?>' + '<div class="wpdev-put-goodbye-form-footer"><div class="wpdev-put-goodbye-form-buttons"><a id="put-submit-form-<?php echo esc_attr($this->plugin_name); ?>" class="eael-put-submit-btn" href="#"><?php _e('Submit and Deactivate', 'essential-addons-for-elementor-lite');?></a>&nbsp;<a class="eael-put-deactivate-btn" href="'+url+'"><?php _e('Just Deactivate', 'essential-addons-for-elementor-lite');?></a></div></div>');
-					$('#put-submit-form-<?php echo esc_attr($this->plugin_name); ?>').on('click', function(e){
+					var url = document.getElementById("wpdev-put-goodbye-link-<?php
+ echo esc_attr($this->plugin_name); ?>");
+					$('body').toggleClass('wpdev-put-form-active-<?php
+ echo esc_attr($this->plugin_name); ?>');
+					$("#wpdev-put-goodbye-form-<?php
+ echo esc_attr($this->plugin_name); ?>").fadeIn();
+					$("#wpdev-put-goodbye-form-<?php
+ echo esc_attr($this->plugin_name); ?>").html( '<?php
+ echo $html; ?>' + '<div class="wpdev-put-goodbye-form-footer"><div class="wpdev-put-goodbye-form-buttons"><a id="put-submit-form-<?php
+ echo esc_attr($this->plugin_name); ?>" class="eael-put-submit-btn" href="#"><?php
+ _e('Submit and Deactivate', 'essential-addons-for-elementor-lite');?></a>&nbsp;<a class="eael-put-deactivate-btn" href="'+url+'"><?php
+ _e('Just Deactivate', 'essential-addons-for-elementor-lite');?></a></div></div>');
+					$('#put-submit-form-<?php
+ echo esc_attr($this->plugin_name); ?>').on('click', function(e){
 						// As soon as we click, the body of the form should disappear
-						$("#wpdev-put-goodbye-form-<?php echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form-body").fadeOut();
-						$("#wpdev-put-goodbye-form-<?php echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form-footer").fadeOut();
+						$("#wpdev-put-goodbye-form-<?php
+ echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form-body").fadeOut();
+						$("#wpdev-put-goodbye-form-<?php
+ echo esc_attr($this->plugin_name); ?> .wpdev-put-goodbye-form-footer").fadeOut();
 						// Fade in spinner
-						$("#wpdev-put-goodbye-form-<?php echo esc_attr($this->plugin_name); ?> .deactivating-spinner").fadeIn();
+						$("#wpdev-put-goodbye-form-<?php
+ echo esc_attr($this->plugin_name); ?> .deactivating-spinner").fadeIn();
 						e.preventDefault();
-						var checkedInput = $("input[name='wpdev-<?php echo esc_attr($this->plugin_name); ?>-goodbye-options']:checked"),
+						var checkedInput = $("input[name='wpdev-<?php
+ echo esc_attr($this->plugin_name); ?>-goodbye-options']:checked"),
 							checkedInputVal, details;
 						if( checkedInput.length > 0 ) {
 							checkedInputVal = checkedInput.val();
@@ -985,10 +1024,12 @@ class Plugin_Usage_Tracker
 						}
 
 						var data = {
-							'action': 'goodbye_form_<?php echo esc_attr($this->plugin_name); ?>',
+							'action': 'goodbye_form_<?php
+ echo esc_attr($this->plugin_name); ?>',
 							'values': checkedInputVal,
 							'details': details,
-							'security': "<?php echo wp_create_nonce('wpins_goodbye_form'); ?>",
+							'security': "<?php
+ echo wp_create_nonce('wpins_goodbye_form'); ?>",
 							'dataType': "json"
 						}
 
@@ -1001,22 +1042,27 @@ class Plugin_Usage_Tracker
 							}
 						);
 					});
-					$('#wpdev-<?php echo esc_attr($this->plugin_name); ?>-goodbye-options > ul ').on('click', 'li label, li > input', function( e ){
+					$('#wpdev-<?php
+ echo esc_attr($this->plugin_name); ?>-goodbye-options > ul ').on('click', 'li label, li > input', function( e ){
 						var parent = $(this).parents('li');
 						parent.siblings().find('label').next('input, textarea').css('display', 'none');
 						parent.find('label').next('input, textarea').css('display', 'block');
 					});
 					// If we click outside the form, the form will close
-					$('.wpdev-put-goodbye-form-bg-<?php echo esc_attr($this->plugin_name); ?>').on('click',function(){
-						$("#wpdev-put-goodbye-form-<?php echo esc_attr($this->plugin_name); ?>").fadeOut();
-						$('body').removeClass('wpdev-put-form-active-<?php echo esc_attr($this->plugin_name); ?>');
+					$('.wpdev-put-goodbye-form-bg-<?php
+ echo esc_attr($this->plugin_name); ?>').on('click',function(){
+						$("#wpdev-put-goodbye-form-<?php
+ echo esc_attr($this->plugin_name); ?>").fadeOut();
+						$('body').removeClass('wpdev-put-form-active-<?php
+ echo esc_attr($this->plugin_name); ?>');
 					});
 				});
 
 
 			});
 		</script>
-	<?php }
+	<?php
+ }
 
     /**
      * AJAX callback when the form is submitted

@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -93,7 +94,6 @@ class Interactive_Card extends Widget_Base {
 		     	],
 		  	]
 		);
-
 
   		$this->start_controls_tabs( 'eael_interactive_card_Tabs' );
   		// Front Panel Tab
@@ -1130,8 +1130,6 @@ class Interactive_Card extends Widget_Base {
 			]
 		);
 
-
-
 		$this->end_controls_section();
 
 		/**
@@ -1447,7 +1445,6 @@ class Interactive_Card extends Widget_Base {
 
 	}
 
-
 	protected function render( ) {
 
 		$settings = $this->get_settings_for_display();
@@ -1479,102 +1476,157 @@ class Interactive_Card extends Widget_Base {
 		
 	?>
 	
-	<div id="interactive-card-<?php echo esc_attr( $this->get_id() ); ?>"  
-		<?php echo 	$this->get_render_attribute_string( 'eael-interactive-card' ); ?>>
-		<?php if( 'text-card' === $settings['eael_interactive_card_style'] ) : ?>
+	<div id="interactive-card-<?php
+ echo esc_attr( $this->get_id() ); ?>"  
+		<?php
+ echo 	$this->get_render_attribute_string( 'eael-interactive-card' ); ?>>
+		<?php
+ if( 'text-card' === $settings['eael_interactive_card_style'] ) : ?>
 		<div class="front-content front-text-content">
 			<div class="image-screen">
 				<div class="header">
-					<?php if ( ! empty( $settings['eael_interactive_card_front_panel_counter'] ) ) : ?>
-					<h1 class="card-number"><?php echo $settings['eael_interactive_card_front_panel_counter']; ?></h1>
-					<?php endif; ?>
-					<?php if ( ! empty( $settings['eael_interactive_card_front_panel_title'] ) ) : ?>
-					<h2 class="title"><?php echo $settings['eael_interactive_card_front_panel_title']; ?></h2>
-					<?php endif; ?>
+					<?php
+ if ( ! empty( $settings['eael_interactive_card_front_panel_counter'] ) ) : ?>
+					<h1 class="card-number"><?php
+ echo $settings['eael_interactive_card_front_panel_counter']; ?></h1>
+					<?php
+ endif; ?>
+					<?php
+ if ( ! empty( $settings['eael_interactive_card_front_panel_title'] ) ) : ?>
+					<h2 class="title"><?php
+ echo $settings['eael_interactive_card_front_panel_title']; ?></h2>
+					<?php
+ endif; ?>
 				</div>
-				<?php if( 'content' == $settings['eael_interactive_card_text_type'] ):  ?>
-				<?php if ( ! empty( $settings['eael_interactive_card_front_panel_content'] ) ) : ?>
-					<div class="front-text-body">
-						<?php echo $settings['eael_interactive_card_front_panel_content']; ?>
-					</div>
-				<?php endif; ?>
-				<?php elseif( 'template' == $settings['eael_interactive_card_text_type'] ) : ?>
+				<?php
+ if( 'content' == $settings['eael_interactive_card_text_type'] ):  ?>
+				<?php
+ if ( ! empty( $settings['eael_interactive_card_front_panel_content'] ) ) : ?>
 					<div class="front-text-body">
 						<?php
+ echo $settings['eael_interactive_card_front_panel_content']; ?>
+					</div>
+				<?php
+ endif; ?>
+				<?php
+ elseif( 'template' == $settings['eael_interactive_card_text_type'] ) : ?>
+					<div class="front-text-body">
+						<?php
+
 							if ( !empty( $settings['eael_primary_templates'] ) ) {
 								echo Plugin::$instance->frontend->get_builder_content($settings['eael_primary_templates'], true);
 							}
 						?>
 					</div>
-				<?php endif; ?>
-				<?php if ( ! empty( $settings['eael_interactive_card_front_panel_btn'] ) ) : ?>
+				<?php
+ endif; ?>
+				<?php
+ if ( ! empty( $settings['eael_interactive_card_front_panel_btn'] ) ) : ?>
 				<div class="footer">
-					<a href="javascript:;" class="interactive-btn"><?php echo $settings['eael_interactive_card_front_panel_btn']; ?></a>
+					<a href="javascript:;" class="interactive-btn"><?php
+ echo $settings['eael_interactive_card_front_panel_btn']; ?></a>
 				</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 			</div>
 		</div>
-		<?php elseif( 'img-card' === $settings['eael_interactive_card_style'] ) : ?>
+		<?php
+ elseif( 'img-card' === $settings['eael_interactive_card_style'] ) : ?>
 		<div class="front-content">
 			<div class="image-screen">
 				<div class="image-screen-overlay"></div>
 			</div>
 		</div>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 
 		<div class="content">
 			<span class="close close-me">
-				<?php if( is_array($icon) && isset($icon['url']) ) : ?>
-					<img src="<?php echo esc_url($icon['url']); ?>" class="eael-interactive-card-svg-icon" alt="<?php echo esc_attr(get_post_meta($icon['id'], '_wp_attachment_image_alt', true)); ?>" />
-				<?php else : ?>
-					<i class="<?php echo $icon; ?>"></i>
-				<?php endif; ?>
+				<?php
+ if( is_array($icon) && isset($icon['url']) ) : ?>
+					<img src="<?php
+ echo esc_url($icon['url']); ?>" class="eael-interactive-card-svg-icon" alt="<?php
+ echo esc_attr(get_post_meta($icon['id'], '_wp_attachment_image_alt', true)); ?>" />
+				<?php
+ else : ?>
+					<i class="<?php
+ echo $icon; ?>"></i>
+				<?php
+ endif; ?>
 			</span>
-			<?php if( 'img-grid' === $settings['eael_interactive_card_type'] ) : ?>
+			<?php
+ if( 'img-grid' === $settings['eael_interactive_card_type'] ) : ?>
 				<div class="content-inner">
 					<div class="text">
 						<div class="text-inner">
-							<?php if ( ! empty( $settings['eael_interactive_card_rear_title'] ) ) : ?>
-							<h2 class="title"><?php echo $settings['eael_interactive_card_rear_title']; ?></h2>
-							<?php endif; ?>
-							<?php if( 'content' == $settings['eael_interactive_card_rear_text_type'] ) : ?>
-							<?php echo wpautop($settings['eael_interactive_card_rear_content']); ?>
-							<?php elseif( 'template' == $settings['eael_interactive_card_rear_text_type'] ) : ?>
+							<?php
+ if ( ! empty( $settings['eael_interactive_card_rear_title'] ) ) : ?>
+							<h2 class="title"><?php
+ echo $settings['eael_interactive_card_rear_title']; ?></h2>
+							<?php
+ endif; ?>
+							<?php
+ if( 'content' == $settings['eael_interactive_card_rear_text_type'] ) : ?>
+							<?php
+ echo wpautop($settings['eael_interactive_card_rear_content']); ?>
+							<?php
+ elseif( 'template' == $settings['eael_interactive_card_rear_text_type'] ) : ?>
 								<?php
+
 									if ( !empty( $settings['eael_primary_rear_templates'] ) ) {
 										echo Plugin::$instance->frontend->get_builder_content($settings['eael_primary_rear_templates'], true);
 									}
 								?>
-							<?php endif; ?>
-							<?php if ( ! empty( $settings['eael_interactive_card_rear_btn'] ) ) : ?>
-							<a href="<?php echo esc_url( $settings['eael_interactive_card_rear_btn_link']['url'] ); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> class="interactive-btn"><?php echo $settings['eael_interactive_card_rear_btn']; ?></a>
-							<?php endif; ?>
+							<?php
+ endif; ?>
+							<?php
+ if ( ! empty( $settings['eael_interactive_card_rear_btn'] ) ) : ?>
+							<a href="<?php
+ echo esc_url( $settings['eael_interactive_card_rear_btn_link']['url'] ); ?>" <?php
+ echo $target; ?> <?php
+ echo $nofollow; ?> class="interactive-btn"><?php
+ echo $settings['eael_interactive_card_rear_btn']; ?></a>
+							<?php
+ endif; ?>
 						</div>
 					</div>
-					<?php if ( ! empty( $settings['eael_interactive_card_rear_image'] ) ) : ?>
+					<?php
+ if ( ! empty( $settings['eael_interactive_card_rear_image'] ) ) : ?>
 					<div class="image"></div>
-					<?php endif; ?>
+					<?php
+ endif; ?>
 				</div>
-			<?php elseif( 'scrollable' === $settings['eael_interactive_card_type'] ) : ?>
+			<?php
+ elseif( 'scrollable' === $settings['eael_interactive_card_type'] ) : ?>
 				<div class="content-overflow">
-					<?php if( 'content' == $settings['eael_interactive_card_rear_text_type'] ) : ?>
-						<?php echo do_shortcode( wp_kses_post($settings['eael_interactive_card_rear_custom_code']) ); ?>
-					<?php elseif( 'template' == $settings['eael_interactive_card_rear_text_type'] ) : ?>
+					<?php
+ if( 'content' == $settings['eael_interactive_card_rear_text_type'] ) : ?>
 						<?php
+ echo do_shortcode( wp_kses_post($settings['eael_interactive_card_rear_custom_code']) ); ?>
+					<?php
+ elseif( 'template' == $settings['eael_interactive_card_rear_text_type'] ) : ?>
+						<?php
+
 							if ( !empty( $settings['eael_primary_rear_templates'] ) ) {
 								echo Plugin::$instance->frontend->get_builder_content($settings['eael_primary_rear_templates'], true);
 							}
 						?>
-					<?php endif; ?>
+					<?php
+ endif; ?>
 				</div>
 			<?php
+
 				elseif( 'video' === $settings['eael_interactive_card_type'] ) :
 			?>
-				<iframe src="<?php echo esc_url(str_replace('watch?v=', 'embed/', $settings['eael_interactive_card_youtube_video_url'])); ?>" <?php echo $full_screen; ?>></iframe>
-			<?php endif; ?>
+				<iframe src="<?php
+ echo esc_url(str_replace('watch?v=', 'embed/', $settings['eael_interactive_card_youtube_video_url'])); ?>" <?php
+ echo $full_screen; ?>></iframe>
+			<?php
+ endif; ?>
 		</div>
 	</div>
 	<?php
+
 	}
 
 	protected function content_template() { }

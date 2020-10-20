@@ -1,4 +1,5 @@
 <?php
+
 /**
  * API for easily embedding rich media such as videos and images into content.
  *
@@ -88,10 +89,12 @@ class WP_Embed {
 		?>
 <script type="text/javascript">
 	jQuery(document).ready(function($){
-		$.get("<?php echo admin_url( 'admin-ajax.php?action=oembed-cache&post=' . $post->ID, 'relative' ); ?>");
+		$.get("<?php
+ echo admin_url( 'admin-ajax.php?action=oembed-cache&post=' . $post->ID, 'relative' ); ?>");
 	});
 </script>
 		<?php
+
 	}
 
 	/**

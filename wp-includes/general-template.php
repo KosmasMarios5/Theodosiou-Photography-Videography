@@ -1,4 +1,5 @@
 <?php
+
 /**
  * General template tags that can go anywhere in a template.
  *
@@ -3243,6 +3244,7 @@ function wp_sensitive_page_meta() {
 	<meta name='robots' content='noindex,noarchive' />
 	<meta name='referrer' content='strict-origin-when-cross-origin' />
 	<?php
+
 }
 
 /**

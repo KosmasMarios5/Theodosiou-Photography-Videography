@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Core\Base\Base_Object;
@@ -126,7 +127,6 @@ abstract class Controls_Stack extends Base_Object {
 	 * @var null|array
 	 */
 	private $injection_point;
-
 
 	/**
 	 * Data sanitized.
@@ -1678,10 +1678,13 @@ abstract class Controls_Stack extends Base_Object {
 			return;
 		}
 		?>
-		<script type="text/html" id="tmpl-elementor-<?php echo esc_attr( $this->get_name() ); ?>-content">
-			<?php $this->print_template_content( $template_content ); ?>
+		<script type="text/html" id="tmpl-elementor-<?php
+ echo esc_attr( $this->get_name() ); ?>-content">
+			<?php
+ $this->print_template_content( $template_content ); ?>
 		</script>
 		<?php
+
 	}
 
 	/**

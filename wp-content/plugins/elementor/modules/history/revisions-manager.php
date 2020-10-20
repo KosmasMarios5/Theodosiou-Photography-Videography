@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\History;
 
 use Elementor\Core\Base\Document;

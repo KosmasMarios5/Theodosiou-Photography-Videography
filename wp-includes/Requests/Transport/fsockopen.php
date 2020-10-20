@@ -1,4 +1,5 @@
 <?php
+
 /**
  * fsockopen HTTP transport
  *

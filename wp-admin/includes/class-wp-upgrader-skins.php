@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The User Interface "Skins" for the WordPress File Upgrader
  *

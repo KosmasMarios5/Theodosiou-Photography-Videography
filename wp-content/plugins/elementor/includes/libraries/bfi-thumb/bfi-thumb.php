@@ -1,4 +1,5 @@
 <?php
+
 /*
  * bfi_thumb - WP Image Resizer v1.3
  *
@@ -55,7 +56,6 @@ if ( ! function_exists( 'bfi_thumb' ) ) {
 	}
 }
 
-
 /**
  * Class factory, this is to make sure that when multiple bfi_thumb scripts
  * are used (e.g. a plugin and a theme both use it), we always use the
@@ -94,7 +94,6 @@ if ( ! class_exists( 'BFI_Class_Factory' ) ) {
 	}
 }
 
-
 /*
  * Change the default image editors
  */
@@ -112,7 +111,6 @@ if ( ! function_exists( 'bfi_wp_image_editor' ) ) {
 	}
 }
 
-
 /*
  * Include the WP Image classes
  */
@@ -121,11 +119,9 @@ require_once ABSPATH . WPINC . '/class-wp-image-editor.php';
 require_once ABSPATH . WPINC . '/class-wp-image-editor-imagick.php';
 require_once ABSPATH . WPINC . '/class-wp-image-editor-gd.php';
 
-
 /*
  * Enhanced Imagemagick Image Editor
  */
-
 
 if ( ! class_exists( 'BFI_Image_Editor_Imagick_1_3' ) ) {
 
@@ -204,11 +200,9 @@ if ( ! class_exists( 'BFI_Image_Editor_Imagick_1_3' ) ) {
 	}
 }
 
-
 /*
  * Enhanced GD Image Editor
  */
-
 
 if ( ! class_exists( 'BFI_Image_Editor_GD_1_3' ) ) {
 
@@ -270,7 +264,6 @@ if ( ! class_exists( 'BFI_Image_Editor_GD_1_3' ) ) {
 
 			return new WP_Error( 'image_opacity_error', 'Image opacity change failed.', $this->file );
 		}
-
 
 		// from: http://php.net/manual/en/function.imagefilter.php
 		// params: image resource id, opacity (eg. 0.0-1.0)
@@ -390,7 +383,6 @@ if ( ! class_exists( 'BFI_Image_Editor_GD_1_3' ) ) {
 		}
 	}
 }
-
 
 /*
  * Main Class
@@ -578,7 +570,6 @@ if ( ! class_exists( 'BFI_Thumb_1_3' ) ) {
 				$ext = 'png';
 			}
 
-
 			// Create the upload subdirectory, this is where
 			// we store all our generated images
 			if ( defined( 'BFITHUMB_UPLOAD_DIR' ) ) {
@@ -591,7 +582,6 @@ if ( ! class_exists( 'BFI_Thumb_1_3' ) ) {
 			if ( ! is_dir( $upload_dir ) ) {
 				wp_mkdir_p( $upload_dir );
 			}
-
 
 			// desination paths and urls
 			$destfilename = "{$upload_dir}/{$dst_rel_path}-{$suffix}.{$ext}";
@@ -721,7 +711,6 @@ if ( ! class_exists( 'BFI_Thumb_1_3' ) ) {
 	}
 }
 
-
 // don't use the default resizer since we want to allow resizing to larger sizes (than the original one)
 // Parts are copied from media.php
 // Crop is always applied (just like timthumb)
@@ -762,7 +751,6 @@ if ( ! function_exists( 'bfi_image_resize_dimensions' ) ) {
 		return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
 	}
 }
-
 
 // This function allows us to latch on WP image functions such as
 // the_post_thumbnail, get_image_tag and wp_get_attachment_image_src

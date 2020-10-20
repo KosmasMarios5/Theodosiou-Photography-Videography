@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\App\Modules\SiteEditor;
 
 use Elementor\Core\Base\Module as BaseModule;

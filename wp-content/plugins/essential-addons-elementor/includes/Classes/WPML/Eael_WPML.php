@@ -6,7 +6,6 @@ if (!defined('ABSPATH')) {
     exit;
 } // Exit if accessed directly
 
-
 trait Eael_WPML {
 
     public function eael_translatable_widgets($widgets)
@@ -107,7 +106,6 @@ trait Eael_WPML {
         // ];
 
         // Interactive card
-
 
         $widgets['eael-interactive-promo'] = [
             'conditions' => ['widgetType' => 'eael-interactive-promo'],

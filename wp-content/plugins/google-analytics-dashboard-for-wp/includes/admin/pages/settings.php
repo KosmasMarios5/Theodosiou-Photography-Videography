@@ -1,4 +1,5 @@
 <?php
+
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -52,8 +53,8 @@ function exactmetrics_settings_inline_js() {
 		}
 	</script>
 	<?php
-}
 
+}
 
 /**
   * Error page HTML
@@ -78,18 +79,24 @@ function exactmetrics_settings_error_page( $id = 'exactmetrics-vue-site-settings
             }
         </style>
     <![endif]-->
-    <div id="<?php echo $id; ?>">
+    <div id="<?php
+ echo $id; ?>">
         <div id="exactmetrics-settings-area" class="exactmetrics-settings-area mi-container" style="font-family:'Helvetica Neue', 'HelveticaNeue-Light', 'Helvetica Neue Light', Helvetica, Arial, 'Lucida Grande', sans-serif;margin: auto;width: 750px;max-width: 100%;">
             <div id="exactmetrics-settings-error-loading-area">
-                <div class="" style="text-align: center; background-color: #fff;border: 1px solid #D6E2EC; padding: 15px 50px 30px; color: #777777; margin: <?php echo esc_attr( $margin ); ?>">
+                <div class="" style="text-align: center; background-color: #fff;border: 1px solid #D6E2EC; padding: 15px 50px 30px; color: #777777; margin: <?php
+ echo esc_attr( $margin ); ?>">
                     <div class="" style="border-bottom: 0;padding: 5px 20px 0;">
-                        <img class="" src="<?php echo esc_attr( $inline_logo_image ); ?>" alt="" style="max-width: 100%;width: 240px;padding: 30px 0 15px;">
+                        <img class="" src="<?php
+ echo esc_attr( $inline_logo_image ); ?>" alt="" style="max-width: 100%;width: 240px;padding: 30px 0 15px;">
                     </div>
                     <div id="exactmetrics-error-js">
-                        <h3 class="" style="font-size: 20px;color: #434343;font-weight: 500;line-height:1.4;"><?php esc_html_e( 'Ooops! It Appears JavaScript Didn’t Load', 'google-analytics-dashboard-for-wp' ); ?></h3>
-                        <p class="info" style="line-height: 1.5;margin: 1em 0;font-size: 16px;color: #434343;padding: 5px 20px 20px;"><?php esc_html_e( 'There seems to be an issue running JavaScript on your website, which ExactMetrics is crafted in to give you the best experience possible.', 'google-analytics-dashboard-for-wp' ); ?></p>
+                        <h3 class="" style="font-size: 20px;color: #434343;font-weight: 500;line-height:1.4;"><?php
+ esc_html_e( 'Ooops! It Appears JavaScript Didn’t Load', 'google-analytics-dashboard-for-wp' ); ?></h3>
+                        <p class="info" style="line-height: 1.5;margin: 1em 0;font-size: 16px;color: #434343;padding: 5px 20px 20px;"><?php
+ esc_html_e( 'There seems to be an issue running JavaScript on your website, which ExactMetrics is crafted in to give you the best experience possible.', 'google-analytics-dashboard-for-wp' ); ?></p>
 						<p class="info"style="line-height: 1.5;margin: 1em 0;font-size: 16px;color: #434343;padding: 5px 20px 20px;">
 							<?php
+
 							// Translators: Placeholders make the text bold.
 							printf( esc_html__( 'If you are using an %1$sad blocker%2$s, please disable or whitelist the current page to load ExactMetrics correctly.', 'google-analytics-dashboard-for-wp' ), '<strong>', '</strong>' );
 							?>
@@ -105,25 +112,32 @@ function exactmetrics_settings_error_page( $id = 'exactmetrics-vue-site-settings
                                                                 text-align: left;">
                                 <strong style="font-weight: 500;" id="exactmetrics-alert-message"></strong>
                             </div>
-                            <p class="" style="font-size: 14px;color: #777777;padding-bottom: 15px;"><?php esc_html_e( 'Copy the error message above and paste it in a message to the ExactMetrics support team.', 'google-analytics-dashboard-for-wp' ); ?></p>
+                            <p class="" style="font-size: 14px;color: #777777;padding-bottom: 15px;"><?php
+ esc_html_e( 'Copy the error message above and paste it in a message to the ExactMetrics support team.', 'google-analytics-dashboard-for-wp' ); ?></p>
                         </div>
                         <a href="https://www.exactmetrics.com/docs/fix-javascript-error" target="_blank" style="margin-left: auto;background-color: #6528F5;border-color: #6528F5;border-bottom-width: 2px;color: #fff;border-radius: 3px;font-weight: 500;transition: all 0.1s ease-in-out;transition-duration: 0.2s;padding: 14px 35px;font-size: 16px;margin-top: 10px;margin-bottom: 20px; text-decoration: none; display: inline-block;">
-                            <?php esc_html_e( 'Resolve This Issue', 'google-analytics-dashboard-for-wp' ); ?>
+                            <?php
+ esc_html_e( 'Resolve This Issue', 'google-analytics-dashboard-for-wp' ); ?>
                         </a>
                     </div>
                     <div id="exactmetrics-error-browser" style="display: none">
-                        <h3 class="" style="font-size: 20px;color: #434343;font-weight: 500;"><?php esc_html_e( 'Your browser version is not supported', 'google-analytics-dashboard-for-wp' ); ?></h3>
-                        <p class="info" style="line-height: 1.5;margin: 1em 0;font-size: 16px;color: #434343;padding: 5px 20px 20px;"><?php esc_html_e( 'You are using a browser which is no longer supported by ExactMetrics. Please update or use another browser in order to access the plugin settings.', 'google-analytics-dashboard-for-wp' ); ?></p>
+                        <h3 class="" style="font-size: 20px;color: #434343;font-weight: 500;"><?php
+ esc_html_e( 'Your browser version is not supported', 'google-analytics-dashboard-for-wp' ); ?></h3>
+                        <p class="info" style="line-height: 1.5;margin: 1em 0;font-size: 16px;color: #434343;padding: 5px 20px 20px;"><?php
+ esc_html_e( 'You are using a browser which is no longer supported by ExactMetrics. Please update or use another browser in order to access the plugin settings.', 'google-analytics-dashboard-for-wp' ); ?></p>
                         <a href="https://www.exactmetrics.com/docs/browser-support-policy/" target="_blank" style="margin-left: auto;background-color: #6528F5;border-color: #6528F5;border-bottom-width: 2px;color: #fff;border-radius: 3px;font-weight: 500;transition: all 0.1s ease-in-out;transition-duration: 0.2s;padding: 14px 35px;font-size: 16px;margin-top: 10px;margin-bottom: 20px; text-decoration: none; display: inline-block;">
-                            <?php esc_html_e( 'View supported browsers', 'google-analytics-dashboard-for-wp' ); ?>
+                            <?php
+ esc_html_e( 'View supported browsers', 'google-analytics-dashboard-for-wp' ); ?>
                         </a>
                     </div>
                 </div>
             </div>
 			<div style="text-align: center;">
-				<?php echo wp_kses_post( $footer ); ?>
+				<?php
+ echo wp_kses_post( $footer ); ?>
 			</div>
         </div>
     </div>
     <?php
+
 }

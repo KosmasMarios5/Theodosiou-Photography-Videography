@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -465,12 +466,16 @@ class Widget_Button extends Widget_Base {
 		}
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-			<a <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-				<?php $this->render_text(); ?>
+		<div <?php
+ echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+			<a <?php
+ echo $this->get_render_attribute_string( 'button' ); ?>>
+				<?php
+ $this->render_text(); ?>
 			</a>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -506,6 +511,7 @@ class Widget_Button extends Widget_Base {
 			</a>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -546,19 +552,29 @@ class Widget_Button extends Widget_Base {
 
 		$this->add_inline_editing_attributes( 'text', 'none' );
 		?>
-		<span <?php echo $this->get_render_attribute_string( 'content-wrapper' ); ?>>
-			<?php if ( ! empty( $settings['icon'] ) || ! empty( $settings['selected_icon']['value'] ) ) : ?>
-			<span <?php echo $this->get_render_attribute_string( 'icon-align' ); ?>>
-				<?php if ( $is_new || $migrated ) :
+		<span <?php
+ echo $this->get_render_attribute_string( 'content-wrapper' ); ?>>
+			<?php
+ if ( ! empty( $settings['icon'] ) || ! empty( $settings['selected_icon']['value'] ) ) : ?>
+			<span <?php
+ echo $this->get_render_attribute_string( 'icon-align' ); ?>>
+				<?php
+ if ( $is_new || $migrated ) :
 					Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 				else : ?>
-					<i class="<?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></i>
-				<?php endif; ?>
+					<i class="<?php
+ echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></i>
+				<?php
+ endif; ?>
 			</span>
-			<?php endif; ?>
-			<span <?php echo $this->get_render_attribute_string( 'text' ); ?>><?php echo $settings['text']; ?></span>
+			<?php
+ endif; ?>
+			<span <?php
+ echo $this->get_render_attribute_string( 'text' ); ?>><?php
+ echo $settings['text']; ?></span>
 		</span>
 		<?php
+
 	}
 
 	public function on_import( $element ) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Simple Custom CSS and JS
  * Plugin URI: https://wordpress.org/plugins/custom-css-js/
@@ -30,7 +31,6 @@ if ( ! class_exists( 'CustomCSSandJS' ) ) :
 		public $search_tree         = false;
 		protected static $_instance = null;
 		private $settings           = array();
-
 
 		/**
 		 * Main CustomCSSandJS Instance
@@ -210,7 +210,6 @@ if ( ! class_exists( 'CustomCSSandJS' ) ) :
 			}
 		}
 
-
 		/**
 		 * Set constants for later use
 		 */
@@ -228,7 +227,6 @@ if ( ! class_exists( 'CustomCSSandJS' ) ) :
 				}
 			}
 		}
-
 
 		public function load_plugin_textdomain() {
 			load_plugin_textdomain( 'custom-css-js', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
@@ -251,7 +249,6 @@ if ( ! function_exists( 'CustomCSSandJS' ) ) {
 	CustomCSSandJS();
 }
 
-
 /**
  * Plugin action link to Settings page
 */
@@ -266,8 +263,6 @@ if ( ! function_exists( 'custom_css_js_plugin_action_links' ) ) {
 	}
 	add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'custom_css_js_plugin_action_links' );
 }
-
-
 
 /**
  * Compatibility with the WP Quads Pro plugin,

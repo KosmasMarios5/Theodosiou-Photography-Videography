@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -216,7 +217,6 @@ abstract class Sub_Controls_Stack {
 	public function start_controls_tab( $id, $args ) {
 		$this->parent->start_controls_tab( $this->get_control_id( $id ), $args );
 	}
-
 
 	/**
 	 * End controls tabs.

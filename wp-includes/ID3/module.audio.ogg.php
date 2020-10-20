@@ -42,7 +42,6 @@ class getid3_ogg extends getid3_handler
 			$this->warning('Illegal APE tag present.');
 		}
 
-
 		// Page 1 - Stream Header
 
 		$this->fseek($info['avdataoffset']);
@@ -188,7 +187,6 @@ class getid3_ogg extends getid3_handler
 			}
 			$this->warning('Ogg Theora (v3) not fully supported in this version of getID3 ['.$this->getid3->version().'] -- bitrate, playtime and all audio data are currently unavailable');
 
-
 		} elseif (substr($filedata, 0, 8) == "fishead\x00") {
 
 			// Ogg Skeleton version 3.0 Format Specification
@@ -213,7 +211,6 @@ class getid3_ogg extends getid3_handler
 			$info['ogg']['skeleton']['fishead']['presentationtime'] = $info['ogg']['skeleton']['fishead']['raw']['presentationtime_numerator'] / $info['ogg']['skeleton']['fishead']['raw']['presentationtime_denominator'];
 			$info['ogg']['skeleton']['fishead']['basetime']         = $info['ogg']['skeleton']['fishead']['raw']['basetime_numerator']         / $info['ogg']['skeleton']['fishead']['raw']['basetime_denominator'];
 			$info['ogg']['skeleton']['fishead']['utc']              = $info['ogg']['skeleton']['fishead']['raw']['utc'];
-
 
 			$counter = 0;
 			do {
@@ -773,7 +770,6 @@ class getid3_ogg extends getid3_handler
 			unset($ThisFileInfo_ogg_comments_raw[$i]);
 		}
 		unset($ThisFileInfo_ogg_comments_raw);
-
 
 		// Replay Gain Adjustment
 		// http://privatewww.essex.ac.uk/~djmrob/replaygain/

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1018,23 +1019,31 @@ class Widget_Divider extends Widget_Base {
 		}
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+		<div <?php
+ echo $this->get_render_attribute_string( 'wrapper' ); ?>>
 			<span class="elementor-divider-separator">
-			<?php if ( $has_icon ) : ?>
+			<?php
+ if ( $has_icon ) : ?>
 				<div class="elementor-icon elementor-divider__element">
 					<?php
+
 					Icons_Manager::render_icon( $settings['icon'], [
 						'aria-hidden' => 'true',
 					] );
 					?></div>
-			<?php elseif ( $has_text ) :
+			<?php
+ elseif ( $has_text ) :
 				$this->add_inline_editing_attributes( 'text' );
 				$this->add_render_attribute( 'text', [ 'class' => [ 'elementor-divider__text', 'elementor-divider__element' ] ] );
 				?>
-				<span <?php echo $this->get_render_attribute_string( 'text' ); ?>><?php echo $settings['text']; ?></span>
-			<?php endif; ?>
+				<span <?php
+ echo $this->get_render_attribute_string( 'text' ); ?>><?php
+ echo $settings['text']; ?></span>
+			<?php
+ endif; ?>
 			</span>
 		</div>
 		<?php
+
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Settings\Page;
 
 use Elementor\Core\Files\CSS\Base;
@@ -172,8 +173,10 @@ class Manager extends CSS_Manager {
 			<# } ); #>
 		</div>
 		<# } #>
-		<div id="elementor-panel-<?php echo $name; ?>-settings-controls"></div>
+		<div id="elementor-panel-<?php
+ echo $name; ?>-settings-controls"></div>
 		<?php
+
 	}
 
 	/**

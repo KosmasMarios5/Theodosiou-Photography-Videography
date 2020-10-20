@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\FlipBox;
 
 use ElementorPro\Base\Module_Base;

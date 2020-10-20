@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Retrieves and creates the wp-config.php file.
  *
@@ -106,17 +107,23 @@ function setup_config_display_header( $body_classes = array() ) {
 	header( 'Content-Type: text/html; charset=utf-8' );
 	?>
 <!DOCTYPE html>
-<html<?php echo $dir_attr; ?>>
+<html<?php
+ echo $dir_attr; ?>>
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'WordPress &rsaquo; Setup Configuration File' ); ?></title>
-	<?php wp_admin_css( 'install', true ); ?>
-</head>
-<body class="<?php echo implode( ' ', $body_classes ); ?>">
-<p id="logo"><?php _e( 'WordPress' ); ?></p>
+	<title><?php
+ _e( 'WordPress &rsaquo; Setup Configuration File' ); ?></title>
 	<?php
+ wp_admin_css( 'install', true ); ?>
+</head>
+<body class="<?php
+ echo implode( ' ', $body_classes ); ?>">
+<p id="logo"><?php
+ _e( 'WordPress' ); ?></p>
+	<?php
+
 } // End function setup_config_display_header();
 
 $language = '';
@@ -160,17 +167,25 @@ switch ( $step ) {
 			$step_1 .= '&amp;language=' . $loaded_language;
 		}
 		?>
-<h1 class="screen-reader-text"><?php _e( 'Before getting started' ); ?></h1>
-<p><?php _e( 'Welcome to WordPress. Before getting started, we need some information on the database. You will need to know the following items before proceeding.' ); ?></p>
+<h1 class="screen-reader-text"><?php
+ _e( 'Before getting started' ); ?></h1>
+<p><?php
+ _e( 'Welcome to WordPress. Before getting started, we need some information on the database. You will need to know the following items before proceeding.' ); ?></p>
 <ol>
-	<li><?php _e( 'Database name' ); ?></li>
-	<li><?php _e( 'Database username' ); ?></li>
-	<li><?php _e( 'Database password' ); ?></li>
-	<li><?php _e( 'Database host' ); ?></li>
-	<li><?php _e( 'Table prefix (if you want to run more than one WordPress in a single database)' ); ?></li>
+	<li><?php
+ _e( 'Database name' ); ?></li>
+	<li><?php
+ _e( 'Database username' ); ?></li>
+	<li><?php
+ _e( 'Database password' ); ?></li>
+	<li><?php
+ _e( 'Database host' ); ?></li>
+	<li><?php
+ _e( 'Table prefix (if you want to run more than one WordPress in a single database)' ); ?></li>
 </ol>
 <p>
 		<?php
+
 		printf(
 			/* translators: %s: wp-config.php */
 			__( 'We&#8217;re going to use this information to create a %s file.' ),
@@ -179,6 +194,7 @@ switch ( $step ) {
 		?>
 	<strong>
 		<?php
+
 		printf(
 			/* translators: 1: wp-config-sample.php, 2: wp-config.php */
 			__( 'If for any reason this automatic file creation doesn&#8217;t work, don&#8217;t worry. All this does is fill in the database information to a configuration file. You may also simply open %1$s in a text editor, fill in your information, and save it as %2$s.' ),
@@ -188,6 +204,7 @@ switch ( $step ) {
 		?>
 	</strong>
 		<?php
+
 		printf(
 			/* translators: %s: Documentation URL. */
 			__( 'Need more help? <a href="%s">We got it</a>.' ),
@@ -195,10 +212,14 @@ switch ( $step ) {
 		);
 		?>
 </p>
-<p><?php _e( 'In all likelihood, these items were supplied to you by your Web Host. If you don&#8217;t have this information, then you will need to contact them before you can continue. If you&#8217;re all ready&hellip;' ); ?></p>
+<p><?php
+ _e( 'In all likelihood, these items were supplied to you by your Web Host. If you don&#8217;t have this information, then you will need to contact them before you can continue. If you&#8217;re all ready&hellip;' ); ?></p>
 
-<p class="step"><a href="<?php echo $step_1; ?>" class="button button-large"><?php _e( 'Let&#8217;s go!' ); ?></a></p>
+<p class="step"><a href="<?php
+ echo $step_1; ?>" class="button button-large"><?php
+ _e( 'Let&#8217;s go!' ); ?></a></p>
 		<?php
+
 		break;
 
 	case 1:
@@ -209,49 +230,69 @@ switch ( $step ) {
 
 		$autofocus = wp_is_mobile() ? '' : ' autofocus';
 		?>
-<h1 class="screen-reader-text"><?php _e( 'Set up your database connection' ); ?></h1>
+<h1 class="screen-reader-text"><?php
+ _e( 'Set up your database connection' ); ?></h1>
 <form method="post" action="setup-config.php?step=2">
-	<p><?php _e( 'Below you should enter your database connection details. If you&#8217;re not sure about these, contact your host.' ); ?></p>
+	<p><?php
+ _e( 'Below you should enter your database connection details. If you&#8217;re not sure about these, contact your host.' ); ?></p>
 	<table class="form-table" role="presentation">
 		<tr>
-			<th scope="row"><label for="dbname"><?php _e( 'Database Name' ); ?></label></th>
-			<td><input name="dbname" id="dbname" type="text" aria-describedby="dbname-desc" size="25" value="wordpress"<?php echo $autofocus; ?>/></td>
-			<td id="dbname-desc"><?php _e( 'The name of the database you want to use with WordPress.' ); ?></td>
+			<th scope="row"><label for="dbname"><?php
+ _e( 'Database Name' ); ?></label></th>
+			<td><input name="dbname" id="dbname" type="text" aria-describedby="dbname-desc" size="25" value="wordpress"<?php
+ echo $autofocus; ?>/></td>
+			<td id="dbname-desc"><?php
+ _e( 'The name of the database you want to use with WordPress.' ); ?></td>
 		</tr>
 		<tr>
-			<th scope="row"><label for="uname"><?php _e( 'Username' ); ?></label></th>
-			<td><input name="uname" id="uname" type="text" aria-describedby="uname-desc" size="25" value="<?php echo htmlspecialchars( _x( 'username', 'example username' ), ENT_QUOTES ); ?>" /></td>
-			<td id="uname-desc"><?php _e( 'Your database username.' ); ?></td>
+			<th scope="row"><label for="uname"><?php
+ _e( 'Username' ); ?></label></th>
+			<td><input name="uname" id="uname" type="text" aria-describedby="uname-desc" size="25" value="<?php
+ echo htmlspecialchars( _x( 'username', 'example username' ), ENT_QUOTES ); ?>" /></td>
+			<td id="uname-desc"><?php
+ _e( 'Your database username.' ); ?></td>
 		</tr>
 		<tr>
-			<th scope="row"><label for="pwd"><?php _e( 'Password' ); ?></label></th>
-			<td><input name="pwd" id="pwd" type="text" aria-describedby="pwd-desc" size="25" value="<?php echo htmlspecialchars( _x( 'password', 'example password' ), ENT_QUOTES ); ?>" autocomplete="off" /></td>
-			<td id="pwd-desc"><?php _e( 'Your database password.' ); ?></td>
+			<th scope="row"><label for="pwd"><?php
+ _e( 'Password' ); ?></label></th>
+			<td><input name="pwd" id="pwd" type="text" aria-describedby="pwd-desc" size="25" value="<?php
+ echo htmlspecialchars( _x( 'password', 'example password' ), ENT_QUOTES ); ?>" autocomplete="off" /></td>
+			<td id="pwd-desc"><?php
+ _e( 'Your database password.' ); ?></td>
 		</tr>
 		<tr>
-			<th scope="row"><label for="dbhost"><?php _e( 'Database Host' ); ?></label></th>
+			<th scope="row"><label for="dbhost"><?php
+ _e( 'Database Host' ); ?></label></th>
 			<td><input name="dbhost" id="dbhost" type="text" aria-describedby="dbhost-desc" size="25" value="localhost" /></td>
 			<td id="dbhost-desc">
 			<?php
+
 				/* translators: %s: localhost */
 				printf( __( 'You should be able to get this info from your web host, if %s doesn&#8217;t work.' ), '<code>localhost</code>' );
 			?>
 			</td>
 		</tr>
 		<tr>
-			<th scope="row"><label for="prefix"><?php _e( 'Table Prefix' ); ?></label></th>
+			<th scope="row"><label for="prefix"><?php
+ _e( 'Table Prefix' ); ?></label></th>
 			<td><input name="prefix" id="prefix" type="text" aria-describedby="prefix-desc" value="wp_" size="25" /></td>
-			<td id="prefix-desc"><?php _e( 'If you want to run multiple WordPress installations in a single database, change this.' ); ?></td>
+			<td id="prefix-desc"><?php
+ _e( 'If you want to run multiple WordPress installations in a single database, change this.' ); ?></td>
 		</tr>
 	</table>
 		<?php
+
 		if ( isset( $_GET['noapi'] ) ) {
 			?>
-<input name="noapi" type="hidden" value="1" /><?php } ?>
-	<input type="hidden" name="language" value="<?php echo esc_attr( $language ); ?>" />
-	<p class="step"><input name="submit" type="submit" value="<?php echo htmlspecialchars( __( 'Submit' ), ENT_QUOTES ); ?>" class="button button-large" /></p>
+<input name="noapi" type="hidden" value="1" /><?php
+ } ?>
+	<input type="hidden" name="language" value="<?php
+ echo esc_attr( $language ); ?>" />
+	<p class="step"><input name="submit" type="submit" value="<?php
+ echo htmlspecialchars( __( 'Submit' ), ENT_QUOTES ); ?>" class="button button-large" /></p>
 </form>
 		<?php
+
 		break;
 
 	case 2:
@@ -397,12 +438,14 @@ switch ( $step ) {
 			?>
 	<p>
 			<?php
+
 			/* translators: %s: wp-config.php */
 			printf( __( 'Unable to write to %s file.' ), '<code>wp-config.php</code>' );
 			?>
 </p>
 <p>
 			<?php
+
 			/* translators: %s: wp-config.php */
 			printf( __( 'You can create the %s file manually and paste the following text into it.' ), '<code>wp-config.php</code>' );
 
@@ -413,9 +456,13 @@ switch ( $step ) {
 			}
 			?>
 </p>
-<textarea id="wp-config" cols="98" rows="15" class="code" readonly="readonly"><?php echo $config_text; ?></textarea>
-<p><?php _e( 'After you&#8217;ve done that, click &#8220;Run the installation&#8221;.' ); ?></p>
-<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
+<textarea id="wp-config" cols="98" rows="15" class="code" readonly="readonly"><?php
+ echo $config_text; ?></textarea>
+<p><?php
+ _e( 'After you&#8217;ve done that, click &#8220;Run the installation&#8221;.' ); ?></p>
+<p class="step"><a href="<?php
+ echo $install; ?>" class="button button-large"><?php
+ _e( 'Run the installation' ); ?></a></p>
 <script>
 (function(){
 if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
@@ -426,6 +473,7 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 })();
 </script>
 			<?php
+
 	else :
 		/*
 		 * If this file doesn't exist, then we are using the wp-config-sample.php
@@ -445,15 +493,21 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 		chmod( $path_to_wp_config, 0666 );
 		setup_config_display_header();
 		?>
-<h1 class="screen-reader-text"><?php _e( 'Successful database connection' ); ?></h1>
-<p><?php _e( 'All right, sparky! You&#8217;ve made it through this part of the installation. WordPress can now communicate with your database. If you are ready, time now to&hellip;' ); ?></p>
+<h1 class="screen-reader-text"><?php
+ _e( 'Successful database connection' ); ?></h1>
+<p><?php
+ _e( 'All right, sparky! You&#8217;ve made it through this part of the installation. WordPress can now communicate with your database. If you are ready, time now to&hellip;' ); ?></p>
 
-<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
+<p class="step"><a href="<?php
+ echo $install; ?>" class="button button-large"><?php
+ _e( 'Run the installation' ); ?></a></p>
 		<?php
+
 	endif;
 		break;
 }
 ?>
-<?php wp_print_scripts( 'language-chooser' ); ?>
+<?php
+ wp_print_scripts( 'language-chooser' ); ?>
 </body>
 </html>

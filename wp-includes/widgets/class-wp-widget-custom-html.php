@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Widget_Custom_HTML class
  *
@@ -247,9 +248,16 @@ class WP_Widget_Custom_HTML extends WP_Widget {
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, $this->default_instance );
 		?>
-		<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" class="title sync-input" type="hidden" value="<?php echo esc_attr( $instance['title'] ); ?>"/>
-		<textarea id="<?php echo $this->get_field_id( 'content' ); ?>" name="<?php echo $this->get_field_name( 'content' ); ?>" class="content sync-input" hidden><?php echo esc_textarea( $instance['content'] ); ?></textarea>
+		<input id="<?php
+ echo $this->get_field_id( 'title' ); ?>" name="<?php
+ echo $this->get_field_name( 'title' ); ?>" class="title sync-input" type="hidden" value="<?php
+ echo esc_attr( $instance['title'] ); ?>"/>
+		<textarea id="<?php
+ echo $this->get_field_id( 'content' ); ?>" name="<?php
+ echo $this->get_field_name( 'content' ); ?>" class="content sync-input" hidden><?php
+ echo esc_textarea( $instance['content'] ); ?></textarea>
 		<?php
+
 	}
 
 	/**
@@ -262,34 +270,44 @@ class WP_Widget_Custom_HTML extends WP_Widget {
 		<script type="text/html" id="tmpl-widget-custom-html-control-fields">
 			<# var elementIdPrefix = 'el' + String( Math.random() ).replace( /\D/g, '' ) + '_' #>
 			<p>
-				<label for="{{ elementIdPrefix }}title"><?php esc_html_e( 'Title:' ); ?></label>
+				<label for="{{ elementIdPrefix }}title"><?php
+ esc_html_e( 'Title:' ); ?></label>
 				<input id="{{ elementIdPrefix }}title" type="text" class="widefat title">
 			</p>
 
 			<p>
-				<label for="{{ elementIdPrefix }}content" id="{{ elementIdPrefix }}content-label"><?php esc_html_e( 'Content:' ); ?></label>
+				<label for="{{ elementIdPrefix }}content" id="{{ elementIdPrefix }}content-label"><?php
+ esc_html_e( 'Content:' ); ?></label>
 				<textarea id="{{ elementIdPrefix }}content" class="widefat code content" rows="16" cols="20"></textarea>
 			</p>
 
-			<?php if ( ! current_user_can( 'unfiltered_html' ) ) : ?>
+			<?php
+ if ( ! current_user_can( 'unfiltered_html' ) ) : ?>
 				<?php
+
 				$probably_unsafe_html = array( 'script', 'iframe', 'form', 'input', 'style' );
 				$allowed_html         = wp_kses_allowed_html( 'post' );
 				$disallowed_html      = array_diff( $probably_unsafe_html, array_keys( $allowed_html ) );
 				?>
-				<?php if ( ! empty( $disallowed_html ) ) : ?>
+				<?php
+ if ( ! empty( $disallowed_html ) ) : ?>
 					<# if ( data.codeEditorDisabled ) { #>
 						<p>
-							<?php _e( 'Some HTML tags are not permitted, including:' ); ?>
-							<code><?php echo join( '</code>, <code>', $disallowed_html ); ?></code>
+							<?php
+ _e( 'Some HTML tags are not permitted, including:' ); ?>
+							<code><?php
+ echo join( '</code>, <code>', $disallowed_html ); ?></code>
 						</p>
 					<# } #>
-				<?php endif; ?>
-			<?php endif; ?>
+				<?php
+ endif; ?>
+			<?php
+ endif; ?>
 
 			<div class="code-editor-error-container"></div>
 		</script>
 		<?php
+
 	}
 
 	/**

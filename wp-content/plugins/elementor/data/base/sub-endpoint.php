@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Data\Base;
 
 // TODO: Add test.

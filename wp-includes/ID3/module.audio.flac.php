@@ -207,7 +207,6 @@ class getid3_flac extends getid3_handler
 		return true;
 	}
 
-
 	/**
 	 * @param string $BlockData
 	 *

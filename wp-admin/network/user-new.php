@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Add New User network administration panel.
  *
@@ -104,8 +105,10 @@ $parent_file = 'users.php';
 require_once ABSPATH . 'wp-admin/admin-header.php'; ?>
 
 <div class="wrap">
-<h1 id="add-new-user"><?php _e( 'Add New User' ); ?></h1>
+<h1 id="add-new-user"><?php
+ _e( 'Add New User' ); ?></h1>
 <?php
+
 if ( ! empty( $messages ) ) {
 	foreach ( $messages as $msg ) {
 		echo '<div id="message" class="updated notice is-dismissible"><p>' . $msg . '</p></div>';
@@ -116,27 +119,34 @@ if ( isset( $add_user_errors ) && is_wp_error( $add_user_errors ) ) {
 	?>
 	<div class="error">
 		<?php
+
 		foreach ( $add_user_errors->get_error_messages() as $message ) {
 			echo "<p>$message</p>";
 		}
 		?>
 	</div>
-<?php } ?>
-	<form action="<?php echo network_admin_url( 'user-new.php?action=add-user' ); ?>" id="adduser" method="post" novalidate="novalidate">
+<?php
+ } ?>
+	<form action="<?php
+ echo network_admin_url( 'user-new.php?action=add-user' ); ?>" id="adduser" method="post" novalidate="novalidate">
 	<table class="form-table" role="presentation">
 		<tr class="form-field form-required">
-			<th scope="row"><label for="username"><?php _e( 'Username' ); ?></label></th>
+			<th scope="row"><label for="username"><?php
+ _e( 'Username' ); ?></label></th>
 			<td><input type="text" class="regular-text" name="user[username]" id="username" autocapitalize="none" autocorrect="off" maxlength="60" /></td>
 		</tr>
 		<tr class="form-field form-required">
-			<th scope="row"><label for="email"><?php _e( 'Email' ); ?></label></th>
+			<th scope="row"><label for="email"><?php
+ _e( 'Email' ); ?></label></th>
 			<td><input type="email" class="regular-text" name="user[email]" id="email"/></td>
 		</tr>
 		<tr class="form-field">
-			<td colspan="2" class="td-full"><?php _e( 'A password reset link will be sent to the user via email.' ); ?></td>
+			<td colspan="2" class="td-full"><?php
+ _e( 'A password reset link will be sent to the user via email.' ); ?></td>
 		</tr>
 	</table>
 	<?php
+
 	/**
 	 * Fires at the end of the new user form in network admin.
 	 *
@@ -150,4 +160,5 @@ if ( isset( $add_user_errors ) && is_wp_error( $add_user_errors ) ) {
 	</form>
 </div>
 <?php
+
 require_once ABSPATH . 'wp-admin/admin-footer.php';

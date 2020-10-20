@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,5 +44,6 @@ class Control_Hidden extends Base_Data_Control {
 		?>
 		<input type="hidden" data-setting="{{{ data.name }}}" />
 		<?php
+
 	}
 }

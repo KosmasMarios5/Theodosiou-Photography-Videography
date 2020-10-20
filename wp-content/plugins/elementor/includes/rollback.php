@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -113,6 +114,7 @@ class Rollback {
 			}
 		</style>
 		<?php
+
 	}
 
 	/**

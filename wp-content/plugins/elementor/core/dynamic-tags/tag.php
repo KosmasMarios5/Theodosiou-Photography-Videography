@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\DynamicTags;
 
 use Elementor\Utils;

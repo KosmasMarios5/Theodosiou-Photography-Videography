@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Posts\Skins;
 
 use Elementor\Controls_Manager;
@@ -520,9 +521,11 @@ class Skin_Cards extends Skin_Base {
 
 	protected function render_post_header() {
 		?>
-		<article <?php post_class( [ 'elementor-post elementor-grid-item' ] ); ?>>
+		<article <?php
+ post_class( [ 'elementor-post elementor-grid-item' ] ); ?>>
 			<div class="elementor-post__card">
 		<?php
+
 	}
 
 	protected function render_post_footer() {
@@ -530,14 +533,17 @@ class Skin_Cards extends Skin_Base {
 			</div>
 		</article>
 		<?php
+
 	}
 
 	protected function render_avatar() {
 		?>
 		<div class="elementor-post__avatar">
-			<?php echo get_avatar( get_the_author_meta( 'ID' ), 128, '', get_the_author_meta( 'display_name' ) ); ?>
+			<?php
+ echo get_avatar( get_the_author_meta( 'ID' ), 128, '', get_the_author_meta( 'display_name' ) ); ?>
 		</div>
 		<?php
+
 	}
 
 	protected function render_badge() {
@@ -551,8 +557,10 @@ class Skin_Cards extends Skin_Base {
 			return;
 		}
 		?>
-		<div class="elementor-post__badge"><?php echo $terms[0]->name; ?></div>
+		<div class="elementor-post__badge"><?php
+ echo $terms[0]->name; ?></div>
 		<?php
+
 	}
 
 	protected function render_thumbnail() {
@@ -574,10 +582,14 @@ class Skin_Cards extends Skin_Base {
 		$optional_attributes_html = $this->get_optional_link_attributes_html();
 
 		?>
-		<a class="elementor-post__thumbnail__link" href="<?php echo get_permalink(); ?>" <?php echo $optional_attributes_html; ?>>
-			<div class="elementor-post__thumbnail"><?php echo $thumbnail_html; ?></div>
+		<a class="elementor-post__thumbnail__link" href="<?php
+ echo get_permalink(); ?>" <?php
+ echo $optional_attributes_html; ?>>
+			<div class="elementor-post__thumbnail"><?php
+ echo $thumbnail_html; ?></div>
 		</a>
 		<?php
+
 		if ( $this->get_instance_value( 'show_badge' ) ) {
 			$this->render_badge();
 		}

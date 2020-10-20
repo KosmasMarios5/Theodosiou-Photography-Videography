@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Posts\Skins;
 
 use Elementor\Controls_Manager;
@@ -850,10 +851,14 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$optional_attributes_html = $this->get_optional_link_attributes_html();
 
 		?>
-		<a class="elementor-post__thumbnail__link" href="<?php echo $this->current_permalink; ?>" <?php echo $optional_attributes_html; ?>>
-			<div class="elementor-post__thumbnail"><?php echo $thumbnail_html; ?></div>
+		<a class="elementor-post__thumbnail__link" href="<?php
+ echo $this->current_permalink; ?>" <?php
+ echo $optional_attributes_html; ?>>
+			<div class="elementor-post__thumbnail"><?php
+ echo $thumbnail_html; ?></div>
 		</a>
 		<?php
+
 	}
 
 	protected function render_title() {
@@ -865,12 +870,18 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		$tag = $this->get_instance_value( 'title_tag' );
 		?>
-		<<?php echo $tag; ?> class="elementor-post__title">
-			<a href="<?php echo $this->current_permalink; ?>" <?php echo $optional_attributes_html; ?>>
-				<?php the_title(); ?>
+		<<?php
+ echo $tag; ?> class="elementor-post__title">
+			<a href="<?php
+ echo $this->current_permalink; ?>" <?php
+ echo $optional_attributes_html; ?>>
+				<?php
+ the_title(); ?>
 			</a>
-		</<?php echo $tag; ?>>
+		</<?php
+ echo $tag; ?>>
 		<?php
+
 	}
 
 	protected function render_excerpt() {
@@ -886,7 +897,8 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		?>
 		<div class="elementor-post__excerpt">
-			<?php the_excerpt(); ?>
+			<?php
+ the_excerpt(); ?>
 		</div>
 		<?php
 
@@ -902,34 +914,43 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		$optional_attributes_html = $this->get_optional_link_attributes_html();
 
 		?>
-			<a class="elementor-post__read-more" href="<?php echo $this->current_permalink; ?>" <?php echo $optional_attributes_html; ?>>
-				<?php echo $this->get_instance_value( 'read_more_text' ); ?>
+			<a class="elementor-post__read-more" href="<?php
+ echo $this->current_permalink; ?>" <?php
+ echo $optional_attributes_html; ?>>
+				<?php
+ echo $this->get_instance_value( 'read_more_text' ); ?>
 			</a>
 		<?php
+
 	}
 
 	protected function render_post_header() {
 		?>
-		<article <?php post_class( [ 'elementor-post elementor-grid-item' ] ); ?>>
+		<article <?php
+ post_class( [ 'elementor-post elementor-grid-item' ] ); ?>>
 		<?php
+
 	}
 
 	protected function render_post_footer() {
 		?>
 		</article>
 		<?php
+
 	}
 
 	protected function render_text_header() {
 		?>
 		<div class="elementor-post__text">
 		<?php
+
 	}
 
 	protected function render_text_footer() {
 		?>
 		</div>
 		<?php
+
 	}
 
 	protected function render_loop_header() {
@@ -952,8 +973,10 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		] );
 
 		?>
-		<div <?php echo $this->parent->get_render_attribute_string( 'container' ); ?>>
+		<div <?php
+ echo $this->parent->get_render_attribute_string( 'container' ); ?>>
 		<?php
+
 	}
 
 	protected function render_loop_footer() {
@@ -1012,10 +1035,13 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		}
 
 		?>
-		<nav class="elementor-pagination" role="navigation" aria-label="<?php esc_attr_e( 'Pagination', 'elementor-pro' ); ?>">
-			<?php echo implode( PHP_EOL, $links ); ?>
+		<nav class="elementor-pagination" role="navigation" aria-label="<?php
+ esc_attr_e( 'Pagination', 'elementor-pro' ); ?>">
+			<?php
+ echo implode( PHP_EOL, $links ); ?>
 		</nav>
 		<?php
+
 	}
 
 	protected function render_meta_data() {
@@ -1027,6 +1053,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		?>
 		<div class="elementor-post__meta-data">
 			<?php
+
 			if ( in_array( 'author', $settings ) ) {
 				$this->render_author();
 			}
@@ -1048,14 +1075,17 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			?>
 		</div>
 		<?php
+
 	}
 
 	protected function render_author() {
 		?>
 		<span class="elementor-post-author">
-			<?php the_author(); ?>
+			<?php
+ the_author(); ?>
 		</span>
 		<?php
+
 	}
 
 	/**
@@ -1070,6 +1100,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 		?>
 		<span class="elementor-post-date">
 			<?php
+
 			switch ( $type ) :
 				case 'modified':
 					$date = get_the_modified_date();
@@ -1082,22 +1113,27 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 			?>
 		</span>
 		<?php
+
 	}
 
 	protected function render_time() {
 		?>
 		<span class="elementor-post-time">
-			<?php the_time(); ?>
+			<?php
+ the_time(); ?>
 		</span>
 		<?php
+
 	}
 
 	protected function render_comments() {
 		?>
 		<span class="elementor-post-avatar">
-			<?php comments_number(); ?>
+			<?php
+ comments_number(); ?>
 		</span>
 		<?php
+
 	}
 
 	protected function render_post() {

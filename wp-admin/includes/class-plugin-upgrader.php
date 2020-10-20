@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Upgrade API: Plugin_Upgrader class
  *

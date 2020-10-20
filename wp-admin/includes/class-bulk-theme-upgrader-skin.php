@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Upgrader API: Bulk_Plugin_Upgrader_Skin class
  *

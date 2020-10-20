@@ -673,9 +673,12 @@ class Testimonial extends Widget_Base {
 			ob_start();
 			?>
 			<div class="eael-testimonial-image">
-				<?php if( 'yes' == $settings['eael_testimonial_enable_avatar'] ) : ?>
-					<figure><?php echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?></figure>
-				<?php endif; ?>
+				<?php
+ if( 'yes' == $settings['eael_testimonial_enable_avatar'] ) : ?>
+					<figure><?php
+ echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?></figure>
+				<?php
+ endif; ?>
 			</div>
 			<?php
 			echo ob_get_clean();
@@ -702,8 +705,13 @@ class Testimonial extends Widget_Base {
 
 	protected function render_user_name_and_company() {
 		$settings = $this->get_settings_for_display();
-		if( ! empty($settings['eael_testimonial_name']) ) : ?><p <?php echo $this->get_render_attribute_string('eael_testimonial_user'); ?>><?php echo $settings['eael_testimonial_name']; ?></p><?php endif;
-		if( ! empty($settings['eael_testimonial_company_title']) ) : ?><p class="eael-testimonial-user-company"><?php echo $settings['eael_testimonial_company_title']; ?></p><?php endif;
+		if( ! empty($settings['eael_testimonial_name']) ) : ?><p <?php
+ echo $this->get_render_attribute_string('eael_testimonial_user'); ?>><?php
+ echo $settings['eael_testimonial_name']; ?></p><?php
+ endif;
+		if( ! empty($settings['eael_testimonial_company_title']) ) : ?><p class="eael-testimonial-user-company"><?php
+ echo $settings['eael_testimonial_company_title']; ?></p><?php
+ endif;
 	}
 
 	protected function testimonial_quote() {
@@ -744,38 +752,51 @@ class Testimonial extends Widget_Base {
 
 	?>
 
-	<div <?php echo $this->get_render_attribute_string('eael_testimonial_wrap'); ?>>
+	<div <?php
+ echo $this->get_render_attribute_string('eael_testimonial_wrap'); ?>>
 
-		<?php if('classic-style' == $settings['eael_testimonial_style']) { ?>
+		<?php
+ if('classic-style' == $settings['eael_testimonial_style']) { ?>
 			<div class="eael-testimonial-content">
 				<?php
 					// $this->testimonial_quote();
 					$this->testimonial_desc();
 				?>
 				<div class="clearfix">
-					<?php $this->render_user_name_and_company(); ?>
+					<?php
+ $this->render_user_name_and_company(); ?>
 				</div>
-				<?php $this->render_testimonial_rating( $settings ); ?>
+				<?php
+ $this->render_testimonial_rating( $settings ); ?>
 			</div>
-			<?php $this->render_testimonial_image(); ?>
-		<?php } ?>
+			<?php
+ $this->render_testimonial_image(); ?>
+		<?php
+ } ?>
 
-		<?php if('middle-style' == $settings['eael_testimonial_style']) { ?>
+		<?php
+ if('middle-style' == $settings['eael_testimonial_style']) { ?>
 			<div class="eael-testimonial-content">
 				<?php
 					// $this->testimonial_quote();
 					$this->testimonial_desc();
 				?>
-				<?php $this->render_testimonial_image(); ?>
+				<?php
+ $this->render_testimonial_image(); ?>
 				<div class="clearfix">
-					<?php $this->render_user_name_and_company(); ?>
+					<?php
+ $this->render_user_name_and_company(); ?>
 				</div>
-				<?php $this->render_testimonial_rating( $settings ); ?>
+				<?php
+ $this->render_testimonial_rating( $settings ); ?>
 			</div>
-		<?php } ?>
+		<?php
+ } ?>
 
-		<?php if('default-style' == $settings['eael_testimonial_style']) { ?>
-			<?php $this->render_testimonial_image(); ?>
+		<?php
+ if('default-style' == $settings['eael_testimonial_style']) { ?>
+			<?php
+ $this->render_testimonial_image(); ?>
 			<div class="eael-testimonial-content">
 				<?php
 					// $this->testimonial_quote();
@@ -784,9 +805,11 @@ class Testimonial extends Widget_Base {
 					$this->render_user_name_and_company();
 				?>
 			</div>
-		<?php } ?>
+		<?php
+ } ?>
 
-		<?php if('icon-img-left-content' == $settings['eael_testimonial_style']) { ?>
+		<?php
+ if('icon-img-left-content' == $settings['eael_testimonial_style']) { ?>
 			<?php
 				// $this->testimonial_quote();
 				$this->render_testimonial_image();
@@ -797,12 +820,15 @@ class Testimonial extends Widget_Base {
 					$this->render_testimonial_rating( $settings );
 				?>
 				<div class="bio-text clearfix">
-					<?php $this->render_user_name_and_company(); ?>
+					<?php
+ $this->render_user_name_and_company(); ?>
 				</div>
 			</div>
-		<?php } ?>
+		<?php
+ } ?>
 
-		<?php if('icon-img-right-content' == $settings['eael_testimonial_style']) { ?>
+		<?php
+ if('icon-img-right-content' == $settings['eael_testimonial_style']) { ?>
 			<?php
 				// $this->testimonial_quote();
 				$this->render_testimonial_image();
@@ -812,37 +838,53 @@ class Testimonial extends Widget_Base {
 					$this->testimonial_desc();
 					$this->render_testimonial_rating( $settings );
 				?>
-				<div class="bio-text-right"><?php $this->render_user_name_and_company(); ?></div>
+				<div class="bio-text-right"><?php
+ $this->render_user_name_and_company(); ?></div>
 			</div>
-		<?php } ?>
+		<?php
+ } ?>
 
-		<?php if('content-top-icon-title-inline' == $settings['eael_testimonial_style']) { ?>
+		<?php
+ if('content-top-icon-title-inline' == $settings['eael_testimonial_style']) { ?>
 			<div class="eael-testimonial-content eael-testimonial-inline-bio">
-				<?php $this->render_testimonial_image(); ?>
-				<div class="bio-text"><?php $this->render_user_name_and_company(); ?></div>
-				<?php $this->render_testimonial_rating( $settings ); ?>
+				<?php
+ $this->render_testimonial_image(); ?>
+				<div class="bio-text"><?php
+ $this->render_user_name_and_company(); ?></div>
+				<?php
+ $this->render_testimonial_rating( $settings ); ?>
 			</div>
 			<div class="eael-testimonial-content">
-				<?php $this->testimonial_desc(); ?>
+				<?php
+ $this->testimonial_desc(); ?>
 			</div>
-		<?php } ?>
+		<?php
+ } ?>
 
-		<?php if('content-bottom-icon-title-inline' == $settings['eael_testimonial_style']) { ?>
+		<?php
+ if('content-bottom-icon-title-inline' == $settings['eael_testimonial_style']) { ?>
 			<div class="eael-testimonial-content">
-				<?php $this->testimonial_desc(); ?>
+				<?php
+ $this->testimonial_desc(); ?>
 			</div>
 			<div class="eael-testimonial-content eael-testimonial-inline-bio">
-				<?php $this->render_testimonial_image(); ?>
-				<div class="bio-text"><?php $this->render_user_name_and_company(); ?></div>
-				<?php $this->render_testimonial_rating( $settings ); ?>
+				<?php
+ $this->render_testimonial_image(); ?>
+				<div class="bio-text"><?php
+ $this->render_user_name_and_company(); ?></div>
+				<?php
+ $this->render_testimonial_rating( $settings ); ?>
 			</div>
-		<?php } ?>
+		<?php
+ } ?>
 
-		<?php $this->testimonial_quote(); ?>
+		<?php
+ $this->testimonial_quote(); ?>
 
 	</div>
 
-	<?php }
+	<?php
+ }
 
 	protected function content_template() {}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SimplePie
  *
@@ -2170,6 +2171,7 @@ function embed_wmedia(width, height, link) {
 	document.writeln('<embed type="application/x-mplayer2" src="'+link+'" autosize="1" width="'+width+'" height="'+height+'" showcontrols="1" showstatusbar="0" showdisplay="0" autostart="0"></embed>');
 }
 		<?php
+
 	}
 
 	/**

@@ -329,7 +329,6 @@ class getid3_quicktime extends getid3_handler
 					}
 					break;
 
-
 				case "\xA9".'alb': // ALBum
 				case "\xA9".'ART': //
 				case "\xA9".'art': // ARTist
@@ -586,19 +585,16 @@ class getid3_quicktime extends getid3_handler
 					$this->CopyToAppropriateCommentsSection($atomname, $atom_structure['data'], $atom_structure['name']);
 					break;
 
-
 				case 'play': // auto-PLAY atom
 					$atom_structure['autoplay'] = (bool) getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
 
 					$info['quicktime']['autoplay'] = $atom_structure['autoplay'];
 					break;
 
-
 				case 'WLOC': // Window LOCation atom
 					$atom_structure['location_x']  = getid3_lib::BigEndian2Int(substr($atom_data,  0, 2));
 					$atom_structure['location_y']  = getid3_lib::BigEndian2Int(substr($atom_data,  2, 2));
 					break;
-
 
 				case 'LOOP': // LOOPing atom
 				case 'SelO': // play SELection Only atom
@@ -606,14 +602,12 @@ class getid3_quicktime extends getid3_handler
 					$atom_structure['data'] = getid3_lib::BigEndian2Int($atom_data);
 					break;
 
-
 				case 'name': //
 				case 'MCPS': // Media Cleaner PRo
 				case '@PRM': // adobe PReMiere version
 				case '@PRQ': // adobe PRemiere Quicktime version
 					$atom_structure['data'] = $atom_data;
 					break;
-
 
 				case 'cmvd': // Compressed MooV Data atom
 					// Code by ubergeekØubergeek*tv based on information from
@@ -628,12 +622,10 @@ class getid3_quicktime extends getid3_handler
 					}
 					break;
 
-
 				case 'dcom': // Data COMpression atom
 					$atom_structure['compression_id']   = $atom_data;
 					$atom_structure['compression_text'] = $this->QuicktimeDCOMLookup($atom_data);
 					break;
-
 
 				case 'rdrf': // Reference movie Data ReFerence atom
 					$atom_structure['version']                = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -661,18 +653,15 @@ class getid3_quicktime extends getid3_handler
 					}
 					break;
 
-
 				case 'rmqu': // Reference Movie QUality atom
 					$atom_structure['movie_quality'] = getid3_lib::BigEndian2Int($atom_data);
 					break;
-
 
 				case 'rmcs': // Reference Movie Cpu Speed atom
 					$atom_structure['version']          = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
 					$atom_structure['flags_raw']        = getid3_lib::BigEndian2Int(substr($atom_data,  1, 3)); // hardcoded: 0x0000
 					$atom_structure['cpu_speed_rating'] = getid3_lib::BigEndian2Int(substr($atom_data,  4, 2));
 					break;
-
 
 				case 'rmvc': // Reference Movie Version Check atom
 					$atom_structure['version']            = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -682,7 +671,6 @@ class getid3_quicktime extends getid3_handler
 					$atom_structure['gestalt_value']      = getid3_lib::BigEndian2Int(substr($atom_data, 12, 4));
 					$atom_structure['gestalt_check_type'] = getid3_lib::BigEndian2Int(substr($atom_data, 14, 2));
 					break;
-
 
 				case 'rmcd': // Reference Movie Component check atom
 					$atom_structure['version']                = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -695,7 +683,6 @@ class getid3_quicktime extends getid3_handler
 					$atom_structure['component_min_version']  = getid3_lib::BigEndian2Int(substr($atom_data, 24, 4));
 					break;
 
-
 				case 'rmdr': // Reference Movie Data Rate atom
 					$atom_structure['version']       = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
 					$atom_structure['flags_raw']     = getid3_lib::BigEndian2Int(substr($atom_data,  1, 3)); // hardcoded: 0x0000
@@ -703,7 +690,6 @@ class getid3_quicktime extends getid3_handler
 
 					$atom_structure['data_rate_bps'] = $atom_structure['data_rate'] * 10;
 					break;
-
 
 				case 'rmla': // Reference Movie Language Atom
 					$atom_structure['version']     = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -715,7 +701,6 @@ class getid3_quicktime extends getid3_handler
 						$info['comments']['language'][] = $atom_structure['language'];
 					}
 					break;
-
 
 				case 'ptv ': // Print To Video - defines a movie's full screen mode
 					// http://developer.apple.com/documentation/QuickTime/APIREF/SOURCESIV/at_ptv-_pg.htm
@@ -739,7 +724,6 @@ class getid3_quicktime extends getid3_handler
 						$this->warning('unknown "ptv " display constant ('.$atom_structure['display_size_raw'].')');
 					}
 					break;
-
 
 				case 'stsd': // Sample Table Sample Description atom
 					$atom_structure['version']        = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -965,7 +949,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					}
 					break;
 
-
 				case 'stts': // Sample Table Time-to-Sample atom
 					$atom_structure['version']        = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
 					$atom_structure['flags_raw']      = getid3_lib::BigEndian2Int(substr($atom_data,  1, 3)); // hardcoded: 0x0000
@@ -1017,7 +1000,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					//}
 					break;
 
-
 				case 'stss': // Sample Table Sync Sample (key frames) atom
 					if ($ParseAllPossibleAtoms) {
 						$atom_structure['version']        = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1030,7 +1012,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 						}
 					}
 					break;
-
 
 				case 'stsc': // Sample Table Sample-to-Chunk atom
 					if ($ParseAllPossibleAtoms) {
@@ -1049,7 +1030,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					}
 					break;
 
-
 				case 'stsz': // Sample Table SiZe atom
 					if ($ParseAllPossibleAtoms) {
 						$atom_structure['version']        = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1066,7 +1046,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					}
 					break;
 
-
 				case 'stco': // Sample Table Chunk Offset atom
 //					if (true) {
 					if ($ParseAllPossibleAtoms) {
@@ -1081,7 +1060,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					}
 					break;
 
-
 				case 'co64': // Chunk Offset 64-bit (version of "stco" that supports > 2GB files)
 					if ($ParseAllPossibleAtoms) {
 						$atom_structure['version']        = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1094,7 +1072,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 						}
 					}
 					break;
-
 
 				case 'dref': // Data REFerence atom
 					$atom_structure['version']        = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1117,7 +1094,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					}
 					break;
 
-
 				case 'gmin': // base Media INformation atom
 					$atom_structure['version']                = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
 					$atom_structure['flags_raw']              = getid3_lib::BigEndian2Int(substr($atom_data,  1, 3)); // hardcoded: 0x0000
@@ -1129,14 +1105,12 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					$atom_structure['reserved']               = getid3_lib::BigEndian2Int(substr($atom_data, 14, 2));
 					break;
 
-
 				case 'smhd': // Sound Media information HeaDer atom
 					$atom_structure['version']                = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
 					$atom_structure['flags_raw']              = getid3_lib::BigEndian2Int(substr($atom_data,  1, 3)); // hardcoded: 0x0000
 					$atom_structure['balance']                = getid3_lib::BigEndian2Int(substr($atom_data,  4, 2));
 					$atom_structure['reserved']               = getid3_lib::BigEndian2Int(substr($atom_data,  6, 2));
 					break;
-
 
 				case 'vmhd': // Video Media information HeaDer atom
 					$atom_structure['version']                = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1148,7 +1122,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 
 					$atom_structure['flags']['no_lean_ahead'] = (bool) ($atom_structure['flags_raw'] & 0x001);
 					break;
-
 
 				case 'hdlr': // HanDLeR reference atom
 					$atom_structure['version']                = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1164,7 +1137,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 						$info['video']['dataformat'] = 'quicktimevr';
 					}
 					break;
-
 
 				case 'mdhd': // MeDia HeaDer atom
 					$atom_structure['version']               = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1193,7 +1165,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					$info['quicktime']['timestamps_unix']['modify'][$atom_structure['hierarchy']] = $atom_structure['modify_time_unix'];
 					break;
 
-
 				case 'pnot': // Preview atom
 					$atom_structure['modification_date']      = getid3_lib::BigEndian2Int(substr($atom_data,  0, 4)); // "standard Macintosh format"
 					$atom_structure['version_number']         = getid3_lib::BigEndian2Int(substr($atom_data,  4, 2)); // hardcoded: 0x00
@@ -1204,13 +1175,11 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					$info['quicktime']['timestamps_unix']['modify'][$atom_structure['hierarchy']] = $atom_structure['modification_date_unix'];
 					break;
 
-
 				case 'crgn': // Clipping ReGioN atom
 					$atom_structure['region_size']   = getid3_lib::BigEndian2Int(substr($atom_data,  0, 2)); // The Region size, Region boundary box,
 					$atom_structure['boundary_box']  = getid3_lib::BigEndian2Int(substr($atom_data,  2, 8)); // and Clipping region data fields
 					$atom_structure['clipping_data'] =                           substr($atom_data, 10);           // constitute a QuickDraw region.
 					break;
-
 
 				case 'load': // track LOAD settings atom
 					$atom_structure['preload_start_time'] = getid3_lib::BigEndian2Int(substr($atom_data,  0, 4));
@@ -1222,7 +1191,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					$atom_structure['default_hints']['high_quality']  = (bool) ($atom_structure['default_hints_raw'] & 0x0100);
 					break;
 
-
 				case 'tmcd': // TiMe CoDe atom
 				case 'chap': // CHAPter list atom
 				case 'sync': // SYNChronization atom
@@ -1232,7 +1200,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 						@$atom_structure['track_id'][] = getid3_lib::BigEndian2Int(substr($atom_data, $i, 4));
 					}
 					break;
-
 
 				case 'elst': // Edit LiST atom
 					$atom_structure['version']        = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1245,13 +1212,11 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					}
 					break;
 
-
 				case 'kmat': // compressed MATte atom
 					$atom_structure['version']        = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
 					$atom_structure['flags_raw']      = getid3_lib::BigEndian2Int(substr($atom_data,  1, 3)); // hardcoded: 0x0000
 					$atom_structure['matte_data_raw'] =               substr($atom_data,  4);
 					break;
-
 
 				case 'ctab': // Color TABle atom
 					$atom_structure['color_table_seed']   = getid3_lib::BigEndian2Int(substr($atom_data,  0, 4)); // hardcoded: 0x00000000
@@ -1264,7 +1229,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 						$atom_structure['color_table'][$colortableentry]['blue']  = getid3_lib::BigEndian2Int(substr($atom_data, 8 + ($colortableentry * 8) + 6, 2));
 					}
 					break;
-
 
 				case 'mvhd': // MoVie HeaDer atom
 					$atom_structure['version']            =   getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1305,7 +1269,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					$info['quicktime']['display_scale'] = $atom_structure['matrix_a'];
 					$info['playtime_seconds']           = $atom_structure['duration'] / $atom_structure['time_scale'];
 					break;
-
 
 				case 'tkhd': // TracK HeaDer atom
 					$atom_structure['version']             =   getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
@@ -1384,7 +1347,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 						//if (isset($info['quicktime']['video']))    { unset($info['quicktime']['video']);    }
 					}
 					break;
-
 
 				case 'iods': // Initial Object DeScriptor atom
 					// http://www.koders.com/c/fid1FAB3E762903DC482D8A246D4A4BF9F28E049594.aspx?s=windows.h
@@ -1529,7 +1491,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					// The placeholder atom has a type of kWideAtomPlaceholderType ( 'wide' ).
 					break;
 
-
 				case 'nsav': // NoSAVe atom
 					// http://developer.apple.com/technotes/tn/tn2038.html
 					$atom_structure['data'] = getid3_lib::BigEndian2Int(substr($atom_data,  0, 4));
@@ -1565,7 +1526,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 						$atom_structure['imgt'][] = getid3_lib::BigEndian2Int(substr($atom_data, $i, 4));
 					}
 					break;
-
 
 				// Observed-but-not-handled atom types are just listed here to prevent warnings being generated
 				case 'FXTC': // Something to do with Adobe After Effects (?)
@@ -3000,7 +2960,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 		return $pascalstring;
 	}
 
-
 	/**
 	 * Helper functions for m4b audiobook chapters
 	 * code by Steffen Hartmann 2015-Nov-08.
@@ -3095,6 +3054,5 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 	/*
 	// END helper functions for m4b audiobook chapters
 	*/
-
 
 }

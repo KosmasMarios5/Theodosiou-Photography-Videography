@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\License;
 
 if ( ! defined( 'ABSPATH' ) ) {

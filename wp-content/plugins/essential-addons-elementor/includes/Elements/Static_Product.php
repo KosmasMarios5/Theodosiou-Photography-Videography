@@ -1514,153 +1514,266 @@ class Static_Product extends Widget_Base {
         endif;
         if ( $eael_static_product_layout === 'three' ):
         ?>
-            <div id="eael-static-product-<?php echo esc_attr( $this->get_id() ); ?>" class="eael-static-product eael-static-product--style-three">
+            <div id="eael-static-product-<?php
+ echo esc_attr( $this->get_id() ); ?>" class="eael-static-product eael-static-product--style-three">
                 <div class="eael-static-product-media">
                     <div class="eael-static-product-thumb-overlay">
                         <div class="eael-static-product-details">
-                            <?php if ( !empty( $settings['eael_static_product_heading'] ) ): ?>
-                                <h2><a href="<?php echo esc_attr( $settings['eael_static_product_link_url'] ); ?>" target="<?php echo esc_attr( $settings['eael_static_product_link_target'] ); ?>"><?php echo esc_attr( $settings['eael_static_product_heading'] ); ?></a></h2>
-                            <?php endif;?>
-                            <?php if ( $settings['eael_static_product_is_show_price'] === 'yes' || $settings['eael_static_product_is_show_rating'] === 'yes' ): ?>
+                            <?php
+ if ( !empty( $settings['eael_static_product_heading'] ) ): ?>
+                                <h2><a href="<?php
+ echo esc_attr( $settings['eael_static_product_link_url'] ); ?>" target="<?php
+ echo esc_attr( $settings['eael_static_product_link_target'] ); ?>"><?php
+ echo esc_attr( $settings['eael_static_product_heading'] ); ?></a></h2>
+                            <?php
+ endif;?>
+                            <?php
+ if ( $settings['eael_static_product_is_show_price'] === 'yes' || $settings['eael_static_product_is_show_rating'] === 'yes' ): ?>
                             <div class="eael-static-product-price-and-reviews">
-                                <?php if ( isset( $settings['eael_static_product_is_show_price'] ) && $settings['eael_static_product_is_show_price'] === 'yes' ): ?>
-                                    <span class="eael-static-product-price"><?php echo ( !empty( $settings['eael_static_product_price'] ) ? $settings['eael_static_product_price'] : '' ); ?></span>
-                                <?php endif;?>
-                                <?php if ( isset( $settings['eael_static_product_is_show_rating'] ) && $settings['eael_static_product_is_show_rating'] === 'yes' ): ?>
-                                    <span class="eael-static-product-reviews"><?php echo ( !empty( $settings['eael_static_product_review'] ) ? $settings['eael_static_product_review'] : '' ); ?></span>
-                                <?php endif;?>
+                                <?php
+ if ( isset( $settings['eael_static_product_is_show_price'] ) && $settings['eael_static_product_is_show_price'] === 'yes' ): ?>
+                                    <span class="eael-static-product-price"><?php
+ echo ( !empty( $settings['eael_static_product_price'] ) ? $settings['eael_static_product_price'] : '' ); ?></span>
+                                <?php
+ endif;?>
+                                <?php
+ if ( isset( $settings['eael_static_product_is_show_rating'] ) && $settings['eael_static_product_is_show_rating'] === 'yes' ): ?>
+                                    <span class="eael-static-product-reviews"><?php
+ echo ( !empty( $settings['eael_static_product_review'] ) ? $settings['eael_static_product_review'] : '' ); ?></span>
+                                <?php
+ endif;?>
                             </div>
-                            <?php endif;?>
-                            <p><?php echo $settings['eael_static_product_description']; ?></p>
-                            <?php if ( $settings['eael_static_product_show_details_btn'] === 'yes' || $settings['eael_static_product_show_add_to_cart_button'] === 'yes' ): ?>
+                            <?php
+ endif;?>
+                            <p><?php
+ echo $settings['eael_static_product_description']; ?></p>
+                            <?php
+ if ( $settings['eael_static_product_show_details_btn'] === 'yes' || $settings['eael_static_product_show_add_to_cart_button'] === 'yes' ): ?>
                                 <div class="eael-static-product-btn-wrap">
-                                    <?php if ( $settings['eael_static_product_show_details_btn'] === 'yes' ): ?>
-                                        <a href="<?php echo esc_attr( $settings['eael_static_product_link_url'] ); ?>" target="<?php echo esc_attr( $settings['eael_static_product_link_target'] ); ?>" class="eael-static-product-btn">
+                                    <?php
+ if ( $settings['eael_static_product_show_details_btn'] === 'yes' ): ?>
+                                        <a href="<?php
+ echo esc_attr( $settings['eael_static_product_link_url'] ); ?>" target="<?php
+ echo esc_attr( $settings['eael_static_product_link_target'] ); ?>" class="eael-static-product-btn">
                                             <span class="eael-static-product-btn-inner">
-                                                <?php if ( $settings['eael_static_product_btn_icon_align'] == 'left' ): ?>
-                                                    <?php if ( $icon_migrated || $icon_is_new ) {?>
-                                                        <?php if ( isset( $settings['eael_static_product_btn_icon_new']['value']['url'] ) ): ?>
-                                                            <img class="eael-static-product-button-icon-left eael-static-product-button-svg-icon" src="<?php echo esc_url( $settings['eael_static_product_btn_icon_new']['value']['url'] ); ?>" alt="<?php echo esc_attr( get_post_meta( $settings['eael_static_product_btn_icon_new']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
-                                                        <?php else: ?>
-                                                            <i class="<?php echo esc_attr( $settings['eael_static_product_btn_icon_new']['value'] ); ?> eael-static-product-button-icon-left" aria-hidden="true"></i>
-                                                        <?php endif;?>
-                                                    <?php } else {?>
-                                                        <i class="<?php echo esc_attr( $settings['eael_static_product_btn_icon'] ); ?> eael-static-product-button-icon-left" aria-hidden="true"></i>
-                                                    <?php }?>
-                                                <?php endif;?>
+                                                <?php
+ if ( $settings['eael_static_product_btn_icon_align'] == 'left' ): ?>
+                                                    <?php
+ if ( $icon_migrated || $icon_is_new ) {?>
+                                                        <?php
+ if ( isset( $settings['eael_static_product_btn_icon_new']['value']['url'] ) ): ?>
+                                                            <img class="eael-static-product-button-icon-left eael-static-product-button-svg-icon" src="<?php
+ echo esc_url( $settings['eael_static_product_btn_icon_new']['value']['url'] ); ?>" alt="<?php
+ echo esc_attr( get_post_meta( $settings['eael_static_product_btn_icon_new']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
+                                                        <?php
+ else: ?>
+                                                            <i class="<?php
+ echo esc_attr( $settings['eael_static_product_btn_icon_new']['value'] ); ?> eael-static-product-button-icon-left" aria-hidden="true"></i>
+                                                        <?php
+ endif;?>
+                                                    <?php
+ } else {?>
+                                                        <i class="<?php
+ echo esc_attr( $settings['eael_static_product_btn_icon'] ); ?> eael-static-product-button-icon-left" aria-hidden="true"></i>
+                                                    <?php
+ }?>
+                                                <?php
+ endif;?>
 
-                                                <?php echo esc_attr( $settings['eael_static_product_btn'] ); ?>
+                                                <?php
+ echo esc_attr( $settings['eael_static_product_btn'] ); ?>
 
-                                                <?php if ( $settings['eael_static_product_btn_icon_align'] == 'right' ): ?>
-                                                    <?php if ( $icon_migrated || $icon_is_new ) {?>
-                                                        <?php if ( isset( $settings['eael_static_product_btn_icon_new']['value']['url'] ) ): ?>
-                                                            <img class="eael-static-product-button-icon-right eael-static-product-button-svg-icon" src="<?php echo esc_url( $settings['eael_static_product_btn_icon_new']['value']['url'] ); ?>" alt="<?php echo esc_attr( get_post_meta( $settings['eael_static_product_btn_icon_new']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
-                                                        <?php else: ?>
-                                                            <i class="<?php echo esc_attr( $settings['eael_static_product_btn_icon_new']['value'] ); ?> eael-static-product-button-icon-right" aria-hidden="true"></i>
-                                                        <?php endif;?>
-                                                    <?php } else {?>
-                                                        <i class="<?php echo esc_attr( $settings['eael_static_product_btn_icon'] ); ?> eael-static-product-button-icon-right" aria-hidden="true"></i>
-                                                    <?php }?>
-                                                <?php endif;?>
+                                                <?php
+ if ( $settings['eael_static_product_btn_icon_align'] == 'right' ): ?>
+                                                    <?php
+ if ( $icon_migrated || $icon_is_new ) {?>
+                                                        <?php
+ if ( isset( $settings['eael_static_product_btn_icon_new']['value']['url'] ) ): ?>
+                                                            <img class="eael-static-product-button-icon-right eael-static-product-button-svg-icon" src="<?php
+ echo esc_url( $settings['eael_static_product_btn_icon_new']['value']['url'] ); ?>" alt="<?php
+ echo esc_attr( get_post_meta( $settings['eael_static_product_btn_icon_new']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
+                                                        <?php
+ else: ?>
+                                                            <i class="<?php
+ echo esc_attr( $settings['eael_static_product_btn_icon_new']['value'] ); ?> eael-static-product-button-icon-right" aria-hidden="true"></i>
+                                                        <?php
+ endif;?>
+                                                    <?php
+ } else {?>
+                                                        <i class="<?php
+ echo esc_attr( $settings['eael_static_product_btn_icon'] ); ?> eael-static-product-button-icon-right" aria-hidden="true"></i>
+                                                    <?php
+ }?>
+                                                <?php
+ endif;?>
                                             </span>
                                         </a>
-                                    <?php endif;?>
-                                    <a class="eael-static-product-live-demo-btn" href="<?php echo esc_attr( $settings['eael_static_product_demo_link_url'] ); ?>" target="<?php echo esc_attr( $settings['eael_static_product_demo_link_target'] ); ?>">
-                                        <?php if ( $settings['eael_static_product_demo_is_used_icon'] == 'yes' ): ?>
-                                            <span class="<?php echo esc_attr( $settings['eael_static_product_demo_icon']['value'] ); ?>"></span>
-                                        <?php else: ?>
-                                            <span><?php echo esc_attr( $settings['eael_static_product_demo_text'] ); ?></span>
-                                        <?php endif;?>
+                                    <?php
+ endif;?>
+                                    <a class="eael-static-product-live-demo-btn" href="<?php
+ echo esc_attr( $settings['eael_static_product_demo_link_url'] ); ?>" target="<?php
+ echo esc_attr( $settings['eael_static_product_demo_link_target'] ); ?>">
+                                        <?php
+ if ( $settings['eael_static_product_demo_is_used_icon'] == 'yes' ): ?>
+                                            <span class="<?php
+ echo esc_attr( $settings['eael_static_product_demo_icon']['value'] ); ?>"></span>
+                                        <?php
+ else: ?>
+                                            <span><?php
+ echo esc_attr( $settings['eael_static_product_demo_text'] ); ?></span>
+                                        <?php
+ endif;?>
                                     </a>
-                                    <?php print $cartButtonMarkup;?>
+                                    <?php
+ print $cartButtonMarkup;?>
                                 </div>
-                            <?php endif;?>
+                            <?php
+ endif;?>
                         </div>
                     </div>
                     <div class="eael-static-product-thumb">
-                        <?php echo '<img src="' . $static_product_image['url'] . '" alt="' . esc_attr( get_post_meta( $static_product_image['id'], '_wp_attachment_image_alt', true ) ) . '">'; ?>
+                        <?php
+ echo '<img src="' . $static_product_image['url'] . '" alt="' . esc_attr( get_post_meta( $static_product_image['id'], '_wp_attachment_image_alt', true ) ) . '">'; ?>
                     </div>
                 </div>
             </div>
-        <?php else: ?>
-            <div id="eael-static-product-<?php echo esc_attr( $this->get_id() ); ?>" class="eael-static-product">
+        <?php
+ else: ?>
+            <div id="eael-static-product-<?php
+ echo esc_attr( $this->get_id() ); ?>" class="eael-static-product">
                 <div class="eael-static-product-media">
                     <div class="eael-static-product-thumb-overlay">
-                        <a class="eael-static-product-live-demo-btn" href="<?php echo esc_attr( $settings['eael_static_product_demo_link_url'] ); ?>" target="<?php echo esc_attr( $settings['eael_static_product_demo_link_target'] ); ?>">
-                            <?php if ( $settings['eael_static_product_demo_is_used_icon'] == 'yes' ): ?>
-                                <span class="<?php echo esc_attr( $settings['eael_static_product_demo_icon']['value'] ); ?>"></span>
-                            <?php else: ?>
-                                <span><?php echo esc_attr( $settings['eael_static_product_demo_text'] ); ?></span>
-                            <?php endif;?>
+                        <a class="eael-static-product-live-demo-btn" href="<?php
+ echo esc_attr( $settings['eael_static_product_demo_link_url'] ); ?>" target="<?php
+ echo esc_attr( $settings['eael_static_product_demo_link_target'] ); ?>">
+                            <?php
+ if ( $settings['eael_static_product_demo_is_used_icon'] == 'yes' ): ?>
+                                <span class="<?php
+ echo esc_attr( $settings['eael_static_product_demo_icon']['value'] ); ?>"></span>
+                            <?php
+ else: ?>
+                                <span><?php
+ echo esc_attr( $settings['eael_static_product_demo_text'] ); ?></span>
+                            <?php
+ endif;?>
                         </a>
                         <?php
+
 if ( $eael_static_product_layout === 'two' ) {
             print $cartButtonMarkup;
         }
         ?>
                     </div>
                     <div class="eael-static-product-thumb">
-                        <?php echo '<img src="' . $static_product_image['url'] . '" alt="' . esc_attr( get_post_meta( $static_product_image['id'], '_wp_attachment_image_alt', true ) ) . '">'; ?>
+                        <?php
+ echo '<img src="' . $static_product_image['url'] . '" alt="' . esc_attr( get_post_meta( $static_product_image['id'], '_wp_attachment_image_alt', true ) ) . '">'; ?>
                     </div>
                 </div>
                 <div class="eael-static-product-details">
-                    <?php if ( !empty( $settings['eael_static_product_heading'] ) ): ?>
-                        <h2><a href="<?php echo esc_attr( $settings['eael_static_product_link_url'] ); ?>" target="<?php echo esc_attr( $settings['eael_static_product_link_target'] ); ?>"><?php echo esc_attr( $settings['eael_static_product_heading'] ); ?></a></h2>
-                    <?php endif;?>
-                    <p><?php echo $settings['eael_static_product_description']; ?></p>
-                    <?php if ( $settings['eael_static_product_is_show_price'] === 'yes' || $settings['eael_static_product_is_show_rating'] === 'yes' ): ?>
+                    <?php
+ if ( !empty( $settings['eael_static_product_heading'] ) ): ?>
+                        <h2><a href="<?php
+ echo esc_attr( $settings['eael_static_product_link_url'] ); ?>" target="<?php
+ echo esc_attr( $settings['eael_static_product_link_target'] ); ?>"><?php
+ echo esc_attr( $settings['eael_static_product_heading'] ); ?></a></h2>
+                    <?php
+ endif;?>
+                    <p><?php
+ echo $settings['eael_static_product_description']; ?></p>
+                    <?php
+ if ( $settings['eael_static_product_is_show_price'] === 'yes' || $settings['eael_static_product_is_show_rating'] === 'yes' ): ?>
                     <div class="eael-static-product-price-and-reviews">
-                        <?php if ( isset( $settings['eael_static_product_is_show_price'] ) && $settings['eael_static_product_is_show_price'] === 'yes' ): ?>
-                            <span class="eael-static-product-price"><?php echo ( !empty( $settings['eael_static_product_price'] ) ? $settings['eael_static_product_price'] : '' ); ?></span>
-                        <?php endif;?>
-                        <?php if ( isset( $settings['eael_static_product_is_show_rating'] ) && $settings['eael_static_product_is_show_rating'] === 'yes' ): ?>
-                            <span class="eael-static-product-reviews"><?php echo ( !empty( $settings['eael_static_product_review'] ) ? $settings['eael_static_product_review'] : '' ); ?></span>
-                        <?php endif;?>
+                        <?php
+ if ( isset( $settings['eael_static_product_is_show_price'] ) && $settings['eael_static_product_is_show_price'] === 'yes' ): ?>
+                            <span class="eael-static-product-price"><?php
+ echo ( !empty( $settings['eael_static_product_price'] ) ? $settings['eael_static_product_price'] : '' ); ?></span>
+                        <?php
+ endif;?>
+                        <?php
+ if ( isset( $settings['eael_static_product_is_show_rating'] ) && $settings['eael_static_product_is_show_rating'] === 'yes' ): ?>
+                            <span class="eael-static-product-reviews"><?php
+ echo ( !empty( $settings['eael_static_product_review'] ) ? $settings['eael_static_product_review'] : '' ); ?></span>
+                        <?php
+ endif;?>
                     </div>
-                    <?php endif;?>
-                    <?php if ( $settings['eael_static_product_show_details_btn'] === 'yes' || $settings['eael_static_product_show_add_to_cart_button'] === 'yes' ): ?>
+                    <?php
+ endif;?>
+                    <?php
+ if ( $settings['eael_static_product_show_details_btn'] === 'yes' || $settings['eael_static_product_show_add_to_cart_button'] === 'yes' ): ?>
                         <div class="eael-static-product-btn-wrap">
-                            <?php if ( $settings['eael_static_product_show_details_btn'] === 'yes' ): ?>
-                                <a href="<?php echo esc_attr( $settings['eael_static_product_link_url'] ); ?>" target="<?php echo esc_attr( $settings['eael_static_product_link_target'] ); ?>" class="eael-static-product-btn">
+                            <?php
+ if ( $settings['eael_static_product_show_details_btn'] === 'yes' ): ?>
+                                <a href="<?php
+ echo esc_attr( $settings['eael_static_product_link_url'] ); ?>" target="<?php
+ echo esc_attr( $settings['eael_static_product_link_target'] ); ?>" class="eael-static-product-btn">
                                     <span class="eael-static-product-btn-inner">
-                                        <?php if ( $settings['eael_static_product_btn_icon_align'] == 'left' ): ?>
-                                            <?php if ( $icon_migrated || $icon_is_new ) {?>
-                                                <?php if ( isset( $settings['eael_static_product_btn_icon_new']['value']['url'] ) ): ?>
-                                                    <img class="eael-static-product-button-icon-left eael-static-product-button-svg-icon" src="<?php echo esc_url( $settings['eael_static_product_btn_icon_new']['value']['url'] ); ?>" alt="<?php echo esc_attr( get_post_meta( $settings['eael_static_product_btn_icon_new']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
-                                                <?php else: ?>
-                                                    <i class="<?php echo esc_attr( $settings['eael_static_product_btn_icon_new']['value'] ); ?> eael-static-product-button-icon-left" aria-hidden="true"></i>
-                                                <?php endif;?>
-                                            <?php } else {?>
-                                                <i class="<?php echo esc_attr( $settings['eael_static_product_btn_icon'] ); ?> eael-static-product-button-icon-left" aria-hidden="true"></i>
-                                            <?php }?>
-                                        <?php endif;?>
+                                        <?php
+ if ( $settings['eael_static_product_btn_icon_align'] == 'left' ): ?>
+                                            <?php
+ if ( $icon_migrated || $icon_is_new ) {?>
+                                                <?php
+ if ( isset( $settings['eael_static_product_btn_icon_new']['value']['url'] ) ): ?>
+                                                    <img class="eael-static-product-button-icon-left eael-static-product-button-svg-icon" src="<?php
+ echo esc_url( $settings['eael_static_product_btn_icon_new']['value']['url'] ); ?>" alt="<?php
+ echo esc_attr( get_post_meta( $settings['eael_static_product_btn_icon_new']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
+                                                <?php
+ else: ?>
+                                                    <i class="<?php
+ echo esc_attr( $settings['eael_static_product_btn_icon_new']['value'] ); ?> eael-static-product-button-icon-left" aria-hidden="true"></i>
+                                                <?php
+ endif;?>
+                                            <?php
+ } else {?>
+                                                <i class="<?php
+ echo esc_attr( $settings['eael_static_product_btn_icon'] ); ?> eael-static-product-button-icon-left" aria-hidden="true"></i>
+                                            <?php
+ }?>
+                                        <?php
+ endif;?>
 
-                                        <?php echo esc_attr( $settings['eael_static_product_btn'] ); ?>
+                                        <?php
+ echo esc_attr( $settings['eael_static_product_btn'] ); ?>
 
-                                        <?php if ( $settings['eael_static_product_btn_icon_align'] == 'right' ): ?>
-                                            <?php if ( $icon_migrated || $icon_is_new ) {?>
-                                                <?php if ( isset( $settings['eael_static_product_btn_icon_new']['value']['url'] ) ): ?>
-                                                    <img class="eael-static-product-button-icon-right eael-static-product-button-svg-icon" src="<?php echo esc_url( $settings['eael_static_product_btn_icon_new']['value']['url'] ); ?>" alt="<?php echo esc_attr( get_post_meta( $settings['eael_static_product_btn_icon_new']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
-                                                <?php else: ?>
-                                                    <i class="<?php echo esc_attr( $settings['eael_static_product_btn_icon_new']['value'] ); ?> eael-static-product-button-icon-right" aria-hidden="true"></i>
-                                                <?php endif;?>
-                                            <?php } else {?>
-                                                <i class="<?php echo esc_attr( $settings['eael_static_product_btn_icon'] ); ?> eael-static-product-button-icon-right" aria-hidden="true"></i>
-                                            <?php }?>
-                                        <?php endif;?>
+                                        <?php
+ if ( $settings['eael_static_product_btn_icon_align'] == 'right' ): ?>
+                                            <?php
+ if ( $icon_migrated || $icon_is_new ) {?>
+                                                <?php
+ if ( isset( $settings['eael_static_product_btn_icon_new']['value']['url'] ) ): ?>
+                                                    <img class="eael-static-product-button-icon-right eael-static-product-button-svg-icon" src="<?php
+ echo esc_url( $settings['eael_static_product_btn_icon_new']['value']['url'] ); ?>" alt="<?php
+ echo esc_attr( get_post_meta( $settings['eael_static_product_btn_icon_new']['value']['id'], '_wp_attachment_image_alt', true ) ); ?>">
+                                                <?php
+ else: ?>
+                                                    <i class="<?php
+ echo esc_attr( $settings['eael_static_product_btn_icon_new']['value'] ); ?> eael-static-product-button-icon-right" aria-hidden="true"></i>
+                                                <?php
+ endif;?>
+                                            <?php
+ } else {?>
+                                                <i class="<?php
+ echo esc_attr( $settings['eael_static_product_btn_icon'] ); ?> eael-static-product-button-icon-right" aria-hidden="true"></i>
+                                            <?php
+ }?>
+                                        <?php
+ endif;?>
                                     </span>
                                 </a>
-                            <?php endif;?>
                             <?php
+ endif;?>
+                            <?php
+
 if ( $eael_static_product_layout === 'default' ) {
             print $cartButtonMarkup;
         }
         ?>
                         </div>
-                    <?php endif;?>
+                    <?php
+ endif;?>
                 </div>
             </div>
         <?php
+
 endif;
     }
 

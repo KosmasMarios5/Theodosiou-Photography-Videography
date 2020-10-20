@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Store the time when the float bar was hidden so it won't show again for 14 days.
  */
@@ -64,23 +65,30 @@ function exactmetrics_get_admin_menu_tooltip() {
 		<div class="exactmetrics-admin-menu-tooltip-header">
 			<span class="exactmetrics-admin-menu-tooltip-icon"><span
 						class="dashicons dashicons-megaphone"></span></span>
-			<?php esc_html_e( 'Get Better Insights. Grow FASTER!', 'google-analytics-dashboard-for-wp' ); ?>
+			<?php
+ esc_html_e( 'Get Better Insights. Grow FASTER!', 'google-analytics-dashboard-for-wp' ); ?>
 			<a href="#" class="exactmetrics-admin-menu-tooltip-close"><span
 						class="dashicons dashicons-dismiss"></span></a>
 		</div>
 		<div class="exactmetrics-admin-menu-tooltip-content">
-			<strong><?php esc_html_e( 'Grow Your Business with ExactMetrics Pro', 'google-analytics-dashboard-for-wp' ); ?></strong>
-			<p><?php esc_html_e( 'It\'s easy to double your traffic and sales when you know exactly how people find and use your website.', 'google-analytics-dashboard-for-wp' ); ?></p>
-			<p><?php esc_html_e( 'ExactMetrics Pro shows you the stats that matter, so you can boost your business growth!', 'google-analytics-dashboard-for-wp' ); ?></p>
+			<strong><?php
+ esc_html_e( 'Grow Your Business with ExactMetrics Pro', 'google-analytics-dashboard-for-wp' ); ?></strong>
+			<p><?php
+ esc_html_e( 'It\'s easy to double your traffic and sales when you know exactly how people find and use your website.', 'google-analytics-dashboard-for-wp' ); ?></p>
+			<p><?php
+ esc_html_e( 'ExactMetrics Pro shows you the stats that matter, so you can boost your business growth!', 'google-analytics-dashboard-for-wp' ); ?></p>
 			<p>
 				<?php
+
 				// Translators: makes text bold.
 				printf( esc_html__( '%1$sBonus:%2$s You also get 50%% off discount for being a loyal ExactMetrics Lite user.', 'google-analytics-dashboard-for-wp' ), '<strong>', '</strong>' );
 				?>
 			</p>
 			<p>
-				<a href="<?php echo esc_url( $url ); ?>"
-				   class="button button-primary"><?php esc_html_e( 'Upgrade to ExactMetrics Pro', 'google-analytics-dashboard-for-wp' ); ?></a>
+				<a href="<?php
+ echo esc_url( $url ); ?>"
+				   class="button button-primary"><?php
+ esc_html_e( 'Upgrade to ExactMetrics Pro', 'google-analytics-dashboard-for-wp' ); ?></a>
 			</p>
 		</div>
 	</div>
@@ -251,13 +259,15 @@ function exactmetrics_get_admin_menu_tooltip() {
 					$tooltip.addClass( 'monterinsights-admin-menu-tooltip-hide' );
 					$.post( ajaxurl, {
 						action: 'exactmetrics_hide_admin_menu_tooltip',
-						nonce: '<?php echo esc_js( wp_create_nonce( 'mi-admin-nonce' ) ); ?>',
+						nonce: '<?php
+ echo esc_js( wp_create_nonce( 'mi-admin-nonce' ) ); ?>',
 					} );
 				}
 			} );
 		}
 	</script>
 	<?php
+
 }
 
 add_action( 'adminmenu', 'exactmetrics_get_admin_menu_tooltip' );

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Library\Widgets;
 
 use Elementor\Core\Base\Document;
@@ -78,10 +79,12 @@ class Template extends Base_Widget {
 		?>
 		<div class="elementor-template">
 			<?php
+
 			echo Plugin::elementor()->frontend->get_builder_content_for_display( $template_id );
 			?>
 		</div>
 		<?php
+
 	}
 
 	public function render_plain_content() {}

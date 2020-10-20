@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Debug;
 
 use Elementor\Core\Debug\Classes\Inspection_Base;

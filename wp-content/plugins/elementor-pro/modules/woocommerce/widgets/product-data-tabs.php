@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
@@ -285,6 +286,7 @@ class Product_Data_Tabs extends Base_Widget {
 				jQuery( '.wc-tabs-wrapper, .woocommerce-tabs, #rating' ).trigger( 'init' );
 			</script>
 			<?php
+
 		}
 	}
 

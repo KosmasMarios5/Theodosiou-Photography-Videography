@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_Links_List_Table class
  *
@@ -103,6 +104,7 @@ class WP_Links_List_Table extends WP_List_Table {
 		?>
 		<div class="alignleft actions">
 			<?php
+
 			$dropdown_options = array(
 				'selected'        => $cat_id,
 				'name'            => 'cat_id',
@@ -120,6 +122,7 @@ class WP_Links_List_Table extends WP_List_Table {
 			?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -169,14 +172,19 @@ class WP_Links_List_Table extends WP_List_Table {
 	 */
 	public function column_cb( $link ) {
 		?>
-		<label class="screen-reader-text" for="cb-select-<?php echo $link->link_id; ?>">
+		<label class="screen-reader-text" for="cb-select-<?php
+ echo $link->link_id; ?>">
 			<?php
+
 			/* translators: %s: Link name. */
 			printf( __( 'Select %s' ), $link->link_name );
 			?>
 		</label>
-		<input type="checkbox" name="linkcheck[]" id="cb-select-<?php echo $link->link_id; ?>" value="<?php echo esc_attr( $link->link_id ); ?>" />
+		<input type="checkbox" name="linkcheck[]" id="cb-select-<?php
+ echo $link->link_id; ?>" value="<?php
+ echo esc_attr( $link->link_id ); ?>" />
 		<?php
+
 	}
 
 	/**
@@ -299,10 +307,13 @@ class WP_Links_List_Table extends WP_List_Table {
 			$link->link_name     = esc_attr( $link->link_name );
 			$link->link_category = wp_get_link_cats( $link->link_id );
 			?>
-		<tr id="link-<?php echo $link->link_id; ?>">
-			<?php $this->single_row_columns( $link ); ?>
+		<tr id="link-<?php
+ echo $link->link_id; ?>">
+			<?php
+ $this->single_row_columns( $link ); ?>
 		</tr>
 			<?php
+
 		}
 	}
 

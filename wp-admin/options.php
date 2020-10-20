@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Options Management Administration Screen.
  *
@@ -345,18 +346,23 @@ if ( 'update' === $action ) { // We are saving settings sent from a settings pag
 require_once ABSPATH . 'wp-admin/admin-header.php'; ?>
 
 <div class="wrap">
-	<h1><?php esc_html_e( 'All Settings' ); ?></h1>
+	<h1><?php
+ esc_html_e( 'All Settings' ); ?></h1>
 
 	<div class="notice notice-warning">
-		<p><strong><?php _e( 'Warning:' ); ?></strong> <?php _e( 'This page allows direct access to your site settings. You can break things here. Please be cautious!' ); ?></p>
+		<p><strong><?php
+ _e( 'Warning:' ); ?></strong> <?php
+ _e( 'This page allows direct access to your site settings. You can break things here. Please be cautious!' ); ?></p>
 	</div>
 
 	<form name="form" action="options.php" method="post" id="all-options">
-		<?php wp_nonce_field( 'options-options' ); ?>
+		<?php
+ wp_nonce_field( 'options-options' ); ?>
 		<input type="hidden" name="action" value="update" />
 		<input type="hidden" name="option_page" value="options" />
 		<table class="form-table" role="presentation">
 <?php
+
 $options = $wpdb->get_results( "SELECT * FROM $wpdb->options ORDER BY option_name" );
 
 foreach ( (array) $options as $option ) :
@@ -386,23 +392,41 @@ foreach ( (array) $options as $option ) :
 	$name = esc_attr( $option->option_name );
 	?>
 <tr>
-	<th scope="row"><label for="<?php echo $name; ?>"><?php echo esc_html( $option->option_name ); ?></label></th>
+	<th scope="row"><label for="<?php
+ echo $name; ?>"><?php
+ echo esc_html( $option->option_name ); ?></label></th>
 <td>
-	<?php if ( strpos( $value, "\n" ) !== false ) : ?>
-		<textarea class="<?php echo $class; ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" cols="30" rows="5"><?php echo esc_textarea( $value ); ?></textarea>
-	<?php else : ?>
-		<input class="regular-text <?php echo $class; ?>" type="text" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $value ); ?>"<?php disabled( $disabled, true ); ?> />
-	<?php endif ?></td>
+	<?php
+ if ( strpos( $value, "\n" ) !== false ) : ?>
+		<textarea class="<?php
+ echo $class; ?>" name="<?php
+ echo $name; ?>" id="<?php
+ echo $name; ?>" cols="30" rows="5"><?php
+ echo esc_textarea( $value ); ?></textarea>
+	<?php
+ else : ?>
+		<input class="regular-text <?php
+ echo $class; ?>" type="text" name="<?php
+ echo $name; ?>" id="<?php
+ echo $name; ?>" value="<?php
+ echo esc_attr( $value ); ?>"<?php
+ disabled( $disabled, true ); ?> />
+	<?php
+ endif ?></td>
 </tr>
-<?php endforeach; ?>
+<?php
+ endforeach; ?>
 </table>
 
-<input type="hidden" name="page_options" value="<?php echo esc_attr( implode( ',', $options_to_update ) ); ?>" />
+<input type="hidden" name="page_options" value="<?php
+ echo esc_attr( implode( ',', $options_to_update ) ); ?>" />
 
-<?php submit_button( __( 'Save Changes' ), 'primary', 'Update' ); ?>
+<?php
+ submit_button( __( 'Save Changes' ), 'primary', 'Update' ); ?>
 
 </form>
 </div>
 
 <?php
+
 require_once ABSPATH . 'wp-admin/admin-footer.php';

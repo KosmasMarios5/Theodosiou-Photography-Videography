@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Forms\Actions;
 
 use ElementorPro\Modules\Forms\Classes\Action_Base;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Diff API: WP_Text_Diff_Renderer_Table class
  *

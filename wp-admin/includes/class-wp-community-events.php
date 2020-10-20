@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Administration: Community Events class.
  *

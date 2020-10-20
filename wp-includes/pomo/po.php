@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class for working with PO files
  *

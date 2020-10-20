@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Dashboard Widget Administration Screen API
  *
@@ -241,22 +242,28 @@ function wp_dashboard() {
 	}
 
 	?>
-<div id="dashboard-widgets" class="metabox-holder<?php echo $columns_css; ?>">
+<div id="dashboard-widgets" class="metabox-holder<?php
+ echo $columns_css; ?>">
 	<div id="postbox-container-1" class="postbox-container">
-	<?php do_meta_boxes( $screen->id, 'normal', '' ); ?>
+	<?php
+ do_meta_boxes( $screen->id, 'normal', '' ); ?>
 	</div>
 	<div id="postbox-container-2" class="postbox-container">
-	<?php do_meta_boxes( $screen->id, 'side', '' ); ?>
+	<?php
+ do_meta_boxes( $screen->id, 'side', '' ); ?>
 	</div>
 	<div id="postbox-container-3" class="postbox-container">
-	<?php do_meta_boxes( $screen->id, 'column3', '' ); ?>
+	<?php
+ do_meta_boxes( $screen->id, 'column3', '' ); ?>
 	</div>
 	<div id="postbox-container-4" class="postbox-container">
-	<?php do_meta_boxes( $screen->id, 'column4', '' ); ?>
+	<?php
+ do_meta_boxes( $screen->id, 'column4', '' ); ?>
 	</div>
 </div>
 
 	<?php
+
 	wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
 	wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
 
@@ -278,6 +285,7 @@ function wp_dashboard_right_now() {
 	<div class="main">
 	<ul>
 	<?php
+
 	// Posts and Pages.
 	foreach ( array( 'post', 'page' ) as $post_type ) {
 		$num_posts = wp_count_posts( $post_type );
@@ -304,20 +312,25 @@ function wp_dashboard_right_now() {
 		/* translators: %s: Number of comments. */
 		$text = sprintf( _n( '%s Comment', '%s Comments', $num_comm->approved ), number_format_i18n( $num_comm->approved ) );
 		?>
-		<li class="comment-count"><a href="edit-comments.php"><?php echo $text; ?></a></li>
+		<li class="comment-count"><a href="edit-comments.php"><?php
+ echo $text; ?></a></li>
 		<?php
+
 		$moderated_comments_count_i18n = number_format_i18n( $num_comm->moderated );
 		/* translators: %s: Number of comments. */
 		$text = sprintf( _n( '%s Comment in moderation', '%s Comments in moderation', $num_comm->moderated ), $moderated_comments_count_i18n );
 		?>
 		<li class="comment-mod-count
 		<?php
+
 		if ( ! $num_comm->moderated ) {
 			echo ' hidden';
 		}
 		?>
-		"><a href="edit-comments.php?comment_status=moderated" class="comments-in-moderation-text"><?php echo $text; ?></a></li>
+		"><a href="edit-comments.php?comment_status=moderated" class="comments-in-moderation-text"><?php
+ echo $text; ?></a></li>
 		<?php
+
 	}
 
 	/**
@@ -340,6 +353,7 @@ function wp_dashboard_right_now() {
 	?>
 	</ul>
 	<?php
+
 	update_right_now_message();
 
 	// Check if search engines are asked not to index this site.
@@ -376,6 +390,7 @@ function wp_dashboard_right_now() {
 	?>
 	</div>
 	<?php
+
 	/*
 	 * activity_box_end has a core action, but only prints content when multisite.
 	 * Using an output buffer is the only way to really check if anything's displayed here.
@@ -405,9 +420,11 @@ function wp_dashboard_right_now() {
 	if ( ! empty( $actions ) ) :
 		?>
 	<div class="sub">
-		<?php echo $actions; ?>
+		<?php
+ echo $actions; ?>
 	</div>
 		<?php
+
 	endif;
 }
 
@@ -445,10 +462,11 @@ function wp_network_dashboard_right_now() {
 	?>
 	<br class="clear" />
 
-	<p class="youhave"><?php echo $sentence; ?></p>
-
+	<p class="youhave"><?php
+ echo $sentence; ?></p>
 
 	<?php
+
 		/**
 		 * Fires in the Network Admin 'Right Now' dashboard widget
 		 * just before the user and site search form fields.
@@ -458,22 +476,29 @@ function wp_network_dashboard_right_now() {
 		do_action( 'wpmuadminresult' );
 	?>
 
-	<form action="<?php echo network_admin_url( 'users.php' ); ?>" method="get">
+	<form action="<?php
+ echo network_admin_url( 'users.php' ); ?>" method="get">
 		<p>
-			<label class="screen-reader-text" for="search-users"><?php _e( 'Search Users' ); ?></label>
+			<label class="screen-reader-text" for="search-users"><?php
+ _e( 'Search Users' ); ?></label>
 			<input type="search" name="s" value="" size="30" autocomplete="off" id="search-users"/>
-			<?php submit_button( __( 'Search Users' ), '', false, false, array( 'id' => 'submit_users' ) ); ?>
+			<?php
+ submit_button( __( 'Search Users' ), '', false, false, array( 'id' => 'submit_users' ) ); ?>
 		</p>
 	</form>
 
-	<form action="<?php echo network_admin_url( 'sites.php' ); ?>" method="get">
+	<form action="<?php
+ echo network_admin_url( 'sites.php' ); ?>" method="get">
 		<p>
-			<label class="screen-reader-text" for="search-sites"><?php _e( 'Search Sites' ); ?></label>
+			<label class="screen-reader-text" for="search-sites"><?php
+ _e( 'Search Sites' ); ?></label>
 			<input type="search" name="s" value="" size="30" autocomplete="off" id="search-sites"/>
-			<?php submit_button( __( 'Search Sites' ), '', false, false, array( 'id' => 'submit_sites' ) ); ?>
+			<?php
+ submit_button( __( 'Search Sites' ), '', false, false, array( 'id' => 'submit_sites' ) ); ?>
 		</p>
 	</form>
 	<?php
+
 	/**
 	 * Fires at the end of the 'Right Now' widget in the Network Admin dashboard.
 	 *
@@ -527,15 +552,20 @@ function wp_dashboard_quick_press( $error_msg = false ) {
 	$post_ID = (int) $post->ID;
 	?>
 
-	<form name="post" action="<?php echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-press" class="initial-form hide-if-no-js">
+	<form name="post" action="<?php
+ echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-press" class="initial-form hide-if-no-js">
 
-		<?php if ( $error_msg ) : ?>
-		<div class="error"><?php echo $error_msg; ?></div>
-		<?php endif; ?>
+		<?php
+ if ( $error_msg ) : ?>
+		<div class="error"><?php
+ echo $error_msg; ?></div>
+		<?php
+ endif; ?>
 
 		<div class="input-text-wrap" id="title-wrap">
 			<label for="title">
 				<?php
+
 				/** This filter is documented in wp-admin/edit-form-advanced.php */
 				echo apply_filters( 'enter_title_here', __( 'Title' ), $post );
 				?>
@@ -544,21 +574,27 @@ function wp_dashboard_quick_press( $error_msg = false ) {
 		</div>
 
 		<div class="textarea-wrap" id="description-wrap">
-			<label for="content"><?php _e( 'Content' ); ?></label>
-			<textarea name="content" id="content" placeholder="<?php esc_attr_e( 'What&#8217;s on your mind?' ); ?>" class="mceEditor" rows="3" cols="15" autocomplete="off"></textarea>
+			<label for="content"><?php
+ _e( 'Content' ); ?></label>
+			<textarea name="content" id="content" placeholder="<?php
+ esc_attr_e( 'What&#8217;s on your mind?' ); ?>" class="mceEditor" rows="3" cols="15" autocomplete="off"></textarea>
 		</div>
 
 		<p class="submit">
 			<input type="hidden" name="action" id="quickpost-action" value="post-quickdraft-save" />
-			<input type="hidden" name="post_ID" value="<?php echo $post_ID; ?>" />
+			<input type="hidden" name="post_ID" value="<?php
+ echo $post_ID; ?>" />
 			<input type="hidden" name="post_type" value="post" />
-			<?php wp_nonce_field( 'add-post' ); ?>
-			<?php submit_button( __( 'Save Draft' ), 'primary', 'save', false, array( 'id' => 'save-post' ) ); ?>
+			<?php
+ wp_nonce_field( 'add-post' ); ?>
+			<?php
+ submit_button( __( 'Save Draft' ), 'primary', 'save', false, array( 'id' => 'save-post' ) ); ?>
 			<br class="clear" />
 		</p>
 
 	</form>
 	<?php
+
 	wp_dashboard_recent_drafts();
 }
 
@@ -782,9 +818,12 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 	}
 	?>
 
-		<li id="comment-<?php echo $comment->comment_ID; ?>" <?php comment_class( array( 'comment-item', wp_get_comment_status( $comment ) ), $comment ); ?>>
+		<li id="comment-<?php
+ echo $comment->comment_ID; ?>" <?php
+ comment_class( array( 'comment-item', wp_get_comment_status( $comment ) ), $comment ); ?>>
 
 			<?php
+
 			$comment_row_class = '';
 
 			if ( get_option( 'show_avatars' ) ) {
@@ -793,11 +832,14 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 			}
 			?>
 
-			<?php if ( ! $comment->comment_type || 'comment' === $comment->comment_type ) : ?>
+			<?php
+ if ( ! $comment->comment_type || 'comment' === $comment->comment_type ) : ?>
 
-			<div class="dashboard-comment-wrap has-row-actions <?php echo $comment_row_class; ?>">
+			<div class="dashboard-comment-wrap has-row-actions <?php
+ echo $comment_row_class; ?>">
 			<p class="comment-meta">
 				<?php
+
 				// Comments might not have a post they relate to, e.g. programmatically created ones.
 				if ( $comment_post_link ) {
 					printf(
@@ -819,6 +861,7 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 			</p>
 
 				<?php
+
 			else :
 				switch ( $comment->comment_type ) {
 					case 'pingback':
@@ -835,6 +878,7 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 			<div class="dashboard-comment-wrap has-row-actions">
 			<p class="comment-meta">
 				<?php
+
 				// Pingbacks, Trackbacks or custom comment types might not have a post they relate to, e.g. programmatically created ones.
 				if ( $comment_post_link ) {
 					printf(
@@ -854,16 +898,23 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 				}
 				?>
 			</p>
-			<p class="comment-author"><?php comment_author_link( $comment ); ?></p>
+			<p class="comment-author"><?php
+ comment_author_link( $comment ); ?></p>
 
-			<?php endif; // comment_type ?>
-			<blockquote><p><?php comment_excerpt( $comment ); ?></p></blockquote>
-			<?php if ( $actions_string ) : ?>
-			<p class="row-actions"><?php echo $actions_string; ?></p>
-			<?php endif; ?>
+			<?php
+ endif; // comment_type ?>
+			<blockquote><p><?php
+ comment_excerpt( $comment ); ?></p></blockquote>
+			<?php
+ if ( $actions_string ) : ?>
+			<p class="row-actions"><?php
+ echo $actions_string; ?></p>
+			<?php
+ endif; ?>
 			</div>
 		</li>
 	<?php
+
 	$GLOBALS['comment'] = null;
 }
 
@@ -1208,7 +1259,6 @@ function wp_dashboard_rss_control( $widget_id, $form_inputs = array() ) {
 	wp_widget_rss_form( $widget_options[ $widget_id ], $form_inputs );
 }
 
-
 /**
  * Renders the Events and News dashboard widget.
  *
@@ -1220,11 +1270,13 @@ function wp_dashboard_events_news() {
 	?>
 
 	<div class="wordpress-news hide-if-no-js">
-		<?php wp_dashboard_primary(); ?>
+		<?php
+ wp_dashboard_primary(); ?>
 	</div>
 
 	<p class="community-events-footer">
 		<?php
+
 			printf(
 				'<a href="%1$s" target="_blank">%2$s <span class="screen-reader-text">%3$s</span><span aria-hidden="true" class="dashicons dashicons-external"></span></a>',
 				'https://make.wordpress.org/community/meetups-landing-page',
@@ -1237,6 +1289,7 @@ function wp_dashboard_events_news() {
 		|
 
 		<?php
+
 			printf(
 				'<a href="%1$s" target="_blank">%2$s <span class="screen-reader-text">%3$s</span><span aria-hidden="true" class="dashicons dashicons-external"></span></a>',
 				'https://central.wordcamp.org/schedule/',
@@ -1249,6 +1302,7 @@ function wp_dashboard_events_news() {
 		|
 
 		<?php
+
 			printf(
 				'<a href="%1$s" target="_blank">%2$s <span class="screen-reader-text">%3$s</span><span aria-hidden="true" class="dashicons dashicons-external"></span></a>',
 				/* translators: If a Rosetta site exists (e.g. https://es.wordpress.org/news/), then use that. Otherwise, leave untranslated. */
@@ -1261,6 +1315,7 @@ function wp_dashboard_events_news() {
 	</p>
 
 	<?php
+
 }
 
 /**
@@ -1273,21 +1328,25 @@ function wp_print_community_events_markup() {
 
 	<div class="community-events-errors notice notice-error inline hide-if-js">
 		<p class="hide-if-js">
-			<?php _e( 'This widget requires JavaScript.' ); ?>
+			<?php
+ _e( 'This widget requires JavaScript.' ); ?>
 		</p>
 
 		<p class="community-events-error-occurred" aria-hidden="true">
-			<?php _e( 'An error occurred. Please try again.' ); ?>
+			<?php
+ _e( 'An error occurred. Please try again.' ); ?>
 		</p>
 
 		<p class="community-events-could-not-locate" aria-hidden="true"></p>
 	</div>
 
 	<div class="community-events-loading hide-if-no-js">
-		<?php _e( 'Loading&hellip;' ); ?>
+		<?php
+ _e( 'Loading&hellip;' ); ?>
 	</div>
 
 	<?php
+
 	/*
 	 * Hide the main element when the page first loads, because the content
 	 * won't be ready until wp.communityEvents.renderEventsTemplate() has run.
@@ -1298,16 +1357,20 @@ function wp_print_community_events_markup() {
 			<p>
 				<span id="community-events-location-message"></span>
 
-				<button class="button-link community-events-toggle-location" aria-label="<?php esc_attr_e( 'Edit city' ); ?>" aria-expanded="false">
+				<button class="button-link community-events-toggle-location" aria-label="<?php
+ esc_attr_e( 'Edit city' ); ?>" aria-expanded="false">
 					<span class="dashicons dashicons-edit"></span>
 				</button>
 			</p>
 
-			<form class="community-events-form" aria-hidden="true" action="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" method="post">
+			<form class="community-events-form" aria-hidden="true" action="<?php
+ echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" method="post">
 				<label for="community-events-location">
-					<?php _e( 'City:' ); ?>
+					<?php
+ _e( 'City:' ); ?>
 				</label>
 				<?php
+
 				/* translators: Replace with a city related to your locale.
 				 * Test that it matches the expected location and has upcoming
 				 * events before including it. If no cities related to your
@@ -1317,12 +1380,15 @@ function wp_print_community_events_markup() {
 				 * (native locale name) instead of the English name if possible.
 				 */
 				?>
-				<input id="community-events-location" class="regular-text" type="text" name="community-events-location" placeholder="<?php esc_attr_e( 'Cincinnati' ); ?>" />
+				<input id="community-events-location" class="regular-text" type="text" name="community-events-location" placeholder="<?php
+ esc_attr_e( 'Cincinnati' ); ?>" />
 
-				<?php submit_button( __( 'Submit' ), 'secondary', 'community-events-submit', false ); ?>
+				<?php
+ submit_button( __( 'Submit' ), 'secondary', 'community-events-submit', false ); ?>
 
 				<button class="community-events-cancel button-link" type="button" aria-expanded="false">
-					<?php _e( 'Cancel' ); ?>
+					<?php
+ _e( 'Cancel' ); ?>
 				</button>
 
 				<span class="spinner"></span>
@@ -1333,6 +1399,7 @@ function wp_print_community_events_markup() {
 	</div>
 
 	<?php
+
 }
 
 /**
@@ -1345,6 +1412,7 @@ function wp_print_community_events_templates() {
 
 	<script id="tmpl-community-events-attend-event-near" type="text/template">
 		<?php
+
 		printf(
 			/* translators: %s: The name of a city. */
 			__( 'Attend an upcoming event near %s.' ),
@@ -1355,6 +1423,7 @@ function wp_print_community_events_templates() {
 
 	<script id="tmpl-community-events-could-not-locate" type="text/template">
 		<?php
+
 		printf(
 			/* translators: %s is the name of the city we couldn't locate.
 			 * Replace the examples with cities in your locale, but test
@@ -1392,6 +1461,7 @@ function wp_print_community_events_templates() {
 		<li class="event-none">
 			<# if ( data.location.description ) { #>
 				<?php
+
 				printf(
 					/* translators: 1: The city the user searched for, 2: Meetup organization documentation URL. */
 					__( 'There aren&#8217;t any events scheduled near %1$s at the moment. Would you like to <a href="%2$s">organize a WordPress event</a>?' ),
@@ -1402,6 +1472,7 @@ function wp_print_community_events_templates() {
 
 			<# } else { #>
 				<?php
+
 				printf(
 					/* translators: %s: Meetup organization documentation URL. */
 					__( 'There aren&#8217;t any events scheduled near you at the moment. Would you like to <a href="%s">organize a WordPress event</a>?' ),
@@ -1412,6 +1483,7 @@ function wp_print_community_events_templates() {
 		</li>
 	</script>
 	<?php
+
 }
 
 /**
@@ -1546,11 +1618,13 @@ function wp_dashboard_quota() {
 	$percentused = number_format( $percentused );
 
 	?>
-	<h3 class="mu-storage"><?php _e( 'Storage Space' ); ?></h3>
+	<h3 class="mu-storage"><?php
+ _e( 'Storage Space' ); ?></h3>
 	<div class="mu-storage">
 	<ul>
 		<li class="storage-count">
 			<?php
+
 			$text = sprintf(
 				/* translators: %s: Number of megabytes. */
 				__( '%s MB Space Allowed' ),
@@ -1563,8 +1637,10 @@ function wp_dashboard_quota() {
 				__( 'Manage Uploads' )
 			);
 			?>
-		</li><li class="storage-count <?php echo $used_class; ?>">
+		</li><li class="storage-count <?php
+ echo $used_class; ?>">
 			<?php
+
 			$text = sprintf(
 				/* translators: 1: Number of megabytes, 2: Percentage. */
 				__( '%1$s MB (%2$s%%) Space Used' ),
@@ -1582,6 +1658,7 @@ function wp_dashboard_quota() {
 	</ul>
 	</div>
 	<?php
+
 }
 
 /**
@@ -1741,13 +1818,17 @@ function wp_dashboard_php_nag() {
 	}
 
 	?>
-	<p><?php echo $msg; ?></p>
+	<p><?php
+ echo $msg; ?></p>
 
-	<h3><?php _e( 'What is PHP and how does it affect my site?' ); ?></h3>
-	<p><?php _e( 'PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site&#8217;s performance.' ); ?></p>
+	<h3><?php
+ _e( 'What is PHP and how does it affect my site?' ); ?></h3>
+	<p><?php
+ _e( 'PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site&#8217;s performance.' ); ?></p>
 
 	<p class="button-container">
 		<?php
+
 		printf(
 			'<a class="button button-primary" href="%1$s" target="_blank" rel="noopener noreferrer">%2$s <span class="screen-reader-text">%3$s</span><span aria-hidden="true" class="dashicons dashicons-external"></span></a>',
 			esc_url( wp_get_update_php_url() ),
@@ -1813,17 +1894,24 @@ function wp_dashboard_site_health() {
 			</svg>
 		</div>
 		<div class="site-health-progress-label">
-			<?php if ( false === $get_issues ) : ?>
-				<?php _e( 'No information yet&hellip;' ); ?>
-			<?php else : ?>
-				<?php _e( 'Results are still loading&hellip;' ); ?>
-			<?php endif; ?>
+			<?php
+ if ( false === $get_issues ) : ?>
+				<?php
+ _e( 'No information yet&hellip;' ); ?>
+			<?php
+ else : ?>
+				<?php
+ _e( 'Results are still loading&hellip;' ); ?>
+			<?php
+ endif; ?>
 		</div>
 	</div>
 
-	<?php if ( false === $get_issues ) : ?>
+	<?php
+ if ( false === $get_issues ) : ?>
 		<p>
 			<?php
+
 			printf(
 				/* translators: %s: URL to Site Health screen. */
 				__( 'Site health checks will automatically run periodically to gather information about your site. You can also <a href="%s">visit the Site Health screen</a> to gather information about your site now.' ),
@@ -1831,21 +1919,32 @@ function wp_dashboard_site_health() {
 			);
 			?>
 		</p>
-	<?php else : ?>
-		<p>
-			<?php if ( $issue_counts['critical'] > 0 ) : ?>
-				<?php _e( 'Your site has critical issues that should be addressed as soon as possible to improve its performance and security.' ); ?>
-			<?php elseif ( $issues_total <= 0 ) : ?>
-				<?php _e( 'Great job! Your site currently passes all site health checks.' ); ?>
-			<?php else : ?>
-				<?php _e( 'Your site&#8217;s health is looking good, but there are still some things you can do to improve its performance and security.' ); ?>
-			<?php endif; ?>
-		</p>
-	<?php endif; ?>
-
-	<?php if ( $issues_total > 0 && false !== $get_issues ) : ?>
+	<?php
+ else : ?>
 		<p>
 			<?php
+ if ( $issue_counts['critical'] > 0 ) : ?>
+				<?php
+ _e( 'Your site has critical issues that should be addressed as soon as possible to improve its performance and security.' ); ?>
+			<?php
+ elseif ( $issues_total <= 0 ) : ?>
+				<?php
+ _e( 'Great job! Your site currently passes all site health checks.' ); ?>
+			<?php
+ else : ?>
+				<?php
+ _e( 'Your site&#8217;s health is looking good, but there are still some things you can do to improve its performance and security.' ); ?>
+			<?php
+ endif; ?>
+		</p>
+	<?php
+ endif; ?>
+
+	<?php
+ if ( $issues_total > 0 && false !== $get_issues ) : ?>
+		<p>
+			<?php
+
 			printf(
 				/* translators: 1: Number of issues. 2: URL to Site Health screen. */
 				_n(
@@ -1858,9 +1957,11 @@ function wp_dashboard_site_health() {
 			);
 			?>
 		</p>
-	<?php endif; ?>
+	<?php
+ endif; ?>
 
 	<?php
+
 }
 
 /**
@@ -1878,59 +1979,98 @@ function wp_dashboard_empty() {}
 function wp_welcome_panel() {
 	?>
 	<div class="welcome-panel-content">
-	<h2><?php _e( 'Welcome to WordPress!' ); ?></h2>
-	<p class="about-description"><?php _e( 'We&#8217;ve assembled some links to get you started:' ); ?></p>
+	<h2><?php
+ _e( 'Welcome to WordPress!' ); ?></h2>
+	<p class="about-description"><?php
+ _e( 'We&#8217;ve assembled some links to get you started:' ); ?></p>
 	<div class="welcome-panel-column-container">
 	<div class="welcome-panel-column">
-		<?php if ( current_user_can( 'customize' ) ) : ?>
-			<h3><?php _e( 'Get Started' ); ?></h3>
-			<a class="button button-primary button-hero load-customize hide-if-no-customize" href="<?php echo wp_customize_url(); ?>"><?php _e( 'Customize Your Site' ); ?></a>
-		<?php endif; ?>
-		<a class="button button-primary button-hero hide-if-customize" href="<?php echo admin_url( 'themes.php' ); ?>"><?php _e( 'Customize Your Site' ); ?></a>
-		<?php if ( current_user_can( 'install_themes' ) || ( current_user_can( 'switch_themes' ) && count( wp_get_themes( array( 'allowed' => true ) ) ) > 1 ) ) : ?>
-			<?php $themes_link = current_user_can( 'customize' ) ? add_query_arg( 'autofocus[panel]', 'themes', admin_url( 'customize.php' ) ) : admin_url( 'themes.php' ); ?>
+		<?php
+ if ( current_user_can( 'customize' ) ) : ?>
+			<h3><?php
+ _e( 'Get Started' ); ?></h3>
+			<a class="button button-primary button-hero load-customize hide-if-no-customize" href="<?php
+ echo wp_customize_url(); ?>"><?php
+ _e( 'Customize Your Site' ); ?></a>
+		<?php
+ endif; ?>
+		<a class="button button-primary button-hero hide-if-customize" href="<?php
+ echo admin_url( 'themes.php' ); ?>"><?php
+ _e( 'Customize Your Site' ); ?></a>
+		<?php
+ if ( current_user_can( 'install_themes' ) || ( current_user_can( 'switch_themes' ) && count( wp_get_themes( array( 'allowed' => true ) ) ) > 1 ) ) : ?>
+			<?php
+ $themes_link = current_user_can( 'customize' ) ? add_query_arg( 'autofocus[panel]', 'themes', admin_url( 'customize.php' ) ) : admin_url( 'themes.php' ); ?>
 			<p class="hide-if-no-customize">
 				<?php
+
 					/* translators: %s: URL to Themes panel in Customizer or Themes screen. */
 					printf( __( 'or, <a href="%s">change your theme completely</a>' ), $themes_link );
 				?>
 			</p>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 	</div>
 	<div class="welcome-panel-column">
-		<h3><?php _e( 'Next Steps' ); ?></h3>
+		<h3><?php
+ _e( 'Next Steps' ); ?></h3>
 		<ul>
-		<?php if ( 'page' === get_option( 'show_on_front' ) && ! get_option( 'page_for_posts' ) ) : ?>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
-		<?php elseif ( 'page' === get_option( 'show_on_front' ) ) : ?>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-write-blog">' . __( 'Add a blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
-		<?php else : ?>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-write-blog">' . __( 'Write your first blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add an About page' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-setup-home">' . __( 'Set up your homepage' ) . '</a>', current_user_can( 'customize' ) ? add_query_arg( 'autofocus[section]', 'static_front_page', admin_url( 'customize.php' ) ) : admin_url( 'options-reading.php' ) ); ?></li>
-		<?php endif; ?>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'View your site' ) . '</a>', home_url( '/' ) ); ?></li>
+		<?php
+ if ( 'page' === get_option( 'show_on_front' ) && ! get_option( 'page_for_posts' ) ) : ?>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+		<?php
+ elseif ( 'page' === get_option( 'show_on_front' ) ) : ?>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-write-blog">' . __( 'Add a blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
+		<?php
+ else : ?>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-write-blog">' . __( 'Write your first blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add an About page' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-setup-home">' . __( 'Set up your homepage' ) . '</a>', current_user_can( 'customize' ) ? add_query_arg( 'autofocus[section]', 'static_front_page', admin_url( 'customize.php' ) ) : admin_url( 'options-reading.php' ) ); ?></li>
+		<?php
+ endif; ?>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'View your site' ) . '</a>', home_url( '/' ) ); ?></li>
 		</ul>
 	</div>
 	<div class="welcome-panel-column welcome-panel-last">
-		<h3><?php _e( 'More Actions' ); ?></h3>
+		<h3><?php
+ _e( 'More Actions' ); ?></h3>
 		<ul>
-		<?php if ( current_theme_supports( 'widgets' ) ) : ?>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-widgets">' . __( 'Manage widgets' ) . '</a>', admin_url( 'widgets.php' ) ); ?></li>
-		<?php endif; ?>
-		<?php if ( current_theme_supports( 'menus' ) ) : ?>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-menus">' . __( 'Manage menus' ) . '</a>', admin_url( 'nav-menus.php' ) ); ?></li>
-		<?php endif; ?>
-		<?php if ( current_user_can( 'manage_options' ) ) : ?>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-comments">' . __( 'Turn comments on or off' ) . '</a>', admin_url( 'options-discussion.php' ) ); ?></li>
-		<?php endif; ?>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-learn-more">' . __( 'Learn more about getting started' ) . '</a>', __( 'https://wordpress.org/support/article/first-steps-with-wordpress/' ) ); ?></li>
+		<?php
+ if ( current_theme_supports( 'widgets' ) ) : ?>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-widgets">' . __( 'Manage widgets' ) . '</a>', admin_url( 'widgets.php' ) ); ?></li>
+		<?php
+ endif; ?>
+		<?php
+ if ( current_theme_supports( 'menus' ) ) : ?>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-menus">' . __( 'Manage menus' ) . '</a>', admin_url( 'nav-menus.php' ) ); ?></li>
+		<?php
+ endif; ?>
+		<?php
+ if ( current_user_can( 'manage_options' ) ) : ?>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-comments">' . __( 'Turn comments on or off' ) . '</a>', admin_url( 'options-discussion.php' ) ); ?></li>
+		<?php
+ endif; ?>
+			<li><?php
+ printf( '<a href="%s" class="welcome-icon welcome-learn-more">' . __( 'Learn more about getting started' ) . '</a>', __( 'https://wordpress.org/support/article/first-steps-with-wordpress/' ) ); ?></li>
 		</ul>
 	</div>
 	</div>
 	</div>
 	<?php
+
 }

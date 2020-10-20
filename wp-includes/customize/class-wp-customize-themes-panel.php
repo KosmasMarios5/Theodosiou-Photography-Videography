@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Themes_Panel class
  *
@@ -38,6 +39,7 @@ class WP_Customize_Themes_Panel extends WP_Customize_Panel {
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-panel-themes">
 			<h3 class="accordion-section-title">
 				<?php
+
 				if ( $this->manager->is_theme_active() ) {
 					echo '<span class="customize-action">' . __( 'Active theme' ) . '</span> {{ data.title }}';
 				} else {
@@ -45,13 +47,18 @@ class WP_Customize_Themes_Panel extends WP_Customize_Panel {
 				}
 				?>
 
-				<?php if ( current_user_can( 'switch_themes' ) ) : ?>
-					<button type="button" class="button change-theme" aria-label="<?php esc_attr_e( 'Change theme' ); ?>"><?php _ex( 'Change', 'theme' ); ?></button>
-				<?php endif; ?>
+				<?php
+ if ( current_user_can( 'switch_themes' ) ) : ?>
+					<button type="button" class="button change-theme" aria-label="<?php
+ esc_attr_e( 'Change theme' ); ?>"><?php
+ _ex( 'Change', 'theme' ); ?></button>
+				<?php
+ endif; ?>
 			</h3>
 			<ul class="accordion-sub-container control-panel-content"></ul>
 		</li>
 		<?php
+
 	}
 
 	/**
@@ -67,10 +74,12 @@ class WP_Customize_Themes_Panel extends WP_Customize_Panel {
 	protected function content_template() {
 		?>
 		<li class="panel-meta customize-info accordion-section <# if ( ! data.description ) { #> cannot-expand<# } #>">
-			<button class="customize-panel-back" tabindex="-1" type="button"><span class="screen-reader-text"><?php _e( 'Back' ); ?></span></button>
+			<button class="customize-panel-back" tabindex="-1" type="button"><span class="screen-reader-text"><?php
+ _e( 'Back' ); ?></span></button>
 			<div class="accordion-section-title">
 				<span class="preview-notice">
 					<?php
+
 					printf(
 						/* translators: %s: Themes panel title in the Customizer. */
 						__( 'You are browsing %s' ),
@@ -78,19 +87,24 @@ class WP_Customize_Themes_Panel extends WP_Customize_Panel {
 					); // Separate strings for consistency with other panels.
 					?>
 				</span>
-				<?php if ( current_user_can( 'install_themes' ) && ! is_multisite() ) : ?>
+				<?php
+ if ( current_user_can( 'install_themes' ) && ! is_multisite() ) : ?>
 					<# if ( data.description ) { #>
-						<button class="customize-help-toggle dashicons dashicons-editor-help" type="button" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+						<button class="customize-help-toggle dashicons dashicons-editor-help" type="button" aria-expanded="false"><span class="screen-reader-text"><?php
+ _e( 'Help' ); ?></span></button>
 					<# } #>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 			</div>
-			<?php if ( current_user_can( 'install_themes' ) && ! is_multisite() ) : ?>
+			<?php
+ if ( current_user_can( 'install_themes' ) && ! is_multisite() ) : ?>
 				<# if ( data.description ) { #>
 					<div class="description customize-panel-description">
 						{{{ data.description }}}
 					</div>
 				<# } #>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 
 			<div class="customize-control-notifications-container"></div>
 		</li>
@@ -100,5 +114,6 @@ class WP_Customize_Themes_Panel extends WP_Customize_Panel {
 			</div>
 		</li>
 		<?php
+
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Logger;
 
 use Elementor\Core\Base\Module as BaseModule;

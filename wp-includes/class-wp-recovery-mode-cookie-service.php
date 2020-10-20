@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Error Protection API: WP_Recovery_Mode_Cookie_Service class
  *

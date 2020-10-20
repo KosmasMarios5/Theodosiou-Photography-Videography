@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Base;
 
 use Elementor\Core\Files\CSS\Post as Post_CSS;
@@ -824,18 +825,25 @@ abstract class Document extends Controls_Stack {
 		$is_legacy_mode_active = Plugin::instance()->get_legacy_mode( 'elementWrappers' );
 
 		?>
-		<div <?php echo Utils::render_html_attributes( $this->get_container_attributes() ); ?>>
-			<?php if ( $is_legacy_mode_active ) { ?>
+		<div <?php
+ echo Utils::render_html_attributes( $this->get_container_attributes() ); ?>>
+			<?php
+ if ( $is_legacy_mode_active ) { ?>
 			<div class="elementor-inner">
-			<?php } ?>
+			<?php
+ } ?>
 				<div class="elementor-section-wrap">
-					<?php $this->print_elements( $elements_data ); ?>
+					<?php
+ $this->print_elements( $elements_data ); ?>
 				</div>
-			<?php if ( $is_legacy_mode_active ) { ?>
+			<?php
+ if ( $is_legacy_mode_active ) { ?>
 			</div>
-			<?php } ?>
+			<?php
+ } ?>
 		</div>
 		<?php
+
 	}
 
 	/**

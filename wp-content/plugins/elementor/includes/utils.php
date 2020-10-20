@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -179,7 +180,6 @@ class Utils {
 
 		return $is_supported;
 	}
-
 
 	/**
 	 * Is post type supports Elementor.

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Administration Media API.
  *
@@ -269,9 +270,11 @@ function media_send_to_editor( $html ) {
 	?>
 	<script type="text/javascript">
 	var win = window.dialogArguments || opener || parent || top;
-	win.send_to_editor( <?php echo wp_json_encode( $html ); ?> );
+	win.send_to_editor( <?php
+ echo wp_json_encode( $html ); ?> );
 	</script>
 	<?php
+
 	exit;
 }
 
@@ -515,7 +518,10 @@ function media_handle_sideload( $file_array, $post_id = 0, $desc = null, $post_d
 function wp_iframe( $content_func, ...$args ) {
 	_wp_admin_html_begin();
 	?>
-	<title><?php bloginfo( 'name' ); ?> &rsaquo; <?php _e( 'Uploads' ); ?> &#8212; <?php _e( 'WordPress' ); ?></title>
+	<title><?php
+ bloginfo( 'name' ); ?> &rsaquo; <?php
+ _e( 'Uploads' ); ?> &#8212; <?php
+ _e( 'WordPress' ); ?></title>
 	<?php
 
 	wp_enqueue_style( 'colors' );
@@ -530,10 +536,13 @@ function wp_iframe( $content_func, ...$args ) {
 	?>
 	<script type="text/javascript">
 	addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
-	var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>', pagenow = 'media-upload-popup', adminpage = 'media-upload-popup',
-	isRtl = <?php echo (int) is_rtl(); ?>;
+	var ajaxurl = '<?php
+ echo admin_url( 'admin-ajax.php', 'relative' ); ?>', pagenow = 'media-upload-popup', adminpage = 'media-upload-popup',
+	isRtl = <?php
+ echo (int) is_rtl(); ?>;
 	</script>
 	<?php
+
 	/** This action is documented in wp-admin/admin-header.php */
 	do_action( 'admin_enqueue_scripts', 'media-upload-popup' );
 
@@ -591,7 +600,8 @@ function wp_iframe( $content_func, ...$args ) {
 
 	?>
 	</head>
-	<body<?php echo $body_id_attr; ?> class="wp-core-ui no-js">
+	<body<?php
+ echo $body_id_attr; ?> class="wp-core-ui no-js">
 	<script type="text/javascript">
 	document.body.className = document.body.className.replace('no-js', 'js');
 	</script>
@@ -607,6 +617,7 @@ function wp_iframe( $content_func, ...$args ) {
 	</body>
 	</html>
 	<?php
+
 }
 
 /**
@@ -2173,6 +2184,7 @@ function media_upload_form( $errors = null ) {
 	?>
 	<script type="text/javascript">
 	<?php
+
 	// Verify size is an int. If not return default value.
 	$large_size_h = absint( get_option( 'large_size_h' ) );
 
@@ -2187,12 +2199,16 @@ function media_upload_form( $errors = null ) {
 	}
 
 	?>
-	var resize_height = <?php echo $large_size_h; ?>, resize_width = <?php echo $large_size_w; ?>,
-	wpUploaderInit = <?php echo wp_json_encode( $plupload_init ); ?>;
+	var resize_height = <?php
+ echo $large_size_h; ?>, resize_width = <?php
+ echo $large_size_w; ?>,
+	wpUploaderInit = <?php
+ echo wp_json_encode( $plupload_init ); ?>;
 	</script>
 
 	<div id="plupload-upload-ui" class="hide-if-no-js">
 	<?php
+
 	/**
 	 * Fires before the upload interface loads.
 	 *
@@ -2204,12 +2220,16 @@ function media_upload_form( $errors = null ) {
 	?>
 	<div id="drag-drop-area">
 		<div class="drag-drop-inside">
-		<p class="drag-drop-info"><?php _e( 'Drop files to upload' ); ?></p>
-		<p><?php _ex( 'or', 'Uploader: Drop files here - or - Select Files' ); ?></p>
-		<p class="drag-drop-buttons"><input id="plupload-browse-button" type="button" value="<?php esc_attr_e( 'Select Files' ); ?>" class="button" /></p>
+		<p class="drag-drop-info"><?php
+ _e( 'Drop files to upload' ); ?></p>
+		<p><?php
+ _ex( 'or', 'Uploader: Drop files here - or - Select Files' ); ?></p>
+		<p class="drag-drop-buttons"><input id="plupload-browse-button" type="button" value="<?php
+ esc_attr_e( 'Select Files' ); ?>" class="button" /></p>
 		</div>
 	</div>
 	<?php
+
 	/**
 	 * Fires after the upload interface loads.
 	 *
@@ -2222,6 +2242,7 @@ function media_upload_form( $errors = null ) {
 
 	<div id="html-upload-ui" class="hide-if-js">
 	<?php
+
 	/**
 	 * Fires before the upload button in the media upload interface.
 	 *
@@ -2231,13 +2252,17 @@ function media_upload_form( $errors = null ) {
 
 	?>
 	<p id="async-upload-wrap">
-		<label class="screen-reader-text" for="async-upload"><?php _e( 'Upload' ); ?></label>
+		<label class="screen-reader-text" for="async-upload"><?php
+ _e( 'Upload' ); ?></label>
 		<input type="file" name="async-upload" id="async-upload" />
-		<?php submit_button( __( 'Upload' ), 'primary', 'html-upload', false ); ?>
-		<a href="#" onclick="try{top.tb_remove();}catch(e){}; return false;"><?php _e( 'Cancel' ); ?></a>
+		<?php
+ submit_button( __( 'Upload' ), 'primary', 'html-upload', false ); ?>
+		<a href="#" onclick="try{top.tb_remove();}catch(e){}; return false;"><?php
+ _e( 'Cancel' ); ?></a>
 	</p>
 	<div class="clear"></div>
 	<?php
+
 	/**
 	 * Fires after the upload button in the media upload interface.
 	 *
@@ -2250,6 +2275,7 @@ function media_upload_form( $errors = null ) {
 
 <p class="max-upload-size">
 	<?php
+
 	/* translators: %s: Maximum allowed file size. */
 	printf( __( 'Maximum upload file size: %s.' ), esc_html( size_format( $max_upload_size ) ) );
 	?>
@@ -2299,14 +2325,22 @@ function media_upload_type_form( $type = 'file', $errors = null, $id = null ) {
 	}
 
 	?>
-	<form enctype="multipart/form-data" method="post" action="<?php echo esc_url( $form_action_url ); ?>" class="<?php echo $form_class; ?>" id="<?php echo $type; ?>-form">
-		<?php submit_button( '', 'hidden', 'save', false ); ?>
-	<input type="hidden" name="post_id" id="post_id" value="<?php echo (int) $post_id; ?>" />
-		<?php wp_nonce_field( 'media-form' ); ?>
+	<form enctype="multipart/form-data" method="post" action="<?php
+ echo esc_url( $form_action_url ); ?>" class="<?php
+ echo $form_class; ?>" id="<?php
+ echo $type; ?>-form">
+		<?php
+ submit_button( '', 'hidden', 'save', false ); ?>
+	<input type="hidden" name="post_id" id="post_id" value="<?php
+ echo (int) $post_id; ?>" />
+		<?php
+ wp_nonce_field( 'media-form' ); ?>
 
-	<h3 class="media-title"><?php _e( 'Add media files from your computer' ); ?></h3>
+	<h3 class="media-title"><?php
+ _e( 'Add media files from your computer' ); ?></h3>
 
-	<?php media_upload_form( $errors ); ?>
+	<?php
+ media_upload_form( $errors ); ?>
 
 	<script type="text/javascript">
 	jQuery(function($){
@@ -2334,10 +2368,12 @@ function media_upload_type_form( $type = 'file', $errors = null, $id = null ) {
 	</div>
 
 	<p class="savebutton ml-submit">
-		<?php submit_button( __( 'Save all changes' ), '', 'save', false ); ?>
+		<?php
+ submit_button( __( 'Save all changes' ), '', 'save', false ); ?>
 	</p>
 	</form>
 	<?php
+
 }
 
 /**
@@ -2368,11 +2404,17 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 	}
 
 	?>
-	<form enctype="multipart/form-data" method="post" action="<?php echo esc_url( $form_action_url ); ?>" class="<?php echo $form_class; ?>" id="<?php echo $type; ?>-form">
-	<input type="hidden" name="post_id" id="post_id" value="<?php echo (int) $post_id; ?>" />
-		<?php wp_nonce_field( 'media-form' ); ?>
+	<form enctype="multipart/form-data" method="post" action="<?php
+ echo esc_url( $form_action_url ); ?>" class="<?php
+ echo $form_class; ?>" id="<?php
+ echo $type; ?>-form">
+	<input type="hidden" name="post_id" id="post_id" value="<?php
+ echo (int) $post_id; ?>" />
+		<?php
+ wp_nonce_field( 'media-form' ); ?>
 
-	<h3 class="media-title"><?php _e( 'Insert media from another website' ); ?></h3>
+	<h3 class="media-title"><?php
+ _e( 'Insert media from another website' ); ?></h3>
 
 	<script type="text/javascript">
 	var addExtImage = {
@@ -2391,6 +2433,7 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 			alt = f.alt.value.replace(/'/g, '&#039;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 		<?php
+
 		/** This filter is documented in wp-admin/includes/media.php */
 		if ( ! apply_filters( 'disable_captions', '' ) ) {
 			?>
@@ -2403,6 +2446,7 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 				caption = caption.replace(/\s*\n\s*/g, '<br />');
 			}
 			<?php
+
 		}
 
 		?>
@@ -2430,7 +2474,8 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 		document.getElementById('go_button').style.color = '#bbb';
 		if ( ! document.forms[0].src.value )
 			document.getElementById('status_img').innerHTML = '';
-		else document.getElementById('status_img').innerHTML = '<img src="<?php echo esc_url( admin_url( 'images/no.png' ) ); ?>" alt="" />';
+		else document.getElementById('status_img').innerHTML = '<img src="<?php
+ echo esc_url( admin_url( 'images/no.png' ) ); ?>" alt="" />';
 	},
 
 	updateImageData : function() {
@@ -2439,7 +2484,8 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 		t.width = t.preloadImg.width;
 		t.height = t.preloadImg.height;
 		document.getElementById('go_button').style.color = '#333';
-		document.getElementById('status_img').innerHTML = '<img src="<?php echo esc_url( admin_url( 'images/yes.png' ) ); ?>" alt="" />';
+		document.getElementById('status_img').innerHTML = '<img src="<?php
+ echo esc_url( admin_url( 'images/yes.png' ) ); ?>" alt="" />';
 	},
 
 	getImageData : function() {
@@ -2453,7 +2499,8 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 			return false;
 		}
 
-		document.getElementById('status_img').innerHTML = '<img src="<?php echo esc_url( admin_url( 'images/spinner-2x.gif' ) ); ?>" alt="" width="16" height="16" />';
+		document.getElementById('status_img').innerHTML = '<img src="<?php
+ echo esc_url( admin_url( 'images/spinner-2x.gif' ) ); ?>" alt="" width="16" height="16" />';
 		t.preloadImg = new Image();
 		t.preloadImg.onload = t.updateImageData;
 		t.preloadImg.onerror = t.resetImageData;
@@ -2471,6 +2518,7 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 	<div id="media-items">
 	<div class="media-item media-blank">
 	<?php
+
 	/**
 	 * Filters the insert media from URL form HTML.
 	 *
@@ -2485,6 +2533,7 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 	</div>
 	</form>
 	<?php
+
 }
 
 /**
@@ -2526,32 +2575,49 @@ function media_upload_gallery_form( $errors ) {
 	</script>
 	<div id="sort-buttons" class="hide-if-no-js">
 	<span>
-		<?php _e( 'All Tabs:' ); ?>
-	<a href="#" id="showall"><?php _e( 'Show' ); ?></a>
-	<a href="#" id="hideall" style="display:none;"><?php _e( 'Hide' ); ?></a>
+		<?php
+ _e( 'All Tabs:' ); ?>
+	<a href="#" id="showall"><?php
+ _e( 'Show' ); ?></a>
+	<a href="#" id="hideall" style="display:none;"><?php
+ _e( 'Hide' ); ?></a>
 	</span>
-		<?php _e( 'Sort Order:' ); ?>
-	<a href="#" id="asc"><?php _e( 'Ascending' ); ?></a> |
-	<a href="#" id="desc"><?php _e( 'Descending' ); ?></a> |
-	<a href="#" id="clear"><?php _ex( 'Clear', 'verb' ); ?></a>
+		<?php
+ _e( 'Sort Order:' ); ?>
+	<a href="#" id="asc"><?php
+ _e( 'Ascending' ); ?></a> |
+	<a href="#" id="desc"><?php
+ _e( 'Descending' ); ?></a> |
+	<a href="#" id="clear"><?php
+ _ex( 'Clear', 'verb' ); ?></a>
 	</div>
-	<form enctype="multipart/form-data" method="post" action="<?php echo esc_url( $form_action_url ); ?>" class="<?php echo $form_class; ?>" id="gallery-form">
-		<?php wp_nonce_field( 'media-form' ); ?>
-		<?php // media_upload_form( $errors ); ?>
+	<form enctype="multipart/form-data" method="post" action="<?php
+ echo esc_url( $form_action_url ); ?>" class="<?php
+ echo $form_class; ?>" id="gallery-form">
+		<?php
+ wp_nonce_field( 'media-form' ); ?>
+		<?php
+ // media_upload_form( $errors ); ?>
 	<table class="widefat">
 	<thead><tr>
-	<th><?php _e( 'Media' ); ?></th>
-	<th class="order-head"><?php _e( 'Order' ); ?></th>
-	<th class="actions-head"><?php _e( 'Actions' ); ?></th>
+	<th><?php
+ _e( 'Media' ); ?></th>
+	<th class="order-head"><?php
+ _e( 'Order' ); ?></th>
+	<th class="actions-head"><?php
+ _e( 'Actions' ); ?></th>
 	</tr></thead>
 	</table>
 	<div id="media-items">
-		<?php add_filter( 'attachment_fields_to_edit', 'media_post_single_attachment_fields_to_edit', 10, 2 ); ?>
-		<?php echo get_media_items( $post_id, $errors ); ?>
+		<?php
+ add_filter( 'attachment_fields_to_edit', 'media_post_single_attachment_fields_to_edit', 10, 2 ); ?>
+		<?php
+ echo get_media_items( $post_id, $errors ); ?>
 	</div>
 
 	<p class="ml-submit">
 		<?php
+
 		submit_button(
 			__( 'Save all changes' ),
 			'savebutton',
@@ -2563,41 +2629,53 @@ function media_upload_gallery_form( $errors ) {
 			)
 		);
 		?>
-	<input type="hidden" name="post_id" id="post_id" value="<?php echo (int) $post_id; ?>" />
-	<input type="hidden" name="type" value="<?php echo esc_attr( $GLOBALS['type'] ); ?>" />
-	<input type="hidden" name="tab" value="<?php echo esc_attr( $GLOBALS['tab'] ); ?>" />
+	<input type="hidden" name="post_id" id="post_id" value="<?php
+ echo (int) $post_id; ?>" />
+	<input type="hidden" name="type" value="<?php
+ echo esc_attr( $GLOBALS['type'] ); ?>" />
+	<input type="hidden" name="tab" value="<?php
+ echo esc_attr( $GLOBALS['tab'] ); ?>" />
 	</p>
 
 	<div id="gallery-settings" style="display:none;">
-	<div class="title"><?php _e( 'Gallery Settings' ); ?></div>
+	<div class="title"><?php
+ _e( 'Gallery Settings' ); ?></div>
 	<table id="basic" class="describe"><tbody>
 		<tr>
 		<th scope="row" class="label">
 			<label>
-			<span class="alignleft"><?php _e( 'Link thumbnails to:' ); ?></span>
+			<span class="alignleft"><?php
+ _e( 'Link thumbnails to:' ); ?></span>
 			</label>
 		</th>
 		<td class="field">
 			<input type="radio" name="linkto" id="linkto-file" value="file" />
-			<label for="linkto-file" class="radio"><?php _e( 'Image File' ); ?></label>
+			<label for="linkto-file" class="radio"><?php
+ _e( 'Image File' ); ?></label>
 
 			<input type="radio" checked="checked" name="linkto" id="linkto-post" value="post" />
-			<label for="linkto-post" class="radio"><?php _e( 'Attachment Page' ); ?></label>
+			<label for="linkto-post" class="radio"><?php
+ _e( 'Attachment Page' ); ?></label>
 		</td>
 		</tr>
 
 		<tr>
 		<th scope="row" class="label">
 			<label>
-			<span class="alignleft"><?php _e( 'Order images by:' ); ?></span>
+			<span class="alignleft"><?php
+ _e( 'Order images by:' ); ?></span>
 			</label>
 		</th>
 		<td class="field">
 			<select id="orderby" name="orderby">
-				<option value="menu_order" selected="selected"><?php _e( 'Menu order' ); ?></option>
-				<option value="title"><?php _e( 'Title' ); ?></option>
-				<option value="post_date"><?php _e( 'Date/Time' ); ?></option>
-				<option value="rand"><?php _e( 'Random' ); ?></option>
+				<option value="menu_order" selected="selected"><?php
+ _e( 'Menu order' ); ?></option>
+				<option value="title"><?php
+ _e( 'Title' ); ?></option>
+				<option value="post_date"><?php
+ _e( 'Date/Time' ); ?></option>
+				<option value="rand"><?php
+ _e( 'Random' ); ?></option>
 			</select>
 		</td>
 		</tr>
@@ -2605,22 +2683,26 @@ function media_upload_gallery_form( $errors ) {
 		<tr>
 		<th scope="row" class="label">
 			<label>
-			<span class="alignleft"><?php _e( 'Order:' ); ?></span>
+			<span class="alignleft"><?php
+ _e( 'Order:' ); ?></span>
 			</label>
 		</th>
 		<td class="field">
 			<input type="radio" checked="checked" name="order" id="order-asc" value="asc" />
-			<label for="order-asc" class="radio"><?php _e( 'Ascending' ); ?></label>
+			<label for="order-asc" class="radio"><?php
+ _e( 'Ascending' ); ?></label>
 
 			<input type="radio" name="order" id="order-desc" value="desc" />
-			<label for="order-desc" class="radio"><?php _e( 'Descending' ); ?></label>
+			<label for="order-desc" class="radio"><?php
+ _e( 'Descending' ); ?></label>
 		</td>
 		</tr>
 
 		<tr>
 		<th scope="row" class="label">
 			<label>
-			<span class="alignleft"><?php _e( 'Gallery columns:' ); ?></span>
+			<span class="alignleft"><?php
+ _e( 'Gallery columns:' ); ?></span>
 			</label>
 		</th>
 		<td class="field">
@@ -2640,12 +2722,15 @@ function media_upload_gallery_form( $errors ) {
 	</tbody></table>
 
 	<p class="ml-submit">
-	<input type="button" class="button" style="display:none;" onMouseDown="wpgallery.update();" name="insert-gallery" id="insert-gallery" value="<?php esc_attr_e( 'Insert gallery' ); ?>" />
-	<input type="button" class="button" style="display:none;" onMouseDown="wpgallery.update();" name="update-gallery" id="update-gallery" value="<?php esc_attr_e( 'Update gallery settings' ); ?>" />
+	<input type="button" class="button" style="display:none;" onMouseDown="wpgallery.update();" name="insert-gallery" id="insert-gallery" value="<?php
+ esc_attr_e( 'Insert gallery' ); ?>" />
+	<input type="button" class="button" style="display:none;" onMouseDown="wpgallery.update();" name="update-gallery" id="update-gallery" value="<?php
+ esc_attr_e( 'Update gallery settings' ); ?>" />
 	</p>
 	</div>
 	</form>
 	<?php
+
 }
 
 /**
@@ -2693,20 +2778,29 @@ function media_upload_library_form( $errors ) {
 
 	?>
 	<form id="filter" method="get">
-	<input type="hidden" name="type" value="<?php echo esc_attr( $type ); ?>" />
-	<input type="hidden" name="tab" value="<?php echo esc_attr( $tab ); ?>" />
-	<input type="hidden" name="post_id" value="<?php echo (int) $post_id; ?>" />
-	<input type="hidden" name="post_mime_type" value="<?php echo isset( $_GET['post_mime_type'] ) ? esc_attr( $_GET['post_mime_type'] ) : ''; ?>" />
-	<input type="hidden" name="context" value="<?php echo isset( $_GET['context'] ) ? esc_attr( $_GET['context'] ) : ''; ?>" />
+	<input type="hidden" name="type" value="<?php
+ echo esc_attr( $type ); ?>" />
+	<input type="hidden" name="tab" value="<?php
+ echo esc_attr( $tab ); ?>" />
+	<input type="hidden" name="post_id" value="<?php
+ echo (int) $post_id; ?>" />
+	<input type="hidden" name="post_mime_type" value="<?php
+ echo isset( $_GET['post_mime_type'] ) ? esc_attr( $_GET['post_mime_type'] ) : ''; ?>" />
+	<input type="hidden" name="context" value="<?php
+ echo isset( $_GET['context'] ) ? esc_attr( $_GET['context'] ) : ''; ?>" />
 
 	<p id="media-search" class="search-box">
-		<label class="screen-reader-text" for="media-search-input"><?php _e( 'Search Media' ); ?>:</label>
-		<input type="search" id="media-search-input" name="s" value="<?php the_search_query(); ?>" />
-		<?php submit_button( __( 'Search Media' ), '', '', false ); ?>
+		<label class="screen-reader-text" for="media-search-input"><?php
+ _e( 'Search Media' ); ?>:</label>
+		<input type="search" id="media-search-input" name="s" value="<?php
+ the_search_query(); ?>" />
+		<?php
+ submit_button( __( 'Search Media' ), '', '', false ); ?>
 	</p>
 
 	<ul class="subsubsub">
 		<?php
+
 		$type_links = array();
 		$_num_posts = (array) wp_count_attachments();
 		$matches    = wp_match_mime_types( array_keys( $post_mime_types ), array_keys( $_num_posts ) );
@@ -2775,6 +2869,7 @@ function media_upload_library_form( $errors ) {
 	<div class="tablenav">
 
 		<?php
+
 		$page_links = paginate_links(
 			array(
 				'base'      => add_query_arg( 'paged', '%#%' ),
@@ -2804,7 +2899,9 @@ function media_upload_library_form( $errors ) {
 		if ( $month_count && ! ( 1 == $month_count && 0 == $arc_result[0]->mmonth ) ) {
 			?>
 			<select name='m'>
-			<option<?php selected( $selected_month, 0 ); ?> value='0'><?php _e( 'All dates' ); ?></option>
+			<option<?php
+ selected( $selected_month, 0 ); ?> value='0'><?php
+ _e( 'All dates' ); ?></option>
 			<?php
 
 			foreach ( $arc_result as $arc_row ) {
@@ -2827,9 +2924,11 @@ function media_upload_library_form( $errors ) {
 
 			?>
 			</select>
-		<?php } ?>
+		<?php
+ } ?>
 
-		<?php submit_button( __( 'Filter &#187;' ), '', 'post-query-submit', false ); ?>
+		<?php
+ submit_button( __( 'Filter &#187;' ), '', 'post-query-submit', false ); ?>
 
 	</div>
 
@@ -2837,9 +2936,13 @@ function media_upload_library_form( $errors ) {
 	</div>
 	</form>
 
-	<form enctype="multipart/form-data" method="post" action="<?php echo esc_url( $form_action_url ); ?>" class="<?php echo $form_class; ?>" id="library-form">
-	<?php wp_nonce_field( 'media-form' ); ?>
-	<?php // media_upload_form( $errors ); ?>
+	<form enctype="multipart/form-data" method="post" action="<?php
+ echo esc_url( $form_action_url ); ?>" class="<?php
+ echo $form_class; ?>" id="library-form">
+	<?php
+ wp_nonce_field( 'media-form' ); ?>
+	<?php
+ // media_upload_form( $errors ); ?>
 
 	<script type="text/javascript">
 	jQuery(function($){
@@ -2852,15 +2955,20 @@ function media_upload_library_form( $errors ) {
 	</script>
 
 	<div id="media-items">
-		<?php add_filter( 'attachment_fields_to_edit', 'media_post_single_attachment_fields_to_edit', 10, 2 ); ?>
-		<?php echo get_media_items( null, $errors ); ?>
+		<?php
+ add_filter( 'attachment_fields_to_edit', 'media_post_single_attachment_fields_to_edit', 10, 2 ); ?>
+		<?php
+ echo get_media_items( null, $errors ); ?>
 	</div>
 	<p class="ml-submit">
-		<?php submit_button( __( 'Save all changes' ), 'savebutton', 'save', false ); ?>
-	<input type="hidden" name="post_id" id="post_id" value="<?php echo (int) $post_id; ?>" />
+		<?php
+ submit_button( __( 'Save all changes' ), 'savebutton', 'save', false ); ?>
+	<input type="hidden" name="post_id" id="post_id" value="<?php
+ echo (int) $post_id; ?>" />
 	</p>
 	</form>
 	<?php
+
 }
 
 /**
@@ -2990,6 +3098,7 @@ function media_upload_flash_bypass() {
 	?>
 	<p class="upload-flash-bypass">
 	<?php
+
 		printf(
 			/* translators: 1: URL to browser uploader, 2: Additional link attributes. */
 			__( 'You are using the multi-file uploader. Problems? Try the <a href="%1$s" %2$s>browser uploader</a> instead.' ),
@@ -2999,6 +3108,7 @@ function media_upload_flash_bypass() {
 	?>
 	</p>
 	<?php
+
 }
 
 /**
@@ -3009,9 +3119,11 @@ function media_upload_flash_bypass() {
 function media_upload_html_bypass() {
 	?>
 	<p class="upload-html-bypass hide-if-no-js">
-		<?php _e( 'You are using the browser&#8217;s built-in file uploader. The WordPress uploader includes multiple file selection and drag and drop capability. <a href="#">Switch to the multi-file uploader</a>.' ); ?>
+		<?php
+ _e( 'You are using the browser&#8217;s built-in file uploader. The WordPress uploader includes multiple file selection and drag and drop capability. <a href="#">Switch to the multi-file uploader</a>.' ); ?>
 	</p>
 	<?php
+
 }
 
 /**
@@ -3038,14 +3150,17 @@ function media_upload_max_image_resize() {
 
 	?>
 	<p class="hide-if-no-js"><label>
-	<input name="image_resize" type="checkbox" id="image_resize" value="true"<?php echo $checked; ?> />
+	<input name="image_resize" type="checkbox" id="image_resize" value="true"<?php
+ echo $checked; ?> />
 	<?php
+
 	/* translators: 1: Link start tag, 2: Link end tag, 3: Width, 4: Height. */
 	printf( __( 'Scale images to match the large size selected in %1$simage options%2$s (%3$d &times; %4$d).' ), $a, $end, (int) get_option( 'large_size_w', '1024' ), (int) get_option( 'large_size_h', '1024' ) );
 
 	?>
 	</label></p>
 	<?php
+
 }
 
 /**
@@ -3106,13 +3221,21 @@ function edit_form_image_editor( $post ) {
 		}
 
 		?>
-		<div class="imgedit-response" id="imgedit-response-<?php echo $attachment_id; ?>"></div>
+		<div class="imgedit-response" id="imgedit-response-<?php
+ echo $attachment_id; ?>"></div>
 
-		<div<?php echo $open_style; ?> class="wp_attachment_image wp-clearfix" id="media-head-<?php echo $attachment_id; ?>">
-			<p id="thumbnail-head-<?php echo $attachment_id; ?>"><img class="thumbnail" src="<?php echo set_url_scheme( $thumb_url[0] ); ?>" style="max-width:100%" alt="" /></p>
-			<p><?php echo $image_edit_button; ?></p>
+		<div<?php
+ echo $open_style; ?> class="wp_attachment_image wp-clearfix" id="media-head-<?php
+ echo $attachment_id; ?>">
+			<p id="thumbnail-head-<?php
+ echo $attachment_id; ?>"><img class="thumbnail" src="<?php
+ echo set_url_scheme( $thumb_url[0] ); ?>" style="max-width:100%" alt="" /></p>
+			<p><?php
+ echo $image_edit_button; ?></p>
 		</div>
-		<div<?php echo $not_open_style; ?> class="image-editor" id="image-editor-<?php echo $attachment_id; ?>">
+		<div<?php
+ echo $not_open_style; ?> class="image-editor" id="image-editor-<?php
+ echo $attachment_id; ?>">
 		<?php
 
 		if ( $open ) {
@@ -3122,6 +3245,7 @@ function edit_form_image_editor( $post ) {
 		?>
 		</div>
 		<?php
+
 	elseif ( $attachment_id && wp_attachment_is( 'audio', $post ) ) :
 
 		wp_maybe_generate_attachment_metadata( $post );
@@ -3157,9 +3281,12 @@ function edit_form_image_editor( $post ) {
 
 	elseif ( isset( $thumb_url[0] ) ) :
 		?>
-		<div class="wp_attachment_image wp-clearfix" id="media-head-<?php echo $attachment_id; ?>">
-			<p id="thumbnail-head-<?php echo $attachment_id; ?>">
-				<img class="thumbnail" src="<?php echo set_url_scheme( $thumb_url[0] ); ?>" style="max-width:100%" alt="" />
+		<div class="wp_attachment_image wp-clearfix" id="media-head-<?php
+ echo $attachment_id; ?>">
+			<p id="thumbnail-head-<?php
+ echo $attachment_id; ?>">
+				<img class="thumbnail" src="<?php
+ echo set_url_scheme( $thumb_url[0] ); ?>" style="max-width:100%" alt="" />
 			</p>
 		</div>
 		<?php
@@ -3180,10 +3307,13 @@ function edit_form_image_editor( $post ) {
 	?>
 	</div>
 	<div class="wp_attachment_details edit-form-section">
-	<?php if ( 'image' === substr( $post->post_mime_type, 0, 5 ) ) : ?>
+	<?php
+ if ( 'image' === substr( $post->post_mime_type, 0, 5 ) ) : ?>
 		<p class="attachment-alt-text">
-			<label for="attachment_alt"><strong><?php _e( 'Alternative Text' ); ?></strong></label><br />
-			<input type="text" class="widefat" name="_wp_attachment_image_alt" id="attachment_alt" aria-describedby="alt-text-description" value="<?php echo esc_attr( $alt_text ); ?>" />
+			<label for="attachment_alt"><strong><?php
+ _e( 'Alternative Text' ); ?></strong></label><br />
+			<input type="text" class="widefat" name="_wp_attachment_image_alt" id="attachment_alt" aria-describedby="alt-text-description" value="<?php
+ echo esc_attr( $alt_text ); ?>" />
 		</p>
 		<p class="attachment-alt-text-description" id="alt-text-description">
 		<?php
@@ -3202,11 +3332,14 @@ function edit_form_image_editor( $post ) {
 
 		?>
 		</p>
-	<?php endif; ?>
+	<?php
+ endif; ?>
 
 		<p>
-			<label for="attachment_caption"><strong><?php _e( 'Caption' ); ?></strong></label><br />
-			<textarea class="widefat" name="excerpt" id="attachment_caption"><?php echo $post->post_excerpt; ?></textarea>
+			<label for="attachment_caption"><strong><?php
+ _e( 'Caption' ); ?></strong></label><br />
+			<textarea class="widefat" name="excerpt" id="attachment_caption"><?php
+ echo $post->post_excerpt; ?></textarea>
 		</p>
 
 	<?php
@@ -3222,7 +3355,8 @@ function edit_form_image_editor( $post ) {
 
 	?>
 
-	<label for="attachment_content" class="attachment-content-description"><strong><?php _e( 'Description' ); ?></strong>
+	<label for="attachment_content" class="attachment-content-description"><strong><?php
+ _e( 'Description' ); ?></strong>
 	<?php
 
 	if ( preg_match( '#^(audio|video)/#', $post->post_mime_type ) ) {
@@ -3231,7 +3365,8 @@ function edit_form_image_editor( $post ) {
 
 	?>
 	</label>
-	<?php wp_editor( format_to_edit( $post->post_content ), 'attachment_content', $editor_args ); ?>
+	<?php
+ wp_editor( format_to_edit( $post->post_content ), 'attachment_content', $editor_args ); ?>
 
 	</div>
 	<?php
@@ -3266,18 +3401,25 @@ function attachment_submitbox_metadata() {
 
 	?>
 	<div class="misc-pub-section misc-pub-attachment">
-		<label for="attachment_url"><?php _e( 'File URL:' ); ?></label>
-		<input type="text" class="widefat urlfield" readonly="readonly" name="attachment_url" id="attachment_url" value="<?php echo esc_attr( $att_url ); ?>" />
+		<label for="attachment_url"><?php
+ _e( 'File URL:' ); ?></label>
+		<input type="text" class="widefat urlfield" readonly="readonly" name="attachment_url" id="attachment_url" value="<?php
+ echo esc_attr( $att_url ); ?>" />
 		<span class="copy-to-clipboard-container">
-			<button type="button" class="button copy-attachment-url edit-media" data-clipboard-target="#attachment_url"><?php _e( 'Copy URL' ); ?></button>
-			<span class="success hidden" aria-hidden="true"><?php _e( 'Copied!' ); ?></span>
+			<button type="button" class="button copy-attachment-url edit-media" data-clipboard-target="#attachment_url"><?php
+ _e( 'Copy URL' ); ?></button>
+			<span class="success hidden" aria-hidden="true"><?php
+ _e( 'Copied!' ); ?></span>
 		</span>
 	</div>
 	<div class="misc-pub-section misc-pub-filename">
-		<?php _e( 'File name:' ); ?> <strong><?php echo $filename; ?></strong>
+		<?php
+ _e( 'File name:' ); ?> <strong><?php
+ echo $filename; ?></strong>
 	</div>
 	<div class="misc-pub-section misc-pub-filetype">
-		<?php _e( 'File type:' ); ?>
+		<?php
+ _e( 'File type:' ); ?>
 		<strong>
 		<?php
 
@@ -3310,9 +3452,12 @@ function attachment_submitbox_metadata() {
 	if ( ! empty( $file_size ) ) {
 		?>
 		<div class="misc-pub-section misc-pub-filesize">
-			<?php _e( 'File size:' ); ?> <strong><?php echo size_format( $file_size ); ?></strong>
+			<?php
+ _e( 'File size:' ); ?> <strong><?php
+ echo size_format( $file_size ); ?></strong>
 		</div>
 		<?php
+
 	}
 
 	if ( preg_match( '#^(audio|video)/#', $post->post_mime_type ) ) {
@@ -3341,8 +3486,10 @@ function attachment_submitbox_metadata() {
 			}
 
 			?>
-			<div class="misc-pub-section misc-pub-mime-meta misc-pub-<?php echo sanitize_html_class( $key ); ?>">
-				<?php echo $label; ?>
+			<div class="misc-pub-section misc-pub-mime-meta misc-pub-<?php
+ echo sanitize_html_class( $key ); ?>">
+				<?php
+ echo $label; ?>
 				<strong>
 				<?php
 
@@ -3362,6 +3509,7 @@ function attachment_submitbox_metadata() {
 				</strong>
 			</div>
 			<?php
+
 		}
 
 		$fields = array(
@@ -3389,30 +3537,41 @@ function attachment_submitbox_metadata() {
 			}
 
 			?>
-			<div class="misc-pub-section misc-pub-audio misc-pub-<?php echo sanitize_html_class( $key ); ?>">
-				<?php echo $label; ?> <strong><?php echo esc_html( $meta['audio'][ $key ] ); ?></strong>
+			<div class="misc-pub-section misc-pub-audio misc-pub-<?php
+ echo sanitize_html_class( $key ); ?>">
+				<?php
+ echo $label; ?> <strong><?php
+ echo esc_html( $meta['audio'][ $key ] ); ?></strong>
 			</div>
 			<?php
+
 		}
 	}
 
 	if ( $media_dims ) {
 		?>
 		<div class="misc-pub-section misc-pub-dimensions">
-			<?php _e( 'Dimensions:' ); ?> <strong><?php echo $media_dims; ?></strong>
+			<?php
+ _e( 'Dimensions:' ); ?> <strong><?php
+ echo $media_dims; ?></strong>
 		</div>
 		<?php
+
 	}
 
 	if ( ! empty( $meta['original_image'] ) ) {
 		?>
 		<div class="misc-pub-section misc-pub-original-image">
-			<?php _e( 'Original image:' ); ?>
-			<a href="<?php echo esc_url( wp_get_original_image_url( $attachment_id ) ); ?>">
-				<?php echo esc_html( wp_basename( wp_get_original_image_path( $attachment_id ) ) ); ?>
+			<?php
+ _e( 'Original image:' ); ?>
+			<a href="<?php
+ echo esc_url( wp_get_original_image_url( $attachment_id ) ); ?>">
+				<?php
+ echo esc_html( wp_basename( wp_get_original_image_path( $attachment_id ) ) ); ?>
 			</a>
 		</div>
 		<?php
+
 	}
 }
 

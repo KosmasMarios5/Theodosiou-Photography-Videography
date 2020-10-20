@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Sitemaps: Public functions
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WP_User_Request class.
  *

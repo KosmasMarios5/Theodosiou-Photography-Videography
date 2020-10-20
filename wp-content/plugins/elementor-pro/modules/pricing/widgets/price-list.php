@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Pricing\Widgets;
 
 use Elementor\Controls_Manager;
@@ -460,8 +461,10 @@ class Price_List extends Base_Widget {
 
 		<ul class="elementor-price-list">
 
-		<?php foreach ( $settings['price_list'] as $index => $item ) : ?>
-			<?php if ( ! empty( $item['title'] ) || ! empty( $item['price'] ) || ! empty( $item['item_description'] ) ) :
+		<?php
+ foreach ( $settings['price_list'] as $index => $item ) : ?>
+			<?php
+ if ( ! empty( $item['title'] ) || ! empty( $item['price'] ) || ! empty( $item['item_description'] ) ) :
 				$title_repeater_setting_key = $this->get_repeater_setting_key( 'title', 'price_list', $index );
 				$description_repeater_setting_key = $this->get_repeater_setting_key( 'item_description', 'price_list', $index );
 				$this->add_inline_editing_attributes( $title_repeater_setting_key );
@@ -469,38 +472,61 @@ class Price_List extends Base_Widget {
 				$this->add_render_attribute( $title_repeater_setting_key, 'class', 'elementor-price-list-title' );
 				$this->add_render_attribute( $description_repeater_setting_key, 'class', 'elementor-price-list-description' );
 				?>
-				<?php echo $this->render_item_header( $item ); ?>
-				<?php if ( ! empty( $item['image']['url'] ) ) : ?>
+				<?php
+ echo $this->render_item_header( $item ); ?>
+				<?php
+ if ( ! empty( $item['image']['url'] ) ) : ?>
 					<div class="elementor-price-list-image">
-					<?php echo $this->render_image( $item, $settings ); ?>
+					<?php
+ echo $this->render_image( $item, $settings ); ?>
 				</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 
 				<div class="elementor-price-list-text">
-				<?php if ( ! empty( $item['title'] ) || ! empty( $item['price'] ) ) : ?>
+				<?php
+ if ( ! empty( $item['title'] ) || ! empty( $item['price'] ) ) : ?>
 					<div class="elementor-price-list-header">
-					<?php if ( ! empty( $item['title'] ) ) : ?>
-						<span <?php echo $this->get_render_attribute_string( $title_repeater_setting_key ); ?>><?php echo $item['title']; ?></span>
-					<?php endif; ?>
-						<?php if ( 'none' != $settings['separator_style'] ) : ?>
+					<?php
+ if ( ! empty( $item['title'] ) ) : ?>
+						<span <?php
+ echo $this->get_render_attribute_string( $title_repeater_setting_key ); ?>><?php
+ echo $item['title']; ?></span>
+					<?php
+ endif; ?>
+						<?php
+ if ( 'none' != $settings['separator_style'] ) : ?>
 							<span class="elementor-price-list-separator"></span>
-						<?php endif; ?>
-						<?php if ( ! empty( $item['price'] ) ) : ?>
-							<span class="elementor-price-list-price"><?php echo $item['price']; ?></span>
-						<?php endif; ?>
+						<?php
+ endif; ?>
+						<?php
+ if ( ! empty( $item['price'] ) ) : ?>
+							<span class="elementor-price-list-price"><?php
+ echo $item['price']; ?></span>
+						<?php
+ endif; ?>
 				</div>
-				<?php endif; ?>
-					<?php if ( ! empty( $item['item_description'] ) ) : ?>
-						<p <?php echo $this->get_render_attribute_string( $description_repeater_setting_key ); ?>><?php echo $item['item_description']; ?></p>
-					<?php endif; ?>
+				<?php
+ endif; ?>
+					<?php
+ if ( ! empty( $item['item_description'] ) ) : ?>
+						<p <?php
+ echo $this->get_render_attribute_string( $description_repeater_setting_key ); ?>><?php
+ echo $item['item_description']; ?></p>
+					<?php
+ endif; ?>
 			</div>
-				<?php echo $this->render_item_footer( $item ); ?>
-			<?php endif; ?>
-		<?php endforeach; ?>
+				<?php
+ echo $this->render_item_footer( $item ); ?>
+			<?php
+ endif; ?>
+		<?php
+ endforeach; ?>
 
 		</ul>
 
 		<?php
+
 	}
 
 	/**
@@ -545,7 +571,6 @@ class Price_List extends Base_Widget {
 
 					<# } #>
 
-
 					<# if ( ! _.isEmpty( item.title ) || ! _.isEmpty( item.price ) || ! _.isEmpty( item.item_description ) ) { #>
 						<div class="elementor-price-list-text">
 
@@ -580,5 +605,6 @@ class Price_List extends Base_Widget {
 			 <# } #>
 		</ul>
 		<?php
+
 	}
 }

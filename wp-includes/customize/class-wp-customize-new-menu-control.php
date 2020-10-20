@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_New_Menu_Control class
  *
@@ -56,8 +57,10 @@ class WP_Customize_New_Menu_Control extends WP_Customize_Control {
 	public function render_content() {
 		_deprecated_function( __METHOD__, '4.9.0' );
 		?>
-		<button type="button" class="button button-primary" id="create-new-menu-submit"><?php _e( 'Create Menu' ); ?></button>
+		<button type="button" class="button button-primary" id="create-new-menu-submit"><?php
+ _e( 'Create Menu' ); ?></button>
 		<span class="spinner"></span>
 		<?php
+
 	}
 }

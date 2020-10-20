@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\DynamicTags\Pods\Tags;
 
 if ( ! defined( 'ABSPATH' ) ) {

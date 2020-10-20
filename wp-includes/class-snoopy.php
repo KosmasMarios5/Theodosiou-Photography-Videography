@@ -487,7 +487,6 @@ class Snoopy
 			return false;
 	}
 
-
 /*======================================================================*\
 	Function:	fetchtext
 	Purpose:	fetch the text from a web page, stripping the links
@@ -580,8 +579,6 @@ class Snoopy
 			return false;
 	}
 
-
-
 /*======================================================================*\
 	Function:	set_submit_multipart
 	Purpose:	Set the form submission content type to
@@ -591,7 +588,6 @@ class Snoopy
 	{
 		$this->_submit_type = "multipart/form-data";
 	}
-
 
 /*======================================================================*\
 	Function:	set_submit_normal
@@ -603,13 +599,9 @@ class Snoopy
 		$this->_submit_type = "application/x-www-form-urlencoded";
 	}
 
-
-
-
 /*======================================================================*\
 	Private functions
 \*======================================================================*/
-
 
 /*======================================================================*\
 	Function:	_striplinks
@@ -625,7 +617,6 @@ class Snoopy
 						(?(1) (.*?)\\1 | ([^\s\>]+))		# if quote found, match up to next matching
 													# quote, otherwise match up to next space
 						'isx",$document,$links);
-
 
 		// catenate the non-empty matches from the conditional subpattern
 
@@ -662,8 +653,6 @@ class Snoopy
 		// return the links
 		return $match;
 	}
-
-
 
 /*======================================================================*\
 	Function:	_striptext
@@ -839,7 +828,6 @@ class Snoopy
 		if(!empty($this->proxy_user))
 			$headers .= 'Proxy-Authorization: ' . 'Basic ' . base64_encode($this->proxy_user . ':' . $this->proxy_pass)."\r\n";
 
-
 		$headers .= "\r\n";
 
 		// set the read timeout if needed
@@ -1014,7 +1002,6 @@ class Snoopy
 			$cmdline_params .= ' -m ' . escapeshellarg( $this->read_timeout );
 		}
 
-
 		exec( $this->curl_path . ' ' . $cmdline_params . ' ' . escapeshellarg( $URI ), $results, $return );
 
 		if($return)
@@ -1022,7 +1009,6 @@ class Snoopy
 			$this->error = "Error: cURL could not retrieve the document, error $return.";
 			return false;
 		}
-
 
 		$results = implode("\r\n",$results);
 
@@ -1099,7 +1085,6 @@ class Snoopy
 			$this->cookies[$match[1]] = urldecode($match[2]);
 		}
 	}
-
 
 /*======================================================================*\
 	Function:	_check_timeout
@@ -1182,7 +1167,6 @@ class Snoopy
 	{
 		return(fclose($fp));
 	}
-
 
 /*======================================================================*\
 	Function:	_prepare_post_body

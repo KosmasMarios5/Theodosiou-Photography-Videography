@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core\Admin;
 
 use ElementorPro\License\API;

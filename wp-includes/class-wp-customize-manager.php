@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Customize Manager classes
  *
@@ -466,9 +467,11 @@ final class WP_Customize_Manager {
 			( function( api, settings ) {
 				var preview = new api.Messenger( settings.messengerArgs );
 				preview.send( 'iframe-loading-error', settings.error );
-			} )( wp.customize, <?php echo wp_json_encode( $settings ); ?> );
+			} )( wp.customize, <?php
+ echo wp_json_encode( $settings ); ?> );
 			</script>
 			<?php
+
 			$message .= ob_get_clean();
 		}
 
@@ -2056,6 +2059,7 @@ final class WP_Customize_Manager {
 			}
 		</style>
 		<?php
+
 	}
 
 	/**
@@ -2093,6 +2097,7 @@ final class WP_Customize_Manager {
 		} )();
 		</script>
 		<?php
+
 	}
 
 	/**
@@ -2190,10 +2195,12 @@ final class WP_Customize_Manager {
 
 		?>
 		<script type="text/javascript">
-			var _wpCustomizeSettings = <?php echo wp_json_encode( $settings ); ?>;
+			var _wpCustomizeSettings = <?php
+ echo wp_json_encode( $settings ); ?>;
 			_wpCustomizeSettings.values = {};
 			(function( v ) {
 				<?php
+
 				/*
 				 * Serialize settings separately from the initial _wpCustomizeSettings
 				 * serialization in order to avoid a peak memory usage spike.
@@ -2212,6 +2219,7 @@ final class WP_Customize_Manager {
 			})( _wpCustomizeSettings.values );
 		</script>
 		<?php
+
 	}
 
 	/**
@@ -4265,7 +4273,8 @@ final class WP_Customize_Manager {
 			<li class="notice notice-{{ data.type || 'info' }} {{ data.alt ? 'notice-alt' : '' }} {{ data.dismissible ? 'is-dismissible' : '' }} {{ data.containerClasses || '' }}" data-code="{{ data.code }}" data-type="{{ data.type }}">
 				<div class="notification-message">{{{ data.message || data.code }}}</div>
 				<# if ( data.dismissible ) { #>
-					<button type="button" class="notice-dismiss"><span class="screen-reader-text"><?php _e( 'Dismiss' ); ?></span></button>
+					<button type="button" class="notice-dismiss"><span class="screen-reader-text"><?php
+ _e( 'Dismiss' ); ?></span></button>
 				<# } #>
 			</li>
 		</script>
@@ -4279,10 +4288,12 @@ final class WP_Customize_Manager {
 							{{{ data.message }}}
 						<# } else if ( data.allowOverride ) { #>
 							<?php
+
 							echo esc_html( sprintf( $l10n['locked_allow_override'], '{{ data.lockUser.name }}' ) );
 							?>
 						<# } else { #>
 							<?php
+
 							echo esc_html( sprintf( $l10n['locked'], '{{ data.lockUser.name }}' ) );
 							?>
 						<# } #>
@@ -4290,11 +4301,14 @@ final class WP_Customize_Manager {
 					<p class="notice notice-error notice-alt" hidden></p>
 					<p class="action-buttons">
 						<# if ( data.returnUrl !== data.previewUrl ) { #>
-							<a class="button customize-notice-go-back-button" href="{{ data.returnUrl }}"><?php _e( 'Go back' ); ?></a>
+							<a class="button customize-notice-go-back-button" href="{{ data.returnUrl }}"><?php
+ _e( 'Go back' ); ?></a>
 						<# } #>
-						<a class="button customize-notice-preview-button" href="{{ data.frontendPreviewUrl }}"><?php _e( 'Preview' ); ?></a>
+						<a class="button customize-notice-preview-button" href="{{ data.frontendPreviewUrl }}"><?php
+ _e( 'Preview' ); ?></a>
 						<# if ( data.allowOverride ) { #>
-							<button class="button button-primary wp-tab-last customize-notice-take-over-button"><?php _e( 'Take over' ); ?></button>
+							<button class="button button-primary wp-tab-last customize-notice-take-over-button"><?php
+ _e( 'Take over' ); ?></button>
 						<# } #>
 					</p>
 				</div>
@@ -4308,12 +4322,14 @@ final class WP_Customize_Manager {
 				<p>
 					<# var elementId = 'el-' + String( Math.random() ); #>
 					<input id="{{ elementId }}" type="checkbox">
-					<label for="{{ elementId }}"><?php _e( 'Update anyway, even though it might break your site?' ); ?></label>
+					<label for="{{ elementId }}"><?php
+ _e( 'Update anyway, even though it might break your site?' ); ?></label>
 				</p>
 			</li>
 		</script>
 
 		<?php
+
 		/* The following template is obsolete in core but retained for plugins. */
 		?>
 		<script type="text/html" id="tmpl-customize-control-notifications">
@@ -4327,18 +4343,25 @@ final class WP_Customize_Manager {
 		<script type="text/html" id="tmpl-customize-preview-link-control" >
 			<# var elementPrefix = _.uniqueId( 'el' ) + '-' #>
 			<p class="customize-control-title">
-				<?php esc_html_e( 'Share Preview Link' ); ?>
+				<?php
+ esc_html_e( 'Share Preview Link' ); ?>
 			</p>
-			<p class="description customize-control-description"><?php esc_html_e( 'See how changes would look live on your website, and share the preview with people who can\'t access the Customizer.' ); ?></p>
+			<p class="description customize-control-description"><?php
+ esc_html_e( 'See how changes would look live on your website, and share the preview with people who can\'t access the Customizer.' ); ?></p>
 			<div class="customize-control-notifications-container"></div>
 			<div class="preview-link-wrapper">
-				<label for="{{ elementPrefix }}customize-preview-link-input" class="screen-reader-text"><?php esc_html_e( 'Preview Link' ); ?></label>
+				<label for="{{ elementPrefix }}customize-preview-link-input" class="screen-reader-text"><?php
+ esc_html_e( 'Preview Link' ); ?></label>
 				<a href="" target="">
 					<span class="preview-control-element" data-component="url"></span>
-					<span class="screen-reader-text"><?php _e( '(opens in a new tab)' ); ?></span>
+					<span class="screen-reader-text"><?php
+ _e( '(opens in a new tab)' ); ?></span>
 				</a>
 				<input id="{{ elementPrefix }}customize-preview-link-input" readonly tabindex="-1" class="preview-control-element" data-component="input">
-				<button class="customize-copy-preview-link preview-control-element button button-secondary" data-component="button" data-copy-text="<?php esc_attr_e( 'Copy' ); ?>" data-copied-text="<?php esc_attr_e( 'Copied' ); ?>" ><?php esc_html_e( 'Copy' ); ?></button>
+				<button class="customize-copy-preview-link preview-control-element button button-secondary" data-component="button" data-copy-text="<?php
+ esc_attr_e( 'Copy' ); ?>" data-copied-text="<?php
+ esc_attr_e( 'Copied' ); ?>" ><?php
+ esc_html_e( 'Copy' ); ?></button>
 			</div>
 		</script>
 		<script type="text/html" id="tmpl-customize-selected-changeset-status-control">
@@ -4359,6 +4382,7 @@ final class WP_Customize_Manager {
 			<# } ); #>
 		</script>
 		<?php
+
 	}
 
 	/**
@@ -4936,7 +4960,8 @@ final class WP_Customize_Manager {
 
 		?>
 		<script type="text/javascript">
-			var _wpCustomizeSettings = <?php echo wp_json_encode( $settings ); ?>;
+			var _wpCustomizeSettings = <?php
+ echo wp_json_encode( $settings ); ?>;
 			_wpCustomizeSettings.initialClientTimestamp = _.now();
 			_wpCustomizeSettings.controls = {};
 			_wpCustomizeSettings.settings = {};
@@ -4970,6 +4995,7 @@ final class WP_Customize_Manager {
 			?>
 		</script>
 		<?php
+
 	}
 
 	/**
@@ -5925,7 +5951,6 @@ final class WP_Customize_Manager {
 
 		wp_send_json_success( $themes );
 	}
-
 
 	/**
 	 * Callback for validating the header_textcolor value.

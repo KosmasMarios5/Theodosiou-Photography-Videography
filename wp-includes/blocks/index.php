@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Used to set up all core blocks used with the block editor.
  *

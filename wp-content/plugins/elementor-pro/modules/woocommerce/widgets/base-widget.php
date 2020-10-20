@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 if ( ! defined( 'ABSPATH' ) ) {

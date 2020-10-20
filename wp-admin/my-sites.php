@@ -1,4 +1,5 @@
 <?php
+
 /**
  * My Sites dashboard.
  *
@@ -55,17 +56,21 @@ get_current_screen()->set_help_sidebar(
 require_once ABSPATH . 'wp-admin/admin-header.php';
 
 if ( $updated ) { ?>
-	<div id="message" class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
-<?php } ?>
+	<div id="message" class="updated notice is-dismissible"><p><strong><?php
+ _e( 'Settings saved.' ); ?></strong></p></div>
+<?php
+ } ?>
 
 <div class="wrap">
 <h1 class="wp-heading-inline">
 <?php
+
 echo esc_html( $title );
 ?>
 </h1>
 
 <?php
+
 if ( in_array( get_site_option( 'registration' ), array( 'all', 'blog' ), true ) ) {
 	/** This filter is documented in wp-login.php */
 	$sign_up_url = apply_filters( 'wp_signup_location', network_site_url( 'wp-signup.php' ) );
@@ -83,6 +88,7 @@ else :
 
 <form id="myblogs" method="post">
 	<?php
+
 	choose_primary_blog();
 	/**
 	 * Fires before the sites list on the My Sites screen.
@@ -94,6 +100,7 @@ else :
 	<br clear="all" />
 	<ul class="my-sites striped">
 	<?php
+
 	/**
 	 * Enable the Global Settings section on the My Sites screen.
 	 *
@@ -149,16 +156,20 @@ else :
 	?>
 	</ul>
 	<?php
+
 	if ( count( $blogs ) > 1 || has_action( 'myblogs_allblogs_options' ) || has_filter( 'myblogs_options' ) ) {
 		?>
 		<input type="hidden" name="action" value="updateblogsettings" />
 		<?php
+
 		wp_nonce_field( 'update-my-sites' );
 		submit_button();
 	}
 	?>
 	</form>
-<?php endif; ?>
+<?php
+ endif; ?>
 	</div>
 <?php
+
 require_once ABSPATH . 'wp-admin/admin-footer.php';

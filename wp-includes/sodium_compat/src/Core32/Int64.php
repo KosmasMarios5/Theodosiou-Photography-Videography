@@ -787,7 +787,6 @@ class ParagonIE_Sodium_Core32_Int64
         return $return;
     }
 
-
     /**
      * Subtract a normal integer from an int64 object.
      *

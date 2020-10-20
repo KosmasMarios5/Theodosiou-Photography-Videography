@@ -1,4 +1,5 @@
 <?php
+
 _deprecated_file( basename( __FILE__ ), '5.3.0', null, 'The PHP native JSON extension is now a requirement.' );
 
 if ( ! class_exists( 'Services_JSON' ) ) :

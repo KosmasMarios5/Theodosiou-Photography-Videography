@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core\Connect;
 
 use ElementorPro\Core\Connect\Apps\Activate;

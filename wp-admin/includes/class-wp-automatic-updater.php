@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Upgrade API: WP_Automatic_Updater class
  *
@@ -874,7 +875,6 @@ class WP_Automatic_Updater {
 
 		wp_mail( $email['to'], wp_specialchars_decode( $email['subject'] ), $email['body'], $email['headers'] );
 	}
-
 
 	/**
 	 * If we tried to perform plugin or theme updates, check if we should send an email.

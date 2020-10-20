@@ -6,7 +6,6 @@ require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 /** Plugin_Upgrader class */
 require_once ABSPATH . 'wp-admin/includes/class-plugin-upgrader.php';
 
-
 /**
  * In WP 5.3 a PHP 5.6 splat operator (...$args) was added to WP_Upgrader_Skin::feedback().
  * We need to remove all calls to *Skin::feedback() method, as we can't override it in own Skins
@@ -252,7 +251,8 @@ class ExactMetrics_Plugin_Upgrader extends Plugin_Upgrader {
 		if ( $enable ) {
 			//$this->skin->feedback( 'maintenance_start' );
 			// Create maintenance file to signal that we are upgrading
-			$maintenance_string = '<?php $upgrading = ' . time() . '; ?>';
+			$maintenance_string = '<?php
+ $upgrading = ' . time() . '; ?>';
 			$wp_filesystem->delete( $file );
 			$wp_filesystem->put_contents( $file, $maintenance_string, FS_CHMOD_FILE );
 		} elseif ( ! $enable && $wp_filesystem->exists( $file ) ) {

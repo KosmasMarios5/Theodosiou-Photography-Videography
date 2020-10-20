@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Block Serialization Parser
  *

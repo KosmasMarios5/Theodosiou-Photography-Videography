@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core\Upgrade;
 
 use Elementor\Core\Upgrade\Manager as Upgrades_Manager;

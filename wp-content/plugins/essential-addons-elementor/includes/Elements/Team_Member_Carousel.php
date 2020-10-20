@@ -2243,18 +2243,24 @@ class Team_Member_Carousel extends Widget_Base
         }
 
 ?>
-        <div <?php echo $this->get_render_attribute_string('team-member-carousel-wrap'); ?>>
-            <div <?php echo $this->get_render_attribute_string('team-member-carousel'); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string('team-member-carousel-wrap'); ?>>
+            <div <?php
+ echo $this->get_render_attribute_string('team-member-carousel'); ?>>
                 <div class="swiper-wrapper">
-                    <?php foreach ($settings['team_member_details'] as $index => $item) : ?>
+                    <?php
+ foreach ($settings['team_member_details'] as $index => $item) : ?>
                         <div class="swiper-slide">
                             <div class="eael-tm">
                                 <div class="eael-tm-image">
-                                    <?php echo '<img src="' . $item['team_member_image']['url'] . '" alt="' . esc_attr(get_post_meta($item['team_member_image']['id'], '_wp_attachment_image_alt', true)) . '">'; ?>
-                                    <?php if ($settings['overlay_content'] !== 'none') : ?>
+                                    <?php
+ echo '<img src="' . $item['team_member_image']['url'] . '" alt="' . esc_attr(get_post_meta($item['team_member_image']['id'], '_wp_attachment_image_alt', true)) . '">'; ?>
+                                    <?php
+ if ($settings['overlay_content'] !== 'none') : ?>
                                         <div class="eael-tm-overlay-content-wrap">
                                             <div class="eael-tm-content">
                                                 <?php
+
                                                 if ($settings['overlay_content'] == 'social_icons') {
                                                     if ($settings['member_social_links'] == 'yes') {
                                                         $this->member_social_links($item);
@@ -2285,11 +2291,13 @@ class Team_Member_Carousel extends Widget_Base
                                                 ?>
                                             </div>
                                         </div>
-                                    <?php endif; ?>
+                                    <?php
+ endif; ?>
                                 </div>
 
                                 <div class="eael-tm-content eael-tm-content-normal">
                                     <?php
+
                                     if ($settings['overlay_content'] !== 'atoz_content') {
                                         if ($settings['overlay_content'] == 'all_content') {
                                             // Name
@@ -2316,16 +2324,19 @@ class Team_Member_Carousel extends Widget_Base
                                 </div>
                             </div><!-- .eael-tm -->
                         </div><!-- .swiper-slide -->
-                    <?php endforeach; ?>
+                    <?php
+ endforeach; ?>
                 </div>
             </div>
             <?php
+
             $this->render_dots();
 
             $this->render_arrows();
             ?>
         </div>
     <?php
+
     }
 
     protected function render_name($item)
@@ -2336,11 +2347,13 @@ class Team_Member_Carousel extends Widget_Base
             printf('<%1$s class="eael-tm-name">%2$s</%1$s>', $settings['name_html_tag'], $item['team_member_name']);
         }
     ?>
-        <?php if ($settings['member_title_divider'] == 'yes') { ?>
+        <?php
+ if ($settings['member_title_divider'] == 'yes') { ?>
             <div class="eael-tm-title-divider-wrap">
                 <div class="eael-tm-divider eael-tm-title-divider"></div>
             </div>
-        <?php }
+        <?php
+ }
     }
 
     protected function render_position($item)
@@ -2351,11 +2364,13 @@ class Team_Member_Carousel extends Widget_Base
             printf('<%1$s class="eael-tm-position">%2$s</%1$s>', $settings['position_html_tag'], $item['team_member_position']);
         }
         ?>
-        <?php if ($settings['member_position_divider'] == 'yes') { ?>
+        <?php
+ if ($settings['member_position_divider'] == 'yes') { ?>
             <div class="eael-tm-position-divider-wrap">
                 <div class="eael-tm-divider eael-tm-position-divider"></div>
             </div>
-        <?php }
+        <?php
+ }
     }
 
     protected function render_description($item)
@@ -2363,14 +2378,18 @@ class Team_Member_Carousel extends Widget_Base
         $settings = $this->get_settings_for_display();
         if ($item['team_member_description'] != '') { ?>
             <div class="eael-tm-description">
-                <?php echo $this->parse_text_editor($item['team_member_description']); ?>
+                <?php
+ echo $this->parse_text_editor($item['team_member_description']); ?>
             </div>
-        <?php } ?>
-        <?php if ($settings['member_description_divider'] == 'yes') { ?>
+        <?php
+ } ?>
+        <?php
+ if ($settings['member_description_divider'] == 'yes') { ?>
             <div class="eael-tm-description-divider-wrap">
                 <div class="eael-tm-divider eael-tm-description-divider"></div>
             </div>
-        <?php }
+        <?php
+ }
     }
 
     private function member_social_links($item)
@@ -2389,6 +2408,7 @@ class Team_Member_Carousel extends Widget_Base
         <div class="eael-tm-social-links-wrap">
             <ul class="eael-tm-social-links">
                 <?php
+
                 if ($mail_address) {
                     printf('<li><a href="%1$s"><span class="eael-tm-social-icon-wrap"><span class="eael-tm-social-icon fa fa-envelope"></span></span></a></li>', esc_attr("mailto:" . $mail_address));
                 }
@@ -2420,6 +2440,7 @@ class Team_Member_Carousel extends Widget_Base
             </ul>
         </div>
         <?php
+
     }
 
     /**
@@ -2435,8 +2456,10 @@ class Team_Member_Carousel extends Widget_Base
 
         if ($settings['dots'] == 'yes') { ?>
             <!-- Add Pagination -->
-            <div class="swiper-pagination swiper-pagination-<?php echo esc_attr($this->get_id()); ?>"></div>
-        <?php }
+            <div class="swiper-pagination swiper-pagination-<?php
+ echo esc_attr($this->get_id()); ?>"></div>
+        <?php
+ }
     }
 
     /**
@@ -2452,6 +2475,7 @@ class Team_Member_Carousel extends Widget_Base
 
         if ($settings['arrows'] == 'yes') { ?>
             <?php
+
             if ($settings['arrow']) {
                 $pa_next_arrow = $settings['arrow'];
                 $pa_prev_arrow = str_replace("right", "left", $settings['arrow']);
@@ -2461,13 +2485,18 @@ class Team_Member_Carousel extends Widget_Base
             }
             ?>
             <!-- Add Arrows -->
-            <div class="swiper-button-next swiper-button-next-<?php echo esc_attr($this->get_id()); ?>">
-                <i class="<?php echo esc_attr($pa_next_arrow); ?>"></i>
+            <div class="swiper-button-next swiper-button-next-<?php
+ echo esc_attr($this->get_id()); ?>">
+                <i class="<?php
+ echo esc_attr($pa_next_arrow); ?>"></i>
             </div>
-            <div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr($this->get_id()); ?>">
-                <i class="<?php echo esc_attr($pa_prev_arrow); ?>"></i>
+            <div class="swiper-button-prev swiper-button-prev-<?php
+ echo esc_attr($this->get_id()); ?>">
+                <i class="<?php
+ echo esc_attr($pa_prev_arrow); ?>"></i>
             </div>
-<?php }
+<?php
+ }
     }
 
     protected function _content_template()

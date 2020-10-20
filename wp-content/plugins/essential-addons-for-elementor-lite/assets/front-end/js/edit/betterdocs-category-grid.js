@@ -93,7 +93,8 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("ea.hooks.addAction(\"editMode.init\", \"ea\", function () {\n  console.log('hi');\n  jQuery(document).ready(function ($) {\n    console.log('hello');\n    $('.eael-better-docs-category-grid').each(function () {\n      console.log($(this)); // var $node_id = '<?php echo $this->get_id(); ?>',\n      //     $scope = $('[data-id=\"' + $node_id + '\"]'),\n      //     $gallery = $(this),\n      //     $settings = $gallery.data('settings'),\n      //     $gallery_items = $gallery.data('gallery-items'),\n      //     $layout_mode = ($settings.grid_style == 'masonry' ? 'masonry' : 'fitRows'),\n      //     $gallery_enabled = ($settings.gallery_enabled == 'yes' ? true : false),\n      //     input = $scope.find('#fg-search-box-input'),\n      //     searchRegex, buttonFilter, timer;\n    });\n  });\n});\n\n//# sourceURL=webpack:///./src/js/edit/betterdocs-category-grid.js?");
+eval("ea.hooks.addAction(\"editMode.init\", \"ea\", function () {\n  console.log('hi');\n  jQuery(document).ready(function ($) {\n    console.log('hello');\n    $('.eael-better-docs-category-grid').each(function () {\n      console.log($(this)); // var $node_id = '<?php
+ echo $this->get_id(); ?>',\n      //     $scope = $('[data-id=\"' + $node_id + '\"]'),\n      //     $gallery = $(this),\n      //     $settings = $gallery.data('settings'),\n      //     $gallery_items = $gallery.data('gallery-items'),\n      //     $layout_mode = ($settings.grid_style == 'masonry' ? 'masonry' : 'fitRows'),\n      //     $gallery_enabled = ($settings.gallery_enabled == 'yes' ? true : false),\n      //     input = $scope.find('#fg-search-box-input'),\n      //     searchRegex, buttonFilter, timer;\n    });\n  });\n});\n\n//# sourceURL=webpack:///./src/js/edit/betterdocs-category-grid.js?");
 
 /***/ })
 

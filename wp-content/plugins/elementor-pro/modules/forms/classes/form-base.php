@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Forms\Classes;
 
 use ElementorPro\Base\Base_Widget;
@@ -100,9 +101,12 @@ abstract class Form_Base extends Base_Widget {
 
 		ob_start();
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'select-wrapper' . $i ); ?>>
-			<select <?php echo $this->get_render_attribute_string( 'select' . $i ); ?>>
+		<div <?php
+ echo $this->get_render_attribute_string( 'select-wrapper' . $i ); ?>>
+			<select <?php
+ echo $this->get_render_attribute_string( 'select' . $i ); ?>>
 				<?php
+
 				foreach ( $options as $key => $option ) {
 					$option_id = $item['custom_id'] . $key;
 					$option_value = esc_attr( $option );

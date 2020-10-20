@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -47,6 +48,7 @@ class Control_Raw_Html extends Base_UI_Control {
 		<# } #>
 		<div class="elementor-control-raw-html {{ data.content_classes }}">{{{ data.raw }}}</div>
 		<?php
+
 	}
 
 	/**

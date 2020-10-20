@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -62,10 +63,12 @@ class Control_Select extends Base_Data_Control {
 		?>
 		<div class="elementor-control-field">
 			<# if ( data.label ) {#>
-				<label for="<?php echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
+				<label for="<?php
+ echo $control_uid; ?>" class="elementor-control-title">{{{ data.label }}}</label>
 			<# } #>
 			<div class="elementor-control-input-wrapper elementor-control-unit-5">
-				<select id="<?php echo $control_uid; ?>" data-setting="{{ data.name }}">
+				<select id="<?php
+ echo $control_uid; ?>" data-setting="{{ data.name }}">
 				<#
 					var printOptions = function( options ) {
 						_.each( options, function( option_title, option_value ) { #>
@@ -95,5 +98,6 @@ class Control_Select extends Base_Data_Control {
 			<div class="elementor-control-field-description">{{{ data.description }}}</div>
 		<# } #>
 		<?php
+
 	}
 }

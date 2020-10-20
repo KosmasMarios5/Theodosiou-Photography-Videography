@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -790,40 +791,59 @@ class Mailchimp extends Widget_Base {
 		$this->add_render_attribute( 'eael-mailchimp-main-wrapper', 'data-loading-text', $settings['eael_section_mailchimp_loading_text']);
    		
 	?>
-	<?php if( !empty( $api_key ) ) : ?>
-	<div <?php echo $this->get_render_attribute_string( 'eael-mailchimp-main-wrapper' ); ?> >
-		<form id="eael-mailchimp-form-<?php echo esc_attr( $this->get_id() ); ?>" method="POST">
-			<div class="eael-form-fields-wrapper eael-mailchimp-fields-wrapper <?php echo esc_attr($subscribe_btn_display); ?>">
+	<?php
+ if( !empty( $api_key ) ) : ?>
+	<div <?php
+ echo $this->get_render_attribute_string( 'eael-mailchimp-main-wrapper' ); ?> >
+		<form id="eael-mailchimp-form-<?php
+ echo esc_attr( $this->get_id() ); ?>" method="POST">
+			<div class="eael-form-fields-wrapper eael-mailchimp-fields-wrapper <?php
+ echo esc_attr($subscribe_btn_display); ?>">
 				<div class="eael-field-group eael-mailchimp-email">
-					<label for="<?php echo esc_attr($settings['eael_mailchimp_email_label_text'], 'essential-addons-elementor'); ?>"><?php echo esc_html__($settings['eael_mailchimp_email_label_text'], 'essential-addons-elementor'); ?></label>
+					<label for="<?php
+ echo esc_attr($settings['eael_mailchimp_email_label_text'], 'essential-addons-elementor'); ?>"><?php
+ echo esc_html__($settings['eael_mailchimp_email_label_text'], 'essential-addons-elementor'); ?></label>
 					<input type="email" name="eael_mailchimp_email" class="eael-mailchimp-input" placeholder="Email" required="required">
 				</div>
-				<?php if( 'yes' == $settings['eael_mailchimp_fname_show'] ) : ?>
+				<?php
+ if( 'yes' == $settings['eael_mailchimp_fname_show'] ) : ?>
 					<div class="eael-field-group eael-mailchimp-fname">
-						<label for="<?php echo esc_attr($settings['eael_mailchimp_fname_label_text'], 'essential-addons-elementor'); ?>"><?php echo esc_html__($settings['eael_mailchimp_fname_label_text'], 'essential-addons-elementor'); ?></label>
+						<label for="<?php
+ echo esc_attr($settings['eael_mailchimp_fname_label_text'], 'essential-addons-elementor'); ?>"><?php
+ echo esc_html__($settings['eael_mailchimp_fname_label_text'], 'essential-addons-elementor'); ?></label>
 						<input type="text" name="eael_mailchimp_firstname" class="eael-mailchimp-input" placeholder="First Name">
 					</div>
-				<?php endif; ?>
-				<?php if( 'yes' == $settings['eael_mailchimp_lname_show'] ) : ?>
+				<?php
+ endif; ?>
+				<?php
+ if( 'yes' == $settings['eael_mailchimp_lname_show'] ) : ?>
 					<div class="eael-field-group eael-mailchimp-lname">
-						<label for="<?php echo esc_attr($settings['eael_mailchimp_lname_label_text'], 'essential-addons-elementor'); ?>"><?php echo esc_html__($settings['eael_mailchimp_lname_label_text'], 'essential-addons-elementor'); ?></label>
+						<label for="<?php
+ echo esc_attr($settings['eael_mailchimp_lname_label_text'], 'essential-addons-elementor'); ?>"><?php
+ echo esc_html__($settings['eael_mailchimp_lname_label_text'], 'essential-addons-elementor'); ?></label>
 						<input type="text" name="eael_mailchimp_lastname" class="eael-mailchimp-input" placeholder="Last Name">
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 				<div class="eael-field-group eael-mailchimp-submit-btn">
-					<button type="submit" id="eael-subscribe-<?php echo esc_attr( $this->get_id() ); ?>" class="eael-button eael-mailchimp-subscribe">
+					<button type="submit" id="eael-subscribe-<?php
+ echo esc_attr( $this->get_id() ); ?>" class="eael-button eael-mailchimp-subscribe">
 						<div class="eael-btn-loader button__loader"></div>
-				  		<span><?php echo esc_html__( $settings['eael_section_mailchimp_button_text'], 'essential-addons-elementor' ); ?></span>
+				  		<span><?php
+ echo esc_html__( $settings['eael_section_mailchimp_button_text'], 'essential-addons-elementor' ); ?></span>
 					</button>
 				</div>
 			</div>
 			<div class="eael-mailchimp-message"></div>
 		</form>
 	</div>
-	<?php else: ?>
+	<?php
+ else: ?>
 		<p class="eael-mailchimp-error">Please insert your api key</p>
-	<?php endif; ?>
+	<?php
+ endif; ?>
 
 	<?php
+
 	}
 }

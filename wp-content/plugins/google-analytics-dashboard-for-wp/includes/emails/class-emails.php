@@ -357,7 +357,6 @@ class ExactMetrics_WP_Emails {
 		// Hooks into the email footer.
 		do_action( 'exactmetrics_email_footer', $email_parts['footer'] );
 
-
 		$body 	 = implode( $email_parts );
 		$message = $this->process_tag( $message, false );
 		$message = nl2br( $message );

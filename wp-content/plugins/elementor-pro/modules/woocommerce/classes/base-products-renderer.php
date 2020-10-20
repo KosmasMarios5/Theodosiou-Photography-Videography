@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Classes;
 
 if ( ! defined( 'ABSPATH' ) ) {

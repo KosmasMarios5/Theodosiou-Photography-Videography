@@ -1,4 +1,5 @@
 <?php
+
 /////////////////////////////////////////////////////////////////
 /// getID3() by James Heinrich <info@getid3.org>               //
 //  available at https://github.com/JamesHeinrich/getID3       //
@@ -77,7 +78,6 @@ if (!defined('GETID3_TEMP_DIR')) {
 unset($open_basedir, $temp_dir);
 
 // End: Defines
-
 
 class getID3
 {
@@ -331,7 +331,6 @@ class getID3
 		if ($this->option_max_2gb_check === null) {
 			$this->option_max_2gb_check = (PHP_INT_MAX <= 2147483647);
 		}
-
 
 		// Needed for Windows only:
 		// Define locations of helper applications for Shorten, VorbisComment, MetaFLAC
@@ -681,7 +680,6 @@ class getID3
 		return $this->info;
 	}
 
-
 	/**
 	 * Error handling.
 	 *
@@ -698,7 +696,6 @@ class getID3
 		return $this->info;
 	}
 
-
 	/**
 	 * Warning handling.
 	 *
@@ -710,7 +707,6 @@ class getID3
 		$this->info['warning'][] = $message;
 		return true;
 	}
-
 
 	/**
 	 * @return bool
@@ -807,7 +803,6 @@ class getID3
 							'mime_type' => 'audio/aac',
 							'fail_ape'  => 'WARNING',
 						),
-
 
 				// AU   - audio       - NeXT/Sun AUdio (AU)
 				'au'   => array(
@@ -1032,7 +1027,6 @@ class getID3
 							'mime_type' => 'application/octet-stream',
 						),
 
-
 				// Audio-Video formats
 
 				// ASF  - audio/video - Advanced Streaming Format, Windows Media Video, Windows Media Audio
@@ -1151,7 +1145,6 @@ class getID3
 							'mime_type' => 'video/x-ms-wtv',
 						),
 
-
 				// Still-Image formats
 
 				// BMP  - still image - Bitmap (Windows, OS/2; uncompressed, RLE8, RLE4)
@@ -1194,7 +1187,6 @@ class getID3
 							'fail_ape'  => 'ERROR',
 						),
 
-
 				// PNG  - still image - Portable Network Graphics (PNG)
 				'png'  => array(
 							'pattern'   => '^\\x89\\x50\\x4E\\x47\\x0D\\x0A\\x1A\\x0A',
@@ -1204,7 +1196,6 @@ class getID3
 							'fail_id3'  => 'ERROR',
 							'fail_ape'  => 'ERROR',
 						),
-
 
 				// SVG  - still image - Scalable Vector Graphics (SVG)
 				'svg'  => array(
@@ -1216,7 +1207,6 @@ class getID3
 							'fail_ape'  => 'ERROR',
 						),
 
-
 				// TIFF - still image - Tagged Information File Format (TIFF)
 				'tiff' => array(
 							'pattern'   => '^(II\\x2A\\x00|MM\\x00\\x2A)',
@@ -1227,7 +1217,6 @@ class getID3
 							'fail_ape'  => 'ERROR',
 						),
 
-
 				// EFAX - still image - eFax (TIFF derivative)
 				'efax'  => array(
 							'pattern'   => '^\\xDC\\xFE',
@@ -1237,7 +1226,6 @@ class getID3
 							'fail_id3'  => 'ERROR',
 							'fail_ape'  => 'ERROR',
 						),
-
 
 				// Data formats
 
@@ -1322,7 +1310,6 @@ class getID3
 							'fail_ape'  => 'ERROR',
 						),
 
-
 				// Misc other formats
 
 				// PAR2 - data        - Parity Volume Set Specification 2.0
@@ -1390,7 +1377,6 @@ class getID3
 				return $info;
 			}
 		}
-
 
 		if (preg_match('#\\.mp[123a]$#i', $filename)) {
 			// Too many mp3 encoders on the market put garbage in front of mpeg files
@@ -1922,7 +1908,6 @@ class getID3
 
 }
 
-
 abstract class getid3_handler
 {
 
@@ -2295,7 +2280,6 @@ abstract class getid3_handler
 	}
 
 }
-
 
 class getid3_exception extends Exception
 {

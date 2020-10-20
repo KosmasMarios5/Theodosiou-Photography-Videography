@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Logger\Loggers;
 
 if ( ! defined( 'ABSPATH' ) ) {

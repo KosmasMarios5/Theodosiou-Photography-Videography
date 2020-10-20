@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 408 Request Timeout responses
  *

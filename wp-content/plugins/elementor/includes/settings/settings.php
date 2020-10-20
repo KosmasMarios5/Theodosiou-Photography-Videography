@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Core\Upgrade\Manager as Upgrades_Manager;
@@ -243,17 +244,23 @@ class Settings extends Settings_Page {
 							<div class="e-logo-wrapper">
 								<i class="eicon-elementor"></i>
 							</div>
-							<?php echo __( 'Getting Started', 'elementor' ); ?>
+							<?php
+ echo __( 'Getting Started', 'elementor' ); ?>
 						</div>
-						<a class="e-getting-started__skip" href="<?php echo esc_url( admin_url() ); ?>">
-							<i class="eicon-close" aria-hidden="true" title="<?php esc_attr_e( 'Skip', 'elementor' ); ?>"></i>
-							<span class="elementor-screen-only"><?php echo __( 'Skip', 'elementor' ); ?></span>
+						<a class="e-getting-started__skip" href="<?php
+ echo esc_url( admin_url() ); ?>">
+							<i class="eicon-close" aria-hidden="true" title="<?php
+ esc_attr_e( 'Skip', 'elementor' ); ?>"></i>
+							<span class="elementor-screen-only"><?php
+ echo __( 'Skip', 'elementor' ); ?></span>
 						</a>
 					</div>
 					<div class="e-getting-started__content">
 						<div class="e-getting-started__content--narrow">
-							<h2><?php echo __( 'Welcome to Elementor', 'elementor' ); ?></h2>
-							<p><?php echo __( 'Get introduced to Elementor by watching our "Getting Started" video series. It will guide you through the steps needed to create your website. Then click to create your first page.', 'elementor' ); ?></p>
+							<h2><?php
+ echo __( 'Welcome to Elementor', 'elementor' ); ?></h2>
+							<p><?php
+ echo __( 'Get introduced to Elementor by watching our "Getting Started" video series. It will guide you through the steps needed to create your website. Then click to create your first page.', 'elementor' ); ?></p>
 						</div>
 
 						<div class="e-getting-started__video">
@@ -261,17 +268,23 @@ class Settings extends Settings_Page {
 						</div>
 
 						<div class="e-getting-started__actions e-getting-started__content--narrow">
-							<?php if ( ! empty( $create_new_cpt ) ) : ?>
-							<a href="<?php echo esc_url( Utils::get_create_new_post_url( $create_new_cpt ) ); ?>" class="button button-primary button-hero"><?php echo esc_html( $create_new_label ); ?></a>
-							<?php endif; ?>
+							<?php
+ if ( ! empty( $create_new_cpt ) ) : ?>
+							<a href="<?php
+ echo esc_url( Utils::get_create_new_post_url( $create_new_cpt ) ); ?>" class="button button-primary button-hero"><?php
+ echo esc_html( $create_new_label ); ?></a>
+							<?php
+ endif; ?>
 
-							<a href="https://go.elementor.com/getting-started/" target="_blank" class="button button-secondary button-hero"><?php echo __( 'Watch the Full Guide', 'elementor' ); ?></a>
+							<a href="https://go.elementor.com/getting-started/" target="_blank" class="button button-secondary button-hero"><?php
+ echo __( 'Watch the Full Guide', 'elementor' ); ?></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div><!-- /.wrap -->
 		<?php
+
 	}
 
 	/**
@@ -286,13 +299,19 @@ class Settings extends Settings_Page {
 		?>
 		<div class="wrap">
 			<div class="elementor-blank_state">
-				<img src="<?php echo ELEMENTOR_ASSETS_URL . 'images/go-pro-wp-dashboard.svg'; ?>" />
-				<h2><?php echo __( 'Add Your Custom Fonts', 'elementor' ); ?></h2>
-				<p><?php echo __( 'Custom Fonts allows you to add your self-hosted fonts and use them on your Elementor projects to create a unique brand language.', 'elementor' ); ?></p>
-				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php echo Utils::get_pro_link( 'https://elementor.com/pro/?utm_source=wp-custom-fonts&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php echo __( 'Go Pro', 'elementor' ); ?></a>
+				<img src="<?php
+ echo ELEMENTOR_ASSETS_URL . 'images/go-pro-wp-dashboard.svg'; ?>" />
+				<h2><?php
+ echo __( 'Add Your Custom Fonts', 'elementor' ); ?></h2>
+				<p><?php
+ echo __( 'Custom Fonts allows you to add your self-hosted fonts and use them on your Elementor projects to create a unique brand language.', 'elementor' ); ?></p>
+				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php
+ echo Utils::get_pro_link( 'https://elementor.com/pro/?utm_source=wp-custom-fonts&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php
+ echo __( 'Go Pro', 'elementor' ); ?></a>
 			</div>
 		</div><!-- /.wrap -->
 		<?php
+
 	}
 
 	/**
@@ -307,13 +326,19 @@ class Settings extends Settings_Page {
 		?>
 		<div class="wrap">
 			<div class="elementor-blank_state">
-				<img src="<?php echo ELEMENTOR_ASSETS_URL . 'images/go-pro-wp-dashboard.svg'; ?>" />
-				<h2><?php echo __( 'Add Your Custom Icons', 'elementor' ); ?></h2>
-				<p><?php echo __( 'Don\'t rely solely on the FontAwesome icons everyone else is using! Differentiate your website and your style with custom icons you can upload from your favorite icons source.', 'elementor' ); ?></p>
-				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php echo Utils::get_pro_link( 'https://elementor.com/pro/?utm_source=wp-custom-icons&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php echo __( 'Go Pro', 'elementor' ); ?></a>
+				<img src="<?php
+ echo ELEMENTOR_ASSETS_URL . 'images/go-pro-wp-dashboard.svg'; ?>" />
+				<h2><?php
+ echo __( 'Add Your Custom Icons', 'elementor' ); ?></h2>
+				<p><?php
+ echo __( 'Don\'t rely solely on the FontAwesome icons everyone else is using! Differentiate your website and your style with custom icons you can upload from your favorite icons source.', 'elementor' ); ?></p>
+				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php
+ echo Utils::get_pro_link( 'https://elementor.com/pro/?utm_source=wp-custom-icons&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php
+ echo __( 'Go Pro', 'elementor' ); ?></a>
 			</div>
 		</div><!-- /.wrap -->
 		<?php
+
 	}
 
 	/**
@@ -329,12 +354,17 @@ class Settings extends Settings_Page {
 		<div class="wrap">
 			<div class="elementor-blank_state">
 				<i class="eicon-nerd-chuckle"></i>
-				<h2><?php echo __( 'Get Popup Builder', 'elementor' ); ?></h2>
-				<p><?php echo __( 'Popup Builder lets you take advantage of all the amazing features in Elementor, so you can build beautiful & highly converting popups. Go pro and start designing your popups today.', 'elementor' ); ?></p>
-				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php echo Utils::get_pro_link( 'https://elementor.com/popup-builder/?utm_source=popup-templates&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php echo __( 'Go Pro', 'elementor' ); ?></a>
+				<h2><?php
+ echo __( 'Get Popup Builder', 'elementor' ); ?></h2>
+				<p><?php
+ echo __( 'Popup Builder lets you take advantage of all the amazing features in Elementor, so you can build beautiful & highly converting popups. Go pro and start designing your popups today.', 'elementor' ); ?></p>
+				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php
+ echo Utils::get_pro_link( 'https://elementor.com/popup-builder/?utm_source=popup-templates&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php
+ echo __( 'Go Pro', 'elementor' ); ?></a>
 			</div>
 		</div><!-- /.wrap -->
 		<?php
+
 	}
 
 	/**

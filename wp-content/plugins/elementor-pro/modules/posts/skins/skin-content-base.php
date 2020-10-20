@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Posts\Skins;
 
 use Elementor\Controls_Manager;
@@ -194,10 +195,14 @@ trait Skin_Content_Base {
 		$optional_attributes_html = $this->get_optional_link_attributes_html();
 
 		?>
-		<a class="elementor-post__thumbnail__link" href="<?php echo $this->current_permalink; ?>" <?php echo $optional_attributes_html; ?>>
-			<div class="elementor-post__thumbnail"><?php echo $thumbnail_html; ?></div>
+		<a class="elementor-post__thumbnail__link" href="<?php
+ echo $this->current_permalink; ?>" <?php
+ echo $optional_attributes_html; ?>>
+			<div class="elementor-post__thumbnail"><?php
+ echo $thumbnail_html; ?></div>
 		</a>
 		<?php
+
 	}
 
 	public function render_post_content( $with_wrapper = false ) {

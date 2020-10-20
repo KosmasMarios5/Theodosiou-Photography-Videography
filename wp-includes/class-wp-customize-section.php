@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Customize Section classes
  *
@@ -335,10 +336,13 @@ class WP_Customize_Section {
 	 */
 	public function print_template() {
 		?>
-		<script type="text/html" id="tmpl-customize-section-<?php echo $this->type; ?>">
-			<?php $this->render_template(); ?>
+		<script type="text/html" id="tmpl-customize-section-<?php
+ echo $this->type; ?>">
+			<?php
+ $this->render_template(); ?>
 		</script>
 		<?php
+
 	}
 
 	/**
@@ -356,13 +360,15 @@ class WP_Customize_Section {
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
 			<h3 class="accordion-section-title" tabindex="0">
 				{{ data.title }}
-				<span class="screen-reader-text"><?php _e( 'Press return or enter to open this section' ); ?></span>
+				<span class="screen-reader-text"><?php
+ _e( 'Press return or enter to open this section' ); ?></span>
 			</h3>
 			<ul class="accordion-section-content">
 				<li class="customize-section-description-container section-meta <# if ( data.description_hidden ) { #>customize-info<# } #>">
 					<div class="customize-section-title">
 						<button class="customize-section-back" tabindex="-1">
-							<span class="screen-reader-text"><?php _e( 'Back' ); ?></span>
+							<span class="screen-reader-text"><?php
+ _e( 'Back' ); ?></span>
 						</button>
 						<h3>
 							<span class="customize-action">
@@ -371,7 +377,8 @@ class WP_Customize_Section {
 							{{ data.title }}
 						</h3>
 						<# if ( data.description && data.description_hidden ) { #>
-							<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+							<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php
+ _e( 'Help' ); ?></span></button>
 							<div class="description customize-section-description">
 								{{{ data.description }}}
 							</div>
@@ -389,6 +396,7 @@ class WP_Customize_Section {
 			</ul>
 		</li>
 		<?php
+
 	}
 }
 

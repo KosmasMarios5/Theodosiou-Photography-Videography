@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\DocumentTypes;
 
 use Elementor\Controls_Manager;

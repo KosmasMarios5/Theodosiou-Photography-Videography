@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SeedProd Tracking for 404 and Coming Soon.
  *
@@ -18,7 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 // 3. Disable ga_tracking in their setting (done in seedprod)
 function exactmetrics_seedprod_tracking( $settings ) {
     require_once plugin_dir_path( EXACTMETRICS_PLUGIN_FILE ) . 'includes/frontend/class-tracking-abstract.php';
-
 
     do_action( 'exactmetrics_tracking_before_analytics' );
     do_action( 'exactmetrics_tracking_before', 'analytics' );

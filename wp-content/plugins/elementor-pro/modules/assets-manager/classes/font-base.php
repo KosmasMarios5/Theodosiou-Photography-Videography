@@ -1,10 +1,10 @@
 <?php
+
 namespace ElementorPro\Modules\AssetsManager\Classes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
 
 class Font_Base extends Assets_Base {
 

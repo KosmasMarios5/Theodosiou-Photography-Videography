@@ -1,6 +1,5 @@
 <?php
 
-
 if (class_exists('ParagonIE_Sodium_Core32_Curve25519_Ge_Cached', false)) {
     return;
 }

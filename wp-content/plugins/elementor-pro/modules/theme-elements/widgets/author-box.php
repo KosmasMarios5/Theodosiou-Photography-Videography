@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeElements\Widgets;
 
 use Elementor\Controls_Manager;
@@ -805,32 +806,52 @@ class Author_Box extends Base {
 
 		?>
 		<div class="elementor-author-box">
-			<?php if ( $print_avatar ) { ?>
-				<<?php echo $link_tag; ?> <?php echo $this->get_render_attribute_string( 'author_link' ); ?> class="elementor-author-box__avatar">
-					<img <?php echo $this->get_render_attribute_string( 'avatar' ); ?>>
-				</<?php echo $link_tag; ?>>
-			<?php } ?>
+			<?php
+ if ( $print_avatar ) { ?>
+				<<?php
+ echo $link_tag; ?> <?php
+ echo $this->get_render_attribute_string( 'author_link' ); ?> class="elementor-author-box__avatar">
+					<img <?php
+ echo $this->get_render_attribute_string( 'avatar' ); ?>>
+				</<?php
+ echo $link_tag; ?>>
+			<?php
+ } ?>
 
 			<div class="elementor-author-box__text">
-				<?php if ( $print_name ) : ?>
-					<<?php echo $link_tag; ?> <?php echo $this->get_render_attribute_string( 'author_link' ); ?>>
-						<?php echo '<' . $author_name_tag . ' class="elementor-author-box__name">' . $author['display_name'] . '</' . $author_name_tag . '>'; ?>
-					</<?php echo $link_tag; ?>>
-				<?php endif; ?>
+				<?php
+ if ( $print_name ) : ?>
+					<<?php
+ echo $link_tag; ?> <?php
+ echo $this->get_render_attribute_string( 'author_link' ); ?>>
+						<?php
+ echo '<' . $author_name_tag . ' class="elementor-author-box__name">' . $author['display_name'] . '</' . $author_name_tag . '>'; ?>
+					</<?php
+ echo $link_tag; ?>>
+				<?php
+ endif; ?>
 
-				<?php if ( $print_bio ) : ?>
+				<?php
+ if ( $print_bio ) : ?>
 					<div class="elementor-author-box__bio">
-						<?php echo $author['bio']; ?>
+						<?php
+ echo $author['bio']; ?>
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 
-				<?php if ( $print_link ) : ?>
-					<a <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-						<?php echo $settings['link_text']; ?>
+				<?php
+ if ( $print_link ) : ?>
+					<a <?php
+ echo $this->get_render_attribute_string( 'button' ); ?>>
+						<?php
+ echo $settings['link_text']; ?>
 					</a>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 			</div>
 		</div>
 		<?php
+
 	}
 }

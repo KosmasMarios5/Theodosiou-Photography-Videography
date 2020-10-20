@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -130,5 +131,6 @@ class Widget_Read_More extends Widget_Base {
 		?>
 		<!--more {{ settings.link_text }}-->
 		<?php
+
 	}
 }

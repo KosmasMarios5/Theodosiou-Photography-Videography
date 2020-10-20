@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 511 Network Authentication Required responses
  *

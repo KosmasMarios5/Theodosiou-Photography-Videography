@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugins administration panel.
  *
@@ -336,19 +337,34 @@ if ( $action ) {
 				$plugins_to_delete = count( $plugin_info );
 
 				?>
-				<?php if ( 1 === $plugins_to_delete ) : ?>
-					<h1><?php _e( 'Delete Plugin' ); ?></h1>
-					<?php if ( $have_non_network_plugins && is_network_admin() ) : ?>
-						<div class="error"><p><strong><?php _e( 'Caution:' ); ?></strong> <?php _e( 'This plugin may be active on other sites in the network.' ); ?></p></div>
-					<?php endif; ?>
-					<p><?php _e( 'You are about to remove the following plugin:' ); ?></p>
-				<?php else : ?>
-					<h1><?php _e( 'Delete Plugins' ); ?></h1>
-					<?php if ( $have_non_network_plugins && is_network_admin() ) : ?>
-						<div class="error"><p><strong><?php _e( 'Caution:' ); ?></strong> <?php _e( 'These plugins may be active on other sites in the network.' ); ?></p></div>
-					<?php endif; ?>
-					<p><?php _e( 'You are about to remove the following plugins:' ); ?></p>
-				<?php endif; ?>
+				<?php
+ if ( 1 === $plugins_to_delete ) : ?>
+					<h1><?php
+ _e( 'Delete Plugin' ); ?></h1>
+					<?php
+ if ( $have_non_network_plugins && is_network_admin() ) : ?>
+						<div class="error"><p><strong><?php
+ _e( 'Caution:' ); ?></strong> <?php
+ _e( 'This plugin may be active on other sites in the network.' ); ?></p></div>
+					<?php
+ endif; ?>
+					<p><?php
+ _e( 'You are about to remove the following plugin:' ); ?></p>
+				<?php
+ else : ?>
+					<h1><?php
+ _e( 'Delete Plugins' ); ?></h1>
+					<?php
+ if ( $have_non_network_plugins && is_network_admin() ) : ?>
+						<div class="error"><p><strong><?php
+ _e( 'Caution:' ); ?></strong> <?php
+ _e( 'These plugins may be active on other sites in the network.' ); ?></p></div>
+					<?php
+ endif; ?>
+					<p><?php
+ _e( 'You are about to remove the following plugins:' ); ?></p>
+				<?php
+ endif; ?>
 					<ul class="ul-disc">
 						<?php
 
@@ -378,7 +394,8 @@ if ( $action ) {
 
 				?>
 				</p>
-				<form method="post" action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ); ?>" style="display:inline;">
+				<form method="post" action="<?php
+ echo esc_url( $_SERVER['REQUEST_URI'] ); ?>" style="display:inline;">
 					<input type="hidden" name="verify-delete" value="1" />
 					<input type="hidden" name="action" value="delete-selected" />
 					<?php
@@ -388,16 +405,20 @@ if ( $action ) {
 					}
 
 					?>
-					<?php wp_nonce_field( 'bulk-plugins' ); ?>
-					<?php submit_button( $data_to_delete ? __( 'Yes, delete these files and data' ) : __( 'Yes, delete these files' ), '', 'submit', false ); ?>
+					<?php
+ wp_nonce_field( 'bulk-plugins' ); ?>
+					<?php
+ submit_button( $data_to_delete ? __( 'Yes, delete these files and data' ) : __( 'Yes, delete these files' ), '', 'submit', false ); ?>
 				</form>
 				<?php
 
 				$referer = wp_get_referer();
 
 				?>
-				<form method="post" action="<?php echo $referer ? esc_url( $referer ) : ''; ?>" style="display:inline;">
-					<?php submit_button( __( 'No, return me to the plugin list' ), '', 'submit', false ); ?>
+				<form method="post" action="<?php
+ echo $referer ? esc_url( $referer ) : ''; ?>" style="display:inline;">
+					<?php
+ submit_button( __( 'No, return me to the plugin list' ), '', 'submit', false ); ?>
 				</form>
 				</div>
 				<?php
@@ -638,7 +659,8 @@ if ( isset( $_GET['error'] ) ) :
 	}
 
 	?>
-	<div id="message" class="error"><p><?php echo $errmsg; ?></p>
+	<div id="message" class="error"><p><?php
+ echo $errmsg; ?></p>
 	<?php
 
 	if ( ! isset( $_GET['main'] ) && ! isset( $_GET['charsout'] ) && wp_verify_nonce( $_GET['_error_nonce'], 'plugin-activation-error_' . $plugin ) ) {
@@ -652,13 +674,16 @@ if ( isset( $_GET['error'] ) ) :
 		);
 
 		?>
-		<iframe style="border:0" width="100%" height="70px" src="<?php echo esc_url( $iframe_url ); ?>"></iframe>
+		<iframe style="border:0" width="100%" height="70px" src="<?php
+ echo esc_url( $iframe_url ); ?>"></iframe>
 		<?php
+
 	}
 
 	?>
 	</div>
 	<?php
+
 elseif ( isset( $_GET['deleted'] ) ) :
 	$delete_result = get_transient( 'plugins_delete_result_' . $user_ID );
 	// Delete it once we're done.
@@ -669,6 +694,7 @@ elseif ( isset( $_GET['deleted'] ) ) :
 		<div id="message" class="error notice is-dismissible">
 			<p>
 				<?php
+
 				printf(
 					/* translators: %s: Error message. */
 					__( 'Plugin could not be deleted due to an error: %s' ),
@@ -677,10 +703,12 @@ elseif ( isset( $_GET['deleted'] ) ) :
 				?>
 			</p>
 		</div>
-		<?php else : ?>
+		<?php
+ else : ?>
 		<div id="message" class="updated notice is-dismissible">
 			<p>
 				<?php
+
 				if ( 1 === (int) $_GET['deleted'] ) {
 					_e( 'The selected plugin has been deleted.' );
 				} else {
@@ -689,41 +717,68 @@ elseif ( isset( $_GET['deleted'] ) ) :
 				?>
 			</p>
 		</div>
-	<?php endif; ?>
-<?php elseif ( isset( $_GET['activate'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Plugin activated.' ); ?></p></div>
-<?php elseif ( isset( $_GET['activate-multi'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Selected plugins activated.' ); ?></p></div>
-<?php elseif ( isset( $_GET['deactivate'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Plugin deactivated.' ); ?></p></div>
-<?php elseif ( isset( $_GET['deactivate-multi'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Selected plugins deactivated.' ); ?></p></div>
-<?php elseif ( 'update-selected' === $action ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'All selected plugins are up to date.' ); ?></p></div>
-<?php elseif ( isset( $_GET['resume'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Plugin resumed.' ); ?></p></div>
-<?php elseif ( isset( $_GET['enabled-auto-update'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Plugin will be auto-updated.' ); ?></p></div>
-<?php elseif ( isset( $_GET['disabled-auto-update'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Plugin will no longer be auto-updated.' ); ?></p></div>
-<?php elseif ( isset( $_GET['enabled-auto-update-multi'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Selected plugins will be auto-updated.' ); ?></p></div>
-<?php elseif ( isset( $_GET['disabled-auto-update-multi'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Selected plugins will no longer be auto-updated.' ); ?></p></div>
-<?php endif; ?>
+	<?php
+ endif; ?>
+<?php
+ elseif ( isset( $_GET['activate'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Plugin activated.' ); ?></p></div>
+<?php
+ elseif ( isset( $_GET['activate-multi'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Selected plugins activated.' ); ?></p></div>
+<?php
+ elseif ( isset( $_GET['deactivate'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Plugin deactivated.' ); ?></p></div>
+<?php
+ elseif ( isset( $_GET['deactivate-multi'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Selected plugins deactivated.' ); ?></p></div>
+<?php
+ elseif ( 'update-selected' === $action ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'All selected plugins are up to date.' ); ?></p></div>
+<?php
+ elseif ( isset( $_GET['resume'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Plugin resumed.' ); ?></p></div>
+<?php
+ elseif ( isset( $_GET['enabled-auto-update'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Plugin will be auto-updated.' ); ?></p></div>
+<?php
+ elseif ( isset( $_GET['disabled-auto-update'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Plugin will no longer be auto-updated.' ); ?></p></div>
+<?php
+ elseif ( isset( $_GET['enabled-auto-update-multi'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Selected plugins will be auto-updated.' ); ?></p></div>
+<?php
+ elseif ( isset( $_GET['disabled-auto-update-multi'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Selected plugins will no longer be auto-updated.' ); ?></p></div>
+<?php
+ endif; ?>
 
 <div class="wrap">
 <h1 class="wp-heading-inline">
 <?php
+
 echo esc_html( $title );
 ?>
 </h1>
 
 <?php
+
 if ( ( ! is_multisite() || is_network_admin() ) && current_user_can( 'install_plugins' ) ) {
 	?>
-	<a href="<?php echo self_admin_url( 'plugin-install.php' ); ?>" class="page-title-action"><?php echo esc_html_x( 'Add New', 'plugin' ); ?></a>
+	<a href="<?php
+ echo self_admin_url( 'plugin-install.php' ); ?>" class="page-title-action"><?php
+ echo esc_html_x( 'Add New', 'plugin' ); ?></a>
 	<?php
+
 }
 
 if ( strlen( $s ) ) {
@@ -735,6 +790,7 @@ if ( strlen( $s ) ) {
 <hr class="wp-header-end">
 
 <?php
+
 /**
  * Fires before the plugins list table is rendered.
  *
@@ -750,24 +806,30 @@ if ( strlen( $s ) ) {
 do_action( 'pre_current_active_plugins', $plugins['all'] );
 ?>
 
-<?php $wp_list_table->views(); ?>
+<?php
+ $wp_list_table->views(); ?>
 
 <form class="search-form search-plugins" method="get">
-<?php $wp_list_table->search_box( __( 'Search Installed Plugins' ), 'plugin' ); ?>
+<?php
+ $wp_list_table->search_box( __( 'Search Installed Plugins' ), 'plugin' ); ?>
 </form>
 
 <form method="post" id="bulk-action-form">
 
-<input type="hidden" name="plugin_status" value="<?php echo esc_attr( $status ); ?>" />
-<input type="hidden" name="paged" value="<?php echo esc_attr( $page ); ?>" />
+<input type="hidden" name="plugin_status" value="<?php
+ echo esc_attr( $status ); ?>" />
+<input type="hidden" name="paged" value="<?php
+ echo esc_attr( $page ); ?>" />
 
-<?php $wp_list_table->display(); ?>
+<?php
+ $wp_list_table->display(); ?>
 </form>
 
 	<span class="spinner"></span>
 </div>
 
 <?php
+
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 wp_print_update_row_templates();

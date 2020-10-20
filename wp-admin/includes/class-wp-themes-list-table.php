@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_Themes_List_Table class
  *
@@ -142,12 +143,15 @@ class WP_Themes_List_Table extends WP_List_Table {
 			return;
 		}
 		?>
-		<div class="tablenav themes <?php echo $which; ?>">
-			<?php $this->pagination( $which ); ?>
+		<div class="tablenav themes <?php
+ echo $which; ?>">
+			<?php
+ $this->pagination( $which ); ?>
 			<span class="spinner"></span>
 			<br class="clear" />
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -160,14 +164,18 @@ class WP_Themes_List_Table extends WP_List_Table {
 	public function display() {
 		wp_nonce_field( 'fetch-list-' . get_class( $this ), '_ajax_fetch_list_nonce' );
 		?>
-		<?php $this->tablenav( 'top' ); ?>
+		<?php
+ $this->tablenav( 'top' ); ?>
 
 		<div id="availablethemes">
-			<?php $this->display_rows_or_placeholder(); ?>
+			<?php
+ $this->display_rows_or_placeholder(); ?>
 		</div>
 
-		<?php $this->tablenav( 'bottom' ); ?>
 		<?php
+ $this->tablenav( 'bottom' ); ?>
+		<?php
+
 	}
 
 	/**
@@ -246,39 +254,58 @@ class WP_Themes_List_Table extends WP_List_Table {
 			?>
 
 			<span class="screenshot hide-if-customize">
-				<?php if ( $screenshot ) : ?>
-					<img src="<?php echo esc_url( $screenshot ); ?>" alt="" />
-				<?php endif; ?>
+				<?php
+ if ( $screenshot ) : ?>
+					<img src="<?php
+ echo esc_url( $screenshot ); ?>" alt="" />
+				<?php
+ endif; ?>
 			</span>
-			<a href="<?php echo wp_customize_url( $stylesheet ); ?>" class="screenshot load-customize hide-if-no-customize">
-				<?php if ( $screenshot ) : ?>
-					<img src="<?php echo esc_url( $screenshot ); ?>" alt="" />
-				<?php endif; ?>
+			<a href="<?php
+ echo wp_customize_url( $stylesheet ); ?>" class="screenshot load-customize hide-if-no-customize">
+				<?php
+ if ( $screenshot ) : ?>
+					<img src="<?php
+ echo esc_url( $screenshot ); ?>" alt="" />
+				<?php
+ endif; ?>
 			</a>
 
-			<h3><?php echo $title; ?></h3>
+			<h3><?php
+ echo $title; ?></h3>
 			<div class="theme-author">
 				<?php
+
 					/* translators: %s: Theme author. */
 					printf( __( 'By %s' ), $author );
 				?>
 			</div>
 			<div class="action-links">
 				<ul>
-					<?php foreach ( $actions as $action ) : ?>
-						<li><?php echo $action; ?></li>
-					<?php endforeach; ?>
-					<li class="hide-if-no-js"><a href="#" class="theme-detail"><?php _e( 'Details' ); ?></a></li>
+					<?php
+ foreach ( $actions as $action ) : ?>
+						<li><?php
+ echo $action; ?></li>
+					<?php
+ endforeach; ?>
+					<li class="hide-if-no-js"><a href="#" class="theme-detail"><?php
+ _e( 'Details' ); ?></a></li>
 				</ul>
-				<?php echo $delete_action; ?>
+				<?php
+ echo $delete_action; ?>
 
-				<?php theme_update_available( $theme ); ?>
+				<?php
+ theme_update_available( $theme ); ?>
 			</div>
 
 			<div class="themedetaildiv hide-if-js">
-				<p><strong><?php _e( 'Version:' ); ?></strong> <?php echo $version; ?></p>
-				<p><?php echo $theme->display( 'Description' ); ?></p>
+				<p><strong><?php
+ _e( 'Version:' ); ?></strong> <?php
+ echo $version; ?></p>
+				<p><?php
+ echo $theme->display( 'Description' ); ?></p>
 				<?php
+
 				if ( $theme->parent() ) {
 					printf(
 						/* translators: 1: Link to documentation on child themes, 2: Name of parent theme. */
@@ -292,6 +319,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 
 			</div>
 			<?php
+
 		endforeach;
 	}
 

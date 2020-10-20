@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce;
 
 use Elementor\Core\Documents_Manager;
@@ -147,15 +148,19 @@ class Module extends Module_Base {
 		?>
 		<div class="elementor-menu-cart__toggle elementor-button-wrapper">
 			<a id="elementor-menu-cart__toggle_button" href="#" class="elementor-button elementor-size-sm">
-				<span class="elementor-button-text"><?php echo $sub_total; ?></span>
-				<span class="elementor-button-icon" <?php echo $counter_attr; ?>>
+				<span class="elementor-button-text"><?php
+ echo $sub_total; ?></span>
+				<span class="elementor-button-icon" <?php
+ echo $counter_attr; ?>>
 					<i class="eicon" aria-hidden="true"></i>
-					<span class="elementor-screen-only"><?php esc_html_e( 'Cart', 'elementor-pro' ); ?></span>
+					<span class="elementor-screen-only"><?php
+ esc_html_e( 'Cart', 'elementor-pro' ); ?></span>
 				</span>
 			</a>
 		</div>
 
 		<?php
+
 	}
 
 	/**
@@ -170,17 +175,21 @@ class Module extends Module_Base {
 		$widget_cart_is_hidden = apply_filters( 'woocommerce_widget_cart_is_hidden', false );
 		?>
 		<div class="elementor-menu-cart__wrapper">
-			<?php if ( ! $widget_cart_is_hidden ) : ?>
+			<?php
+ if ( ! $widget_cart_is_hidden ) : ?>
 			<div class="elementor-menu-cart__container elementor-lightbox" aria-expanded="false">
 				<div class="elementor-menu-cart__main" aria-expanded="false">
 					<div class="elementor-menu-cart__close-button"></div>
 					<div class="widget_shopping_cart_content"></div>
 				</div>
 			</div>
-				<?php self::render_menu_cart_toggle_button(); ?>
-			<?php endif; ?>
+				<?php
+ self::render_menu_cart_toggle_button(); ?>
+			<?php
+ endif; ?>
 			</div> <!-- close elementor-menu-cart__wrapper -->
 		<?php
+
 	}
 
 	/**

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeElements\Widgets;
 
 use Elementor\Controls_Manager;
@@ -534,17 +535,22 @@ class Post_Navigation extends Base {
 		?>
 		<div class="elementor-post-navigation elementor-grid">
 			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
-				<?php previous_post_link( '%link', $prev_arrow . '<span class="elementor-post-navigation__link__prev">' . $prev_label . $prev_title . '</span>', $in_same_term, '', $taxonomy ); ?>
+				<?php
+ previous_post_link( '%link', $prev_arrow . '<span class="elementor-post-navigation__link__prev">' . $prev_label . $prev_title . '</span>', $in_same_term, '', $taxonomy ); ?>
 			</div>
-			<?php if ( 'yes' === $settings['show_borders'] ) : ?>
+			<?php
+ if ( 'yes' === $settings['show_borders'] ) : ?>
 				<div class="elementor-post-navigation__separator-wrapper">
 					<div class="elementor-post-navigation__separator"></div>
 				</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 			<div class="elementor-post-navigation__next elementor-post-navigation__link">
-				<?php next_post_link( '%link', '<span class="elementor-post-navigation__link__next">' . $next_label . $next_title . '</span>' . $next_arrow, $in_same_term, '', $taxonomy ); ?>
+				<?php
+ next_post_link( '%link', '<span class="elementor-post-navigation__link__next">' . $next_label . $next_title . '</span>' . $next_arrow, $in_same_term, '', $taxonomy ); ?>
 			</div>
 		</div>
 		<?php
+
 	}
 }

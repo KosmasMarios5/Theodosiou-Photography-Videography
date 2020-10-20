@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Widget_Media_Gallery class
  *
@@ -198,6 +199,7 @@ class WP_Widget_Media_Gallery extends WP_Widget_Media {
 										<# if ( ! attachment.alt && attachment.filename ) { #>
 											aria-label="
 											<?php
+
 											echo esc_attr(
 												sprintf(
 													/* translators: %s: The image file name. */
@@ -213,6 +215,7 @@ class WP_Widget_Media_Gallery extends WP_Widget_Media {
 									<div class="gallery-icon-placeholder">
 										<p class="gallery-icon-placeholder-text" aria-label="
 										<?php
+
 											printf(
 												/* translators: %s: The amount of additional, not visible images in the gallery widget preview. */
 												__( 'Additional images added to this gallery: %s' ),
@@ -229,11 +232,13 @@ class WP_Widget_Media_Gallery extends WP_Widget_Media {
 				</ul>
 			<# } else { #>
 				<div class="attachment-media-view">
-					<button type="button" class="placeholder button-add-media"><?php echo esc_html( $this->l10n['add_media'] ); ?></button>
+					<button type="button" class="placeholder button-add-media"><?php
+ echo esc_html( $this->l10n['add_media'] ); ?></button>
 				</div>
 			<# } #>
 		</script>
 		<?php
+
 	}
 
 	/**

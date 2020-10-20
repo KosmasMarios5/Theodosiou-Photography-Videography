@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -11,7 +12,6 @@ use \Elementor\Utils;
 use \Elementor\Widget_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
-
 
 class Testimonial_Slider extends Widget_Base {
 
@@ -67,9 +67,7 @@ class Testimonial_Slider extends Widget_Base {
        ];
    }
 
-
 	protected function _register_controls() {
-
 
         $this->start_controls_section(
             'eael_section_testimonial_content',
@@ -375,7 +373,6 @@ class Testimonial_Slider extends Widget_Base {
             ]
         );
 
-
 		$this->add_responsive_control(
 			'image_dots_visibility',
 			[
@@ -391,9 +388,7 @@ class Testimonial_Slider extends Widget_Base {
 			]
 		);
 
-
         $this->end_controls_section();
-
 
 		$this->start_controls_section(
 			'eael_section_testimonial_styles_general',
@@ -520,7 +515,6 @@ class Testimonial_Slider extends Widget_Base {
 				'default' => '',
 			]
 		);
-
 
 		$this->add_responsive_control(
 			'eael_testimonial_margin',
@@ -694,7 +688,6 @@ class Testimonial_Slider extends Widget_Base {
 			]
 		);
 
-
 		$this->add_responsive_control(
 			'eael_testimonial_image_margin',
 			[
@@ -719,7 +712,6 @@ class Testimonial_Slider extends Widget_Base {
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
@@ -739,7 +731,6 @@ class Testimonial_Slider extends Widget_Base {
 			]
 		);
 
-
 		$this->add_control(
 			'eael_testimonial_image_border_radius',
 			[
@@ -755,7 +746,6 @@ class Testimonial_Slider extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-
 
 		$this->start_controls_section(
 			'eael_section_testimonial_typography',
@@ -800,7 +790,6 @@ class Testimonial_Slider extends Widget_Base {
 				'type' => Controls_Manager::HEADING,
 			]
 		);
-
 
 		$this->add_control(
 			'eael_testimonial_company_color',
@@ -877,7 +866,6 @@ class Testimonial_Slider extends Widget_Base {
 				'selector' => '{{WRAPPER}} .eael-testimonial-quote',
 			]
 		);
-
 
 		$this->end_controls_section();
 
@@ -1441,9 +1429,14 @@ class Testimonial_Slider extends Widget_Base {
         $settings = $this->get_settings();
         ob_start();
         ?>
-        <p class="eael-testimonial-user" <?php if ( ! empty( $settings['eael_testimonial_user_display_block'] ) ) : ?> style="display: block; float: none;"<?php endif;?>><?php echo esc_attr( $item['eael_testimonial_name'] ); ?></p>
-        <p class="eael-testimonial-user-company"><?php echo esc_attr( $item['eael_testimonial_company_title'] ); ?></p>
+        <p class="eael-testimonial-user" <?php
+ if ( ! empty( $settings['eael_testimonial_user_display_block'] ) ) : ?> style="display: block; float: none;"<?php
+ endif;?>><?php
+ echo esc_attr( $item['eael_testimonial_name'] ); ?></p>
+        <p class="eael-testimonial-user-company"><?php
+ echo esc_attr( $item['eael_testimonial_company_title'] ); ?></p>
         <?php
+
         echo ob_get_clean();
     }
 
@@ -1453,14 +1446,19 @@ class Testimonial_Slider extends Widget_Base {
         ob_start();
         ?>
         <div class="eael-testimonial-image">
-            <?php if('default-style' == $settings['eael_testimonial_style']) : ?>
+            <?php
+ if('default-style' == $settings['eael_testimonial_style']) : ?>
             <span class="eael-testimonial-quote"></span>
-            <?php endif; ?>
+            <?php
+ endif; ?>
             <figure>
-                <img src="<?php echo $item['eael_testimonial_image']['url'];?>" alt="<?php echo esc_attr(get_post_meta($item['eael_testimonial_image']['id'], '_wp_attachment_image_alt', true)); ?>">
+                <img src="<?php
+ echo $item['eael_testimonial_image']['url'];?>" alt="<?php
+ echo esc_attr(get_post_meta($item['eael_testimonial_image']['id'], '_wp_attachment_image_alt', true)); ?>">
             </figure>
         </div>
         <?php
+
         echo ob_get_clean();
     }
 
@@ -1476,13 +1474,13 @@ class Testimonial_Slider extends Widget_Base {
             <li><i class="fa fa-star" aria-hidden="true"></i></li>
         </ul>
         <?php
+
         echo ob_get_clean();
     }
 
     protected function _render_user_description( $item ) {
         echo '<div class="eael-testimonial-text">'.wpautop($item["eael_testimonial_description"]).'</div>';
     }
-
 
     protected function _render_quote() {
         echo '<span class="eael-testimonial-quote"></span>';
@@ -1573,11 +1571,14 @@ class Testimonial_Slider extends Widget_Base {
         }
 	?>
 
-	<div <?php echo $this->get_render_attribute_string( 'testimonial-slider-wrap' ); ?>>
-        <div <?php echo $this->get_render_attribute_string( 'testimonial-slider' ); ?>>
+	<div <?php
+ echo $this->get_render_attribute_string( 'testimonial-slider-wrap' ); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string( 'testimonial-slider' ); ?>>
 
             <div class="swiper-wrapper">
                 <?php
+
                     $i = 0;
                     foreach ( $settings['eael_testimonial_slider_item'] as $item ) :
                         $this->add_render_attribute('testimonial-content-wrapper'.$i, [
@@ -1590,47 +1591,65 @@ class Testimonial_Slider extends Widget_Base {
                         ]);
                 ?>
 
-
-                <?php if('classic-style' == $settings['eael_testimonial_style']) { ?>
-                <div <?php echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
-                    <div <?php echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
-                        <?php $this->_render_quote(); ?>
+                <?php
+ if('classic-style' == $settings['eael_testimonial_style']) { ?>
+                <div <?php
+ echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
+                    <div <?php
+ echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
+                        <?php
+ $this->_render_quote(); ?>
                         <div class="testimonial-classic-style-content">
                             <?php
+
                                 $this->_render_user_description( $item ); 
                                 $this->_render_user_ratings( $item );
                                 $this->_render_user_meta( $item );
                             ?>
                         </div>
-                        <?php $this->_render_user_avatar($item); ?>
+                        <?php
+ $this->_render_user_avatar($item); ?>
                     </div>
                 </div>
-                <?php } ?>
+                <?php
+ } ?>
 
-                <?php if('middle-style' == $settings['eael_testimonial_style']) { ?>
-                <div <?php echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
-                    <div <?php echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
+                <?php
+ if('middle-style' == $settings['eael_testimonial_style']) { ?>
+                <div <?php
+ echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
+                    <div <?php
+ echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
                         <?php
+
                             
                             $this->_render_quote();
                             $this->_render_user_description( $item );
                         ?>
-                        <?php $this->_render_user_avatar($item); ?>
+                        <?php
+ $this->_render_user_avatar($item); ?>
                         <div class="middle-style-content">
                             <?php
+
                                 $this->_render_user_ratings( $item );
                                 $this->_render_user_meta( $item );
                             ?>
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+                <?php
+ } ?>
 
-                <?php if('icon-img-left-content' == $settings['eael_testimonial_style']) { ?>
-                <div <?php echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
-                    <?php $this->_render_user_avatar($item); ?>
-                    <div <?php echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
+                <?php
+ if('icon-img-left-content' == $settings['eael_testimonial_style']) { ?>
+                <div <?php
+ echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
+                    <?php
+ $this->_render_user_avatar($item); ?>
+                    <div <?php
+ echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
                         <?php
+
                             $this->_render_quote();
                             $this->_render_user_description( $item ); 
                             $this->_render_user_ratings( $item );
@@ -1638,32 +1657,43 @@ class Testimonial_Slider extends Widget_Base {
                         ?>
                     </div>
                 </div>
-                <?php } ?>
+                <?php
+ } ?>
 
-                <?php if('icon-img-right-content' == $settings['eael_testimonial_style']) { ?>
-                <div <?php echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
-                    <div <?php echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
+                <?php
+ if('icon-img-right-content' == $settings['eael_testimonial_style']) { ?>
+                <div <?php
+ echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
+                    <div <?php
+ echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
                         <?php
+
                             $this->_render_quote();
                             $this->_render_user_description( $item ); 
                             $this->_render_user_ratings( $item );
                             $this->_render_user_meta( $item );
                             ?>
                     </div>
-                    <?php $this->_render_user_avatar($item); ?>
+                    <?php
+ $this->_render_user_avatar($item); ?>
                 </div>
-                <?php } ?>
+                <?php
+ } ?>
 
-
-                <?php if('content-top-icon-title-inline' == $settings['eael_testimonial_style']) { ?>
-                <div <?php echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
-                    <div <?php echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
+                <?php
+ if('content-top-icon-title-inline' == $settings['eael_testimonial_style']) { ?>
+                <div <?php
+ echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
+                    <div <?php
+ echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
                         <?php
+
                             $this->_render_quote();
                             $this->_render_user_description( $item ); 
                         ?>
                         <div class="testimonial-inline-style">
                             <?php
+
                                 $this->_render_user_avatar($item);
                                 $this->_render_user_meta( $item );
                                 $this->_render_user_ratings( $item );
@@ -1671,34 +1701,46 @@ class Testimonial_Slider extends Widget_Base {
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+                <?php
+ } ?>
 
-                <?php if('content-bottom-icon-title-inline' == $settings['eael_testimonial_style']) { ?>
-                    <div <?php echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
-                    <div <?php echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
+                <?php
+ if('content-bottom-icon-title-inline' == $settings['eael_testimonial_style']) { ?>
+                    <div <?php
+ echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
+                    <div <?php
+ echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
                         <div class="testimonial-inline-style">
                             <?php
+
                                 $this->_render_user_avatar($item);
                                 $this->_render_user_meta( $item );
                                 $this->_render_user_ratings( $item );
                             ?>
                         </div>
                         <?php
+
                             $this->_render_quote();
                             $this->_render_user_description( $item ); 
                         ?>
                     </div>
                 </div>
-                <?php } ?>
+                <?php
+ } ?>
 
-
-                <?php if('default-style' == $settings['eael_testimonial_style']) { ?>
-                <div <?php echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
-                    <?php $this->_render_user_avatar($item); ?>
-                    <div <?php echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
-                        <?php //$this->_render_quote(); ?>
+                <?php
+ if('default-style' == $settings['eael_testimonial_style']) { ?>
+                <div <?php
+ echo $this->get_render_attribute_string('testimonial-slide'.$i); ?>>
+                    <?php
+ $this->_render_user_avatar($item); ?>
+                    <div <?php
+ echo $this->get_render_attribute_string('testimonial-content-wrapper'.$i); ?>>
+                        <?php
+ //$this->_render_quote(); ?>
                         <div class="default-style-testimonial-content">
                             <?php
+
                                 $this->_render_user_description( $item ); 
                                 $this->_render_user_ratings( $item );
                                 $this->_render_user_meta( $item );
@@ -1706,17 +1748,20 @@ class Testimonial_Slider extends Widget_Base {
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+                <?php
+ } ?>
 
-
-                <?php $i++; endforeach; ?>
+                <?php
+ $i++; endforeach; ?>
             </div>
             <?php
+
                 $this->render_dots();
                 $this->render_arrows();
             ?>
 		</div>
-        <?php 
+        <?php
+ 
             $this->render_image_dots();
         ?>
 	</div>
@@ -1733,8 +1778,10 @@ class Testimonial_Slider extends Widget_Base {
 
         if ( $settings['dots'] == 'yes' ) { ?>
             <!-- Add Pagination -->
-            <div class="swiper-pagination swiper-pagination-<?php echo esc_attr( $this->get_id() ); ?>"></div>
-        <?php }
+            <div class="swiper-pagination swiper-pagination-<?php
+ echo esc_attr( $this->get_id() ); ?>"></div>
+        <?php
+ }
     }
 
     /**
@@ -1745,6 +1792,7 @@ class Testimonial_Slider extends Widget_Base {
 
         if ( $settings['arrows'] == 'yes' ) { ?>
             <?php
+
                 if ( $settings['arrow'] ) {
                     $pa_next_arrow = $settings['arrow'];
                     $pa_prev_arrow = str_replace("right","left",$settings['arrow']);
@@ -1755,13 +1803,18 @@ class Testimonial_Slider extends Widget_Base {
                 }
             ?>
             <!-- Add Arrows -->
-            <div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-                <i class="<?php echo esc_attr( $pa_next_arrow ); ?>"></i>
+            <div class="swiper-button-next swiper-button-next-<?php
+ echo esc_attr( $this->get_id() ); ?>">
+                <i class="<?php
+ echo esc_attr( $pa_next_arrow ); ?>"></i>
             </div>
-            <div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-                <i class="<?php echo esc_attr( $pa_prev_arrow ); ?>"></i>
+            <div class="swiper-button-prev swiper-button-prev-<?php
+ echo esc_attr( $this->get_id() ); ?>">
+                <i class="<?php
+ echo esc_attr( $pa_prev_arrow ); ?>"></i>
             </div>
-        <?php }
+        <?php
+ }
     }
 
     protected function render_image_dots(){
@@ -1782,23 +1835,28 @@ class Testimonial_Slider extends Widget_Base {
             'class' => ['swiper-container eael-testimonial-gallary-pagination', $visibility]
         ]);
 
-
             if($settings['image_dots'] === 'yes') :
         ?>
-            <div <?php echo $this->get_render_attribute_string('eael_gallery_pagination_wrapper'); ?>>
+            <div <?php
+ echo $this->get_render_attribute_string('eael_gallery_pagination_wrapper'); ?>>
                 <div class="swiper-wrapper">
-                    <?php foreach ( $settings['eael_testimonial_slider_item'] as $item ) : ?>
+                    <?php
+ foreach ( $settings['eael_testimonial_slider_item'] as $item ) : ?>
                     <div class="swiper-slide">
                         <div class="swiper-slide-container">
                             <div class="eael-pagination-thumb">
-                                <img class="eael-thumbnail" src="<?php echo $item['eael_testimonial_image']['url'];?>" alt="<?php echo esc_attr(get_post_meta($item['eael_testimonial_image']['id'], '_wp_attachment_image_alt', true)); ?>">
+                                <img class="eael-thumbnail" src="<?php
+ echo $item['eael_testimonial_image']['url'];?>" alt="<?php
+ echo esc_attr(get_post_meta($item['eael_testimonial_image']['id'], '_wp_attachment_image_alt', true)); ?>">
                             </div>
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                    <?php
+ endforeach; ?>
                 </div>
             </div>
         <?php
+
             endif;
     }
 

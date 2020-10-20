@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -127,8 +128,10 @@ class Widget_Menu_Anchor extends Widget_Base {
 
 		$this->add_render_attribute( 'inner', 'class', 'elementor-menu-anchor' );
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'inner' ); ?>></div>
+		<div <?php
+ echo $this->get_render_attribute_string( 'inner' ); ?>></div>
 		<?php
+
 	}
 
 	/**
@@ -143,5 +146,6 @@ class Widget_Menu_Anchor extends Widget_Base {
 		?>
 		<div class="elementor-menu-anchor"{{{ settings.anchor ? ' id="' + settings.anchor + '"' : '' }}}></div>
 		<?php
+
 	}
 }

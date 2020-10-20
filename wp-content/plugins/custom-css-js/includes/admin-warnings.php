@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom CSS and JS
  *
@@ -71,21 +72,24 @@ class CustomCSSandJS_Warnings {
     ?>
         <script type='text/javascript'>
         jQuery(function($){
-            $(document).on( 'click', '#<?php echo $slug; ?> .notice-dismiss', function() {
+            $(document).on( 'click', '#<?php
+ echo $slug; ?> .notice-dismiss', function() {
             var data = {
                 action: 'ccj_dismiss',
-                option: '<?php echo $slug; ?>',
+                option: '<?php
+ echo $slug; ?>',
                 nonce: $(this).parent().data('nonce'),
             };
             $.post(ajaxurl, data, function(response ) {
-                $('#<?php echo $slug; ?>').fadeOut('slow');
+                $('#<?php
+ echo $slug; ?>').fadeOut('slow');
             });
             });
         });
         </script>
     <?php
-    }
 
+    }
 
     /**
      * Ajax response for `notice_dismiss` action
@@ -106,6 +110,5 @@ class CustomCSSandJS_Warnings {
     }
 
 }
-
 
 return new CustomCSSandJS_Warnings();

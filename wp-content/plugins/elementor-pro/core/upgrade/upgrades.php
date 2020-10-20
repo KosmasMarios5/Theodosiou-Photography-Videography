@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core\Upgrade;
 
 use Elementor\Core\Base\Document;

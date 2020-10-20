@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Misc WordPress Administration API.
  *
@@ -382,13 +383,20 @@ function wp_print_theme_file_tree( $tree, $level = 2, $size = 1, $index = 1 ) {
 			}
 			?>
 			<li role="treeitem" aria-expanded="true" tabindex="-1"
-				aria-level="<?php echo esc_attr( $level ); ?>"
-				aria-setsize="<?php echo esc_attr( $size ); ?>"
-				aria-posinset="<?php echo esc_attr( $index ); ?>">
-				<span class="folder-label"><?php echo esc_html( $label ); ?> <span class="screen-reader-text"><?php _e( 'folder' ); ?></span><span aria-hidden="true" class="icon"></span></span>
-				<ul role="group" class="tree-folder"><?php wp_print_theme_file_tree( $theme_file, $level + 1, $index, $size ); ?></ul>
+				aria-level="<?php
+ echo esc_attr( $level ); ?>"
+				aria-setsize="<?php
+ echo esc_attr( $size ); ?>"
+				aria-posinset="<?php
+ echo esc_attr( $index ); ?>">
+				<span class="folder-label"><?php
+ echo esc_html( $label ); ?> <span class="screen-reader-text"><?php
+ _e( 'folder' ); ?></span><span aria-hidden="true" class="icon"></span></span>
+				<ul role="group" class="tree-folder"><?php
+ wp_print_theme_file_tree( $theme_file, $level + 1, $index, $size ); ?></ul>
 			</li>
 			<?php
+
 		endforeach;
 	} else {
 		$filename = $tree;
@@ -400,13 +408,20 @@ function wp_print_theme_file_tree( $tree, $level = 2, $size = 1, $index = 1 ) {
 			self_admin_url( 'theme-editor.php' )
 		);
 		?>
-		<li role="none" class="<?php echo esc_attr( $relative_file === $filename ? 'current-file' : '' ); ?>">
-			<a role="treeitem" tabindex="<?php echo esc_attr( $relative_file === $filename ? '0' : '-1' ); ?>"
-				href="<?php echo esc_url( $url ); ?>"
-				aria-level="<?php echo esc_attr( $level ); ?>"
-				aria-setsize="<?php echo esc_attr( $size ); ?>"
-				aria-posinset="<?php echo esc_attr( $index ); ?>">
+		<li role="none" class="<?php
+ echo esc_attr( $relative_file === $filename ? 'current-file' : '' ); ?>">
+			<a role="treeitem" tabindex="<?php
+ echo esc_attr( $relative_file === $filename ? '0' : '-1' ); ?>"
+				href="<?php
+ echo esc_url( $url ); ?>"
+				aria-level="<?php
+ echo esc_attr( $level ); ?>"
+				aria-setsize="<?php
+ echo esc_attr( $size ); ?>"
+				aria-posinset="<?php
+ echo esc_attr( $index ); ?>">
 				<?php
+
 				$file_description = esc_html( get_file_description( $filename ) );
 				if ( $file_description !== $filename && wp_basename( $filename ) !== $file_description ) {
 					$file_description .= '<br /><span class="nonessential">(' . esc_html( $filename ) . ')</span>';
@@ -421,6 +436,7 @@ function wp_print_theme_file_tree( $tree, $level = 2, $size = 1, $index = 1 ) {
 			</a>
 		</li>
 		<?php
+
 	}
 }
 
@@ -471,13 +487,20 @@ function wp_print_plugin_file_tree( $tree, $label = '', $level = 2, $size = 1, $
 			}
 			?>
 			<li role="treeitem" aria-expanded="true" tabindex="-1"
-				aria-level="<?php echo esc_attr( $level ); ?>"
-				aria-setsize="<?php echo esc_attr( $size ); ?>"
-				aria-posinset="<?php echo esc_attr( $index ); ?>">
-				<span class="folder-label"><?php echo esc_html( $label ); ?> <span class="screen-reader-text"><?php _e( 'folder' ); ?></span><span aria-hidden="true" class="icon"></span></span>
-				<ul role="group" class="tree-folder"><?php wp_print_plugin_file_tree( $plugin_file, '', $level + 1, $index, $size ); ?></ul>
+				aria-level="<?php
+ echo esc_attr( $level ); ?>"
+				aria-setsize="<?php
+ echo esc_attr( $size ); ?>"
+				aria-posinset="<?php
+ echo esc_attr( $index ); ?>">
+				<span class="folder-label"><?php
+ echo esc_html( $label ); ?> <span class="screen-reader-text"><?php
+ _e( 'folder' ); ?></span><span aria-hidden="true" class="icon"></span></span>
+				<ul role="group" class="tree-folder"><?php
+ wp_print_plugin_file_tree( $plugin_file, '', $level + 1, $index, $size ); ?></ul>
 			</li>
 			<?php
+
 		endforeach;
 	} else {
 		$url = add_query_arg(
@@ -488,13 +511,20 @@ function wp_print_plugin_file_tree( $tree, $label = '', $level = 2, $size = 1, $
 			self_admin_url( 'plugin-editor.php' )
 		);
 		?>
-		<li role="none" class="<?php echo esc_attr( $file === $tree ? 'current-file' : '' ); ?>">
-			<a role="treeitem" tabindex="<?php echo esc_attr( $file === $tree ? '0' : '-1' ); ?>"
-				href="<?php echo esc_url( $url ); ?>"
-				aria-level="<?php echo esc_attr( $level ); ?>"
-				aria-setsize="<?php echo esc_attr( $size ); ?>"
-				aria-posinset="<?php echo esc_attr( $index ); ?>">
+		<li role="none" class="<?php
+ echo esc_attr( $file === $tree ? 'current-file' : '' ); ?>">
+			<a role="treeitem" tabindex="<?php
+ echo esc_attr( $file === $tree ? '0' : '-1' ); ?>"
+				href="<?php
+ echo esc_url( $url ); ?>"
+				aria-level="<?php
+ echo esc_attr( $level ); ?>"
+				aria-setsize="<?php
+ echo esc_attr( $size ); ?>"
+				aria-posinset="<?php
+ echo esc_attr( $index ); ?>">
 				<?php
+
 				if ( $file === $tree ) {
 					echo '<span class="notice notice-info">' . esc_html( $label ) . '</span>';
 				} else {
@@ -504,6 +534,7 @@ function wp_print_plugin_file_tree( $tree, $label = '', $level = 2, $size = 1, $
 			</a>
 		</li>
 		<?php
+
 	}
 }
 
@@ -526,7 +557,6 @@ function update_home_siteurl( $old_value, $value ) {
 		flush_rewrite_rules();
 	}
 }
-
 
 /**
  * Resets global variables based on $_GET and $_POST
@@ -949,25 +979,37 @@ function admin_color_scheme_picker( $user_id ) {
 
 	?>
 	<fieldset id="color-picker" class="scheme-list">
-		<legend class="screen-reader-text"><span><?php _e( 'Admin Color Scheme' ); ?></span></legend>
+		<legend class="screen-reader-text"><span><?php
+ _e( 'Admin Color Scheme' ); ?></span></legend>
 		<?php
+
 		wp_nonce_field( 'save-color-scheme', 'color-nonce', false );
 		foreach ( $_wp_admin_css_colors as $color => $color_info ) :
 
 			?>
-			<div class="color-option <?php echo ( $color == $current_color ) ? 'selected' : ''; ?>">
-				<input name="admin_color" id="admin_color_<?php echo esc_attr( $color ); ?>" type="radio" value="<?php echo esc_attr( $color ); ?>" class="tog" <?php checked( $color, $current_color ); ?> />
-				<input type="hidden" class="css_url" value="<?php echo esc_url( $color_info->url ); ?>" />
-				<input type="hidden" class="icon_colors" value="<?php echo esc_attr( wp_json_encode( array( 'icons' => $color_info->icon_colors ) ) ); ?>" />
-				<label for="admin_color_<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $color_info->name ); ?></label>
+			<div class="color-option <?php
+ echo ( $color == $current_color ) ? 'selected' : ''; ?>">
+				<input name="admin_color" id="admin_color_<?php
+ echo esc_attr( $color ); ?>" type="radio" value="<?php
+ echo esc_attr( $color ); ?>" class="tog" <?php
+ checked( $color, $current_color ); ?> />
+				<input type="hidden" class="css_url" value="<?php
+ echo esc_url( $color_info->url ); ?>" />
+				<input type="hidden" class="icon_colors" value="<?php
+ echo esc_attr( wp_json_encode( array( 'icons' => $color_info->icon_colors ) ) ); ?>" />
+				<label for="admin_color_<?php
+ echo esc_attr( $color ); ?>"><?php
+ echo esc_html( $color_info->name ); ?></label>
 				<table class="color-palette">
 					<tr>
 					<?php
 
 					foreach ( $color_info->colors as $html_color ) {
 						?>
-						<td style="background-color: <?php echo esc_attr( $html_color ); ?>">&nbsp;</td>
+						<td style="background-color: <?php
+ echo esc_attr( $html_color ); ?>">&nbsp;</td>
 						<?php
+
 					}
 
 					?>
@@ -981,6 +1023,7 @@ function admin_color_scheme_picker( $user_id ) {
 		?>
 	</fieldset>
 	<?php
+
 }
 
 /**
@@ -1278,13 +1321,15 @@ function wp_admin_canonical_url() {
 	$current_url  = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 	$filtered_url = remove_query_arg( $removable_query_args, $current_url );
 	?>
-	<link id="wp-admin-canonical" rel="canonical" href="<?php echo esc_url( $filtered_url ); ?>" />
+	<link id="wp-admin-canonical" rel="canonical" href="<?php
+ echo esc_url( $filtered_url ); ?>" />
 	<script>
 		if ( window.history.replaceState ) {
 			window.history.replaceState( null, null, document.getElementById( 'wp-admin-canonical' ).href + window.location.hash );
 		}
 	</script>
 	<?php
+
 }
 
 /**
@@ -1326,6 +1371,7 @@ function wp_page_reload_on_back_button_js() {
 		}
 	</script>
 	<?php
+
 }
 
 /**

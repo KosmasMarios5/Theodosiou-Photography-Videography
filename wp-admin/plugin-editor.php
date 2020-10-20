@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Edit plugin editor administration panel.
  *
@@ -27,10 +28,13 @@ if ( empty( $plugins ) ) {
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
 	<div class="wrap">
-		<h1><?php echo esc_html( $title ); ?></h1>
-		<div id="message" class="error"><p><?php _e( 'No plugins are currently available.' ); ?></p></div>
+		<h1><?php
+ echo esc_html( $title ); ?></h1>
+		<div id="message" class="error"><p><?php
+ _e( 'No plugins are currently available.' ); ?></p></div>
 	</div>
 	<?php
+
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 	exit;
 }
@@ -177,23 +181,31 @@ if ( '.php' === substr( $real_file, strrpos( $real_file, '.' ) ) ) {
 $content = esc_textarea( $content );
 ?>
 <div class="wrap">
-<h1><?php echo esc_html( $title ); ?></h1>
+<h1><?php
+ echo esc_html( $title ); ?></h1>
 
-<?php if ( isset( $_GET['a'] ) ) : ?>
+<?php
+ if ( isset( $_GET['a'] ) ) : ?>
 	<div id="message" class="updated notice is-dismissible">
-		<p><?php _e( 'File edited successfully.' ); ?></p>
+		<p><?php
+ _e( 'File edited successfully.' ); ?></p>
 	</div>
-<?php elseif ( is_wp_error( $edit_error ) ) : ?>
+<?php
+ elseif ( is_wp_error( $edit_error ) ) : ?>
 	<div id="message" class="notice notice-error">
-		<p><?php _e( 'There was an error while trying to update the file. You may need to fix something and try updating again.' ); ?></p>
-		<pre><?php echo esc_html( $edit_error->get_error_message() ? $edit_error->get_error_message() : $edit_error->get_error_code() ); ?></pre>
+		<p><?php
+ _e( 'There was an error while trying to update the file. You may need to fix something and try updating again.' ); ?></p>
+		<pre><?php
+ echo esc_html( $edit_error->get_error_message() ? $edit_error->get_error_message() : $edit_error->get_error_code() ); ?></pre>
 	</div>
-<?php endif; ?>
+<?php
+ endif; ?>
 
 <div class="fileedit-sub">
 <div class="alignleft">
 <h2>
 	<?php
+
 	if ( is_plugin_active( $plugin ) ) {
 		if ( is_writeable( $real_file ) ) {
 			/* translators: %s: Plugin file name. */
@@ -216,9 +228,11 @@ $content = esc_textarea( $content );
 </div>
 <div class="alignright">
 	<form action="plugin-editor.php" method="get">
-		<strong><label for="plugin"><?php _e( 'Select plugin to edit:' ); ?> </label></strong>
+		<strong><label for="plugin"><?php
+ _e( 'Select plugin to edit:' ); ?> </label></strong>
 		<select name="plugin" id="plugin">
 		<?php
+
 		foreach ( $plugins as $plugin_key => $a_plugin ) {
 			$plugin_name = $a_plugin['Name'];
 			if ( $plugin_key === $plugin ) {
@@ -232,16 +246,19 @@ $content = esc_textarea( $content );
 		}
 		?>
 		</select>
-		<?php submit_button( __( 'Select' ), '', 'Submit', false ); ?>
+		<?php
+ submit_button( __( 'Select' ), '', 'Submit', false ); ?>
 	</form>
 </div>
 <br class="clear" />
 </div>
 
 <div id="templateside">
-	<h2 id="plugin-files-label"><?php _e( 'Plugin Files' ); ?></h2>
+	<h2 id="plugin-files-label"><?php
+ _e( 'Plugin Files' ); ?></h2>
 
 	<?php
+
 	$plugin_editable_files = array();
 	foreach ( $plugin_files as $plugin_file ) {
 		if ( preg_match( '/\.([^.]+)$/', $plugin_file, $matches ) && in_array( $matches[1], $editable_extensions, true ) ) {
@@ -252,44 +269,64 @@ $content = esc_textarea( $content );
 	<ul role="tree" aria-labelledby="plugin-files-label">
 	<li role="treeitem" tabindex="-1" aria-expanded="true" aria-level="1" aria-posinset="1" aria-setsize="1">
 		<ul role="group">
-			<?php wp_print_plugin_file_tree( wp_make_plugin_file_tree( $plugin_editable_files ) ); ?>
+			<?php
+ wp_print_plugin_file_tree( wp_make_plugin_file_tree( $plugin_editable_files ) ); ?>
 		</ul>
 	</ul>
 </div>
 
 <form name="template" id="template" action="plugin-editor.php" method="post">
-	<?php wp_nonce_field( 'edit-plugin_' . $file, 'nonce' ); ?>
+	<?php
+ wp_nonce_field( 'edit-plugin_' . $file, 'nonce' ); ?>
 	<div>
-		<label for="newcontent" id="theme-plugin-editor-label"><?php _e( 'Selected file content:' ); ?></label>
-		<textarea cols="70" rows="25" name="newcontent" id="newcontent" aria-describedby="editor-keyboard-trap-help-1 editor-keyboard-trap-help-2 editor-keyboard-trap-help-3 editor-keyboard-trap-help-4"><?php echo $content; ?></textarea>
+		<label for="newcontent" id="theme-plugin-editor-label"><?php
+ _e( 'Selected file content:' ); ?></label>
+		<textarea cols="70" rows="25" name="newcontent" id="newcontent" aria-describedby="editor-keyboard-trap-help-1 editor-keyboard-trap-help-2 editor-keyboard-trap-help-3 editor-keyboard-trap-help-4"><?php
+ echo $content; ?></textarea>
 		<input type="hidden" name="action" value="update" />
-		<input type="hidden" name="file" value="<?php echo esc_attr( $file ); ?>" />
-		<input type="hidden" name="plugin" value="<?php echo esc_attr( $plugin ); ?>" />
+		<input type="hidden" name="file" value="<?php
+ echo esc_attr( $file ); ?>" />
+		<input type="hidden" name="plugin" value="<?php
+ echo esc_attr( $plugin ); ?>" />
 	</div>
 
-	<?php if ( ! empty( $docs_select ) ) : ?>
+	<?php
+ if ( ! empty( $docs_select ) ) : ?>
 		<div id="documentation" class="hide-if-no-js">
-			<label for="docs-list"><?php _e( 'Documentation:' ); ?></label>
-			<?php echo $docs_select; ?>
-			<input disabled id="docs-lookup" type="button" class="button" value="<?php esc_attr_e( 'Look Up' ); ?>" onclick="if ( '' != jQuery('#docs-list').val() ) { window.open( 'https://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=<?php echo urlencode( get_user_locale() ); ?>&amp;version=<?php echo urlencode( get_bloginfo( 'version' ) ); ?>&amp;redirect=true'); }" />
+			<label for="docs-list"><?php
+ _e( 'Documentation:' ); ?></label>
+			<?php
+ echo $docs_select; ?>
+			<input disabled id="docs-lookup" type="button" class="button" value="<?php
+ esc_attr_e( 'Look Up' ); ?>" onclick="if ( '' != jQuery('#docs-list').val() ) { window.open( 'https://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=<?php
+ echo urlencode( get_user_locale() ); ?>&amp;version=<?php
+ echo urlencode( get_bloginfo( 'version' ) ); ?>&amp;redirect=true'); }" />
 		</div>
-	<?php endif; ?>
+	<?php
+ endif; ?>
 
-	<?php if ( is_writeable( $real_file ) ) : ?>
+	<?php
+ if ( is_writeable( $real_file ) ) : ?>
 		<div class="editor-notices">
-		<?php if ( in_array( $plugin, (array) get_option( 'active_plugins', array() ), true ) ) { ?>
+		<?php
+ if ( in_array( $plugin, (array) get_option( 'active_plugins', array() ), true ) ) { ?>
 			<div class="notice notice-warning inline active-plugin-edit-warning">
-				<p><?php _e( '<strong>Warning:</strong> Making changes to active plugins is not recommended.' ); ?></p>
+				<p><?php
+ _e( '<strong>Warning:</strong> Making changes to active plugins is not recommended.' ); ?></p>
 			</div>
-		<?php } ?>
+		<?php
+ } ?>
 		</div>
 		<p class="submit">
-			<?php submit_button( __( 'Update File' ), 'primary', 'submit', false ); ?>
+			<?php
+ submit_button( __( 'Update File' ), 'primary', 'submit', false ); ?>
 			<span class="spinner"></span>
 		</p>
-	<?php else : ?>
+	<?php
+ else : ?>
 		<p><em>
 			<?php
+
 			printf(
 				/* translators: %s: Documentation URL. */
 				__( 'You need to make this file writable before you can save your changes. See <a href="%s">Changing File Permissions</a> for more information.' ),
@@ -297,13 +334,16 @@ $content = esc_textarea( $content );
 			);
 			?>
 		</em></p>
-	<?php endif; ?>
+	<?php
+ endif; ?>
 
-	<?php wp_print_file_editor_templates(); ?>
+	<?php
+ wp_print_file_editor_templates(); ?>
 </form>
 <br class="clear" />
 </div>
 <?php
+
 $dismissed_pointers = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
 if ( ! in_array( 'plugin_editor_notice', $dismissed_pointers, true ) ) :
 	// Get a back URL.
@@ -322,18 +362,25 @@ if ( ! in_array( 'plugin_editor_notice', $dismissed_pointers, true ) ) :
 		<div class="notification-dialog">
 			<div class="file-editor-warning-content">
 				<div class="file-editor-warning-message">
-					<h1><?php _e( 'Heads up!' ); ?></h1>
-					<p><?php _e( 'You appear to be making direct edits to your plugin in the WordPress dashboard. We recommend that you don&#8217;t! Editing plugins directly may introduce incompatibilities that break your site and your changes may be lost in future updates.' ); ?></p>
-					<p><?php _e( 'If you absolutely have to make direct edits to this plugin, use a file manager to create a copy with a new name and hang on to the original. That way, you can re-enable a functional version if something goes wrong.' ); ?></p>
+					<h1><?php
+ _e( 'Heads up!' ); ?></h1>
+					<p><?php
+ _e( 'You appear to be making direct edits to your plugin in the WordPress dashboard. We recommend that you don&#8217;t! Editing plugins directly may introduce incompatibilities that break your site and your changes may be lost in future updates.' ); ?></p>
+					<p><?php
+ _e( 'If you absolutely have to make direct edits to this plugin, use a file manager to create a copy with a new name and hang on to the original. That way, you can re-enable a functional version if something goes wrong.' ); ?></p>
 				</div>
 				<p>
-					<a class="button file-editor-warning-go-back" href="<?php echo esc_url( $return_url ); ?>"><?php _e( 'Go back' ); ?></a>
-					<button type="button" class="file-editor-warning-dismiss button button-primary"><?php _e( 'I understand' ); ?></button>
+					<a class="button file-editor-warning-go-back" href="<?php
+ echo esc_url( $return_url ); ?>"><?php
+ _e( 'Go back' ); ?></a>
+					<button type="button" class="file-editor-warning-dismiss button button-primary"><?php
+ _e( 'I understand' ); ?></button>
 				</p>
 			</div>
 		</div>
 	</div>
 	<?php
+
 endif; // Editor warning notice.
 
 require_once ABSPATH . 'wp-admin/admin-footer.php';

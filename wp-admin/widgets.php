@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget administration panel
  *
@@ -290,10 +291,13 @@ if ( isset( $_GET['editwidget'] ) && $_GET['editwidget'] ) {
 
 	require_once ABSPATH . 'wp-admin/admin-header.php'; ?>
 	<div class="wrap">
-	<h1><?php echo esc_html( $title ); ?></h1>
-	<div class="editwidget"<?php echo $width; ?>>
+	<h1><?php
+ echo esc_html( $title ); ?></h1>
+	<div class="editwidget"<?php
+ echo $width; ?>>
 	<h2>
 	<?php
+
 	/* translators: %s: Widget name. */
 	printf( __( 'Widget %s' ), $name );
 	?>
@@ -302,6 +306,7 @@ if ( isset( $_GET['editwidget'] ) && $_GET['editwidget'] ) {
 	<form action="widgets.php" method="post">
 	<div class="widget-inside">
 	<?php
+
 	if ( is_callable( $control_callback ) ) {
 		call_user_func_array( $control_callback, $control['params'] );
 	} else {
@@ -310,10 +315,14 @@ if ( isset( $_GET['editwidget'] ) && $_GET['editwidget'] ) {
 	?>
 	</div>
 
-	<p class="describe"><?php _e( 'Select both the sidebar for this widget and the position of the widget in that sidebar.' ); ?></p>
+	<p class="describe"><?php
+ _e( 'Select both the sidebar for this widget and the position of the widget in that sidebar.' ); ?></p>
 	<div class="widget-position">
-	<table class="widefat"><thead><tr><th><?php _e( 'Sidebar' ); ?></th><th><?php _e( 'Position' ); ?></th></tr></thead><tbody>
+	<table class="widefat"><thead><tr><th><?php
+ _e( 'Sidebar' ); ?></th><th><?php
+ _e( 'Position' ); ?></th></tr></thead><tbody>
 	<?php
+
 	foreach ( $wp_registered_sidebars as $sbname => $sbvalue ) {
 		echo "\t\t<tr><td><label><input type='radio' name='sidebar' value='" . esc_attr( $sbname ) . "'" . checked( $sbname, $sidebar, false ) . " /> $sbvalue[name]</label></td><td>";
 		if ( 'wp_inactive_widgets' === $sbname || 'orphaned_widgets' === substr( $sbname, 0, 16 ) ) {
@@ -347,25 +356,33 @@ if ( isset( $_GET['editwidget'] ) && $_GET['editwidget'] ) {
 
 	<div class="widget-control-actions">
 	<?php
+
 	if ( isset( $_GET['addnew'] ) ) {
 		?>
-	<a href="widgets.php" class="button alignleft"><?php _e( 'Cancel' ); ?></a>
+	<a href="widgets.php" class="button alignleft"><?php
+ _e( 'Cancel' ); ?></a>
 		<?php
+
 	} else {
 		submit_button( __( 'Delete' ), 'alignleft', 'removewidget', false );
 	}
 	submit_button( __( 'Save Widget' ), 'primary alignright', 'savewidget', false );
 	?>
-	<input type="hidden" name="widget-id" class="widget-id" value="<?php echo esc_attr( $widget_id ); ?>" />
-	<input type="hidden" name="id_base" class="id_base" value="<?php echo esc_attr( $id_base ); ?>" />
-	<input type="hidden" name="multi_number" class="multi_number" value="<?php echo esc_attr( $multi_number ); ?>" />
-	<?php	wp_nonce_field( "save-delete-widget-$widget_id" ); ?>
+	<input type="hidden" name="widget-id" class="widget-id" value="<?php
+ echo esc_attr( $widget_id ); ?>" />
+	<input type="hidden" name="id_base" class="id_base" value="<?php
+ echo esc_attr( $id_base ); ?>" />
+	<input type="hidden" name="multi_number" class="multi_number" value="<?php
+ echo esc_attr( $multi_number ); ?>" />
+	<?php
+	wp_nonce_field( "save-delete-widget-$widget_id" ); ?>
 	<br class="clear" />
 	</div>
 	</form>
 	</div>
 	</div>
 	<?php
+
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 	exit;
 }
@@ -385,11 +402,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <div class="wrap">
 <h1 class="wp-heading-inline">
 <?php
+
 echo esc_html( $title );
 ?>
 </h1>
 
 <?php
+
 if ( current_user_can( 'customize' ) ) {
 	printf(
 		' <a class="page-title-action hide-if-no-customize" href="%1$s">%2$s</a>',
@@ -409,19 +428,30 @@ if ( current_user_can( 'customize' ) ) {
 $nonce = wp_create_nonce( 'widgets-access' );
 ?>
 <div class="widget-access-link">
-	<a id="access-on" href="widgets.php?widgets-access=on&_wpnonce=<?php echo urlencode( $nonce ); ?>"><?php _e( 'Enable accessibility mode' ); ?></a><a id="access-off" href="widgets.php?widgets-access=off&_wpnonce=<?php echo urlencode( $nonce ); ?>"><?php _e( 'Disable accessibility mode' ); ?></a>
+	<a id="access-on" href="widgets.php?widgets-access=on&_wpnonce=<?php
+ echo urlencode( $nonce ); ?>"><?php
+ _e( 'Enable accessibility mode' ); ?></a><a id="access-off" href="widgets.php?widgets-access=off&_wpnonce=<?php
+ echo urlencode( $nonce ); ?>"><?php
+ _e( 'Disable accessibility mode' ); ?></a>
 </div>
 
 <hr class="wp-header-end">
 
-<?php if ( isset( $_GET['message'] ) && isset( $messages[ $_GET['message'] ] ) ) { ?>
-<div id="message" class="updated notice is-dismissible"><p><?php echo $messages[ $_GET['message'] ]; ?></p></div>
-<?php } ?>
-<?php if ( isset( $_GET['error'] ) && isset( $errors[ $_GET['error'] ] ) ) { ?>
-<div id="message" class="error"><p><?php echo $errors[ $_GET['error'] ]; ?></p></div>
-<?php } ?>
+<?php
+ if ( isset( $_GET['message'] ) && isset( $messages[ $_GET['message'] ] ) ) { ?>
+<div id="message" class="updated notice is-dismissible"><p><?php
+ echo $messages[ $_GET['message'] ]; ?></p></div>
+<?php
+ } ?>
+<?php
+ if ( isset( $_GET['error'] ) && isset( $errors[ $_GET['error'] ] ) ) { ?>
+<div id="message" class="error"><p><?php
+ echo $errors[ $_GET['error'] ]; ?></p></div>
+<?php
+ } ?>
 
 <?php
+
 /**
  * Fires before the Widgets administration page content loads.
  *
@@ -435,17 +465,22 @@ do_action( 'widgets_admin_page' );
 	<div id="available-widgets" class="widgets-holder-wrap">
 		<div class="sidebar-name">
 			<button type="button" class="handlediv hide-if-no-js" aria-expanded="true">
-				<span class="screen-reader-text"><?php _e( 'Available Widgets' ); ?></span>
+				<span class="screen-reader-text"><?php
+ _e( 'Available Widgets' ); ?></span>
 				<span class="toggle-indicator" aria-hidden="true"></span>
 			</button>
-			<h2><?php _e( 'Available Widgets' ); ?> <span id="removing-widget"><?php _ex( 'Deactivate', 'removing-widget' ); ?> <span></span></span></h2>
+			<h2><?php
+ _e( 'Available Widgets' ); ?> <span id="removing-widget"><?php
+ _ex( 'Deactivate', 'removing-widget' ); ?> <span></span></span></h2>
 		</div>
 		<div class="widget-holder">
 			<div class="sidebar-description">
-				<p class="description"><?php _e( 'To activate a widget drag it to a sidebar or click on it. To deactivate a widget and delete its settings, drag it back.' ); ?></p>
+				<p class="description"><?php
+ _e( 'To activate a widget drag it to a sidebar or click on it. To deactivate a widget and delete its settings, drag it back.' ); ?></p>
 			</div>
 			<div id="widget-list">
-				<?php wp_list_widgets(); ?>
+				<?php
+ wp_list_widgets(); ?>
 			</div>
 			<br class='clear' />
 		</div>
@@ -464,15 +499,19 @@ foreach ( $wp_registered_sidebars as $sidebar => $registered_sidebar ) {
 
 		$is_inactive_widgets = 'wp_inactive_widgets' === $registered_sidebar['id'];
 		?>
-		<div class="<?php echo esc_attr( $wrap_class ); ?>">
+		<div class="<?php
+ echo esc_attr( $wrap_class ); ?>">
 			<div class="widget-holder inactive">
-				<?php wp_list_widget_controls( $registered_sidebar['id'], $registered_sidebar['name'] ); ?>
+				<?php
+ wp_list_widget_controls( $registered_sidebar['id'], $registered_sidebar['name'] ); ?>
 
-				<?php if ( $is_inactive_widgets ) { ?>
+				<?php
+ if ( $is_inactive_widgets ) { ?>
 				<div class="remove-inactive-widgets">
 					<form action="" method="post">
 						<p>
 							<?php
+
 							$attributes = array( 'id' => 'inactive-widgets-control-remove' );
 
 							if ( empty( $sidebars_widgets['wp_inactive_widgets'] ) ) {
@@ -483,14 +522,19 @@ foreach ( $wp_registered_sidebars as $sidebar => $registered_sidebar ) {
 							?>
 							<span class="spinner"></span>
 						</p>
-						<?php wp_nonce_field( 'remove-inactive-widgets', '_wpnonce_remove_inactive_widgets' ); ?>
+						<?php
+ wp_nonce_field( 'remove-inactive-widgets', '_wpnonce_remove_inactive_widgets' ); ?>
 					</form>
 				</div>
-				<?php } ?>
+				<?php
+ } ?>
 			</div>
-			<?php if ( $is_inactive_widgets ) { ?>
-			<p class="description"><?php _e( 'This will clear all items from the inactive widgets list. You will not be able to restore any customizations.' ); ?></p>
-			<?php } ?>
+			<?php
+ if ( $is_inactive_widgets ) { ?>
+			<p class="description"><?php
+ _e( 'This will clear all items from the inactive widgets list. You will not be able to restore any customizations.' ); ?></p>
+			<?php
+ } ?>
 		</div>
 		<?php
 
@@ -517,7 +561,8 @@ if ( $sidebars_count > 1 ) {
 
 ?>
 <div class="widget-liquid-right">
-<div id="widgets-right" class="wp-clearfix<?php echo $single_sidebar_class; ?>">
+<div id="widgets-right" class="wp-clearfix<?php
+ echo $single_sidebar_class; ?>">
 <div class="sidebars-column-1">
 <?php
 
@@ -535,11 +580,14 @@ foreach ( $theme_sidebars as $sidebar => $registered_sidebar ) {
 		?>
 		</div><div class="sidebars-column-2">
 		<?php
+
 	}
 
 	?>
-	<div class="<?php echo esc_attr( $wrap_class ); ?>">
+	<div class="<?php
+ echo esc_attr( $wrap_class ); ?>">
 		<?php
+
 		// Show the control forms for each of the widgets in this sidebar.
 		wp_list_widget_controls( $sidebar, $registered_sidebar['name'] );
 		?>
@@ -554,7 +602,8 @@ foreach ( $theme_sidebars as $sidebar => $registered_sidebar ) {
 </div>
 </div>
 <form method="post">
-<?php wp_nonce_field( 'save-sidebar-widgets', '_wpnonce_widgets', false ); ?>
+<?php
+ wp_nonce_field( 'save-sidebar-widgets', '_wpnonce_widgets', false ); ?>
 </form>
 <br class="clear" />
 </div>
@@ -562,8 +611,10 @@ foreach ( $theme_sidebars as $sidebar => $registered_sidebar ) {
 <div class="widgets-chooser">
 	<ul class="widgets-chooser-sidebars"></ul>
 	<div class="widgets-chooser-actions">
-		<button class="button widgets-chooser-cancel"><?php _e( 'Cancel' ); ?></button>
-		<button class="button button-primary widgets-chooser-add"><?php _e( 'Add Widget' ); ?></button>
+		<button class="button widgets-chooser-cancel"><?php
+ _e( 'Cancel' ); ?></button>
+		<button class="button button-primary widgets-chooser-add"><?php
+ _e( 'Add Widget' ); ?></button>
 	</div>
 </div>
 

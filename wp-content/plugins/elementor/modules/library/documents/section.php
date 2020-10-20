@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\Library\Documents;
 
 if ( ! defined( 'ABSPATH' ) ) {

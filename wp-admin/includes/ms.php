@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite administration functions.
  *
@@ -255,11 +256,13 @@ function display_space_usage() {
 	?>
 	<strong>
 	<?php
+
 		/* translators: Storage space that's been used. 1: Percentage of used space, 2: Total space allowed in megabytes or gigabytes. */
 		printf( __( 'Used: %1$s%% of %2$s' ), number_format( $percent_used ), $space );
 	?>
 	</strong>
 	<?php
+
 }
 
 /**
@@ -296,13 +299,18 @@ function upload_space_setting( $id ) {
 
 	?>
 	<tr>
-		<th><label for="blog-upload-space-number"><?php _e( 'Site Upload Space Quota' ); ?></label></th>
+		<th><label for="blog-upload-space-number"><?php
+ _e( 'Site Upload Space Quota' ); ?></label></th>
 		<td>
-			<input type="number" step="1" min="0" style="width: 100px" name="option[blog_upload_space]" id="blog-upload-space-number" aria-describedby="blog-upload-space-desc" value="<?php echo $quota; ?>" />
-			<span id="blog-upload-space-desc"><span class="screen-reader-text"><?php _e( 'Size in megabytes' ); ?></span> <?php _e( 'MB (Leave blank for network default)' ); ?></span>
+			<input type="number" step="1" min="0" style="width: 100px" name="option[blog_upload_space]" id="blog-upload-space-number" aria-describedby="blog-upload-space-desc" value="<?php
+ echo $quota; ?>" />
+			<span id="blog-upload-space-desc"><span class="screen-reader-text"><?php
+ _e( 'Size in megabytes' ); ?></span> <?php
+ _e( 'MB (Leave blank for network default)' ); ?></span>
 		</td>
 	</tr>
 	<?php
+
 }
 
 /**
@@ -761,10 +769,13 @@ function choose_primary_blog() {
 	?>
 	<table class="form-table" role="presentation">
 	<tr>
-	<?php /* translators: My Sites label. */ ?>
-		<th scope="row"><label for="primary_blog"><?php _e( 'Primary Site' ); ?></label></th>
+	<?php
+ /* translators: My Sites label. */ ?>
+		<th scope="row"><label for="primary_blog"><?php
+ _e( 'Primary Site' ); ?></label></th>
 		<td>
 		<?php
+
 		$all_blogs    = get_blogs_of_user( get_current_user_id() );
 		$primary_blog = get_user_meta( get_current_user_id(), 'primary_blog', true );
 		if ( count( $all_blogs ) > 1 ) {
@@ -772,17 +783,23 @@ function choose_primary_blog() {
 			?>
 			<select name="primary_blog" id="primary_blog">
 				<?php
+
 				foreach ( (array) $all_blogs as $blog ) {
 					if ( $primary_blog == $blog->userblog_id ) {
 						$found = true;
 					}
 					?>
-					<option value="<?php echo $blog->userblog_id; ?>"<?php selected( $primary_blog, $blog->userblog_id ); ?>><?php echo esc_url( get_home_url( $blog->userblog_id ) ); ?></option>
+					<option value="<?php
+ echo $blog->userblog_id; ?>"<?php
+ selected( $primary_blog, $blog->userblog_id ); ?>><?php
+ echo esc_url( get_home_url( $blog->userblog_id ) ); ?></option>
 					<?php
+
 				}
 				?>
 			</select>
 			<?php
+
 			if ( ! $found ) {
 				$blog = reset( $all_blogs );
 				update_user_meta( get_current_user_id(), 'primary_blog', $blog->userblog_id );
@@ -801,6 +818,7 @@ function choose_primary_blog() {
 	</tr>
 	</table>
 	<?php
+
 }
 
 /**
@@ -842,9 +860,11 @@ function can_edit_network( $network_id ) {
 function _thickbox_path_admin_subfolder() {
 	?>
 <script type="text/javascript">
-var tb_pathToImage = "<?php echo includes_url( 'js/thickbox/loadingAnimation.gif', 'relative' ); ?>";
+var tb_pathToImage = "<?php
+ echo includes_url( 'js/thickbox/loadingAnimation.gif', 'relative' ); ?>";
 </script>
 	<?php
+
 }
 
 /**
@@ -856,23 +876,31 @@ function confirm_delete_users( $users ) {
 		return false;
 	}
 	?>
-	<h1><?php esc_html_e( 'Users' ); ?></h1>
+	<h1><?php
+ esc_html_e( 'Users' ); ?></h1>
 
-	<?php if ( 1 === count( $users ) ) : ?>
-		<p><?php _e( 'You have chosen to delete the user from all networks and sites.' ); ?></p>
-	<?php else : ?>
-		<p><?php _e( 'You have chosen to delete the following users from all networks and sites.' ); ?></p>
-	<?php endif; ?>
+	<?php
+ if ( 1 === count( $users ) ) : ?>
+		<p><?php
+ _e( 'You have chosen to delete the user from all networks and sites.' ); ?></p>
+	<?php
+ else : ?>
+		<p><?php
+ _e( 'You have chosen to delete the following users from all networks and sites.' ); ?></p>
+	<?php
+ endif; ?>
 
 	<form action="users.php?action=dodelete" method="post">
 	<input type="hidden" name="dodelete" />
 	<?php
+
 	wp_nonce_field( 'ms-users-delete' );
 	$site_admins = get_super_admins();
 	$admin_out   = '<option value="' . esc_attr( $current_user->ID ) . '">' . $current_user->user_login . '</option>';
 	?>
 	<table class="form-table" role="presentation">
 	<?php
+
 	$allusers = (array) $_POST['allusers'];
 	foreach ( $allusers as $user_id ) {
 		if ( '' !== $user_id && '0' != $user_id ) {
@@ -899,16 +927,20 @@ function confirm_delete_users( $users ) {
 			}
 			?>
 			<tr>
-				<th scope="row"><?php echo $delete_user->user_login; ?>
-					<?php echo '<input type="hidden" name="user[]" value="' . esc_attr( $user_id ) . '" />' . "\n"; ?>
+				<th scope="row"><?php
+ echo $delete_user->user_login; ?>
+					<?php
+ echo '<input type="hidden" name="user[]" value="' . esc_attr( $user_id ) . '" />' . "\n"; ?>
 				</th>
 			<?php
+
 			$blogs = get_blogs_of_user( $user_id, true );
 
 			if ( ! empty( $blogs ) ) {
 				?>
 				<td><fieldset><p><legend>
 				<?php
+
 				printf(
 					/* translators: %s: User login. */
 					__( 'What should be done with content owned by %s?' ),
@@ -917,6 +949,7 @@ function confirm_delete_users( $users ) {
 				?>
 				</legend></p>
 				<?php
+
 				foreach ( (array) $blogs as $key => $details ) {
 					$blog_users = get_users(
 						array(
@@ -947,47 +980,63 @@ function confirm_delete_users( $users ) {
 						<ul style="list-style:none;">
 							<li>
 								<?php
+
 								/* translators: %s: Link to user's site. */
 								printf( __( 'Site: %s' ), $user_site );
 								?>
 							</li>
-							<li><label><input type="radio" id="delete_option0" name="delete[<?php echo $details->userblog_id . '][' . $delete_user->ID; ?>]" value="delete" checked="checked" />
-							<?php _e( 'Delete all content.' ); ?></label></li>
-							<li><label><input type="radio" id="delete_option1" name="delete[<?php echo $details->userblog_id . '][' . $delete_user->ID; ?>]" value="reassign" />
-							<?php _e( 'Attribute all content to:' ); ?></label>
-							<?php echo $user_dropdown; ?></li>
+							<li><label><input type="radio" id="delete_option0" name="delete[<?php
+ echo $details->userblog_id . '][' . $delete_user->ID; ?>]" value="delete" checked="checked" />
+							<?php
+ _e( 'Delete all content.' ); ?></label></li>
+							<li><label><input type="radio" id="delete_option1" name="delete[<?php
+ echo $details->userblog_id . '][' . $delete_user->ID; ?>]" value="reassign" />
+							<?php
+ _e( 'Attribute all content to:' ); ?></label>
+							<?php
+ echo $user_dropdown; ?></li>
 						</ul>
 						<?php
+
 					}
 				}
 				echo '</fieldset></td></tr>';
 			} else {
 				?>
-				<td><p><?php _e( 'User has no sites or content and will be deleted.' ); ?></p></td>
-			<?php } ?>
+				<td><p><?php
+ _e( 'User has no sites or content and will be deleted.' ); ?></p></td>
+			<?php
+ } ?>
 			</tr>
 			<?php
+
 		}
 	}
 
 	?>
 	</table>
 	<?php
+
 	/** This action is documented in wp-admin/users.php */
 	do_action( 'delete_user_form', $current_user, $allusers );
 
 	if ( 1 === count( $users ) ) :
 		?>
-		<p><?php _e( 'Once you hit &#8220;Confirm Deletion&#8221;, the user will be permanently removed.' ); ?></p>
-	<?php else : ?>
-		<p><?php _e( 'Once you hit &#8220;Confirm Deletion&#8221;, these users will be permanently removed.' ); ?></p>
+		<p><?php
+ _e( 'Once you hit &#8220;Confirm Deletion&#8221;, the user will be permanently removed.' ); ?></p>
+	<?php
+ else : ?>
+		<p><?php
+ _e( 'Once you hit &#8220;Confirm Deletion&#8221;, these users will be permanently removed.' ); ?></p>
 		<?php
+
 	endif;
 
 	submit_button( __( 'Confirm Deletion' ), 'primary' );
 	?>
 	</form>
 	<?php
+
 	return true;
 }
 
@@ -1011,6 +1060,7 @@ jQuery(document).ready( function($) {
 });
 </script>
 	<?php
+
 }
 
 /**

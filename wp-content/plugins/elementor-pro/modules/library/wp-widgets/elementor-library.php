@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Library\WP_Widgets;
 
 use Elementor\Core\Base\Document;
@@ -94,24 +95,42 @@ class Elementor_Library extends \WP_Widget {
 		}
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title', 'elementor-pro' ); ?>:</label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
+			<label for="<?php
+ echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php
+ esc_attr_e( 'Title', 'elementor-pro' ); ?>:</label>
+			<input class="widefat" id="<?php
+ echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php
+ echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php
+ echo esc_attr( $instance['title'] ); ?>">
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'template_id' ) ); ?>"><?php esc_attr_e( 'Choose Template', 'elementor-pro' ); ?>:</label>
-			<select class="widefat elementor-widget-template-select" id="<?php echo esc_attr( $this->get_field_id( 'template_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'template_id' ) ); ?>">
-				<option value="">— <?php _e( 'Select', 'elementor-pro' ); ?> —</option>
+			<label for="<?php
+ echo esc_attr( $this->get_field_id( 'template_id' ) ); ?>"><?php
+ esc_attr_e( 'Choose Template', 'elementor-pro' ); ?>:</label>
+			<select class="widefat elementor-widget-template-select" id="<?php
+ echo esc_attr( $this->get_field_id( 'template_id' ) ); ?>" name="<?php
+ echo esc_attr( $this->get_field_name( 'template_id' ) ); ?>">
+				<option value="">— <?php
+ _e( 'Select', 'elementor-pro' ); ?> —</option>
 				<?php
+
 				foreach ( $templates as $template ) :
 					$selected = selected( $template['template_id'], $instance['template_id'] );
 					?>
-					<option value="<?php echo $template['template_id']; ?>" <?php echo $selected; ?> data-type="<?php echo esc_attr( $template['type'] ); ?>">
-						<?php echo $template['title']; ?> (<?php echo $template['type']; ?>)
+					<option value="<?php
+ echo $template['template_id']; ?>" <?php
+ echo $selected; ?> data-type="<?php
+ echo esc_attr( $template['type'] ); ?>">
+						<?php
+ echo $template['title']; ?> (<?php
+ echo $template['type']; ?>)
 					</option>
-				<?php endforeach; ?>
+				<?php
+ endforeach; ?>
 			</select>
 			<?php
+
 			$style = ' style="display:none"';
 
 			$template_type = get_post_meta( $instance['template_id'], Document::TYPE_META_KEY, true );
@@ -121,11 +140,15 @@ class Elementor_Library extends \WP_Widget {
 				$style = '';
 			}
 			?>
-			<a target="_blank" class="elementor-edit-template"<?php echo $style; ?> href="<?php echo esc_url( add_query_arg( 'elementor', '', get_permalink( $instance['template_id'] ) ) ); ?>">
-				<i class="eicon-pencil"></i> <?php echo __( 'Edit Template', 'elementor-pro' ); ?>
+			<a target="_blank" class="elementor-edit-template"<?php
+ echo $style; ?> href="<?php
+ echo esc_url( add_query_arg( 'elementor', '', get_permalink( $instance['template_id'] ) ) ); ?>">
+				<i class="eicon-pencil"></i> <?php
+ echo __( 'Edit Template', 'elementor-pro' ); ?>
 			</a>
 		</p>
 		<?php
+
 	}
 
 	/**

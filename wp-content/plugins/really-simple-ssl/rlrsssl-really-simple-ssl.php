@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Really Simple SSL
  * Plugin URI: https://www.really-simple-ssl.com
@@ -48,7 +49,6 @@ class REALLY_SIMPLE_SSL
 			self::$instance->includes();
 			self::$instance->rsssl_front_end = new rsssl_front_end();
 			self::$instance->rsssl_mixed_content_fixer = new rsssl_mixed_content_fixer();
-
 
 			// Backwards compatibility for add-ons
 			global $rsssl_front_end, $rsssl_mixed_content_fixer;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_Comments_List_Table class
  *
@@ -556,19 +557,23 @@ class WP_Comments_List_Table extends WP_List_Table {
 		$this->screen->render_screen_reader_content( 'heading_list' );
 
 		?>
-<table class="wp-list-table <?php echo implode( ' ', $this->get_table_classes() ); ?>">
+<table class="wp-list-table <?php
+ echo implode( ' ', $this->get_table_classes() ); ?>">
 	<thead>
 	<tr>
-		<?php $this->print_column_headers(); ?>
+		<?php
+ $this->print_column_headers(); ?>
 	</tr>
 	</thead>
 
 	<tbody id="the-comment-list" data-wp-lists="list:comment">
-		<?php $this->display_rows_or_placeholder(); ?>
+		<?php
+ $this->display_rows_or_placeholder(); ?>
 	</tbody>
 
 	<tbody id="the-extra-comment-list" data-wp-lists="list:comment" style="display: none;">
 		<?php
+
 			/*
 			 * Back up the items to restore after printing the extra items markup.
 			 * The extra items may be empty, which will prevent the table nav from displaying later.
@@ -582,7 +587,8 @@ class WP_Comments_List_Table extends WP_List_Table {
 
 	<tfoot>
 	<tr>
-		<?php $this->print_column_headers( false ); ?>
+		<?php
+ $this->print_column_headers( false ); ?>
 	</tr>
 	</tfoot>
 
@@ -847,9 +853,14 @@ class WP_Comments_List_Table extends WP_List_Table {
 	public function column_cb( $comment ) {
 		if ( $this->user_can ) {
 			?>
-		<label class="screen-reader-text" for="cb-select-<?php echo $comment->comment_ID; ?>"><?php _e( 'Select comment' ); ?></label>
-		<input id="cb-select-<?php echo $comment->comment_ID; ?>" type="checkbox" name="delete_comments[]" value="<?php echo $comment->comment_ID; ?>" />
+		<label class="screen-reader-text" for="cb-select-<?php
+ echo $comment->comment_ID; ?>"><?php
+ _e( 'Select comment' ); ?></label>
+		<input id="cb-select-<?php
+ echo $comment->comment_ID; ?>" type="checkbox" name="delete_comments[]" value="<?php
+ echo $comment->comment_ID; ?>" />
 			<?php
+
 		}
 	}
 
@@ -880,14 +891,21 @@ class WP_Comments_List_Table extends WP_List_Table {
 			/** This filter is documented in wp-admin/includes/comment.php */
 			$comment_content = apply_filters( 'comment_edit_pre', $comment->comment_content );
 			?>
-		<div id="inline-<?php echo $comment->comment_ID; ?>" class="hidden">
-			<textarea class="comment" rows="1" cols="1"><?php echo esc_textarea( $comment_content ); ?></textarea>
-			<div class="author-email"><?php echo esc_attr( $comment->comment_author_email ); ?></div>
-			<div class="author"><?php echo esc_attr( $comment->comment_author ); ?></div>
-			<div class="author-url"><?php echo esc_attr( $comment->comment_author_url ); ?></div>
-			<div class="comment_status"><?php echo $comment->comment_approved; ?></div>
+		<div id="inline-<?php
+ echo $comment->comment_ID; ?>" class="hidden">
+			<textarea class="comment" rows="1" cols="1"><?php
+ echo esc_textarea( $comment_content ); ?></textarea>
+			<div class="author-email"><?php
+ echo esc_attr( $comment->comment_author_email ); ?></div>
+			<div class="author"><?php
+ echo esc_attr( $comment->comment_author ); ?></div>
+			<div class="author-url"><?php
+ echo esc_attr( $comment->comment_author_url ); ?></div>
+			<div class="comment_status"><?php
+ echo $comment->comment_approved; ?></div>
 		</div>
 			<?php
+
 		}
 	}
 

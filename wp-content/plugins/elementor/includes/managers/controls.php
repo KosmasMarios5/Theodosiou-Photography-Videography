@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -919,17 +920,25 @@ class Controls_Manager {
 		ob_start();
 		?>
 		<div class="elementor-nerd-box">
-			<img class="elementor-nerd-box-icon" src="<?php echo ELEMENTOR_ASSETS_URL . 'images/go-pro.svg'; ?>" />
-			<div class="elementor-nerd-box-title"><?php echo $texts['title']; ?></div>
-			<?php foreach ( $texts['messages'] as $message ) { ?>
-				<div class="elementor-nerd-box-message"><?php echo $message; ?></div>
-			<?php }
+			<img class="elementor-nerd-box-icon" src="<?php
+ echo ELEMENTOR_ASSETS_URL . 'images/go-pro.svg'; ?>" />
+			<div class="elementor-nerd-box-title"><?php
+ echo $texts['title']; ?></div>
+			<?php
+ foreach ( $texts['messages'] as $message ) { ?>
+				<div class="elementor-nerd-box-message"><?php
+ echo $message; ?></div>
+			<?php
+ }
 
 			if ( $texts['link'] ) { ?>
-				<a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-button-go-pro" href="<?php echo Utils::get_pro_link( $texts['link'] ); ?>" target="_blank">
-					<?php echo __( 'Go Pro', 'elementor' ); ?>
+				<a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-button-go-pro" href="<?php
+ echo Utils::get_pro_link( $texts['link'] ); ?>" target="_blank">
+					<?php
+ echo __( 'Go Pro', 'elementor' ); ?>
 				</a>
-			<?php } ?>
+			<?php
+ } ?>
 		</div>
 		<?php
 

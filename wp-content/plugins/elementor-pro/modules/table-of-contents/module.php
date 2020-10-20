@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\TableOfContents;
 
 use ElementorPro\Base\Module_Base;

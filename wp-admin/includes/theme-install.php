@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Theme Installation Administration API
  *
@@ -97,15 +98,24 @@ function install_theme_search_form( $type_selector = true ) {
 	?>
 <form id="search-themes" method="get">
 	<input type="hidden" name="tab" value="search" />
-	<?php if ( $type_selector ) : ?>
-	<label class="screen-reader-text" for="typeselector"><?php _e( 'Type of search' ); ?></label>
+	<?php
+ if ( $type_selector ) : ?>
+	<label class="screen-reader-text" for="typeselector"><?php
+ _e( 'Type of search' ); ?></label>
 	<select	name="type" id="typeselector">
-	<option value="term" <?php selected( 'term', $type ); ?>><?php _e( 'Keyword' ); ?></option>
-	<option value="author" <?php selected( 'author', $type ); ?>><?php _e( 'Author' ); ?></option>
-	<option value="tag" <?php selected( 'tag', $type ); ?>><?php _ex( 'Tag', 'Theme Installer' ); ?></option>
+	<option value="term" <?php
+ selected( 'term', $type ); ?>><?php
+ _e( 'Keyword' ); ?></option>
+	<option value="author" <?php
+ selected( 'author', $type ); ?>><?php
+ _e( 'Author' ); ?></option>
+	<option value="tag" <?php
+ selected( 'tag', $type ); ?>><?php
+ _ex( 'Tag', 'Theme Installer' ); ?></option>
 	</select>
 	<label class="screen-reader-text" for="s">
 		<?php
+
 		switch ( $type ) {
 			case 'term':
 				_e( 'Search by keyword' );
@@ -119,13 +129,19 @@ function install_theme_search_form( $type_selector = true ) {
 		}
 		?>
 	</label>
-	<?php else : ?>
-	<label class="screen-reader-text" for="s"><?php _e( 'Search by keyword' ); ?></label>
-	<?php endif; ?>
-	<input type="search" name="s" id="s" size="30" value="<?php echo esc_attr( $term ); ?>" autofocus="autofocus" />
-	<?php submit_button( __( 'Search' ), '', 'search', false ); ?>
+	<?php
+ else : ?>
+	<label class="screen-reader-text" for="s"><?php
+ _e( 'Search by keyword' ); ?></label>
+	<?php
+ endif; ?>
+	<input type="search" name="s" id="s" size="30" value="<?php
+ echo esc_attr( $term ); ?>" autofocus="autofocus" />
+	<?php
+ submit_button( __( 'Search' ), '', 'search', false ); ?>
 </form>
 	<?php
+
 }
 
 /**
@@ -136,12 +152,15 @@ function install_theme_search_form( $type_selector = true ) {
 function install_themes_dashboard() {
 	install_theme_search_form( false );
 	?>
-<h4><?php _e( 'Feature Filter' ); ?></h4>
-<p class="install-help"><?php _e( 'Find a theme based on specific features.' ); ?></p>
+<h4><?php
+ _e( 'Feature Filter' ); ?></h4>
+<p class="install-help"><?php
+ _e( 'Find a theme based on specific features.' ); ?></p>
 
 <form method="get">
 	<input type="hidden" name="tab" value="search" />
 	<?php
+
 	$feature_list = get_theme_feature_list();
 	echo '<div class="feature-filter">';
 
@@ -156,22 +175,30 @@ function install_themes_dashboard() {
 			?>
 
 <li>
-	<input type="checkbox" name="features[]" id="feature-id-<?php echo $feature; ?>" value="<?php echo $feature; ?>" />
-	<label for="feature-id-<?php echo $feature; ?>"><?php echo $feature_name; ?></label>
+	<input type="checkbox" name="features[]" id="feature-id-<?php
+ echo $feature; ?>" value="<?php
+ echo $feature; ?>" />
+	<label for="feature-id-<?php
+ echo $feature; ?>"><?php
+ echo $feature_name; ?></label>
 </li>
 
-<?php	} ?>
+<?php
+	} ?>
 </ol>
 <br class="clear" />
 		<?php
+
 	}
 	?>
 
 </div>
 <br class="clear" />
-	<?php submit_button( __( 'Find Themes' ), '', 'search' ); ?>
+	<?php
+ submit_button( __( 'Find Themes' ), '', 'search' ); ?>
 </form>
 	<?php
+
 }
 
 /**
@@ -179,14 +206,20 @@ function install_themes_dashboard() {
  */
 function install_themes_upload() {
 	?>
-<p class="install-help"><?php _e( 'If you have a theme in a .zip format, you may install or update it by uploading it here.' ); ?></p>
-<form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo self_admin_url( 'update.php?action=upload-theme' ); ?>">
-	<?php wp_nonce_field( 'theme-upload' ); ?>
-	<label class="screen-reader-text" for="themezip"><?php _e( 'Theme zip file' ); ?></label>
+<p class="install-help"><?php
+ _e( 'If you have a theme in a .zip format, you may install or update it by uploading it here.' ); ?></p>
+<form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php
+ echo self_admin_url( 'update.php?action=upload-theme' ); ?>">
+	<?php
+ wp_nonce_field( 'theme-upload' ); ?>
+	<label class="screen-reader-text" for="themezip"><?php
+ _e( 'Theme zip file' ); ?></label>
 	<input type="file" id="themezip" name="themezip" accept=".zip"/>
-	<?php submit_button( __( 'Install Now' ), '', 'install-theme-submit', false ); ?>
+	<?php
+ submit_button( __( 'Install Now' ), '', 'install-theme-submit', false ); ?>
 </form>
 	<?php
+
 }
 
 /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Atom Feed Template for displaying Atom Comments feed.
  *
@@ -13,9 +14,11 @@ do_action( 'rss_tag_pre', 'atom-comments' );
 ?>
 <feed
 	xmlns="http://www.w3.org/2005/Atom"
-	xml:lang="<?php bloginfo_rss( 'language' ); ?>"
+	xml:lang="<?php
+ bloginfo_rss( 'language' ); ?>"
 	xmlns:thr="http://purl.org/syndication/thread/1.0"
 	<?php
+
 		/** This action is documented in wp-includes/feed-atom.php */
 		do_action( 'atom_ns' );
 
@@ -29,6 +32,7 @@ do_action( 'rss_tag_pre', 'atom-comments' );
 >
 	<title type="text">
 	<?php
+
 	if ( is_singular() ) {
 		/* translators: Comments feed title. %s: Post title. */
 		printf( ent2ncr( __( 'Comments on %s' ) ), get_the_title_rss() );
@@ -41,24 +45,43 @@ do_action( 'rss_tag_pre', 'atom-comments' );
 	}
 	?>
 	</title>
-	<subtitle type="text"><?php bloginfo_rss( 'description' ); ?></subtitle>
+	<subtitle type="text"><?php
+ bloginfo_rss( 'description' ); ?></subtitle>
 
-	<updated><?php echo get_feed_build_date( 'Y-m-d\TH:i:s\Z' ); ?></updated>
+	<updated><?php
+ echo get_feed_build_date( 'Y-m-d\TH:i:s\Z' ); ?></updated>
 
-<?php if ( is_singular() ) : ?>
-	<link rel="alternate" type="<?php bloginfo_rss( 'html_type' ); ?>" href="<?php comments_link_feed(); ?>" />
-	<link rel="self" type="application/atom+xml" href="<?php echo esc_url( get_post_comments_feed_link( '', 'atom' ) ); ?>" />
-	<id><?php echo esc_url( get_post_comments_feed_link( '', 'atom' ) ); ?></id>
-<?php elseif ( is_search() ) : ?>
-	<link rel="alternate" type="<?php bloginfo_rss( 'html_type' ); ?>" href="<?php echo home_url() . '?s=' . get_search_query(); ?>" />
-	<link rel="self" type="application/atom+xml" href="<?php echo get_search_comments_feed_link( '', 'atom' ); ?>" />
-	<id><?php echo get_search_comments_feed_link( '', 'atom' ); ?></id>
-<?php else : ?>
-	<link rel="alternate" type="<?php bloginfo_rss( 'html_type' ); ?>" href="<?php bloginfo_rss( 'url' ); ?>" />
-	<link rel="self" type="application/atom+xml" href="<?php bloginfo_rss( 'comments_atom_url' ); ?>" />
-	<id><?php bloginfo_rss( 'comments_atom_url' ); ?></id>
-<?php endif; ?>
 <?php
+ if ( is_singular() ) : ?>
+	<link rel="alternate" type="<?php
+ bloginfo_rss( 'html_type' ); ?>" href="<?php
+ comments_link_feed(); ?>" />
+	<link rel="self" type="application/atom+xml" href="<?php
+ echo esc_url( get_post_comments_feed_link( '', 'atom' ) ); ?>" />
+	<id><?php
+ echo esc_url( get_post_comments_feed_link( '', 'atom' ) ); ?></id>
+<?php
+ elseif ( is_search() ) : ?>
+	<link rel="alternate" type="<?php
+ bloginfo_rss( 'html_type' ); ?>" href="<?php
+ echo home_url() . '?s=' . get_search_query(); ?>" />
+	<link rel="self" type="application/atom+xml" href="<?php
+ echo get_search_comments_feed_link( '', 'atom' ); ?>" />
+	<id><?php
+ echo get_search_comments_feed_link( '', 'atom' ); ?></id>
+<?php
+ else : ?>
+	<link rel="alternate" type="<?php
+ bloginfo_rss( 'html_type' ); ?>" href="<?php
+ bloginfo_rss( 'url' ); ?>" />
+	<link rel="self" type="application/atom+xml" href="<?php
+ bloginfo_rss( 'comments_atom_url' ); ?>" />
+	<id><?php
+ bloginfo_rss( 'comments_atom_url' ); ?></id>
+<?php
+ endif; ?>
+<?php
+
 	/**
 	 * Fires at the end of the Atom comment feed header.
 	 *
@@ -67,6 +90,7 @@ do_action( 'rss_tag_pre', 'atom-comments' );
 	do_action( 'comments_atom_head' );
 ?>
 <?php
+
 while ( have_comments() ) :
 	the_comment();
 	$comment_post    = get_post( $comment->comment_post_ID );
@@ -75,6 +99,7 @@ while ( have_comments() ) :
 	<entry>
 		<title>
 		<?php
+
 		if ( ! is_singular() ) {
 			$title = get_the_title( $comment_post->ID );
 			/** This filter is documented in wp-includes/feed.php */
@@ -87,33 +112,52 @@ while ( have_comments() ) :
 		}
 		?>
 		</title>
-		<link rel="alternate" href="<?php comment_link(); ?>" type="<?php bloginfo_rss( 'html_type' ); ?>" />
+		<link rel="alternate" href="<?php
+ comment_link(); ?>" type="<?php
+ bloginfo_rss( 'html_type' ); ?>" />
 
 		<author>
-			<name><?php comment_author_rss(); ?></name>
+			<name><?php
+ comment_author_rss(); ?></name>
 			<?php
+
 			if ( get_comment_author_url() ) {
 				echo '<uri>' . get_comment_author_url() . '</uri>';}
 			?>
 
 		</author>
 
-		<id><?php comment_guid(); ?></id>
-		<updated><?php echo mysql2date( 'Y-m-d\TH:i:s\Z', get_comment_time( 'Y-m-d H:i:s', true, false ), false ); ?></updated>
-		<published><?php echo mysql2date( 'Y-m-d\TH:i:s\Z', get_comment_time( 'Y-m-d H:i:s', true, false ), false ); ?></published>
-
-		<?php if ( post_password_required( $comment_post ) ) : ?>
-			<content type="html" xml:base="<?php comment_link(); ?>"><![CDATA[<?php echo get_the_password_form(); ?>]]></content>
-		<?php else : ?>
-			<content type="html" xml:base="<?php comment_link(); ?>"><![CDATA[<?php comment_text(); ?>]]></content>
-		<?php endif; // End if post_password_required(). ?>
+		<id><?php
+ comment_guid(); ?></id>
+		<updated><?php
+ echo mysql2date( 'Y-m-d\TH:i:s\Z', get_comment_time( 'Y-m-d H:i:s', true, false ), false ); ?></updated>
+		<published><?php
+ echo mysql2date( 'Y-m-d\TH:i:s\Z', get_comment_time( 'Y-m-d H:i:s', true, false ), false ); ?></published>
 
 		<?php
+ if ( post_password_required( $comment_post ) ) : ?>
+			<content type="html" xml:base="<?php
+ comment_link(); ?>"><![CDATA[<?php
+ echo get_the_password_form(); ?>]]></content>
+		<?php
+ else : ?>
+			<content type="html" xml:base="<?php
+ comment_link(); ?>"><![CDATA[<?php
+ comment_text(); ?>]]></content>
+		<?php
+ endif; // End if post_password_required(). ?>
+
+		<?php
+
 		// Return comment threading information (https://www.ietf.org/rfc/rfc4685.txt).
 		if ( 0 == $comment->comment_parent ) : // This comment is top-level.
 			?>
-			<thr:in-reply-to ref="<?php the_guid(); ?>" href="<?php the_permalink_rss(); ?>" type="<?php bloginfo_rss( 'html_type' ); ?>" />
+			<thr:in-reply-to ref="<?php
+ the_guid(); ?>" href="<?php
+ the_permalink_rss(); ?>" type="<?php
+ bloginfo_rss( 'html_type' ); ?>" />
 			<?php
+
 		else : // This comment is in reply to another comment.
 			$parent_comment = get_comment( $comment->comment_parent );
 			/*
@@ -122,8 +166,12 @@ while ( have_comments() ) :
 			 * Either way, it's more important that they both use the same system.
 			 */
 			?>
-			<thr:in-reply-to ref="<?php comment_guid( $parent_comment ); ?>" href="<?php echo get_comment_link( $parent_comment ); ?>" type="<?php bloginfo_rss( 'html_type' ); ?>" />
+			<thr:in-reply-to ref="<?php
+ comment_guid( $parent_comment ); ?>" href="<?php
+ echo get_comment_link( $parent_comment ); ?>" type="<?php
+ bloginfo_rss( 'html_type' ); ?>" />
 			<?php
+
 		endif;
 
 		/**
@@ -138,6 +186,7 @@ while ( have_comments() ) :
 		?>
 	</entry>
 	<?php
+
 endwhile;
 ?>
 </feed>

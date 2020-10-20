@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Carousel;
 
 use ElementorPro\Base\Module_Base;

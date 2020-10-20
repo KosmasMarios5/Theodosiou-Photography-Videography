@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Files\CSS;
 
 use Elementor\Core\Kits\Manager;

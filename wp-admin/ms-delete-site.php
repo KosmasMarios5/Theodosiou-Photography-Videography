@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite delete site panel.
  *
@@ -100,13 +101,16 @@ All at ###SITENAME###
 	}
 	?>
 
-	<p><?php _e( 'Thank you. Please check your email for a link to confirm your action. Your site will not be deleted until this link is clicked.' ); ?></p>
+	<p><?php
+ _e( 'Thank you. Please check your email for a link to confirm your action. Your site will not be deleted until this link is clicked.' ); ?></p>
 
 	<?php
+
 } else {
 	?>
 	<p>
 	<?php
+
 		printf(
 			/* translators: %s: Network title. */
 			__( 'If you do not want to use your %s site any more, you can delete it using the form below. When you click <strong>Delete My Site Permanently</strong> you will be sent an email with a link in it. Click on this link to delete your site.' ),
@@ -114,13 +118,16 @@ All at ###SITENAME###
 		);
 	?>
 	</p>
-	<p><?php _e( 'Remember, once deleted your site cannot be restored.' ); ?></p>
+	<p><?php
+ _e( 'Remember, once deleted your site cannot be restored.' ); ?></p>
 
 	<form method="post" name="deletedirect">
-		<?php wp_nonce_field( 'delete-blog' ); ?>
+		<?php
+ wp_nonce_field( 'delete-blog' ); ?>
 		<input type="hidden" name="action" value="deleteblog" />
 		<p><input id="confirmdelete" type="checkbox" name="confirmdelete" value="1" /> <label for="confirmdelete"><strong>
 		<?php
+
 			printf(
 				/* translators: %s: Site address. */
 				__( "I'm sure I want to permanently delete my site, and I am aware I can never get it back or use %s again." ),
@@ -128,9 +135,11 @@ All at ###SITENAME###
 			);
 		?>
 		</strong></label></p>
-		<?php submit_button( __( 'Delete My Site Permanently' ) ); ?>
+		<?php
+ submit_button( __( 'Delete My Site Permanently' ) ); ?>
 	</form>
 	<?php
+
 }
 echo '</div>';
 

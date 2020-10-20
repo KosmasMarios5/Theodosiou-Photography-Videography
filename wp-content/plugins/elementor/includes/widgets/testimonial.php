@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -419,21 +420,30 @@ class Widget_Testimonial extends Widget_Base {
 			$this->add_link_attributes( 'link', $settings['link'] );
 		}
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+		<div <?php
+ echo $this->get_render_attribute_string( 'wrapper' ); ?>>
 			<?php
+
 			if ( $has_content ) :
 				$this->add_render_attribute( 'testimonial_content', 'class', 'elementor-testimonial-content' );
 				$this->add_inline_editing_attributes( 'testimonial_content' );
 				?>
-				<div <?php echo $this->get_render_attribute_string( 'testimonial_content' ); ?>><?php echo $settings['testimonial_content']; ?></div>
-			<?php endif; ?>
+				<div <?php
+ echo $this->get_render_attribute_string( 'testimonial_content' ); ?>><?php
+ echo $settings['testimonial_content']; ?></div>
+			<?php
+ endif; ?>
 
-			<?php if ( $has_image || $has_name || $has_job ) : ?>
-			<div <?php echo $this->get_render_attribute_string( 'meta' ); ?>>
+			<?php
+ if ( $has_image || $has_name || $has_job ) : ?>
+			<div <?php
+ echo $this->get_render_attribute_string( 'meta' ); ?>>
 				<div class="elementor-testimonial-meta-inner">
-					<?php if ( $has_image ) : ?>
+					<?php
+ if ( $has_image ) : ?>
 						<div class="elementor-testimonial-image">
 							<?php
+
 							$image_html = Group_Control_Image_Size::get_attachment_image_html( $settings, 'testimonial_image' );
 							if ( ! empty( $settings['link']['url'] ) ) :
 								$image_html = '<a ' . $this->get_render_attribute_string( 'link' ) . '>' . $image_html . '</a>';
@@ -441,11 +451,14 @@ class Widget_Testimonial extends Widget_Base {
 							echo $image_html;
 							?>
 						</div>
-					<?php endif; ?>
+					<?php
+ endif; ?>
 
-					<?php if ( $has_name || $has_job ) : ?>
+					<?php
+ if ( $has_name || $has_job ) : ?>
 					<div class="elementor-testimonial-details">
 						<?php
+
 						if ( $has_name ) :
 							$this->add_render_attribute( 'testimonial_name', 'class', 'elementor-testimonial-name' );
 							$this->add_inline_editing_attributes( 'testimonial_name', 'none' );
@@ -454,15 +467,22 @@ class Widget_Testimonial extends Widget_Base {
 
 							if ( ! empty( $settings['link']['url'] ) ) :
 								?>
-								<a <?php echo $this->get_render_attribute_string( 'testimonial_name' ) . ' ' . $this->get_render_attribute_string( 'link' ); ?>><?php echo $testimonial_name_html; ?></a>
+								<a <?php
+ echo $this->get_render_attribute_string( 'testimonial_name' ) . ' ' . $this->get_render_attribute_string( 'link' ); ?>><?php
+ echo $testimonial_name_html; ?></a>
 								<?php
+
 							else :
 								?>
-								<div <?php echo $this->get_render_attribute_string( 'testimonial_name' ); ?>><?php echo $testimonial_name_html; ?></div>
+								<div <?php
+ echo $this->get_render_attribute_string( 'testimonial_name' ); ?>><?php
+ echo $testimonial_name_html; ?></div>
 								<?php
+
 							endif;
 						endif; ?>
 						<?php
+
 						if ( $has_job ) :
 							$this->add_render_attribute( 'testimonial_job', 'class', 'elementor-testimonial-job' );
 
@@ -472,21 +492,30 @@ class Widget_Testimonial extends Widget_Base {
 
 							if ( ! empty( $settings['link']['url'] ) ) :
 								?>
-								<a <?php echo $this->get_render_attribute_string( 'testimonial_job' ) . ' ' . $this->get_render_attribute_string( 'link' ); ?>><?php echo $testimonial_job_html; ?></a>
+								<a <?php
+ echo $this->get_render_attribute_string( 'testimonial_job' ) . ' ' . $this->get_render_attribute_string( 'link' ); ?>><?php
+ echo $testimonial_job_html; ?></a>
 								<?php
+
 							else :
 								?>
-								<div <?php echo $this->get_render_attribute_string( 'testimonial_job' ); ?>><?php echo $testimonial_job_html; ?></div>
+								<div <?php
+ echo $this->get_render_attribute_string( 'testimonial_job' ); ?>><?php
+ echo $testimonial_job_html; ?></div>
 								<?php
+
 							endif;
 						endif; ?>
 					</div>
-					<?php endif; ?>
+					<?php
+ endif; ?>
 				</div>
 			</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -536,12 +565,14 @@ class Widget_Testimonial extends Widget_Base {
 						<div class="elementor-testimonial-image">{{{ imageHtml }}}</div>
 					<# } #>
 					<div class="elementor-testimonial-details">
-						<?php $this->render_testimonial_description(); ?>
+						<?php
+ $this->render_testimonial_description(); ?>
 					</div>
 				</div>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	protected function render_testimonial_description() {
@@ -580,5 +611,6 @@ class Widget_Testimonial extends Widget_Base {
 		}
 		#>
 		<?php
+
 	}
 }

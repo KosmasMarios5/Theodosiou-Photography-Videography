@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Slides\Widgets;
 
 use Elementor\Controls_Manager;
@@ -1252,28 +1253,42 @@ class Slides extends Base_Widget {
 		$slides_count = count( $settings['slides'] );
 		?>
 		<div class="elementor-swiper">
-			<div class="elementor-slides-wrapper elementor-main-swiper swiper-container" dir="<?php echo $direction; ?>" data-animation="<?php echo $settings['content_animation']; ?>">
+			<div class="elementor-slides-wrapper elementor-main-swiper swiper-container" dir="<?php
+ echo $direction; ?>" data-animation="<?php
+ echo $settings['content_animation']; ?>">
 				<div class="swiper-wrapper elementor-slides">
-					<?php echo implode( '', $slides ); ?>
+					<?php
+ echo implode( '', $slides ); ?>
 				</div>
-				<?php if ( 1 < $slides_count ) : ?>
-					<?php if ( $show_dots ) : ?>
+				<?php
+ if ( 1 < $slides_count ) : ?>
+					<?php
+ if ( $show_dots ) : ?>
 						<div class="swiper-pagination"></div>
-					<?php endif; ?>
-					<?php if ( $show_arrows ) : ?>
+					<?php
+ endif; ?>
+					<?php
+ if ( $show_arrows ) : ?>
 						<div class="elementor-swiper-button elementor-swiper-button-prev">
-							<i class="eicon-chevron-<?php echo $prev; ?>" aria-hidden="true"></i>
-							<span class="elementor-screen-only"><?php _e( 'Previous', 'elementor-pro' ); ?></span>
+							<i class="eicon-chevron-<?php
+ echo $prev; ?>" aria-hidden="true"></i>
+							<span class="elementor-screen-only"><?php
+ _e( 'Previous', 'elementor-pro' ); ?></span>
 						</div>
 						<div class="elementor-swiper-button elementor-swiper-button-next">
-							<i class="eicon-chevron-<?php echo $next; ?>" aria-hidden="true"></i>
-							<span class="elementor-screen-only"><?php _e( 'Next', 'elementor-pro' ); ?></span>
+							<i class="eicon-chevron-<?php
+ echo $next; ?>" aria-hidden="true"></i>
+							<span class="elementor-screen-only"><?php
+ _e( 'Next', 'elementor-pro' ); ?></span>
 						</div>
-					<?php endif; ?>
-				<?php endif; ?>
+					<?php
+ endif; ?>
+				<?php
+ endif; ?>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -1334,16 +1349,19 @@ class Slides extends Base_Widget {
 					<# if ( showArrows ) { #>
 						<div class="elementor-swiper-button elementor-swiper-button-prev">
 							<i class="eicon-chevron-{{ prev }}" aria-hidden="true"></i>
-							<span class="elementor-screen-only"><?php _e( 'Previous', 'elementor-pro' ); ?></span>
+							<span class="elementor-screen-only"><?php
+ _e( 'Previous', 'elementor-pro' ); ?></span>
 						</div>
 						<div class="elementor-swiper-button elementor-swiper-button-next">
 							<i class="eicon-chevron-{{ next }}" aria-hidden="true"></i>
-							<span class="elementor-screen-only"><?php _e( 'Next', 'elementor-pro' ); ?></span>
+							<span class="elementor-screen-only"><?php
+ _e( 'Next', 'elementor-pro' ); ?></span>
 						</div>
 					<# } #>
 				<# } #>
 			</div>
 		</div>
 		<?php
+
 	}
 }

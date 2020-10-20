@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -338,6 +339,7 @@ class Widget_Tabs extends Widget_Base {
 		<div class="elementor-tabs" role="tablist">
 			<div class="elementor-tabs-wrapper">
 				<?php
+
 				foreach ( $tabs as $index => $item ) :
 					$tab_count = $index + 1;
 
@@ -351,11 +353,15 @@ class Widget_Tabs extends Widget_Base {
 						'aria-controls' => 'elementor-tab-content-' . $id_int . $tab_count,
 					] );
 					?>
-					<div <?php echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>><a href=""><?php echo $item['tab_title']; ?></a></div>
-				<?php endforeach; ?>
+					<div <?php
+ echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>><a href=""><?php
+ echo $item['tab_title']; ?></a></div>
+				<?php
+ endforeach; ?>
 			</div>
 			<div class="elementor-tabs-content-wrapper">
 				<?php
+
 				foreach ( $tabs as $index => $item ) :
 					$tab_count = $index + 1;
 
@@ -379,12 +385,18 @@ class Widget_Tabs extends Widget_Base {
 
 					$this->add_inline_editing_attributes( $tab_content_setting_key, 'advanced' );
 					?>
-					<div <?php echo $this->get_render_attribute_string( $tab_title_mobile_setting_key ); ?>><?php echo $item['tab_title']; ?></div>
-					<div <?php echo $this->get_render_attribute_string( $tab_content_setting_key ); ?>><?php echo $this->parse_text_editor( $item['tab_content'] ); ?></div>
-				<?php endforeach; ?>
+					<div <?php
+ echo $this->get_render_attribute_string( $tab_title_mobile_setting_key ); ?>><?php
+ echo $item['tab_title']; ?></div>
+					<div <?php
+ echo $this->get_render_attribute_string( $tab_content_setting_key ); ?>><?php
+ echo $this->parse_text_editor( $item['tab_content'] ); ?></div>
+				<?php
+ endforeach; ?>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -433,5 +445,6 @@ class Widget_Tabs extends Widget_Base {
 			<# } #>
 		</div>
 		<?php
+
 	}
 }

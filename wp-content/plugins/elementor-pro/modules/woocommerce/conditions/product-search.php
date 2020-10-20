@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Conditions;
 
 use ElementorPro\Modules\ThemeBuilder as ThemeBuilder;

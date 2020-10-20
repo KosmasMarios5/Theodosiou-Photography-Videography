@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Handles all admin ajax interactions for the ExactMetrics plugin.
  *

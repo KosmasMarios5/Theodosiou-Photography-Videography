@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Widget_Media_Image class
  *
@@ -339,7 +340,8 @@ class WP_Widget_Media_Image extends WP_Widget_Media {
 			<# var elementIdPrefix = 'el' + String( Math.random() ) + '_'; #>
 			<# if ( data.url ) { #>
 			<p class="media-widget-image-link">
-				<label for="{{ elementIdPrefix }}linkUrl"><?php esc_html_e( 'Link to:' ); ?></label>
+				<label for="{{ elementIdPrefix }}linkUrl"><?php
+ esc_html_e( 'Link to:' ); ?></label>
 				<input id="{{ elementIdPrefix }}linkUrl" type="text" class="widefat link" value="{{ data.link_url }}" placeholder="https://" pattern="((\w+:)?\/\/\w.*|\w+:(?!\/\/$)|\/|\?|#).*">
 			</p>
 			<# } #>
@@ -347,17 +349,20 @@ class WP_Widget_Media_Image extends WP_Widget_Media {
 		<script type="text/html" id="tmpl-wp-media-widget-image-preview">
 			<# if ( data.error && 'missing_attachment' === data.error ) { #>
 				<div class="notice notice-error notice-alt notice-missing-attachment">
-					<p><?php echo $this->l10n['missing_attachment']; ?></p>
+					<p><?php
+ echo $this->l10n['missing_attachment']; ?></p>
 				</div>
 			<# } else if ( data.error ) { #>
 				<div class="notice notice-error notice-alt">
-					<p><?php _e( 'Unable to preview media due to an unknown error.' ); ?></p>
+					<p><?php
+ _e( 'Unable to preview media due to an unknown error.' ); ?></p>
 				</div>
 			<# } else if ( data.url ) { #>
 				<img class="attachment-thumb" src="{{ data.url }}" draggable="false" alt="{{ data.alt }}"
 					<# if ( ! data.alt && data.currentFilename ) { #>
 						aria-label="
 						<?php
+
 						echo esc_attr(
 							sprintf(
 								/* translators: %s: The image file name. */
@@ -372,5 +377,6 @@ class WP_Widget_Media_Image extends WP_Widget_Media {
 			<# } #>
 		</script>
 		<?php
+
 	}
 }

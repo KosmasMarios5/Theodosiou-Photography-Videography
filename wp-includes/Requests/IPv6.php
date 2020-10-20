@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class to validate and to work with IPv6 addresses
  *

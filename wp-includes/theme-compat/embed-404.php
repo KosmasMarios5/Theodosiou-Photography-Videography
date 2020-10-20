@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains the post embed content template part
  *
@@ -11,11 +12,13 @@
  */
 ?>
 <div class="wp-embed">
-	<p class="wp-embed-heading"><?php _e( 'Oops! That embed can&#8217;t be found.' ); ?></p>
+	<p class="wp-embed-heading"><?php
+ _e( 'Oops! That embed can&#8217;t be found.' ); ?></p>
 
 	<div class="wp-embed-excerpt">
 		<p>
 			<?php
+
 			printf(
 				/* translators: %s: A link to the embedded site. */
 				__( 'It looks like nothing was found at this location. Maybe try visiting %s directly?' ),
@@ -26,11 +29,13 @@
 	</div>
 
 	<?php
+
 	/** This filter is documented in wp-includes/theme-compat/embed-content.php */
 	do_action( 'embed_content' );
 	?>
 
 	<div class="wp-embed-footer">
-		<?php the_embed_site_title(); ?>
+		<?php
+ the_embed_site_title(); ?>
 	</div>
 </div>

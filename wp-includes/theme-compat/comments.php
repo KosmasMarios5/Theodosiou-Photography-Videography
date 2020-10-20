@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package WordPress
  * @subpackage Theme_Compat
@@ -21,17 +22,21 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' === basename( $_SE
 }
 
 if ( post_password_required() ) { ?>
-		<p class="nocomments"><?php _e( 'This post is password protected. Enter the password to view comments.' ); ?></p>
+		<p class="nocomments"><?php
+ _e( 'This post is password protected. Enter the password to view comments.' ); ?></p>
 	<?php
+
 	return;
 }
 ?>
 
 <!-- You can start editing here. -->
 
-<?php if ( have_comments() ) : ?>
+<?php
+ if ( have_comments() ) : ?>
 	<h3 id="comments">
 		<?php
+
 		if ( 1 == get_comments_number() ) {
 			printf(
 				/* translators: %s: Post title. */
@@ -50,28 +55,40 @@ if ( post_password_required() ) { ?>
 	</h3>
 
 	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link(); ?></div>
-		<div class="alignright"><?php next_comments_link(); ?></div>
+		<div class="alignleft"><?php
+ previous_comments_link(); ?></div>
+		<div class="alignright"><?php
+ next_comments_link(); ?></div>
 	</div>
 
 	<ol class="commentlist">
-	<?php wp_list_comments(); ?>
+	<?php
+ wp_list_comments(); ?>
 	</ol>
 
 	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link(); ?></div>
-		<div class="alignright"><?php next_comments_link(); ?></div>
+		<div class="alignleft"><?php
+ previous_comments_link(); ?></div>
+		<div class="alignright"><?php
+ next_comments_link(); ?></div>
 	</div>
-<?php else : // This is displayed if there are no comments so far. ?>
+<?php
+ else : // This is displayed if there are no comments so far. ?>
 
-	<?php if ( comments_open() ) : ?>
+	<?php
+ if ( comments_open() ) : ?>
 		<!-- If comments are open, but there are no comments. -->
 
-	<?php else : // Comments are closed. ?>
+	<?php
+ else : // Comments are closed. ?>
 		<!-- If comments are closed. -->
-		<p class="nocomments"><?php _e( 'Comments are closed.' ); ?></p>
+		<p class="nocomments"><?php
+ _e( 'Comments are closed.' ); ?></p>
 
-	<?php endif; ?>
-<?php endif; ?>
+	<?php
+ endif; ?>
+<?php
+ endif; ?>
 
-<?php comment_form(); ?>
+<?php
+ comment_form(); ?>

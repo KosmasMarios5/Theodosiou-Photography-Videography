@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Post Template Functions.
  *

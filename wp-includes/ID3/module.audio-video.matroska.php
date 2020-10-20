@@ -209,7 +209,6 @@ define('EBML_ID_CLUSTERREFERENCEPRIORITY',        0x7A); //             [FA] -- 
 define('EBML_ID_CLUSTERREFERENCEBLOCK',           0x7B); //             [FB] -- Timecode of another frame used as a reference (ie: B or P frame). The timecode is relative to the block it's attached to.
 define('EBML_ID_CLUSTERREFERENCEVIRTUAL',         0x7D); //             [FD] -- Relative position of the data that should be in position of the virtual block.
 
-
 /**
 * @tutorial http://www.matroska.org/technical/specs/index.html
 *

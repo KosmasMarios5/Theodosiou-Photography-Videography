@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite users administration panel.
  *
@@ -245,6 +246,7 @@ if ( isset( $_REQUEST['updated'] ) && 'true' == $_REQUEST['updated'] && ! empty(
 	?>
 	<div id="message" class="updated notice is-dismissible"><p>
 		<?php
+
 		switch ( $_REQUEST['action'] ) {
 			case 'delete':
 				_e( 'User deleted.' );
@@ -265,16 +267,22 @@ if ( isset( $_REQUEST['updated'] ) && 'true' == $_REQUEST['updated'] && ! empty(
 		?>
 	</p></div>
 	<?php
+
 }
 ?>
 <div class="wrap">
-	<h1 class="wp-heading-inline"><?php esc_html_e( 'Users' ); ?></h1>
+	<h1 class="wp-heading-inline"><?php
+ esc_html_e( 'Users' ); ?></h1>
 
 	<?php
+
 	if ( current_user_can( 'create_users' ) ) :
 		?>
-		<a href="<?php echo network_admin_url( 'user-new.php' ); ?>" class="page-title-action"><?php echo esc_html_x( 'Add New', 'user' ); ?></a>
+		<a href="<?php
+ echo network_admin_url( 'user-new.php' ); ?>" class="page-title-action"><?php
+ echo esc_html_x( 'Add New', 'user' ); ?></a>
 							<?php
+
 	endif;
 
 	if ( strlen( $usersearch ) ) {
@@ -285,15 +293,19 @@ if ( isset( $_REQUEST['updated'] ) && 'true' == $_REQUEST['updated'] && ! empty(
 
 	<hr class="wp-header-end">
 
-	<?php $wp_list_table->views(); ?>
+	<?php
+ $wp_list_table->views(); ?>
 
 	<form method="get" class="search-form">
-		<?php $wp_list_table->search_box( __( 'Search Users' ), 'all-user' ); ?>
+		<?php
+ $wp_list_table->search_box( __( 'Search Users' ), 'all-user' ); ?>
 	</form>
 
 	<form id="form-user-list" action="users.php?action=allusers" method="post">
-		<?php $wp_list_table->display(); ?>
+		<?php
+ $wp_list_table->display(); ?>
 	</form>
 </div>
 
-<?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+<?php
+ require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use ElementorPro\Modules\ThemeBuilder\Widgets\Post_Content;

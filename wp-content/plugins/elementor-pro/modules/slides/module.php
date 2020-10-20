@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Slides;
 
 use ElementorPro\Base\Module_Base;

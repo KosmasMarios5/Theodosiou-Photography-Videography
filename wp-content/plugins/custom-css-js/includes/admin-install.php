@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom CSS and JS
  *
@@ -18,7 +19,6 @@ class CustomCSSandJS_Install {
         self::register_post_type();
         flush_rewrite_rules();
     }  
-
 
     /**
      * Create the custom-css-js post type
@@ -88,7 +88,6 @@ class CustomCSSandJS_Install {
     public static function create_roles() {
         global $wp_roles;
 
-
         if ( !current_user_can('update_plugins') )
             return;
 
@@ -134,9 +133,6 @@ class CustomCSSandJS_Install {
             }
         }
     }
-
-
-
 
 }
 

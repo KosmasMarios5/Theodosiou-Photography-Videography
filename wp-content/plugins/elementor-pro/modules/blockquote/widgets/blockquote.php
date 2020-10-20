@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Blockquote\Widgets;
 
 use Elementor\Controls_Manager;
@@ -852,38 +853,61 @@ class Blockquote extends Base_Widget {
 		$this->add_inline_editing_attributes( 'tweet_button_label', 'none' );
 		?>
 		<blockquote class="elementor-blockquote">
-			<p <?php echo $this->get_render_attribute_string( 'blockquote_content' ); ?>>
-				<?php echo $settings['blockquote_content']; ?>
+			<p <?php
+ echo $this->get_render_attribute_string( 'blockquote_content' ); ?>>
+				<?php
+ echo $settings['blockquote_content']; ?>
 			</p>
-			<?php if ( ! empty( $settings['author_name'] ) || 'yes' === $settings['tweet_button'] ) : ?>
+			<?php
+ if ( ! empty( $settings['author_name'] ) || 'yes' === $settings['tweet_button'] ) : ?>
 				<footer>
-					<?php if ( ! empty( $settings['author_name'] ) ) : ?>
-						<cite <?php echo $this->get_render_attribute_string( 'author_name' ); ?>><?php echo $settings['author_name']; ?></cite>
-					<?php endif ?>
-					<?php if ( 'yes' === $settings['tweet_button'] ) : ?>
-						<a href="<?php echo esc_attr( $share_link ); ?>" class="elementor-blockquote__tweet-button" target="_blank">
-							<?php if ( 'text' !== $tweet_button_view ) : ?>
+					<?php
+ if ( ! empty( $settings['author_name'] ) ) : ?>
+						<cite <?php
+ echo $this->get_render_attribute_string( 'author_name' ); ?>><?php
+ echo $settings['author_name']; ?></cite>
+					<?php
+ endif ?>
+					<?php
+ if ( 'yes' === $settings['tweet_button'] ) : ?>
+						<a href="<?php
+ echo esc_attr( $share_link ); ?>" class="elementor-blockquote__tweet-button" target="_blank">
+							<?php
+ if ( 'text' !== $tweet_button_view ) : ?>
 								<?php
+
 								$icon = [
 									'value' => 'fab fa-twitter',
 									'library' => 'fa-brands',
 								];
 								if ( ! Icons_Manager::is_migration_allowed() || ! Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] ) ) : ?>
 									<i class="fa fa-twitter" aria-hidden="true"></i>
-								<?php endif; ?>
-								<?php if ( 'icon-text' !== $tweet_button_view ) : ?>
-									<span class="elementor-screen-only"><?php esc_html_e( 'Tweet', 'elementor-pro' ); ?></span>
-								<?php endif; ?>
-							<?php endif; ?>
-							<?php if ( 'icon-text' === $tweet_button_view || 'text' === $tweet_button_view ) : ?>
-								<span <?php echo $this->get_render_attribute_string( 'tweet_button_label' ); ?>><?php echo $settings['tweet_button_label']; ?></span>
-							<?php endif; ?>
+								<?php
+ endif; ?>
+								<?php
+ if ( 'icon-text' !== $tweet_button_view ) : ?>
+									<span class="elementor-screen-only"><?php
+ esc_html_e( 'Tweet', 'elementor-pro' ); ?></span>
+								<?php
+ endif; ?>
+							<?php
+ endif; ?>
+							<?php
+ if ( 'icon-text' === $tweet_button_view || 'text' === $tweet_button_view ) : ?>
+								<span <?php
+ echo $this->get_render_attribute_string( 'tweet_button_label' ); ?>><?php
+ echo $settings['tweet_button_label']; ?></span>
+							<?php
+ endif; ?>
 						</a>
-					<?php endif ?>
+					<?php
+ endif ?>
 				</footer>
-			<?php endif ?>
+			<?php
+ endif ?>
 		</blockquote>
 		<?php
+
 	}
 
 	/**
@@ -918,7 +942,8 @@ class Blockquote extends Base_Widget {
 										<i class="fa fa-twitter" aria-hidden="true"></i>
 									<# } #>
 									<# if ( 'icon-text' !== tweetButtonView ) { #>
-										<span class="elementor-screen-only"><?php esc_html_e( 'Tweet', 'elementor-pro' ); ?></span>
+										<span class="elementor-screen-only"><?php
+ esc_html_e( 'Tweet', 'elementor-pro' ); ?></span>
 									<# } #>
 								<# } #>
 								<# if ( 'icon-text' === tweetButtonView || 'text' === tweetButtonView ) { #>
@@ -930,5 +955,6 @@ class Blockquote extends Base_Widget {
 				<# } #>
 			</blockquote>
 		<?php
+
 	}
 }

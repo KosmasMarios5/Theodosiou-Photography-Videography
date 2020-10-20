@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Used to set up and fix common variables and include
  * the Multisite procedural and class library.

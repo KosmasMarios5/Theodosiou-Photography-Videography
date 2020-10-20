@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Core\Base\App;
@@ -133,7 +134,6 @@ class Frontend extends App {
 	 */
 	private $content_removed_filters = [];
 
-
 	/**
 	 * @var Document[]
 	 */
@@ -267,8 +267,10 @@ class Frontend extends App {
 
 		if ( ! empty( $mobile_theme_color ) ) {
 			?>
-			<meta name="theme-color" content="<?php echo $mobile_theme_color; ?>">
+			<meta name="theme-color" content="<?php
+ echo $mobile_theme_color; ?>">
 			<?php
+
 		}
 	}
 

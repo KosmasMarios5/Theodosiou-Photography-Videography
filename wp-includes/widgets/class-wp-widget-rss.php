@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Widget_RSS class
  *

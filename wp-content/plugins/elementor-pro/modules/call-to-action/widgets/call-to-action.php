@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\CallToAction\Widgets;
 
 use Elementor\Controls_Manager;
@@ -1614,53 +1615,84 @@ class Call_To_Action extends Base_Widget {
 		$is_new = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 
 		?>
-		<<?php echo $wrapper_tag . ' ' . $this->get_render_attribute_string( 'wrapper' ); ?> class="elementor-cta">
-		<?php if ( $print_bg ) : ?>
+		<<?php
+ echo $wrapper_tag . ' ' . $this->get_render_attribute_string( 'wrapper' ); ?> class="elementor-cta">
+		<?php
+ if ( $print_bg ) : ?>
 			<div class="elementor-cta__bg-wrapper">
-				<div class="elementor-cta__bg elementor-bg" <?php echo $this->get_render_attribute_string( 'background_image' ); ?>></div>
+				<div class="elementor-cta__bg elementor-bg" <?php
+ echo $this->get_render_attribute_string( 'background_image' ); ?>></div>
 				<div class="elementor-cta__bg-overlay"></div>
 			</div>
-		<?php endif; ?>
-		<?php if ( $print_content ) : ?>
+		<?php
+ endif; ?>
+		<?php
+ if ( $print_content ) : ?>
 			<div class="elementor-cta__content">
-				<?php if ( 'image' === $settings['graphic_element'] && ! empty( $settings['graphic_image']['url'] ) ) : ?>
-					<div <?php echo $this->get_render_attribute_string( 'graphic_element' ); ?>>
-						<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'graphic_image' ); ?>
+				<?php
+ if ( 'image' === $settings['graphic_element'] && ! empty( $settings['graphic_image']['url'] ) ) : ?>
+					<div <?php
+ echo $this->get_render_attribute_string( 'graphic_element' ); ?>>
+						<?php
+ echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'graphic_image' ); ?>
 					</div>
-				<?php elseif ( 'icon' === $settings['graphic_element'] && ( ! empty( $settings['icon'] ) || ! empty( $settings['selected_icon'] ) ) ) : ?>
-					<div <?php echo $this->get_render_attribute_string( 'graphic_element' ); ?>>
+				<?php
+ elseif ( 'icon' === $settings['graphic_element'] && ( ! empty( $settings['icon'] ) || ! empty( $settings['selected_icon'] ) ) ) : ?>
+					<div <?php
+ echo $this->get_render_attribute_string( 'graphic_element' ); ?>>
 						<div class="elementor-icon">
-							<?php if ( $is_new || $migrated ) :
+							<?php
+ if ( $is_new || $migrated ) :
 								Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 							else : ?>
-								<i <?php echo $this->get_render_attribute_string( 'icon' ); ?>></i>
-							<?php endif; ?>
+								<i <?php
+ echo $this->get_render_attribute_string( 'icon' ); ?>></i>
+							<?php
+ endif; ?>
 						</div>
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 
-				<?php if ( ! empty( $settings['title'] ) ) : ?>
-					<<?php echo $title_tag . ' ' . $this->get_render_attribute_string( 'title' ); ?>>
-						<?php echo $settings['title']; ?>
-					</<?php echo $title_tag; ?>>
-				<?php endif; ?>
+				<?php
+ if ( ! empty( $settings['title'] ) ) : ?>
+					<<?php
+ echo $title_tag . ' ' . $this->get_render_attribute_string( 'title' ); ?>>
+						<?php
+ echo $settings['title']; ?>
+					</<?php
+ echo $title_tag; ?>>
+				<?php
+ endif; ?>
 
-				<?php if ( ! empty( $settings['description'] ) ) : ?>
-					<div <?php echo $this->get_render_attribute_string( 'description' ); ?>>
-						<?php echo $settings['description']; ?>
+				<?php
+ if ( ! empty( $settings['description'] ) ) : ?>
+					<div <?php
+ echo $this->get_render_attribute_string( 'description' ); ?>>
+						<?php
+ echo $settings['description']; ?>
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 
-				<?php if ( ! empty( $settings['button'] ) ) : ?>
-					<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item <?php echo $animation_class; ?>">
-					<<?php echo $button_tag . ' ' . $this->get_render_attribute_string( 'button' ); ?>>
-						<?php echo $settings['button']; ?>
-					</<?php echo $button_tag; ?>>
+				<?php
+ if ( ! empty( $settings['button'] ) ) : ?>
+					<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item <?php
+ echo $animation_class; ?>">
+					<<?php
+ echo $button_tag . ' ' . $this->get_render_attribute_string( 'button' ); ?>>
+						<?php
+ echo $settings['button']; ?>
+					</<?php
+ echo $button_tag; ?>>
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 			</div>
-		<?php endif; ?>
 		<?php
+ endif; ?>
+		<?php
+
 		if ( ! empty( $settings['ribbon_title'] ) ) :
 			$this->add_render_attribute( 'ribbon-wrapper', 'class', 'elementor-ribbon' );
 
@@ -1668,12 +1700,17 @@ class Call_To_Action extends Base_Widget {
 				$this->add_render_attribute( 'ribbon-wrapper', 'class', 'elementor-ribbon-' . $settings['ribbon_horizontal_position'] );
 			}
 			?>
-			<div <?php echo $this->get_render_attribute_string( 'ribbon-wrapper' ); ?>>
-				<div class="elementor-ribbon-inner"><?php echo $settings['ribbon_title']; ?></div>
+			<div <?php
+ echo $this->get_render_attribute_string( 'ribbon-wrapper' ); ?>>
+				<div class="elementor-ribbon-inner"><?php
+ echo $settings['ribbon_title']; ?></div>
 			</div>
-		<?php endif; ?>
-		</<?php echo $wrapper_tag; ?>>
 		<?php
+ endif; ?>
+		</<?php
+ echo $wrapper_tag; ?>>
+		<?php
+
 	}
 
 	/**
@@ -1762,7 +1799,6 @@ class Call_To_Action extends Base_Widget {
 			view.addRenderAttribute( 'button', 'class', [ 'elementor-cta__button', 'elementor-button', btnSizeClass ] );
 			view.addRenderAttribute( 'graphic_element', 'class', [ 'elementor-cta__content-item', 'elementor-content-item' ] );
 
-
 			view.addInlineEditingAttributes( 'title' );
 			view.addInlineEditingAttributes( 'description' );
 			view.addInlineEditingAttributes( 'button' );
@@ -1820,5 +1856,6 @@ class Call_To_Action extends Base_Widget {
 		<# } #>
 		</{{ wrapperTag }}>
 		<?php
+
 	}
 }

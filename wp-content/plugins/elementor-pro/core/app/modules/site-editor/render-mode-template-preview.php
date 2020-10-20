@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core\App\Modules\SiteEditor;
 
 use Elementor\Core\Frontend\RenderModes\Render_Mode_Base;

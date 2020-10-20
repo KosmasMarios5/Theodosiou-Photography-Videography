@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Administration Template Footer
  *
@@ -23,6 +24,7 @@ global $hook_suffix;
 
 <div id="wpfooter" role="contentinfo">
 	<?php
+
 	/**
 	 * Fires after the opening tag for the admin footer.
 	 *
@@ -32,6 +34,7 @@ global $hook_suffix;
 	?>
 	<p id="footer-left" class="alignleft">
 		<?php
+
 		$text = sprintf(
 			/* translators: %s: https://wordpress.org/ */
 			__( 'Thank you for creating with <a href="%s">WordPress</a>.' ),
@@ -50,6 +53,7 @@ global $hook_suffix;
 	</p>
 	<p id="footer-upgrade" class="alignright">
 		<?php
+
 		/**
 		 * Filters the version/update text displayed in the admin footer.
 		 *
@@ -68,6 +72,7 @@ global $hook_suffix;
 	<div class="clear"></div>
 </div>
 <?php
+
 /**
  * Prints scripts or data before the default footer scripts.
  *

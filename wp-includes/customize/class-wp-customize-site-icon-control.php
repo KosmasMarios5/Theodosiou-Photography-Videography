@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Site_Icon_Control class
  *
@@ -63,35 +64,44 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 				<# if ( data.attachment.sizes ) { #>
 					<div class="site-icon-preview wp-clearfix">
 						<div class="favicon-preview">
-							<img src="<?php echo esc_url( admin_url( 'images/' . ( is_rtl() ? 'browser-rtl.png' : 'browser.png' ) ) ); ?>" class="browser-preview" width="182" alt="" />
+							<img src="<?php
+ echo esc_url( admin_url( 'images/' . ( is_rtl() ? 'browser-rtl.png' : 'browser.png' ) ) ); ?>" class="browser-preview" width="182" alt="" />
 
 							<div class="favicon">
-								<img src="{{ data.attachment.sizes.full ? data.attachment.sizes.full.url : data.attachment.url }}" alt="<?php esc_attr_e( 'Preview as a browser icon' ); ?>"/>
+								<img src="{{ data.attachment.sizes.full ? data.attachment.sizes.full.url : data.attachment.url }}" alt="<?php
+ esc_attr_e( 'Preview as a browser icon' ); ?>"/>
 							</div>
-							<span class="browser-title" aria-hidden="true"><# print( '<?php bloginfo( 'name' ); ?>' ) #></span>
+							<span class="browser-title" aria-hidden="true"><# print( '<?php
+ bloginfo( 'name' ); ?>' ) #></span>
 						</div>
-						<img class="app-icon-preview" src="{{ data.attachment.sizes.full ? data.attachment.sizes.full.url : data.attachment.url }}" alt="<?php esc_attr_e( 'Preview as an app icon' ); ?>"/>
+						<img class="app-icon-preview" src="{{ data.attachment.sizes.full ? data.attachment.sizes.full.url : data.attachment.url }}" alt="<?php
+ esc_attr_e( 'Preview as an app icon' ); ?>"/>
 					</div>
 				<# } #>
 				<div class="actions">
 					<# if ( data.canUpload ) { #>
-						<button type="button" class="button remove-button"><?php echo $this->button_labels['remove']; ?></button>
-						<button type="button" class="button upload-button"><?php echo $this->button_labels['change']; ?></button>
+						<button type="button" class="button remove-button"><?php
+ echo $this->button_labels['remove']; ?></button>
+						<button type="button" class="button upload-button"><?php
+ echo $this->button_labels['change']; ?></button>
 					<# } #>
 				</div>
 			</div>
 		<# } else { #>
 			<div class="attachment-media-view">
 				<# if ( data.canUpload ) { #>
-					<button type="button" class="upload-button button-add-media"><?php echo $this->button_labels['site_icon']; ?></button>
+					<button type="button" class="upload-button button-add-media"><?php
+ echo $this->button_labels['site_icon']; ?></button>
 				<# } #>
 				<div class="actions">
 					<# if ( data.defaultAttachment ) { #>
-						<button type="button" class="button default-button"><?php echo $this->button_labels['default']; ?></button>
+						<button type="button" class="button default-button"><?php
+ echo $this->button_labels['default']; ?></button>
 					<# } #>
 				</div>
 			</div>
 		<# } #>
 		<?php
+
 	}
 }

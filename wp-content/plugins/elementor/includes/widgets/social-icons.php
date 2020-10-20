@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -575,6 +576,7 @@ class Widget_Social_Icons extends Widget_Base {
 		?>
 		<div class="elementor-social-icons-wrapper elementor-grid">
 			<?php
+
 			foreach ( $settings['social_icon_list'] as $index => $item ) {
 				$migrated = isset( $item['__fa4_migrated']['social_icon'] );
 				$is_new = empty( $item['social'] ) && $migration_allowed;
@@ -614,19 +616,26 @@ class Widget_Social_Icons extends Widget_Base {
 
 				?>
 				<div class="elementor-grid-item">
-					<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
-						<span class="elementor-screen-only"><?php echo ucwords( $social ); ?></span>
+					<a <?php
+ echo $this->get_render_attribute_string( $link_key ); ?>>
+						<span class="elementor-screen-only"><?php
+ echo ucwords( $social ); ?></span>
 						<?php
+
 						if ( $is_new || $migrated ) {
 							Icons_Manager::render_icon( $item['social_icon'] );
 						} else { ?>
-							<i class="<?php echo esc_attr( $item['social'] ); ?>"></i>
-						<?php } ?>
+							<i class="<?php
+ echo esc_attr( $item['social'] ); ?>"></i>
+						<?php
+ } ?>
 					</a>
 				</div>
-			<?php } ?>
+			<?php
+ } ?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -662,5 +671,6 @@ class Widget_Social_Icons extends Widget_Base {
 			<# } ); #>
 		</div>
 		<?php
+
 	}
 }

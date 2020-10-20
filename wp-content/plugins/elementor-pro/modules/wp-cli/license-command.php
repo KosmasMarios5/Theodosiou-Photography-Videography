@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\WpCli;
 
 use ElementorPro\License\Admin;

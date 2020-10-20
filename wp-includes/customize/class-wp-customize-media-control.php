@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Media_Control class
  *
@@ -204,6 +205,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 			</div>
 		<# } #>
 		<?php
+
 	}
 
 	/**

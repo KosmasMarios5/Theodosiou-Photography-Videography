@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Disable Comments
  * Plugin URI: https://wordpress.org/plugins/disable-comments/
@@ -230,7 +231,6 @@ class Disable_Comments {
 	public function dummy_comments_template() {
 		return dirname( __FILE__ ) . '/includes/comments-template.php';
 	}
-
 
 	/**
 	 * Remove the X-Pingback HTTP header

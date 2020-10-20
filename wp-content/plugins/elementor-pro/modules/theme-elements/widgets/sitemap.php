@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeElements\Widgets;
 
 use Elementor\Controls_Manager;
@@ -715,5 +716,4 @@ class Sitemap extends Base {
 		return str_replace( $source, $replace, $str );
 	}
 }
-
 

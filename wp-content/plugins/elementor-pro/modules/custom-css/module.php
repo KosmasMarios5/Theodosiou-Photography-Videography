@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\CustomCss;
 
 use Elementor\Controls_Manager;

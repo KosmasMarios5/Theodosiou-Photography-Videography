@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
@@ -13,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 abstract class Products_Base extends Base_Widget {
-
 
 	protected function _register_controls() {
 

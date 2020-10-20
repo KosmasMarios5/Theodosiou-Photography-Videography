@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core\Connect\Apps;
 
 use Elementor\Core\Common\Modules\Connect\Apps\Common_App;

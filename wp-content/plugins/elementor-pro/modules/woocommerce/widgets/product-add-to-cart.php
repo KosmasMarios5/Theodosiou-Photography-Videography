@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
@@ -38,11 +39,14 @@ class Product_Add_To_Cart extends Base_Widget {
 
 		?>
 
-		<div class="elementor-add-to-cart elementor-product-<?php echo esc_attr( wc_get_product()->get_type() ); ?>">
-			<?php woocommerce_template_single_add_to_cart(); ?>
+		<div class="elementor-add-to-cart elementor-product-<?php
+ echo esc_attr( wc_get_product()->get_type() ); ?>">
+			<?php
+ woocommerce_template_single_add_to_cart(); ?>
 		</div>
 
 		<?php
+
 	}
 
 	protected function _register_controls() {

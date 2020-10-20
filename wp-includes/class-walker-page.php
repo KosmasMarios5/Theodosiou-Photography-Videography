@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Post API: Walker_Page class
  *

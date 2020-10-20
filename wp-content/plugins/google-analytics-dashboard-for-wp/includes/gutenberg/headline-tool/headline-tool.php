@@ -904,7 +904,6 @@ class ExactMetricsHeadlineToolPlugin{
 		);
 	}
 
-
 	/**
 	 * Uncommon words
 	 *

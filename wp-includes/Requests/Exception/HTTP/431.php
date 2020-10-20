@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 431 Request Header Fields Too Large responses
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Customize Widgets classes
  *
@@ -818,36 +819,51 @@ final class WP_Customize_Widgets {
 		<div id="available-widgets">
 			<div class="customize-section-title">
 				<button class="customize-section-back" tabindex="-1">
-					<span class="screen-reader-text"><?php _e( 'Back' ); ?></span>
+					<span class="screen-reader-text"><?php
+ _e( 'Back' ); ?></span>
 				</button>
 				<h3>
 					<span class="customize-action">
 					<?php
+
 						/* translators: &#9656; is the unicode right-pointing triangle. %s: Section title in the Customizer. */
 						printf( __( 'Customizing &#9656; %s' ), esc_html( $this->manager->get_panel( 'widgets' )->title ) );
 					?>
 					</span>
-					<?php _e( 'Add a Widget' ); ?>
+					<?php
+ _e( 'Add a Widget' ); ?>
 				</h3>
 			</div>
 			<div id="available-widgets-filter">
-				<label class="screen-reader-text" for="widgets-search"><?php _e( 'Search Widgets' ); ?></label>
-				<input type="text" id="widgets-search" placeholder="<?php esc_attr_e( 'Search widgets&hellip;' ); ?>" aria-describedby="widgets-search-desc" />
+				<label class="screen-reader-text" for="widgets-search"><?php
+ _e( 'Search Widgets' ); ?></label>
+				<input type="text" id="widgets-search" placeholder="<?php
+ esc_attr_e( 'Search widgets&hellip;' ); ?>" aria-describedby="widgets-search-desc" />
 				<div class="search-icon" aria-hidden="true"></div>
-				<button type="button" class="clear-results"><span class="screen-reader-text"><?php _e( 'Clear Results' ); ?></span></button>
-				<p class="screen-reader-text" id="widgets-search-desc"><?php _e( 'The search results will be updated as you type.' ); ?></p>
+				<button type="button" class="clear-results"><span class="screen-reader-text"><?php
+ _e( 'Clear Results' ); ?></span></button>
+				<p class="screen-reader-text" id="widgets-search-desc"><?php
+ _e( 'The search results will be updated as you type.' ); ?></p>
 			</div>
 			<div id="available-widgets-list">
-			<?php foreach ( $this->get_available_widgets() as $available_widget ) : ?>
-				<div id="widget-tpl-<?php echo esc_attr( $available_widget['id'] ); ?>" data-widget-id="<?php echo esc_attr( $available_widget['id'] ); ?>" class="widget-tpl <?php echo esc_attr( $available_widget['id'] ); ?>" tabindex="0">
-					<?php echo $available_widget['control_tpl']; ?>
+			<?php
+ foreach ( $this->get_available_widgets() as $available_widget ) : ?>
+				<div id="widget-tpl-<?php
+ echo esc_attr( $available_widget['id'] ); ?>" data-widget-id="<?php
+ echo esc_attr( $available_widget['id'] ); ?>" class="widget-tpl <?php
+ echo esc_attr( $available_widget['id'] ); ?>" tabindex="0">
+					<?php
+ echo $available_widget['control_tpl']; ?>
 				</div>
-			<?php endforeach; ?>
-			<p class="no-widgets-found-message"><?php _e( 'No widgets found.' ); ?></p>
+			<?php
+ endforeach; ?>
+			<p class="no-widgets-found-message"><?php
+ _e( 'No widgets found.' ); ?></p>
 			</div><!-- #available-widgets-list -->
 		</div><!-- #available-widgets -->
 		</div><!-- #widgets-left -->
 		<?php
+
 	}
 
 	/**
@@ -1155,6 +1171,7 @@ final class WP_Customize_Widgets {
 		}
 		</style>
 		<?php
+
 	}
 
 	/**
@@ -1198,9 +1215,11 @@ final class WP_Customize_Widgets {
 
 		?>
 		<script type="text/javascript">
-			var _wpWidgetCustomizerPreviewSettings = <?php echo wp_json_encode( $settings ); ?>;
+			var _wpWidgetCustomizerPreviewSettings = <?php
+ echo wp_json_encode( $settings ); ?>;
 		</script>
 		<?php
+
 	}
 
 	/**

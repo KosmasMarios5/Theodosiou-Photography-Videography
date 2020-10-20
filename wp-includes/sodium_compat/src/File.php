@@ -786,7 +786,6 @@ class ParagonIE_Sodium_File extends ParagonIE_Sodium_Core_Util
         );
     }
 
-
     /**
      * @param resource $ifp
      * @param resource $ofp

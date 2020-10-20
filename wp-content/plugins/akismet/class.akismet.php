@@ -1286,7 +1286,8 @@ class Akismet {
 <!doctype html>
 <html>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta charset="<?php
+ bloginfo( 'charset' ); ?>" />
 <style>
 * {
 	text-align: center;
@@ -1301,10 +1302,12 @@ p {
 </style>
 </head>
 <body>
-<p><?php echo esc_html( $message ); ?></p>
+<p><?php
+ echo esc_html( $message ); ?></p>
 </body>
 </html>
 <?php
+
 		if ( $deactivate ) {
 			$plugins = get_option( 'active_plugins' );
 			$akismet = plugin_basename( AKISMET__PLUGIN_DIR . 'akismet.php' );

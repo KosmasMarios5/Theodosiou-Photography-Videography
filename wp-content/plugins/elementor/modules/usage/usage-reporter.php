@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Modules\Usage;
 
 use Elementor\Modules\System_Info\Reporters\Base;

@@ -8,21 +8,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php
+ language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<?php if ( ! current_theme_supports( 'title-tag' ) ) : ?>
-		<title><?php echo wp_get_document_title(); ?></title>
-	<?php endif; ?>
-	<?php wp_head(); ?>
+	<meta charset="<?php
+ bloginfo( 'charset' ); ?>">
+	<?php
+ if ( ! current_theme_supports( 'title-tag' ) ) : ?>
+		<title><?php
+ echo wp_get_document_title(); ?></title>
+	<?php
+ endif; ?>
+	<?php
+ wp_head(); ?>
 	<?php
 
 	// Keep the following line after `wp_head()` call, to ensure it's not overridden by another templates.
 	echo \Elementor\Utils::get_meta_viewport( 'canvas' );
 	?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php
+ body_class(); ?>>
 	<?php
+
 	Elementor\Modules\PageTemplates\Module::body_open();
 	/**
 	 * Before canvas page template content.

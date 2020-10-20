@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ExactMetrics Connect is our service that makes it easy for non-techy users to
  * upgrade to ExactMetrics Pro without having to manually install the ExactMetrics Pro plugin.

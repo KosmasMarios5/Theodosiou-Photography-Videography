@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Administration Revisions API
  *
@@ -359,11 +360,13 @@ function wp_print_revision_templates() {
 
 	<script id="tmpl-revisions-buttons" type="text/html">
 		<div class="revisions-previous">
-			<input class="button" type="button" value="<?php echo esc_attr_x( 'Previous', 'Button label for a previous revision' ); ?>" />
+			<input class="button" type="button" value="<?php
+ echo esc_attr_x( 'Previous', 'Button label for a previous revision' ); ?>" />
 		</div>
 
 		<div class="revisions-next">
-			<input class="button" type="button" value="<?php echo esc_attr_x( 'Next', 'Button label for a next revision' ); ?>" />
+			<input class="button" type="button" value="<?php
+ echo esc_attr_x( 'Next', 'Button label for a next revision' ); ?>" />
 		</div>
 	</script>
 
@@ -377,7 +380,8 @@ function wp_print_revision_templates() {
 				}
 				#>
 				/>
-				<?php esc_html_e( 'Compare any two revisions' ); ?>
+				<?php
+ esc_html_e( 'Compare any two revisions' ); ?>
 			</label>
 		</div>
 	</script>
@@ -386,9 +390,11 @@ function wp_print_revision_templates() {
 		<# if ( ! _.isUndefined( data.attributes ) ) { #>
 			<div class="diff-title">
 				<# if ( 'from' === data.type ) { #>
-					<strong><?php _ex( 'From:', 'Followed by post revision info' ); ?></strong>
+					<strong><?php
+ _ex( 'From:', 'Followed by post revision info' ); ?></strong>
 				<# } else if ( 'to' === data.type ) { #>
-					<strong><?php _ex( 'To:', 'Followed by post revision info' ); ?></strong>
+					<strong><?php
+ _ex( 'To:', 'Followed by post revision info' ); ?></strong>
 				<# } #>
 				<div class="author-card<# if ( data.attributes.autosave ) { #> autosave<# } #>">
 					{{{ data.attributes.author.avatar }}}
@@ -396,6 +402,7 @@ function wp_print_revision_templates() {
 					<# if ( data.attributes.autosave ) { #>
 						<span class="byline">
 						<?php
+
 						printf(
 							/* translators: %s: User's display name. */
 							__( 'Autosave by %s' ),
@@ -406,6 +413,7 @@ function wp_print_revision_templates() {
 					<# } else if ( data.attributes.current ) { #>
 						<span class="byline">
 						<?php
+
 						printf(
 							/* translators: %s: User's display name. */
 							__( 'Current Revision by %s' ),
@@ -416,6 +424,7 @@ function wp_print_revision_templates() {
 					<# } else { #>
 						<span class="byline">
 						<?php
+
 						printf(
 							/* translators: %s: User's display name. */
 							__( 'Revision by %s' ),
@@ -428,17 +437,22 @@ function wp_print_revision_templates() {
 						<span class="date">({{ data.attributes.dateShort }})</span>
 					</div>
 				<# if ( 'to' === data.type && data.attributes.restoreUrl ) { #>
-					<input  <?php if ( wp_check_post_lock( $post->ID ) ) { ?>
+					<input  <?php
+ if ( wp_check_post_lock( $post->ID ) ) { ?>
 						disabled="disabled"
-					<?php } else { ?>
+					<?php
+ } else { ?>
 						<# if ( data.attributes.current ) { #>
 							disabled="disabled"
 						<# } #>
-					<?php } ?>
+					<?php
+ } ?>
 					<# if ( data.attributes.autosave ) { #>
-						type="button" class="restore-revision button button-primary" value="<?php esc_attr_e( 'Restore This Autosave' ); ?>" />
+						type="button" class="restore-revision button button-primary" value="<?php
+ esc_attr_e( 'Restore This Autosave' ); ?>" />
 					<# } else { #>
-						type="button" class="restore-revision button button-primary" value="<?php esc_attr_e( 'Restore This Revision' ); ?>" />
+						type="button" class="restore-revision button button-primary" value="<?php
+ esc_attr_e( 'Restore This Revision' ); ?>" />
 					<# } #>
 				<# } #>
 			</div>
@@ -450,7 +464,8 @@ function wp_print_revision_templates() {
 
 	<script id="tmpl-revisions-diff" type="text/html">
 		<div class="loading-indicator"><span class="spinner"></span></div>
-		<div class="diff-error"><?php _e( 'Sorry, something went wrong. The requested comparison could not be loaded.' ); ?></div>
+		<div class="diff-error"><?php
+ _e( 'Sorry, something went wrong. The requested comparison could not be loaded.' ); ?></div>
 		<div class="diff">
 		<# _.each( data.fields, function( field ) { #>
 			<h3>{{ field.name }}</h3>
@@ -459,4 +474,5 @@ function wp_print_revision_templates() {
 		</div>
 	</script>
 	<?php
+
 }

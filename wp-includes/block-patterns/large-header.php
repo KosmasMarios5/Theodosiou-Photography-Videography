@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Large header block pattern.
  *

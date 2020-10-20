@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Three columns of text, each a button at the bottom block pattern.
  *

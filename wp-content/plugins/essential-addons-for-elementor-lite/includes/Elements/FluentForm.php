@@ -2205,24 +2205,34 @@ class FluentForm extends Widget_Base
         $shortcode = '[fluentform id="'.$this->get_settings_for_display('form_list').'"]';
 
         ?>
-        <div <?php echo $this->get_render_attribute_string('eael_fluentform_wrapper'); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string('eael_fluentform_wrapper'); ?>>
 
-            <?php if ( $settings['custom_title_description'] == 'yes' ) { ?>
+            <?php
+ if ( $settings['custom_title_description'] == 'yes' ) { ?>
                 <div class="eael-fluentform-heading">
-                    <?php if ( $settings['form_title_custom'] != '' ) { ?>
+                    <?php
+ if ( $settings['form_title_custom'] != '' ) { ?>
                         <h3 class="eael-contact-form-title eael-fluentform-title">
-                            <?php echo esc_attr( $settings['form_title_custom'] ); ?>
+                            <?php
+ echo esc_attr( $settings['form_title_custom'] ); ?>
                         </h3>
-                    <?php } ?>
-                    <?php if ( $settings['form_description_custom'] != '' ) { ?>
+                    <?php
+ } ?>
+                    <?php
+ if ( $settings['form_description_custom'] != '' ) { ?>
                         <div class="eael-contact-form-description eael-fluentform-description">
-                            <?php echo $this->parse_text_editor( $settings['form_description_custom'] ); ?>
+                            <?php
+ echo $this->parse_text_editor( $settings['form_description_custom'] ); ?>
                         </div>
-                    <?php } ?>
+                    <?php
+ } ?>
                 </div>
-            <?php } ?>
+            <?php
+ } ?>
 
-            <?php echo do_shortcode( shortcode_unautop( $shortcode ) ); ?>
+            <?php
+ echo do_shortcode( shortcode_unautop( $shortcode ) ); ?>
         </div>
 
         <?php

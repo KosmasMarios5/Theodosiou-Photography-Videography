@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Comment Administration API.
  *

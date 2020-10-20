@@ -1,4 +1,5 @@
 <?php
+
 /**
  * REST API: WP_REST_Term_Meta_Fields class
  *

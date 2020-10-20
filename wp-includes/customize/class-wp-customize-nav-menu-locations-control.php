@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Nav_Menu_Locations_Control class
  *
@@ -45,9 +46,11 @@ class WP_Customize_Nav_Menu_Locations_Control extends WP_Customize_Control {
 					<span class="customize-control-title">{{ wp.customize.Menus.data.l10n.locationsTitle }}</span>
 					<# if ( data.isCreating ) { #>
 						<p>
-							<?php echo _x( 'Where do you want this menu to appear?', 'menu locations' ); ?>
+							<?php
+ echo _x( 'Where do you want this menu to appear?', 'menu locations' ); ?>
 							<em class="new-menu-locations-widget-note">
 								<?php
+
 								printf(
 									/* translators: 1: Documentation URL, 2: Additional link attributes, 3: Accessibility text. */
 									_x( '(If you plan to use a menu <a href="%1$s" %2$s>widget%3$s</a>, skip this step.)', 'menu locations' ),
@@ -63,19 +66,24 @@ class WP_Customize_Nav_Menu_Locations_Control extends WP_Customize_Control {
 							</em>
 						</p>
 					<# } else { #>
-						<p><?php echo _x( 'Here&#8217;s where this menu appears. If you&#8217;d like to change that, pick another location.', 'menu locations' ); ?></p>
+						<p><?php
+ echo _x( 'Here&#8217;s where this menu appears. If you&#8217;d like to change that, pick another location.', 'menu locations' ); ?></p>
 					<# } #>
 				</li>
 
-				<?php foreach ( get_registered_nav_menus() as $location => $description ) : ?>
+				<?php
+ foreach ( get_registered_nav_menus() as $location => $description ) : ?>
 					<# elementId = _.uniqueId( 'customize-nav-menu-control-location-' ); #>
 					<li class="customize-control customize-control-checkbox assigned-menu-location">
 						<span class="customize-inside-control-row">
-							<input id="{{ elementId }}" type="checkbox" data-menu-id="{{ data.menu_id }}" data-location-id="<?php echo esc_attr( $location ); ?>" class="menu-location" />
+							<input id="{{ elementId }}" type="checkbox" data-menu-id="{{ data.menu_id }}" data-location-id="<?php
+ echo esc_attr( $location ); ?>" class="menu-location" />
 							<label for="{{ elementId }}">
-								<?php echo $description; ?>
+								<?php
+ echo $description; ?>
 								<span class="theme-location-set">
 									<?php
+
 									printf(
 										/* translators: %s: Menu name. */
 										_x( '(Current: %s)', 'menu location' ),
@@ -86,9 +94,11 @@ class WP_Customize_Nav_Menu_Locations_Control extends WP_Customize_Control {
 							</label>
 						</span>
 					</li>
-				<?php endforeach; ?>
+				<?php
+ endforeach; ?>
 			</ul>
 			<?php
+
 		endif;
 	}
 }

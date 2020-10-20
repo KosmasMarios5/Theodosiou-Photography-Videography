@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Admin;
 
 use Elementor\Api;
@@ -144,23 +145,29 @@ class Admin extends App {
 		wp_nonce_field( basename( __FILE__ ), '_elementor_edit_mode_nonce' );
 		?>
 		<div id="elementor-switch-mode">
-			<input id="elementor-switch-mode-input" type="hidden" name="_elementor_post_mode" value="<?php echo $document->is_built_with_elementor(); ?>" />
+			<input id="elementor-switch-mode-input" type="hidden" name="_elementor_post_mode" value="<?php
+ echo $document->is_built_with_elementor(); ?>" />
 			<button id="elementor-switch-mode-button" type="button" class="button button-primary button-hero">
 				<span class="elementor-switch-mode-on">
-					<i class="eicon-arrow-<?php echo ( is_rtl() ) ? 'right' : 'left'; ?>" aria-hidden="true"></i>
-					<?php echo __( 'Back to WordPress Editor', 'elementor' ); ?>
+					<i class="eicon-arrow-<?php
+ echo ( is_rtl() ) ? 'right' : 'left'; ?>" aria-hidden="true"></i>
+					<?php
+ echo __( 'Back to WordPress Editor', 'elementor' ); ?>
 				</span>
 				<span class="elementor-switch-mode-off">
 					<i class="eicon-elementor-square" aria-hidden="true"></i>
-					<?php echo __( 'Edit with Elementor', 'elementor' ); ?>
+					<?php
+ echo __( 'Edit with Elementor', 'elementor' ); ?>
 				</span>
 			</button>
 		</div>
 		<div id="elementor-editor">
-			<a id="elementor-go-to-edit-page-link" href="<?php echo $document->get_edit_url(); ?>">
+			<a id="elementor-go-to-edit-page-link" href="<?php
+ echo $document->get_edit_url(); ?>">
 				<div id="elementor-editor-button" class="button button-primary button-hero">
 					<i class="eicon-elementor-square" aria-hidden="true"></i>
-					<?php echo __( 'Edit with Elementor', 'elementor' ); ?>
+					<?php
+ echo __( 'Edit with Elementor', 'elementor' ); ?>
 				</div>
 				<div class="elementor-loader-wrapper">
 					<div class="elementor-loader">
@@ -171,11 +178,13 @@ class Admin extends App {
 							<div class="elementor-loader-box"></div>
 						</div>
 					</div>
-					<div class="elementor-loading-title"><?php echo __( 'Loading', 'elementor' ); ?></div>
+					<div class="elementor-loading-title"><?php
+ echo __( 'Loading', 'elementor' ); ?></div>
 				</div>
 			</a>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -397,8 +406,11 @@ class Admin extends App {
 			<div class="e-overview__header">
 				<div class="e-overview__logo"><div class="e-logo-wrapper"><i class="eicon-elementor"></i></div></div>
 				<div class="e-overview__versions">
-					<span class="e-overview__version"><?php echo __( 'Elementor', 'elementor' ); ?> v<?php echo ELEMENTOR_VERSION; ?></span>
+					<span class="e-overview__version"><?php
+ echo __( 'Elementor', 'elementor' ); ?> v<?php
+ echo ELEMENTOR_VERSION; ?></span>
 					<?php
+
 					/**
 					 * Elementor dashboard widget after the version.
 					 *
@@ -409,17 +421,24 @@ class Admin extends App {
 					do_action( 'elementor/admin/dashboard_overview_widget/after_version' );
 					?>
 				</div>
-				<?php if ( ! empty( $create_new_post_type ) ) : ?>
+				<?php
+ if ( ! empty( $create_new_post_type ) ) : ?>
 					<div class="e-overview__create">
-						<a href="<?php echo esc_url( Utils::get_create_new_post_url( $create_new_post_type ) ); ?>" class="button"><span aria-hidden="true" class="dashicons dashicons-plus"></span> <?php echo esc_html( $create_new_label ); ?></a>
+						<a href="<?php
+ echo esc_url( Utils::get_create_new_post_url( $create_new_post_type ) ); ?>" class="button"><span aria-hidden="true" class="dashicons dashicons-plus"></span> <?php
+ echo esc_html( $create_new_label ); ?></a>
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 			</div>
-			<?php if ( $recently_edited_query->have_posts() ) : ?>
+			<?php
+ if ( $recently_edited_query->have_posts() ) : ?>
 				<div class="e-overview__recently-edited">
-					<h3 class="e-overview__heading"><?php echo __( 'Recently Edited', 'elementor' ); ?></h3>
+					<h3 class="e-overview__heading"><?php
+ echo __( 'Recently Edited', 'elementor' ); ?></h3>
 					<ul class="e-overview__posts">
 						<?php
+
 						while ( $recently_edited_query->have_posts() ) :
 							$recently_edited_query->the_post();
 							$document = Plugin::$instance->documents->get( get_the_ID() );
@@ -427,39 +446,63 @@ class Admin extends App {
 							$date = date_i18n( _x( 'M jS', 'Dashboard Overview Widget Recently Date', 'elementor' ), get_the_modified_time( 'U' ) );
 							?>
 							<li class="e-overview__post">
-								<a href="<?php echo esc_attr( $document->get_edit_url() ); ?>" class="e-overview__post-link"><?php echo esc_html( get_the_title() ); ?> <span class="dashicons dashicons-edit"></span></a> <span><?php echo $date; ?>, <?php the_time(); ?></span>
+								<a href="<?php
+ echo esc_attr( $document->get_edit_url() ); ?>" class="e-overview__post-link"><?php
+ echo esc_html( get_the_title() ); ?> <span class="dashicons dashicons-edit"></span></a> <span><?php
+ echo $date; ?>, <?php
+ the_time(); ?></span>
 							</li>
-						<?php endwhile; ?>
+						<?php
+ endwhile; ?>
 					</ul>
 				</div>
-			<?php endif; ?>
-			<?php if ( ! empty( $elementor_feed ) ) : ?>
+			<?php
+ endif; ?>
+			<?php
+ if ( ! empty( $elementor_feed ) ) : ?>
 				<div class="e-overview__feed">
-					<h3 class="e-overview__heading"><?php echo __( 'News & Updates', 'elementor' ); ?></h3>
+					<h3 class="e-overview__heading"><?php
+ echo __( 'News & Updates', 'elementor' ); ?></h3>
 					<ul class="e-overview__posts">
-						<?php foreach ( $elementor_feed as $feed_item ) : ?>
+						<?php
+ foreach ( $elementor_feed as $feed_item ) : ?>
 							<li class="e-overview__post">
-								<a href="<?php echo esc_url( $feed_item['url'] ); ?>" class="e-overview__post-link" target="_blank">
-									<?php if ( ! empty( $feed_item['badge'] ) ) : ?>
-										<span class="e-overview__badge"><?php echo esc_html( $feed_item['badge'] ); ?></span>
-									<?php endif; ?>
-									<?php echo esc_html( $feed_item['title'] ); ?>
+								<a href="<?php
+ echo esc_url( $feed_item['url'] ); ?>" class="e-overview__post-link" target="_blank">
+									<?php
+ if ( ! empty( $feed_item['badge'] ) ) : ?>
+										<span class="e-overview__badge"><?php
+ echo esc_html( $feed_item['badge'] ); ?></span>
+									<?php
+ endif; ?>
+									<?php
+ echo esc_html( $feed_item['title'] ); ?>
 								</a>
-								<p class="e-overview__post-description"><?php echo esc_html( $feed_item['excerpt'] ); ?></p>
+								<p class="e-overview__post-description"><?php
+ echo esc_html( $feed_item['excerpt'] ); ?></p>
 							</li>
-						<?php endforeach; ?>
+						<?php
+ endforeach; ?>
 					</ul>
 				</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 			<div class="e-overview__footer">
 				<ul>
-					<?php foreach ( $this->get_dashboard_overview_widget_footer_actions() as $action_id => $action ) : ?>
-						<li class="e-overview__<?php echo esc_attr( $action_id ); ?>"><a href="<?php echo esc_attr( $action['link'] ); ?>" target="_blank"><?php echo esc_html( $action['title'] ); ?> <span class="screen-reader-text"><?php echo __( '(opens in a new window)', 'elementor' ); ?></span><span aria-hidden="true" class="dashicons dashicons-external"></span></a></li>
-					<?php endforeach; ?>
+					<?php
+ foreach ( $this->get_dashboard_overview_widget_footer_actions() as $action_id => $action ) : ?>
+						<li class="e-overview__<?php
+ echo esc_attr( $action_id ); ?>"><a href="<?php
+ echo esc_attr( $action['link'] ); ?>" target="_blank"><?php
+ echo esc_html( $action['title'] ); ?> <span class="screen-reader-text"><?php
+ echo __( '(opens in a new window)', 'elementor' ); ?></span><span aria-hidden="true" class="dashicons dashicons-external"></span></a></li>
+					<?php
+ endforeach; ?>
 				</ul>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -633,10 +676,13 @@ class Admin extends App {
 		}
 		?>
 		<div class="e-major-update-warning">
-			<div class="e-major-update-warning__title"><?php echo __( 'Heads up, Please backup before upgrade!', 'elementor' ); ?></div>
-			<div class="e-major-update-warning__message"><?php echo __( 'The latest update includes some substantial changes across different areas of the plugin. We highly recommend you backup your site before upgrading, and make sure you first update in a staging environment', 'elementor' ); ?></div>
+			<div class="e-major-update-warning__title"><?php
+ echo __( 'Heads up, Please backup before upgrade!', 'elementor' ); ?></div>
+			<div class="e-major-update-warning__message"><?php
+ echo __( 'The latest update includes some substantial changes across different areas of the plugin. We highly recommend you backup your site before upgrading, and make sure you first update in a staging environment', 'elementor' ); ?></div>
 		</div>
 		<?php
+
 	}
 
 	/**

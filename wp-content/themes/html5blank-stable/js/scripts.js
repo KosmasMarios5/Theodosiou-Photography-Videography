@@ -15,17 +15,20 @@
             .click(function (evt) {//stop empty links changing the url
                 evt.preventDefault();
             })
+        
+        if (!('ontouchstart' in window)) {
+            $(".menubar .menubar__burger")
+                .mouseenter(function (evt) {//show menu on burger hover
+                    evt.stopPropagation();
+                    const ul = $(this).children("ul");
+                    ul.addClass('animated-c');
+                    ul.animate({"max-height": ul[0].scrollHeight}, {queue: false, duration: 300});
+                    $(this)
+                        .find('.burger')
+                        .addClass('burger--active');
+                });
+        }
 
-        $(".menubar .menubar__burger")
-            .mouseenter(function (evt) {//show menu on burger hover
-                evt.stopPropagation();
-                const ul = $(this).children("ul");
-                ul.addClass('animated-c');
-                ul.animate({"max-height": ul[0].scrollHeight}, {queue: false, duration: 300});
-                $(this)
-                    .find('.burger')
-                    .addClass('burger--active');
-            });
 
         $(".menubar .menu-item-has-children")//toggle menu - submenu on click
             .click(function (evt) {

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Documents;
 
 use Elementor\Controls_Manager;
@@ -368,12 +369,17 @@ abstract class Theme_Document extends Library_Document {
 			$elements_data = $this->get_elements_data();
 		}
 		?>
-		<<?php echo $wrapper_tag; ?> <?php echo Utils::render_html_attributes( $this->get_container_attributes() ); ?>>
+		<<?php
+ echo $wrapper_tag; ?> <?php
+ echo Utils::render_html_attributes( $this->get_container_attributes() ); ?>>
 		<div class="elementor-section-wrap">
-			<?php $this->print_elements( $elements_data ); ?>
+			<?php
+ $this->print_elements( $elements_data ); ?>
 		</div>
-		</<?php echo $wrapper_tag; ?>>
+		</<?php
+ echo $wrapper_tag; ?>>
 		<?php
+
 	}
 
 	public function get_wrapper_tags() {

@@ -11,7 +11,6 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
-
 class getid3_lib
 {
 	/**
@@ -649,7 +648,6 @@ class getid3_lib
 		return self::Bin2Dec(substr($binarystring, 0, 2)) + (float) (self::Bin2Dec(substr($binarystring, 2, 30)) / pow(2, 30));
 	}
 
-
 	/**
 	 * @param string $ArrayPath
 	 * @param string $Separator
@@ -1246,7 +1244,6 @@ class getid3_lib
 			// and return an empty string, but returning the unconverted string is more useful
 			return $string;
 		}
-
 
 		// neither mb_convert_encoding or iconv() is available
 		static $ConversionFunctionList = array();

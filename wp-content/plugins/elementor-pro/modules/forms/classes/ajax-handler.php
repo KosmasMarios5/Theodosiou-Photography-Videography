@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Forms\Classes;
 
 use ElementorPro\Modules\Forms\Module;

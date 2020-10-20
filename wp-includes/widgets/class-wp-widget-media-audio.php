@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Widget_Media_Audio class
  *
@@ -190,16 +191,20 @@ class WP_Widget_Media_Audio extends WP_Widget_Media {
 		<script type="text/html" id="tmpl-wp-media-widget-audio-preview">
 			<# if ( data.error && 'missing_attachment' === data.error ) { #>
 				<div class="notice notice-error notice-alt notice-missing-attachment">
-					<p><?php echo $this->l10n['missing_attachment']; ?></p>
+					<p><?php
+ echo $this->l10n['missing_attachment']; ?></p>
 				</div>
 			<# } else if ( data.error ) { #>
 				<div class="notice notice-error notice-alt">
-					<p><?php _e( 'Unable to preview media due to an unknown error.' ); ?></p>
+					<p><?php
+ _e( 'Unable to preview media due to an unknown error.' ); ?></p>
 				</div>
 			<# } else if ( data.model && data.model.src ) { #>
-				<?php wp_underscore_audio_template(); ?>
+				<?php
+ wp_underscore_audio_template(); ?>
 			<# } #>
 		</script>
 		<?php
+
 	}
 }

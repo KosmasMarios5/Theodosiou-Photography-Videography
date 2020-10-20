@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Classes;
 
 use ElementorPro\Modules\ThemeBuilder\Documents\Theme_Document;

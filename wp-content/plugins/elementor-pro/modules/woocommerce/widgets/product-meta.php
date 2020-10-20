@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
@@ -383,24 +384,39 @@ class Product_Meta extends Base_Widget {
 		?>
 		<div class="product_meta">
 
-			<?php do_action( 'woocommerce_product_meta_start' ); ?>
+			<?php
+ do_action( 'woocommerce_product_meta_start' ); ?>
 
-			<?php if ( wc_product_sku_enabled() && ( $sku || $product->is_type( 'variable' ) ) ) : ?>
-				<span class="sku_wrapper detail-container"><span class="detail-label"><?php echo esc_html( $sku_caption ); ?></span> <span class="sku"><?php echo $sku ? $sku : esc_html( $sku_missing ); ?></span></span>
-			<?php endif; ?>
+			<?php
+ if ( wc_product_sku_enabled() && ( $sku || $product->is_type( 'variable' ) ) ) : ?>
+				<span class="sku_wrapper detail-container"><span class="detail-label"><?php
+ echo esc_html( $sku_caption ); ?></span> <span class="sku"><?php
+ echo $sku ? $sku : esc_html( $sku_missing ); ?></span></span>
+			<?php
+ endif; ?>
 
-			<?php if ( count( $product->get_category_ids() ) ) : ?>
-				<span class="posted_in detail-container"><span class="detail-label"><?php echo esc_html( $this->get_plural_or_single( $category_caption_single, $category_caption_plural, count( $product->get_category_ids() ) ) ); ?></span> <span class="detail-content"><?php echo get_the_term_list( $product->get_id(), 'product_cat', '', ', ' ); ?></span></span>
-			<?php endif; ?>
+			<?php
+ if ( count( $product->get_category_ids() ) ) : ?>
+				<span class="posted_in detail-container"><span class="detail-label"><?php
+ echo esc_html( $this->get_plural_or_single( $category_caption_single, $category_caption_plural, count( $product->get_category_ids() ) ) ); ?></span> <span class="detail-content"><?php
+ echo get_the_term_list( $product->get_id(), 'product_cat', '', ', ' ); ?></span></span>
+			<?php
+ endif; ?>
 
-			<?php if ( count( $product->get_tag_ids() ) ) : ?>
-				<span class="tagged_as detail-container"><span class="detail-label"><?php echo esc_html( $this->get_plural_or_single( $tag_caption_single, $tag_caption_plural, count( $product->get_tag_ids() ) ) ); ?></span> <span class="detail-content"><?php echo get_the_term_list( $product->get_id(), 'product_tag', '', ', ' ); ?></span></span>
-			<?php endif; ?>
+			<?php
+ if ( count( $product->get_tag_ids() ) ) : ?>
+				<span class="tagged_as detail-container"><span class="detail-label"><?php
+ echo esc_html( $this->get_plural_or_single( $tag_caption_single, $tag_caption_plural, count( $product->get_tag_ids() ) ) ); ?></span> <span class="detail-content"><?php
+ echo get_the_term_list( $product->get_id(), 'product_tag', '', ', ' ); ?></span></span>
+			<?php
+ endif; ?>
 
-			<?php do_action( 'woocommerce_product_meta_end' ); ?>
+			<?php
+ do_action( 'woocommerce_product_meta_end' ); ?>
 
 		</div>
 		<?php
+
 	}
 
 	public function render_plain_content() {}

@@ -1388,7 +1388,6 @@ abstract class ParagonIE_Sodium_Crypto32
         # sodium_memzero(&poly1305_state, sizeof poly1305_state);
         unset($auth);
 
-
         # XOR_BUF(STATE_INONCE(state), mac,
         #     crypto_secretstream_xchacha20poly1305_INONCEBYTES);
         $st->xorNonce($mac);
@@ -1455,7 +1454,6 @@ abstract class ParagonIE_Sodium_Crypto32
         #         (0x10 - adlen) & 0xf);
         $auth->update(str_repeat("\0", ((0x10 - $aadlen) & 0xf)));
 
-
         #     memset(block, 0, sizeof block);
         #     block[0] = in[0];
         #     crypto_stream_chacha20_ietf_xor_ic(block, block, sizeof block,
@@ -1472,7 +1470,6 @@ abstract class ParagonIE_Sodium_Crypto32
         $tag = ParagonIE_Sodium_Core32_Util::chrToInt($block[0]);
         $block[0] = $cipher[0];
         $auth->update($block);
-
 
         #     c = in + (sizeof tag);
         #     crypto_onetimeauth_poly1305_update(&poly1305_state, c, mlen);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom CSS and JS
  *
@@ -116,7 +117,6 @@ class CustomCSSandJS_Notices {
 
         $expiration_period = date('j M', $this->activation_time - 3*86400 ) . ' - ' . date('j M', $this->activation_time + 2*86400 );
 
-
         if ( $notice == '12_days' ) {
             $link = 'https://www.silkypress.com/simple-custom-css-js-pro/?utm_source=wordpress&utm_campaign=ccj_free&utm_medium=banner';
         } else {
@@ -150,8 +150,6 @@ class CustomCSSandJS_Notices {
         return $message;
     }
 
-
-
     /**
      * Print the message
      */
@@ -163,32 +161,46 @@ class CustomCSSandJS_Notices {
 
             ?>
             <style type="text/css">
-                .<?php echo $p; ?>_note{ color: #bc1117; }
-                #<?php echo $p; ?>_notice { display: block; padding:  }
-                #<?php echo $p; ?>_notice b { color: #bc1117; }
-                #<?php echo $p; ?>_notice a { text-decoration: none; font-weight: bold; }
-                #<?php echo $p; ?>_notice a.dismiss_notice { font-weight: normal; }
+                .<?php
+ echo $p; ?>_note{ color: #bc1117; }
+                #<?php
+ echo $p; ?>_notice { display: block; padding:  }
+                #<?php
+ echo $p; ?>_notice b { color: #bc1117; }
+                #<?php
+ echo $p; ?>_notice a { text-decoration: none; font-weight: bold; }
+                #<?php
+ echo $p; ?>_notice a.dismiss_notice { font-weight: normal; }
             </style>
 
             <script type='text/javascript'>
                 jQuery(function($){
-                    $(document).on( 'click', '.<?php echo $p; ?>_notice .dismiss_notice', function() {
+                    $(document).on( 'click', '.<?php
+ echo $p; ?>_notice .dismiss_notice', function() {
                         var data = {
-                            action: '<?php echo $p; ?>_notice_dismiss',
-                            option: '<?php echo $option_name; ?>',
+                            action: '<?php
+ echo $p; ?>_notice_dismiss',
+                            option: '<?php
+ echo $option_name; ?>',
                             nonce: $(this).parent().parent().data('nonce'),
                         };
                         $.post(ajaxurl, data, function(response ) {
-                            $('#<?php echo $p; ?>_notice').fadeOut('slow');
+                            $('#<?php
+ echo $p; ?>_notice').fadeOut('slow');
                         });
                     });
                 });
             </script>
 
-                <div id="<?php echo $p; ?>_notice" class="updated notice <?php echo $p; ?>_notice is-dismissible" data-nonce="<?php echo wp_create_nonce( $this->prefix .'_notice'); ?>">
-            <p><?php echo $message ?></p>
+                <div id="<?php
+ echo $p; ?>_notice" class="updated notice <?php
+ echo $p; ?>_notice is-dismissible" data-nonce="<?php
+ echo wp_create_nonce( $this->prefix .'_notice'); ?>">
+            <p><?php
+ echo $message ?></p>
             <button type="button" class="notice-dismiss">
-            <span class="screen-reader-text"><?php _e('Dismiss this notice'); ?></span>
+            <span class="screen-reader-text"><?php
+ _e('Dismiss this notice'); ?></span>
             </button>
             </div>
 <?php
@@ -219,6 +231,5 @@ class CustomCSSandJS_Notices {
         wp_die();
     }
 }
-
 
 return new CustomCSSandJS_Notices();

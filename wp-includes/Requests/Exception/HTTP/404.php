@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 404 Not Found responses
  *

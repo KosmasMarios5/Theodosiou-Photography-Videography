@@ -72,7 +72,6 @@ class ExactMetrics_Welcome {
 		remove_submenu_page( 'index.php', 'exactmetrics-getting-started' );
 	}
 
-
 	/**
 	 * Check if we should do any redirect.
 	 */

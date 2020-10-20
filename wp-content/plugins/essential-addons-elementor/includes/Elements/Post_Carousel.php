@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -1578,10 +1579,13 @@ class Post_Carousel extends Widget_Base {
             'eael_post_carousel_preset_style'  => $settings['eael_post_carousel_preset_style'],
         ];
         ?>
-        <div <?php echo $this->get_render_attribute_string( 'eael-post-carousel-container' ); ?>>
-            <div <?php echo $this->get_render_attribute_string( 'eael-post-carousel-wrap' ); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string( 'eael-post-carousel-container' ); ?>>
+            <div <?php
+ echo $this->get_render_attribute_string( 'eael-post-carousel-wrap' ); ?>>
                 <div class="swiper-wrapper">
-                <?php echo self::render_template_( $args, $settings ); ?>
+                <?php
+ echo self::render_template_( $args, $settings ); ?>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -1599,6 +1603,7 @@ class Post_Carousel extends Widget_Base {
         ?>
 		</div>
         <?php
+
 }
     //changes
     protected function render_dots() {
@@ -1606,8 +1611,10 @@ class Post_Carousel extends Widget_Base {
 
         if ( $settings['dots'] == 'yes' ) {?>
             <!-- Add Pagination -->
-            <div class="swiper-pagination swiper-pagination-<?php echo esc_attr( $this->get_id() ); ?>"></div>
-        <?php }
+            <div class="swiper-pagination swiper-pagination-<?php
+ echo esc_attr( $this->get_id() ); ?>"></div>
+        <?php
+ }
     }
 
     /**
@@ -1618,6 +1625,7 @@ class Post_Carousel extends Widget_Base {
 
         if ( $settings['arrows'] == 'yes' ) {?>
             <?php
+
 if ( $settings['arrow'] ) {
             $pa_next_arrow = $settings['arrow'];
             $pa_prev_arrow = str_replace( "right", "left", $settings['arrow'] );
@@ -1627,13 +1635,18 @@ if ( $settings['arrow'] ) {
         }
             ?>
                 <!-- Add Arrows -->
-                <div class="swiper-button-next swiper-button-next-<?php echo esc_attr( $this->get_id() ); ?>">
-                    <i class="<?php echo esc_attr( $pa_next_arrow ); ?>"></i>
+                <div class="swiper-button-next swiper-button-next-<?php
+ echo esc_attr( $this->get_id() ); ?>">
+                    <i class="<?php
+ echo esc_attr( $pa_next_arrow ); ?>"></i>
                 </div>
-                <div class="swiper-button-prev swiper-button-prev-<?php echo esc_attr( $this->get_id() ); ?>">
-                    <i class="<?php echo esc_attr( $pa_prev_arrow ); ?>"></i>
+                <div class="swiper-button-prev swiper-button-prev-<?php
+ echo esc_attr( $this->get_id() ); ?>">
+                    <i class="<?php
+ echo esc_attr( $pa_prev_arrow ); ?>"></i>
                 </div>
             <?php
+
 }
     }
 

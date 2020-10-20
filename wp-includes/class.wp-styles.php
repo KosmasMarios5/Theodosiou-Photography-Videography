@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Dependencies API: WP_Styles class
  *

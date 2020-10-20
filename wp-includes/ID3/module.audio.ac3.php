@@ -44,7 +44,6 @@ class getid3_ac3 extends getid3_handler
 		$thisfile_ac3_raw          = &$thisfile_ac3['raw'];
 		$thisfile_ac3_raw_bsi      = &$thisfile_ac3_raw['bsi'];
 
-
 		// http://www.atsc.org/standards/a_52a.pdf
 
 		$info['fileformat'] = 'ac3';
@@ -142,7 +141,6 @@ class getid3_ac3 extends getid3_handler
 				$thisfile_ac3['room_type']    = self::roomTypeLookup($thisfile_ac3_raw_bsi['roomtyp']);
 			}
 
-
 			$thisfile_ac3_raw_bsi['dialnorm2'] = $this->readHeaderBSI(5);                // 5.4.2.16 dialnorm2: Dialogue Normalization, ch2, 5 Bits
 			$thisfile_ac3['dialogue_normalization2'] = '-'.$thisfile_ac3_raw_bsi['dialnorm2'].'dB';  // This indicates how far the average dialogue level is below digital 100 percent. Valid values are 1-31. The value of 0 is reserved. The values of 1 to 31 are interpreted as -1 dB to -31 dB with respect to digital 100 percent.
 
@@ -196,9 +194,7 @@ class getid3_ac3 extends getid3_handler
 				$this->BSIoffset += $thisfile_ac3_raw_bsi['addbsi_length'] * 8;
 			}
 
-
 		} elseif ($thisfile_ac3_raw_bsi['bsid'] <= 16) { // E-AC3
-
 
 			$this->error('E-AC3 parsing is incomplete and experimental in this version of getID3 ('.$this->getid3->version().'). Notably the bitrate calculations are wrong -- value might (or not) be correct, but it is not calculated correctly. Email info@getid3.org if you know how to calculate EAC3 bitrate correctly.');
 			$info['audio']['dataformat'] = 'eac3';
@@ -818,6 +814,5 @@ class getid3_ac3 extends getid3_handler
 		);
 		return (isset($blocksPerSyncFrameLookup[$numblkscod]) ? $blocksPerSyncFrameLookup[$numblkscod] : false);
 	}
-
 
 }

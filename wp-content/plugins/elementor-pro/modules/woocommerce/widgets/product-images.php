@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
@@ -163,6 +164,7 @@ class Product_Images extends Base_Widget {
 				} );
 			</script>
 			<?php
+
 		}
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Editor;
 
 use Elementor\Core\Base\Base_Object;

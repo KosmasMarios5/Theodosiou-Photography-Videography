@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Core Widgets API
  *
@@ -1629,41 +1630,85 @@ function wp_widget_rss_form( $args, $inputs = null ) {
 	$esc_number = esc_attr( $args['number'] );
 	if ( $inputs['url'] ) :
 		?>
-	<p><label for="rss-url-<?php echo $esc_number; ?>"><?php _e( 'Enter the RSS feed URL here:' ); ?></label>
-	<input class="widefat" id="rss-url-<?php echo $esc_number; ?>" name="widget-rss[<?php echo $esc_number; ?>][url]" type="text" value="<?php echo esc_url( $args['url'] ); ?>" /></p>
-<?php endif; if ( $inputs['title'] ) : ?>
-	<p><label for="rss-title-<?php echo $esc_number; ?>"><?php _e( 'Give the feed a title (optional):' ); ?></label>
-	<input class="widefat" id="rss-title-<?php echo $esc_number; ?>" name="widget-rss[<?php echo $esc_number; ?>][title]" type="text" value="<?php echo esc_attr( $args['title'] ); ?>" /></p>
-<?php endif; if ( $inputs['items'] ) : ?>
-	<p><label for="rss-items-<?php echo $esc_number; ?>"><?php _e( 'How many items would you like to display?' ); ?></label>
-	<select id="rss-items-<?php echo $esc_number; ?>" name="widget-rss[<?php echo $esc_number; ?>][items]">
+	<p><label for="rss-url-<?php
+ echo $esc_number; ?>"><?php
+ _e( 'Enter the RSS feed URL here:' ); ?></label>
+	<input class="widefat" id="rss-url-<?php
+ echo $esc_number; ?>" name="widget-rss[<?php
+ echo $esc_number; ?>][url]" type="text" value="<?php
+ echo esc_url( $args['url'] ); ?>" /></p>
+<?php
+ endif; if ( $inputs['title'] ) : ?>
+	<p><label for="rss-title-<?php
+ echo $esc_number; ?>"><?php
+ _e( 'Give the feed a title (optional):' ); ?></label>
+	<input class="widefat" id="rss-title-<?php
+ echo $esc_number; ?>" name="widget-rss[<?php
+ echo $esc_number; ?>][title]" type="text" value="<?php
+ echo esc_attr( $args['title'] ); ?>" /></p>
+<?php
+ endif; if ( $inputs['items'] ) : ?>
+	<p><label for="rss-items-<?php
+ echo $esc_number; ?>"><?php
+ _e( 'How many items would you like to display?' ); ?></label>
+	<select id="rss-items-<?php
+ echo $esc_number; ?>" name="widget-rss[<?php
+ echo $esc_number; ?>][items]">
 	<?php
+
 	for ( $i = 1; $i <= 20; ++$i ) {
 		echo "<option value='$i' " . selected( $args['items'], $i, false ) . ">$i</option>";
 	}
 	?>
 	</select></p>
-<?php endif; if ( $inputs['show_summary'] || $inputs['show_author'] || $inputs['show_date'] ) : ?>
+<?php
+ endif; if ( $inputs['show_summary'] || $inputs['show_author'] || $inputs['show_date'] ) : ?>
 	<p>
-	<?php if ( $inputs['show_summary'] ) : ?>
-		<input id="rss-show-summary-<?php echo $esc_number; ?>" name="widget-rss[<?php echo $esc_number; ?>][show_summary]" type="checkbox" value="1" <?php checked( $args['show_summary'] ); ?> />
-		<label for="rss-show-summary-<?php echo $esc_number; ?>"><?php _e( 'Display item content?' ); ?></label><br />
-	<?php endif; if ( $inputs['show_author'] ) : ?>
-		<input id="rss-show-author-<?php echo $esc_number; ?>" name="widget-rss[<?php echo $esc_number; ?>][show_author]" type="checkbox" value="1" <?php checked( $args['show_author'] ); ?> />
-		<label for="rss-show-author-<?php echo $esc_number; ?>"><?php _e( 'Display item author if available?' ); ?></label><br />
-	<?php endif; if ( $inputs['show_date'] ) : ?>
-		<input id="rss-show-date-<?php echo $esc_number; ?>" name="widget-rss[<?php echo $esc_number; ?>][show_date]" type="checkbox" value="1" <?php checked( $args['show_date'] ); ?>/>
-		<label for="rss-show-date-<?php echo $esc_number; ?>"><?php _e( 'Display item date?' ); ?></label><br />
-	<?php endif; ?>
+	<?php
+ if ( $inputs['show_summary'] ) : ?>
+		<input id="rss-show-summary-<?php
+ echo $esc_number; ?>" name="widget-rss[<?php
+ echo $esc_number; ?>][show_summary]" type="checkbox" value="1" <?php
+ checked( $args['show_summary'] ); ?> />
+		<label for="rss-show-summary-<?php
+ echo $esc_number; ?>"><?php
+ _e( 'Display item content?' ); ?></label><br />
+	<?php
+ endif; if ( $inputs['show_author'] ) : ?>
+		<input id="rss-show-author-<?php
+ echo $esc_number; ?>" name="widget-rss[<?php
+ echo $esc_number; ?>][show_author]" type="checkbox" value="1" <?php
+ checked( $args['show_author'] ); ?> />
+		<label for="rss-show-author-<?php
+ echo $esc_number; ?>"><?php
+ _e( 'Display item author if available?' ); ?></label><br />
+	<?php
+ endif; if ( $inputs['show_date'] ) : ?>
+		<input id="rss-show-date-<?php
+ echo $esc_number; ?>" name="widget-rss[<?php
+ echo $esc_number; ?>][show_date]" type="checkbox" value="1" <?php
+ checked( $args['show_date'] ); ?>/>
+		<label for="rss-show-date-<?php
+ echo $esc_number; ?>"><?php
+ _e( 'Display item date?' ); ?></label><br />
+	<?php
+ endif; ?>
 	</p>
 	<?php
+
 	endif; // End of display options.
 foreach ( array_keys( $default_inputs ) as $input ) :
 	if ( 'hidden' === $inputs[ $input ] ) :
 		$id = str_replace( '_', '-', $input );
 		?>
-<input type="hidden" id="rss-<?php echo esc_attr( $id ); ?>-<?php echo $esc_number; ?>" name="widget-rss[<?php echo $esc_number; ?>][<?php echo esc_attr( $input ); ?>]" value="<?php echo esc_attr( $args[ $input ] ); ?>" />
+<input type="hidden" id="rss-<?php
+ echo esc_attr( $id ); ?>-<?php
+ echo $esc_number; ?>" name="widget-rss[<?php
+ echo $esc_number; ?>][<?php
+ echo esc_attr( $input ); ?>]" value="<?php
+ echo esc_attr( $args[ $input ] ); ?>" />
 		<?php
+
 	endif;
 	endforeach;
 }

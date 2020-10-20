@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Privacy Policy Guide Screen.
  *
@@ -25,10 +26,12 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 ?>
 <div class="wrap">
-	<h1><?php echo esc_html( $title ); ?></h1>
+	<h1><?php
+ echo esc_html( $title ); ?></h1>
 
 	<div class="wp-privacy-policy-guide">
-		<?php WP_Privacy_Policy_Content::privacy_policy_guide(); ?>
+		<?php
+ WP_Privacy_Policy_Content::privacy_policy_guide(); ?>
 	</div>
 </div>
 <?php

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Filesystem API: Top-level functionality
  *
@@ -306,6 +307,7 @@ function wp_print_file_editor_templates() {
 			<# if ( 'php_error' === data.code ) { #>
 				<p>
 					<?php
+
 					printf(
 						/* translators: 1: Line number, 2: File path. */
 						__( 'Your PHP code changes were rolled back due to an error on line %1$s of file %2$s. Please fix and try saving again.' ),
@@ -318,6 +320,7 @@ function wp_print_file_editor_templates() {
 			<# } else if ( 'file_not_writable' === data.code ) { #>
 				<p>
 					<?php
+
 					printf(
 						/* translators: %s: Documentation URL. */
 						__( 'You need to make this file writable before you can save your changes. See <a href="%s">Changing File Permissions</a> for more information.' ),
@@ -332,16 +335,19 @@ function wp_print_file_editor_templates() {
 					<p>
 						<# var elementId = 'el-' + String( Math.random() ); #>
 						<input id="{{ elementId }}"  type="checkbox">
-						<label for="{{ elementId }}"><?php _e( 'Update anyway, even though it might break your site?' ); ?></label>
+						<label for="{{ elementId }}"><?php
+ _e( 'Update anyway, even though it might break your site?' ); ?></label>
 					</p>
 				<# } #>
 			<# } #>
 			<# if ( data.dismissible ) { #>
-				<button type="button" class="notice-dismiss"><span class="screen-reader-text"><?php _e( 'Dismiss' ); ?></span></button>
+				<button type="button" class="notice-dismiss"><span class="screen-reader-text"><?php
+ _e( 'Dismiss' ); ?></span></button>
 			<# } #>
 		</div>
 	</script>
 	<?php
+
 }
 
 /**
@@ -630,7 +636,6 @@ function wp_edit_theme_plugin_file( $args ) {
 
 	return true;
 }
-
 
 /**
  * Returns a filename of a temporary unique file.
@@ -2158,9 +2163,11 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 	$types = apply_filters( 'fs_ftp_connection_types', $types, $credentials, $type, $error, $context );
 
 	?>
-<form action="<?php echo esc_url( $form_post ); ?>" method="post">
+<form action="<?php
+ echo esc_url( $form_post ); ?>" method="post">
 <div id="request-filesystem-credentials-form" class="request-filesystem-credentials-form">
 	<?php
+
 	// Print a H1 heading in the FTP credentials modal dialog, default is a H2.
 	$heading_tag = 'h2';
 	if ( 'plugins.php' === $pagenow || 'plugin-install.php' === $pagenow ) {
@@ -2170,6 +2177,7 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 	?>
 <p id="request-filesystem-credentials-desc">
 	<?php
+
 	$label_user = __( 'Username' );
 	$label_pass = __( 'Password' );
 	_e( 'To perform the requested action, WordPress needs to access your web server.' );
@@ -2200,21 +2208,32 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 	?>
 </p>
 <label for="hostname">
-	<span class="field-title"><?php _e( 'Hostname' ); ?></span>
-	<input name="hostname" type="text" id="hostname" aria-describedby="request-filesystem-credentials-desc" class="code" placeholder="<?php esc_attr_e( 'example: www.wordpress.org' ); ?>" value="<?php echo $hostname_value; ?>"<?php disabled( defined( 'FTP_HOST' ) ); ?> />
+	<span class="field-title"><?php
+ _e( 'Hostname' ); ?></span>
+	<input name="hostname" type="text" id="hostname" aria-describedby="request-filesystem-credentials-desc" class="code" placeholder="<?php
+ esc_attr_e( 'example: www.wordpress.org' ); ?>" value="<?php
+ echo $hostname_value; ?>"<?php
+ disabled( defined( 'FTP_HOST' ) ); ?> />
 </label>
 <div class="ftp-username">
 	<label for="username">
-		<span class="field-title"><?php echo $label_user; ?></span>
-		<input name="username" type="text" id="username" value="<?php echo esc_attr( $username ); ?>"<?php disabled( defined( 'FTP_USER' ) ); ?> />
+		<span class="field-title"><?php
+ echo $label_user; ?></span>
+		<input name="username" type="text" id="username" value="<?php
+ echo esc_attr( $username ); ?>"<?php
+ disabled( defined( 'FTP_USER' ) ); ?> />
 	</label>
 </div>
 <div class="ftp-password">
 	<label for="password">
-		<span class="field-title"><?php echo $label_pass; ?></span>
-		<input name="password" type="password" id="password" value="<?php echo $password_value; ?>"<?php disabled( defined( 'FTP_PASS' ) ); ?> />
+		<span class="field-title"><?php
+ echo $label_pass; ?></span>
+		<input name="password" type="password" id="password" value="<?php
+ echo $password_value; ?>"<?php
+ disabled( defined( 'FTP_PASS' ) ); ?> />
 		<em>
 		<?php
+
 		if ( ! defined( 'FTP_PASS' ) ) {
 			_e( 'This password will not be stored on the server.' );}
 		?>
@@ -2222,39 +2241,59 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 	</label>
 </div>
 <fieldset>
-<legend><?php _e( 'Connection Type' ); ?></legend>
+<legend><?php
+ _e( 'Connection Type' ); ?></legend>
 	<?php
+
 	$disabled = disabled( ( defined( 'FTP_SSL' ) && FTP_SSL ) || ( defined( 'FTP_SSH' ) && FTP_SSH ), true, false );
 	foreach ( $types as $name => $text ) :
 		?>
-	<label for="<?php echo esc_attr( $name ); ?>">
-		<input type="radio" name="connection_type" id="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $name ); ?>" <?php checked( $name, $connection_type ); ?> <?php echo $disabled; ?> />
-		<?php echo $text; ?>
+	<label for="<?php
+ echo esc_attr( $name ); ?>">
+		<input type="radio" name="connection_type" id="<?php
+ echo esc_attr( $name ); ?>" value="<?php
+ echo esc_attr( $name ); ?>" <?php
+ checked( $name, $connection_type ); ?> <?php
+ echo $disabled; ?> />
+		<?php
+ echo $text; ?>
 	</label>
 		<?php
+
 	endforeach;
 	?>
 </fieldset>
 	<?php
+
 	if ( isset( $types['ssh'] ) ) {
 		$hidden_class = '';
 		if ( 'ssh' !== $connection_type || empty( $connection_type ) ) {
 			$hidden_class = ' class="hidden"';
 		}
 		?>
-<fieldset id="ssh-keys"<?php echo $hidden_class; ?>>
-<legend><?php _e( 'Authentication Keys' ); ?></legend>
+<fieldset id="ssh-keys"<?php
+ echo $hidden_class; ?>>
+<legend><?php
+ _e( 'Authentication Keys' ); ?></legend>
 <label for="public_key">
-	<span class="field-title"><?php _e( 'Public Key:' ); ?></span>
-	<input name="public_key" type="text" id="public_key" aria-describedby="auth-keys-desc" value="<?php echo esc_attr( $public_key ); ?>"<?php disabled( defined( 'FTP_PUBKEY' ) ); ?> />
+	<span class="field-title"><?php
+ _e( 'Public Key:' ); ?></span>
+	<input name="public_key" type="text" id="public_key" aria-describedby="auth-keys-desc" value="<?php
+ echo esc_attr( $public_key ); ?>"<?php
+ disabled( defined( 'FTP_PUBKEY' ) ); ?> />
 </label>
 <label for="private_key">
-	<span class="field-title"><?php _e( 'Private Key:' ); ?></span>
-	<input name="private_key" type="text" id="private_key" value="<?php echo esc_attr( $private_key ); ?>"<?php disabled( defined( 'FTP_PRIKEY' ) ); ?> />
+	<span class="field-title"><?php
+ _e( 'Private Key:' ); ?></span>
+	<input name="private_key" type="text" id="private_key" value="<?php
+ echo esc_attr( $private_key ); ?>"<?php
+ disabled( defined( 'FTP_PRIKEY' ) ); ?> />
 </label>
-<p id="auth-keys-desc"><?php _e( 'Enter the location on the server where the public and private keys are located. If a passphrase is needed, enter that in the password field above.' ); ?></p>
+<p id="auth-keys-desc"><?php
+ _e( 'Enter the location on the server where the public and private keys are located. If a passphrase is needed, enter that in the password field above.' ); ?></p>
 </fieldset>
 		<?php
+
 	}
 
 	foreach ( (array) $extra_fields as $field ) {
@@ -2264,13 +2303,17 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 	}
 	?>
 	<p class="request-filesystem-credentials-action-buttons">
-		<?php wp_nonce_field( 'filesystem-credentials', '_fs_nonce', false, true ); ?>
-		<button class="button cancel-button" data-js-action="close" type="button"><?php _e( 'Cancel' ); ?></button>
-		<?php submit_button( __( 'Proceed' ), '', 'upgrade', false ); ?>
+		<?php
+ wp_nonce_field( 'filesystem-credentials', '_fs_nonce', false, true ); ?>
+		<button class="button cancel-button" data-js-action="close" type="button"><?php
+ _e( 'Cancel' ); ?></button>
+		<?php
+ submit_button( __( 'Proceed' ), '', 'upgrade', false ); ?>
 	</p>
 </div>
 </form>
 	<?php
+
 	return false;
 }
 
@@ -2295,11 +2338,13 @@ function wp_print_request_filesystem_credentials_modal() {
 		<div class="notification-dialog-background"></div>
 		<div class="notification-dialog" role="dialog" aria-labelledby="request-filesystem-credentials-title" tabindex="0">
 			<div class="request-filesystem-credentials-dialog-content">
-				<?php request_filesystem_credentials( site_url() ); ?>
+				<?php
+ request_filesystem_credentials( site_url() ); ?>
 			</div>
 		</div>
 	</div>
 	<?php
+
 }
 
 /**

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Settings\Base;
 
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
@@ -268,20 +269,24 @@ abstract class Manager {
 	protected function print_editor_template_content( $name ) {
 		?>
 		<#
-		const tabs = elementor.config.settings.<?php echo $name; ?>.tabs;
+		const tabs = elementor.config.settings.<?php
+ echo $name; ?>.tabs;
 
 		if ( Object.values( tabs ).length > 1 ) { #>
 			<div class="elementor-panel-navigation">
 				<# _.each( tabs, function( tabTitle, tabSlug ) {
-					$e.bc.ensureTab( 'panel/<?php echo $name; ?>-settings', tabSlug ); #>
+					$e.bc.ensureTab( 'panel/<?php
+ echo $name; ?>-settings', tabSlug ); #>
 					<div class="elementor-component-tab elementor-panel-navigation-tab elementor-tab-control-{{ tabSlug }}" data-tab="{{ tabSlug }}">
 						<a href="#">{{{ tabTitle }}}</a>
 					</div>
 				<# } ); #>
 			</div>
 		<# } #>
-		<div id="elementor-panel-<?php echo $name; ?>-settings-controls"></div>
+		<div id="elementor-panel-<?php
+ echo $name; ?>-settings-controls"></div>
 		<?php
+
 	}
 
 	/**
@@ -323,8 +328,10 @@ abstract class Manager {
 
 		ob_start();
 		?>
-		<script type="text/template" id="tmpl-elementor-panel-<?php echo esc_attr( $name ); ?>-settings">
-			<?php $this->print_editor_template_content( $name ); ?>
+		<script type="text/template" id="tmpl-elementor-panel-<?php
+ echo esc_attr( $name ); ?>-settings">
+			<?php
+ $this->print_editor_template_content( $name ); ?>
 		</script>
 		<?php
 

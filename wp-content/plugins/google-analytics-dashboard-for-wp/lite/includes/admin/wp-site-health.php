@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Add ExactMetrics tests to the WP Site Health area.
  */

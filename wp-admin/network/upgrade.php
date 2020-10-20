@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite upgrade administration panel.
  *
@@ -121,28 +122,39 @@ switch ( $action ) {
 			do_action( 'wpmu_upgrade_site', $site_id );
 		}
 		echo '</ul>';
-		?><p><?php _e( 'If your browser doesn&#8217;t start loading the next page automatically, click this link:' ); ?> <a class="button" href="upgrade.php?action=upgrade&amp;n=<?php echo ( $n + 5 ); ?>"><?php _e( 'Next Sites' ); ?></a></p>
+		?><p><?php
+ _e( 'If your browser doesn&#8217;t start loading the next page automatically, click this link:' ); ?> <a class="button" href="upgrade.php?action=upgrade&amp;n=<?php
+ echo ( $n + 5 ); ?>"><?php
+ _e( 'Next Sites' ); ?></a></p>
 		<script type="text/javascript">
 		<!--
 		function nextpage() {
-			location.href = "upgrade.php?action=upgrade&n=<?php echo ( $n + 5 ); ?>";
+			location.href = "upgrade.php?action=upgrade&n=<?php
+ echo ( $n + 5 ); ?>";
 		}
 		setTimeout( "nextpage()", 250 );
 		//-->
 		</script>
 		<?php
+
 		break;
 	case 'show':
 	default:
 		if ( (int) get_site_option( 'wpmu_upgrade_site' ) !== $GLOBALS['wp_db_version'] ) :
 			?>
-		<h2><?php _e( 'Database Update Required' ); ?></h2>
-		<p><?php _e( 'WordPress has been updated! Before we send you on your way, we need to individually upgrade the sites in your network.' ); ?></p>
-		<?php endif; ?>
-
-		<p><?php _e( 'The database update process may take a little while, so please be patient.' ); ?></p>
-		<p><a class="button button-primary" href="upgrade.php?action=upgrade"><?php _e( 'Upgrade Network' ); ?></a></p>
+		<h2><?php
+ _e( 'Database Update Required' ); ?></h2>
+		<p><?php
+ _e( 'WordPress has been updated! Before we send you on your way, we need to individually upgrade the sites in your network.' ); ?></p>
 		<?php
+ endif; ?>
+
+		<p><?php
+ _e( 'The database update process may take a little while, so please be patient.' ); ?></p>
+		<p><a class="button button-primary" href="upgrade.php?action=upgrade"><?php
+ _e( 'Upgrade Network' ); ?></a></p>
+		<?php
+
 		/**
 		 * Fires before the footer on the network upgrade screen.
 		 *
@@ -154,4 +166,5 @@ switch ( $action ) {
 ?>
 </div>
 
-<?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+<?php
+ require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>

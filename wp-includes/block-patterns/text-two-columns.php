@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Two columns of Text block pattern.
  *

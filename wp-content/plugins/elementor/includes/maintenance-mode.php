@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\TemplateLibrary\Source_Local;
@@ -297,6 +298,7 @@ class Maintenance_Mode {
 		<style>#wp-admin-bar-elementor-maintenance-on > a { background-color: #dc3232; }
 			#wp-admin-bar-elementor-maintenance-on > .ab-item:before { content: "\f160"; top: 2px; }</style>
 		<?php
+
 	}
 
 	public function on_update_mode( $old_value, $value ) {
@@ -353,9 +355,14 @@ class Maintenance_Mode {
 		}
 
 		?>
-		<a target="_blank" class="elementor-edit-template" style="display: none" href="<?php echo $edit_url; ?>"><?php echo __( 'Edit Template', 'elementor' ); ?></a>
-		<div class="elementor-maintenance-mode-error"><?php echo __( 'To enable maintenance mode you have to set a template for the maintenance mode page.', 'elementor' ); ?></div>
-		<div class="elementor-maintenance-mode-error"><?php echo sprintf( __( 'Select one or go ahead and <a target="_blank" href="%s">create one</a> now.', 'elementor' ), admin_url( 'post-new.php?post_type=' . Source_Local::CPT ) ); ?></div>
+		<a target="_blank" class="elementor-edit-template" style="display: none" href="<?php
+ echo $edit_url; ?>"><?php
+ echo __( 'Edit Template', 'elementor' ); ?></a>
+		<div class="elementor-maintenance-mode-error"><?php
+ echo __( 'To enable maintenance mode you have to set a template for the maintenance mode page.', 'elementor' ); ?></div>
+		<div class="elementor-maintenance-mode-error"><?php
+ echo sprintf( __( 'Select one or go ahead and <a target="_blank" href="%s">create one</a> now.', 'elementor' ), admin_url( 'post-new.php?post_type=' . Source_Local::CPT ) ); ?></div>
 		<?php
+
 	}
 }

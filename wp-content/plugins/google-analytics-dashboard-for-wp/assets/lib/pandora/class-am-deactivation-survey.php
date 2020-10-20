@@ -1,4 +1,5 @@
 <?php
+
 if ( ! class_exists( 'AM_Deactivation_Survey' ) ) {
 	/**
 	 * Awesome Motive Deactivation Survey.
@@ -142,8 +143,10 @@ if ( ! class_exists( 'AM_Deactivation_Survey' ) ) {
 			?>
 			<script type="text/javascript">
 			jQuery(function($){
-				var $deactivateLink = $('#the-list').find('[data-slug="<?php echo $this->plugin; ?>"] span.deactivate a'),
-					$overlay        = $('#am-deactivate-survey-<?php echo $this->plugin; ?>'),
+				var $deactivateLink = $('#the-list').find('[data-slug="<?php
+ echo $this->plugin; ?>"] span.deactivate a'),
+					$overlay        = $('#am-deactivate-survey-<?php
+ echo $this->plugin; ?>'),
 					$form           = $overlay.find('form'),
 					formOpen        = false;
 				// Plugin listing table deactivate link.
@@ -169,17 +172,21 @@ if ( ! class_exists( 'AM_Deactivation_Survey' ) ) {
 				$form.submit(function(event) {
 					event.preventDefault();
 					if (! $form.find('input[type=radio]:checked').val()) {
-						$form.find('.am-deactivate-survey-footer').prepend('<span class="error"><?php echo esc_js( __( 'Please select an option', 'google-analytics-dashboard-for-wp' ) ); ?></span>');
+						$form.find('.am-deactivate-survey-footer').prepend('<span class="error"><?php
+ echo esc_js( __( 'Please select an option', 'google-analytics-dashboard-for-wp' ) ); ?></span>');
 						return;
 					}
 					var data = {
 						code: $form.find('.selected input[type=radio]').val(),
 						reason: $form.find('.selected .am-deactivate-survey-option-reason').text(),
 						details: $form.find('.selected input[type=text]').val(),
-						site: '<?php echo esc_url( home_url() ); ?>',
-						plugin: '<?php echo sanitize_key( $this->name ); ?>'
+						site: '<?php
+ echo esc_url( home_url() ); ?>',
+						plugin: '<?php
+ echo sanitize_key( $this->name ); ?>'
 					}
-					var submitSurvey = $.post('<?php echo $this->api_url; ?>', data);
+					var submitSurvey = $.post('<?php
+ echo $this->api_url; ?>', data);
 					submitSurvey.always(function() {
 						location.href = $deactivateLink.attr('href');
 					});
@@ -195,6 +202,7 @@ if ( ! class_exists( 'AM_Deactivation_Survey' ) ) {
 			});
 			</script>
 			<?php
+
 		}
 
 		/**
@@ -279,6 +287,7 @@ if ( ! class_exists( 'AM_Deactivation_Survey' ) ) {
 			}
 			</style>
 			<?php
+
 		}
 
 		/**
@@ -312,38 +321,54 @@ if ( ! class_exists( 'AM_Deactivation_Survey' ) ) {
 				),
 			);
 			?>
-			<div class="am-deactivate-survey-modal" id="am-deactivate-survey-<?php echo $this->plugin; ?>">
+			<div class="am-deactivate-survey-modal" id="am-deactivate-survey-<?php
+ echo $this->plugin; ?>">
 				<div class="am-deactivate-survey-wrap">
 					<form class="am-deactivate-survey" method="post">
-						<span class="am-deactivate-survey-title"><span class="dashicons dashicons-testimonial"></span><?php echo ' ' . esc_html__( 'Quick Feedback', 'google-analytics-dashboard-for-wp' ); ?></span>
+						<span class="am-deactivate-survey-title"><span class="dashicons dashicons-testimonial"></span><?php
+ echo ' ' . esc_html__( 'Quick Feedback', 'google-analytics-dashboard-for-wp' ); ?></span>
 						<span class="am-deactivate-survey-desc">
 							<?php
+
 							// Translators: Placeholder for the plugin name.
 							echo sprintf( esc_html__('If you have a moment, please share why you are deactivating %s:', 'google-analytics-dashboard-for-wp' ), $this->name );
 							?>
 						</span>
 						<div class="am-deactivate-survey-options">
-							<?php foreach ( $options as $id => $option ) : ?>
+							<?php
+ foreach ( $options as $id => $option ) : ?>
 							<div class="am-deactivate-survey-option">
-								<label for="am-deactivate-survey-option-<?php echo $this->plugin; ?>-<?php echo $id; ?>" class="am-deactivate-survey-option-label">
-									<input id="am-deactivate-survey-option-<?php echo $this->plugin; ?>-<?php echo $id; ?>" class="am-deactivate-survey-option-input" type="radio" name="code" value="<?php echo $id; ?>" />
-									<span class="am-deactivate-survey-option-reason"><?php echo $option['title']; ?></span>
+								<label for="am-deactivate-survey-option-<?php
+ echo $this->plugin; ?>-<?php
+ echo $id; ?>" class="am-deactivate-survey-option-label">
+									<input id="am-deactivate-survey-option-<?php
+ echo $this->plugin; ?>-<?php
+ echo $id; ?>" class="am-deactivate-survey-option-input" type="radio" name="code" value="<?php
+ echo $id; ?>" />
+									<span class="am-deactivate-survey-option-reason"><?php
+ echo $option['title']; ?></span>
 								</label>
-								<?php if ( ! empty( $option['details'] ) ) : ?>
-								<input class="am-deactivate-survey-option-details" type="text" placeholder="<?php echo $option['details']; ?>" />
-								<?php endif; ?>
+								<?php
+ if ( ! empty( $option['details'] ) ) : ?>
+								<input class="am-deactivate-survey-option-details" type="text" placeholder="<?php
+ echo $option['details']; ?>" />
+								<?php
+ endif; ?>
 							</div>
-							<?php endforeach; ?>
+							<?php
+ endforeach; ?>
 						</div>
 						<div class="am-deactivate-survey-footer">
 							<button type="submit" class="am-deactivate-survey-submit button button-primary button-large">
 								<?php
+
 								// Translators: Adds an ampersand.
 								echo sprintf( esc_html__('Submit %s Deactivate', 'google-analytics-dashboard-for-wp' ), '&amp;' );
 								?>
 							</button>
 							<a href="#" class="am-deactivate-survey-deactivate">
 								<?php
+
 								// Translators: Adds an ampersand.
 								echo sprintf( esc_html__('Skip %s Deactivate', 'google-analytics-dashboard-for-wp' ), '&amp;' );
 								?>
@@ -353,6 +378,7 @@ if ( ! class_exists( 'AM_Deactivation_Survey' ) ) {
 				</div>
 			</div>
 			<?php
+
 		}
 	}
 } // End if().

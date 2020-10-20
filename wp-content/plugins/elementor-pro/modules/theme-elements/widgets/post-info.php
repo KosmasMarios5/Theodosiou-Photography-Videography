@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeElements\Widgets;
 
 use Elementor\Controls_Manager;
@@ -870,17 +871,26 @@ class Post_Info extends Base {
 		}
 
 		?>
-		<li <?php echo $this->get_render_attribute_string( $item_key ); ?>>
-			<?php if ( $has_link ) : ?>
-			<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
-				<?php endif; ?>
-				<?php $this->render_item_icon_or_image( $item_data, $repeater_item, $repeater_index ); ?>
-				<?php $this->render_item_text( $item_data, $repeater_index ); ?>
-				<?php if ( $has_link ) : ?>
+		<li <?php
+ echo $this->get_render_attribute_string( $item_key ); ?>>
+			<?php
+ if ( $has_link ) : ?>
+			<a <?php
+ echo $this->get_render_attribute_string( $link_key ); ?>>
+				<?php
+ endif; ?>
+				<?php
+ $this->render_item_icon_or_image( $item_data, $repeater_item, $repeater_index ); ?>
+				<?php
+ $this->render_item_text( $item_data, $repeater_index ); ?>
+				<?php
+ if ( $has_link ) : ?>
 			</a>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 		</li>
 		<?php
+
 	}
 
 	protected function render_item_icon_or_image( $item_data, $repeater_item, $repeater_index ) {
@@ -912,21 +922,29 @@ class Post_Info extends Base {
 			?>
 			<span class="elementor-icon-list-icon">
 			<?php
+
 			if ( ! empty( $item_data['image'] ) ) :
 				$image_data = 'image_' . $repeater_index;
 				$this->add_render_attribute( $image_data, 'src', $item_data['image'] );
 				$this->add_render_attribute( $image_data, 'alt', $item_data['text'] );
 				?>
-					<img class="elementor-avatar" <?php echo $this->get_render_attribute_string( $image_data ); ?>>
-				<?php elseif ( $show_icon ) : ?>
-					<?php if ( $is_new || $migrated ) :
+					<img class="elementor-avatar" <?php
+ echo $this->get_render_attribute_string( $image_data ); ?>>
+				<?php
+ elseif ( $show_icon ) : ?>
+					<?php
+ if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $item_data['selected_icon'], [ 'aria-hidden' => 'true' ] );
 					else : ?>
-						<i class="<?php echo esc_attr( $item_data['icon'] ); ?>" aria-hidden="true"></i>
-					<?php endif; ?>
-				<?php endif; ?>
+						<i class="<?php
+ echo esc_attr( $item_data['icon'] ); ?>" aria-hidden="true"></i>
+					<?php
+ endif; ?>
+				<?php
+ endif; ?>
 			</span>
 			<?php
+
 		}
 	}
 
@@ -939,17 +957,23 @@ class Post_Info extends Base {
 		}
 
 		?>
-		<span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); ?>>
-			<?php if ( ! empty( $item_data['text_prefix'] ) ) : ?>
-				<span class="elementor-post-info__item-prefix"><?php echo esc_html( $item_data['text_prefix'] ); ?></span>
-			<?php endif; ?>
+		<span <?php
+ echo $this->get_render_attribute_string( $repeater_setting_key ); ?>>
 			<?php
+ if ( ! empty( $item_data['text_prefix'] ) ) : ?>
+				<span class="elementor-post-info__item-prefix"><?php
+ echo esc_html( $item_data['text_prefix'] ); ?></span>
+			<?php
+ endif; ?>
+			<?php
+
 			if ( ! empty( $item_data['terms_list'] ) ) :
 				$terms_list = [];
 				$item_class = 'elementor-post-info__terms-list-item';
 				?>
 				<span class="elementor-post-info__terms-list">
 				<?php
+
 				foreach ( $item_data['terms_list'] as $term ) :
 					if ( ! empty( $term['url'] ) ) :
 						$terms_list[] = '<a href="' . esc_attr( $term['url'] ) . '" class="' . $item_class . '">' . esc_html( $term['text'] ) . '</a>';
@@ -961,8 +985,10 @@ class Post_Info extends Base {
 				echo implode( ', ', $terms_list );
 				?>
 				</span>
-			<?php else : ?>
+			<?php
+ else : ?>
 				<?php
+
 				echo wp_kses( $item_data['text'], [
 					'a' => [
 						'href' => [],
@@ -971,9 +997,11 @@ class Post_Info extends Base {
 					],
 				] );
 				?>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</span>
 		<?php
+
 	}
 
 	protected function render() {
@@ -997,9 +1025,12 @@ class Post_Info extends Base {
 
 		$this->add_render_attribute( 'icon_list', 'class', [ 'elementor-icon-list-items', 'elementor-post-info' ] );
 		?>
-		<ul <?php echo $this->get_render_attribute_string( 'icon_list' ); ?>>
-			<?php echo $items_html; ?>
+		<ul <?php
+ echo $this->get_render_attribute_string( 'icon_list' ); ?>>
+			<?php
+ echo $items_html; ?>
 		</ul>
 		<?php
+
 	}
 }

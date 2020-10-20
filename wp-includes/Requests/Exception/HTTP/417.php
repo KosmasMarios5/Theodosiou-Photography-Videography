@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 417 Expectation Failed responses
  *

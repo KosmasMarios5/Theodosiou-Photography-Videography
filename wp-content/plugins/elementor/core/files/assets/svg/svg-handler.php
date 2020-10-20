@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Files\Assets\Svg;
 
 use Elementor\Core\Files\Assets\Files_Upload_Handler;

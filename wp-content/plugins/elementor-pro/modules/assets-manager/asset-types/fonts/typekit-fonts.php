@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\AssetsManager\AssetTypes\Fonts;
 
 use ElementorPro\Modules\AssetsManager\Classes\Font_Base;

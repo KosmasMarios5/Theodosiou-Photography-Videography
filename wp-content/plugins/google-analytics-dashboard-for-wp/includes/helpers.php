@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Helper functions.
  *
@@ -23,7 +24,6 @@ function exactmetrics_is_page_reload() {
 	// IF the referrer is identical to the current page request, then it's a refresh
 	return ( parse_url( $_SERVER['HTTP_REFERER'], PHP_URL_PATH ) === parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ) );
 }
-
 
 function exactmetrics_track_user( $user_id = -1 ) {
 	if ( $user_id === -1 ) {
@@ -118,7 +118,6 @@ function exactmetrics_get_uuid() {
 	}
 }
 
-
 /**
  * Generate UUID v4 function - needed to generate a CID when one isn't available
  *
@@ -180,11 +179,9 @@ function exactmetrics_get_cookie( $debug = false ) {
 	}
 }
 
-
 function exactmetrics_generate_ga_client_id() {
 	return rand(100000000,999999999) . '.' . time();
 }
-
 
 /**
  * Hours between two timestamps.
@@ -239,7 +236,6 @@ function exactmetrics_is_pro_version() {
 		return false;
 	}
 }
-
 
 /**
  * Get the user roles of this WordPress blog
@@ -1087,7 +1083,6 @@ function exactmetrics_get_inline_menu_icon() {
 	}
 }
 
-
 function exactmetrics_get_shareasale_id() {
 	// Check if there's a constant.
 	$shareasale_id = '';
@@ -1518,7 +1513,8 @@ function exactmetrics_tools_copy_url_to_prettylinks() {
                 localStorage.removeItem('ExactMetricsURL');
             });
         </script>
-    <?php }
+    <?php
+ }
 }
 add_action( 'admin_footer', 'exactmetrics_tools_copy_url_to_prettylinks' );
 

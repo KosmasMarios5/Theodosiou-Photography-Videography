@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Ask for some love.
  *
@@ -115,26 +116,38 @@ class ExactMetrics_Review {
 		?>
 		<div class="notice notice-info is-dismissible exactmetrics-review-notice">
 			<div class="exactmetrics-review-step exactmetrics-review-step-1">
-				<p><?php esc_html_e( 'Are you enjoying ExactMetrics?', 'google-analytics-dashboard-for-wp' ); ?></p>
+				<p><?php
+ esc_html_e( 'Are you enjoying ExactMetrics?', 'google-analytics-dashboard-for-wp' ); ?></p>
 				<p>
-					<a href="#" class="exactmetrics-review-switch-step" data-step="3"><?php esc_html_e( 'Yes', 'google-analytics-dashboard-for-wp' ); ?></a><br />
-					<a href="#" class="exactmetrics-review-switch-step" data-step="2"><?php esc_html_e( 'Not Really', 'google-analytics-dashboard-for-wp' ); ?></a>
+					<a href="#" class="exactmetrics-review-switch-step" data-step="3"><?php
+ esc_html_e( 'Yes', 'google-analytics-dashboard-for-wp' ); ?></a><br />
+					<a href="#" class="exactmetrics-review-switch-step" data-step="2"><?php
+ esc_html_e( 'Not Really', 'google-analytics-dashboard-for-wp' ); ?></a>
 				</p>
 			</div>
 			<div class="exactmetrics-review-step exactmetrics-review-step-2" style="display: none">
-				<p><?php esc_html_e( 'We\'re sorry to hear you aren\'t enjoying ExactMetrics. We would love a chance to improve. Could you take a minute and let us know what we can do better?', 'google-analytics-dashboard-for-wp' ); ?></p>
+				<p><?php
+ esc_html_e( 'We\'re sorry to hear you aren\'t enjoying ExactMetrics. We would love a chance to improve. Could you take a minute and let us know what we can do better?', 'google-analytics-dashboard-for-wp' ); ?></p>
 				<p>
-					<a href="<?php echo esc_url( $feedback_url ); ?>" class="exactmetrics-dismiss-review-notice exactmetrics-review-out"><?php esc_html_e( 'Give Feedback', 'google-analytics-dashboard-for-wp' ); ?></a><br>
-					<a href="#" class="exactmetrics-dismiss-review-notice" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'No thanks', 'google-analytics-dashboard-for-wp' ); ?></a>
+					<a href="<?php
+ echo esc_url( $feedback_url ); ?>" class="exactmetrics-dismiss-review-notice exactmetrics-review-out"><?php
+ esc_html_e( 'Give Feedback', 'google-analytics-dashboard-for-wp' ); ?></a><br>
+					<a href="#" class="exactmetrics-dismiss-review-notice" target="_blank" rel="noopener noreferrer"><?php
+ esc_html_e( 'No thanks', 'google-analytics-dashboard-for-wp' ); ?></a>
 				</p>
 			</div>
 			<div class="exactmetrics-review-step exactmetrics-review-step-3" style="display: none">
-				<p><?php esc_html_e( 'That’s awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress to help us spread the word and boost our motivation?', 'google-analytics-dashboard-for-wp' ); ?></p>
-				<p><strong><?php echo wp_kses( __( '~ Syed Balkhi<br>Co-Founder of ExactMetrics', 'google-analytics-dashboard-for-wp' ), array( 'br' => array() ) ); ?></strong></p>
+				<p><?php
+ esc_html_e( 'That’s awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress to help us spread the word and boost our motivation?', 'google-analytics-dashboard-for-wp' ); ?></p>
+				<p><strong><?php
+ echo wp_kses( __( '~ Syed Balkhi<br>Co-Founder of ExactMetrics', 'google-analytics-dashboard-for-wp' ), array( 'br' => array() ) ); ?></strong></p>
 				<p>
-					<a href="https://wordpress.org/support/plugin/google-analytics-dashboard-for-wp/reviews/?filter=5#new-post" class="exactmetrics-dismiss-review-notice exactmetrics-review-out" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Ok, you deserve it', 'google-analytics-dashboard-for-wp' ); ?></a><br>
-					<a href="#" class="exactmetrics-dismiss-review-notice" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Nope, maybe later', 'google-analytics-dashboard-for-wp' ); ?></a><br>
-					<a href="#" class="exactmetrics-dismiss-review-notice" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'I already did', 'google-analytics-dashboard-for-wp' ); ?></a>
+					<a href="https://wordpress.org/support/plugin/google-analytics-dashboard-for-wp/reviews/?filter=5#new-post" class="exactmetrics-dismiss-review-notice exactmetrics-review-out" target="_blank" rel="noopener noreferrer"><?php
+ esc_html_e( 'Ok, you deserve it', 'google-analytics-dashboard-for-wp' ); ?></a><br>
+					<a href="#" class="exactmetrics-dismiss-review-notice" target="_blank" rel="noopener noreferrer"><?php
+ esc_html_e( 'Nope, maybe later', 'google-analytics-dashboard-for-wp' ); ?></a><br>
+					<a href="#" class="exactmetrics-dismiss-review-notice" target="_blank" rel="noopener noreferrer"><?php
+ esc_html_e( 'I already did', 'google-analytics-dashboard-for-wp' ); ?></a>
 				</p>
 			</div>
 		</div>
@@ -166,6 +179,7 @@ class ExactMetrics_Review {
 			} );
 		</script>
 		<?php
+
 	}
 	/**
 	 * Dismiss the review admin notice

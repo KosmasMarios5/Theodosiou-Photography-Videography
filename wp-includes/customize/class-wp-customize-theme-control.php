@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Theme_Control class
  *
@@ -80,10 +81,13 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 				<div class="theme-screenshot blank"></div>
 			<# } #>
 
-			<span class="more-details theme-details" id="{{ data.section }}-{{ data.theme.id }}-action" aria-label="<?php echo esc_attr( $details_label ); ?>"><?php _e( 'Theme Details' ); ?></span>
+			<span class="more-details theme-details" id="{{ data.section }}-{{ data.theme.id }}-action" aria-label="<?php
+ echo esc_attr( $details_label ); ?>"><?php
+ _e( 'Theme Details' ); ?></span>
 
 			<div class="theme-author">
 			<?php
+
 				/* translators: Theme author name. */
 				printf( _x( 'By %s', 'theme author' ), '{{ data.theme.author }}' );
 			?>
@@ -94,6 +98,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 					<div class="update-message notice inline notice-warning notice-alt" data-slug="{{ data.theme.id }}">
 						<p>
 							<?php
+
 							if ( is_multisite() ) {
 								_e( 'New version available.' );
 							} else {
@@ -111,6 +116,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 						<p>
 							<# if ( ! data.theme.updateResponse.compatibleWP && ! data.theme.updateResponse.compatiblePHP ) { #>
 								<?php
+
 								printf(
 									/* translators: %s: Theme name. */
 									__( 'There is a new version of %s available, but it doesn&#8217;t work with your versions of WordPress and PHP.' ),
@@ -141,6 +147,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 								?>
 							<# } else if ( ! data.theme.updateResponse.compatibleWP ) { #>
 								<?php
+
 								printf(
 									/* translators: %s: Theme name. */
 									__( 'There is a new version of %s available, but it doesn&#8217;t work with your version of WordPress.' ),
@@ -156,6 +163,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 								?>
 							<# } else if ( ! data.theme.updateResponse.compatiblePHP ) { #>
 								<?php
+
 								printf(
 									/* translators: %s: Theme name. */
 									__( 'There is a new version of %s available, but it doesn&#8217;t work with your version of PHP.' ),
@@ -180,6 +188,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 				<div class="notice notice-error notice-alt"><p>
 					<# if ( ! data.theme.compatibleWP && ! data.theme.compatiblePHP ) { #>
 						<?php
+
 						_e( 'This theme doesn&#8217;t work with your versions of WordPress and PHP.' );
 						if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 							printf(
@@ -206,6 +215,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 						?>
 					<# } else if ( ! data.theme.compatibleWP ) { #>
 						<?php
+
 						_e( 'This theme doesn&#8217;t work with your version of WordPress.' );
 						if ( current_user_can( 'update_core' ) ) {
 							printf(
@@ -217,6 +227,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 						?>
 					<# } else if ( ! data.theme.compatiblePHP ) { #>
 						<?php
+
 						_e( 'This theme doesn&#8217;t work with your version of PHP.' );
 						if ( current_user_can( 'update_php' ) ) {
 							printf(
@@ -234,38 +245,52 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 			<# if ( data.theme.active ) { #>
 				<div class="theme-id-container">
 					<h3 class="theme-name" id="{{ data.section }}-{{ data.theme.id }}-name">
-						<span><?php _ex( 'Previewing:', 'theme' ); ?></span> {{ data.theme.name }}
+						<span><?php
+ _ex( 'Previewing:', 'theme' ); ?></span> {{ data.theme.name }}
 					</h3>
 					<div class="theme-actions">
-						<button type="button" class="button button-primary customize-theme" aria-label="<?php echo esc_attr( $customize_label ); ?>"><?php _e( 'Customize' ); ?></button>
+						<button type="button" class="button button-primary customize-theme" aria-label="<?php
+ echo esc_attr( $customize_label ); ?>"><?php
+ _e( 'Customize' ); ?></button>
 					</div>
 				</div>
-				<div class="notice notice-success notice-alt"><p><?php _ex( 'Installed', 'theme' ); ?></p></div>
+				<div class="notice notice-success notice-alt"><p><?php
+ _ex( 'Installed', 'theme' ); ?></p></div>
 			<# } else if ( 'installed' === data.theme.type ) { #>
 				<div class="theme-id-container">
 					<h3 class="theme-name" id="{{ data.section }}-{{ data.theme.id }}-name">{{ data.theme.name }}</h3>
 					<div class="theme-actions">
 						<# if ( data.theme.compatibleWP && data.theme.compatiblePHP ) { #>
-							<button type="button" class="button button-primary preview-theme" aria-label="<?php echo esc_attr( $preview_label ); ?>" data-slug="{{ data.theme.id }}"><?php _e( 'Live Preview' ); ?></button>
+							<button type="button" class="button button-primary preview-theme" aria-label="<?php
+ echo esc_attr( $preview_label ); ?>" data-slug="{{ data.theme.id }}"><?php
+ _e( 'Live Preview' ); ?></button>
 						<# } else { #>
-							<button type="button" class="button button-primary disabled" aria-label="<?php echo esc_attr( $preview_label ); ?>"><?php _e( 'Live Preview' ); ?></button>
+							<button type="button" class="button button-primary disabled" aria-label="<?php
+ echo esc_attr( $preview_label ); ?>"><?php
+ _e( 'Live Preview' ); ?></button>
 						<# } #>
 					</div>
 				</div>
-				<div class="notice notice-success notice-alt"><p><?php _ex( 'Installed', 'theme' ); ?></p></div>
+				<div class="notice notice-success notice-alt"><p><?php
+ _ex( 'Installed', 'theme' ); ?></p></div>
 			<# } else { #>
 				<div class="theme-id-container">
 					<h3 class="theme-name" id="{{ data.section }}-{{ data.theme.id }}-name">{{ data.theme.name }}</h3>
 					<div class="theme-actions">
 						<# if ( data.theme.compatibleWP && data.theme.compatiblePHP ) { #>
-							<button type="button" class="button button-primary theme-install preview" aria-label="<?php echo esc_attr( $install_label ); ?>" data-slug="{{ data.theme.id }}" data-name="{{ data.theme.name }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+							<button type="button" class="button button-primary theme-install preview" aria-label="<?php
+ echo esc_attr( $install_label ); ?>" data-slug="{{ data.theme.id }}" data-name="{{ data.theme.name }}"><?php
+ _e( 'Install &amp; Preview' ); ?></button>
 						<# } else { #>
-							<button type="button" class="button button-primary disabled" aria-label="<?php echo esc_attr( $install_label ); ?>" disabled><?php _e( 'Install &amp; Preview' ); ?></button>
+							<button type="button" class="button button-primary disabled" aria-label="<?php
+ echo esc_attr( $install_label ); ?>" disabled><?php
+ _e( 'Install &amp; Preview' ); ?></button>
 						<# } #>
 					</div>
 				</div>
 			<# } #>
 		</div>
 		<?php
+
 	}
 }

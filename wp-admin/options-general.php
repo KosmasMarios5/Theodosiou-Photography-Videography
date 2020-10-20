@@ -1,4 +1,5 @@
 <?php
+
 /**
  * General settings administration panel.
  *
@@ -53,25 +54,33 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
-<h1><?php echo esc_html( $title ); ?></h1>
+<h1><?php
+ echo esc_html( $title ); ?></h1>
 
 <form method="post" action="options.php" novalidate="novalidate">
-<?php settings_fields( 'general' ); ?>
+<?php
+ settings_fields( 'general' ); ?>
 
 <table class="form-table" role="presentation">
 
 <tr>
-<th scope="row"><label for="blogname"><?php _e( 'Site Title' ); ?></label></th>
-<td><input name="blogname" type="text" id="blogname" value="<?php form_option( 'blogname' ); ?>" class="regular-text" /></td>
+<th scope="row"><label for="blogname"><?php
+ _e( 'Site Title' ); ?></label></th>
+<td><input name="blogname" type="text" id="blogname" value="<?php
+ form_option( 'blogname' ); ?>" class="regular-text" /></td>
 </tr>
 
 <tr>
-<th scope="row"><label for="blogdescription"><?php _e( 'Tagline' ); ?></label></th>
-<td><input name="blogdescription" type="text" id="blogdescription" aria-describedby="tagline-description" value="<?php form_option( 'blogdescription' ); ?>" class="regular-text" />
-<p class="description" id="tagline-description"><?php _e( 'In a few words, explain what this site is about.' ); ?></p></td>
+<th scope="row"><label for="blogdescription"><?php
+ _e( 'Tagline' ); ?></label></th>
+<td><input name="blogdescription" type="text" id="blogdescription" aria-describedby="tagline-description" value="<?php
+ form_option( 'blogdescription' ); ?>" class="regular-text" />
+<p class="description" id="tagline-description"><?php
+ _e( 'In a few words, explain what this site is about.' ); ?></p></td>
 </tr>
 
 <?php
+
 if ( ! is_multisite() ) {
 	$wp_site_url_class = '';
 	$wp_home_class     = '';
@@ -84,16 +93,26 @@ if ( ! is_multisite() ) {
 	?>
 
 <tr>
-<th scope="row"><label for="siteurl"><?php _e( 'WordPress Address (URL)' ); ?></label></th>
-<td><input name="siteurl" type="url" id="siteurl" value="<?php form_option( 'siteurl' ); ?>"<?php disabled( defined( 'WP_SITEURL' ) ); ?> class="regular-text code<?php echo $wp_site_url_class; ?>" /></td>
+<th scope="row"><label for="siteurl"><?php
+ _e( 'WordPress Address (URL)' ); ?></label></th>
+<td><input name="siteurl" type="url" id="siteurl" value="<?php
+ form_option( 'siteurl' ); ?>"<?php
+ disabled( defined( 'WP_SITEURL' ) ); ?> class="regular-text code<?php
+ echo $wp_site_url_class; ?>" /></td>
 </tr>
 
 <tr>
-<th scope="row"><label for="home"><?php _e( 'Site Address (URL)' ); ?></label></th>
-<td><input name="home" type="url" id="home" aria-describedby="home-description" value="<?php form_option( 'home' ); ?>"<?php disabled( defined( 'WP_HOME' ) ); ?> class="regular-text code<?php echo $wp_home_class; ?>" />
-	<?php if ( ! defined( 'WP_HOME' ) ) : ?>
+<th scope="row"><label for="home"><?php
+ _e( 'Site Address (URL)' ); ?></label></th>
+<td><input name="home" type="url" id="home" aria-describedby="home-description" value="<?php
+ form_option( 'home' ); ?>"<?php
+ disabled( defined( 'WP_HOME' ) ); ?> class="regular-text code<?php
+ echo $wp_home_class; ?>" />
+	<?php
+ if ( ! defined( 'WP_HOME' ) ) : ?>
 <p class="description" id="home-description">
 		<?php
+
 		printf(
 			/* translators: %s: Documentation URL. */
 			__( 'Enter the address here if you <a href="%s">want your site home page to be different from your WordPress installation directory</a>.' ),
@@ -101,23 +120,30 @@ if ( ! is_multisite() ) {
 		);
 		?>
 </p>
-<?php endif; ?>
+<?php
+ endif; ?>
 </td>
 </tr>
 
-<?php } ?>
+<?php
+ } ?>
 
 <tr>
-<th scope="row"><label for="new_admin_email"><?php _e( 'Administration Email Address' ); ?></label></th>
-<td><input name="new_admin_email" type="email" id="new_admin_email" aria-describedby="new-admin-email-description" value="<?php form_option( 'admin_email' ); ?>" class="regular-text ltr" />
-<p class="description" id="new-admin-email-description"><?php _e( 'This address is used for admin purposes. If you change this, we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?></p>
+<th scope="row"><label for="new_admin_email"><?php
+ _e( 'Administration Email Address' ); ?></label></th>
+<td><input name="new_admin_email" type="email" id="new_admin_email" aria-describedby="new-admin-email-description" value="<?php
+ form_option( 'admin_email' ); ?>" class="regular-text ltr" />
+<p class="description" id="new-admin-email-description"><?php
+ _e( 'This address is used for admin purposes. If you change this, we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?></p>
 <?php
+
 $new_admin_email = get_option( 'new_admin_email' );
 if ( $new_admin_email && get_option( 'admin_email' ) !== $new_admin_email ) :
 	?>
 	<div class="updated inline">
 	<p>
 	<?php
+
 		printf(
 			/* translators: %s: New admin email. */
 			__( 'There is a pending change of the admin email to %s.' ),
@@ -131,28 +157,37 @@ if ( $new_admin_email && get_option( 'admin_email' ) !== $new_admin_email ) :
 	?>
 	</p>
 	</div>
-<?php endif; ?>
+<?php
+ endif; ?>
 </td>
 </tr>
 
-<?php if ( ! is_multisite() ) { ?>
+<?php
+ if ( ! is_multisite() ) { ?>
 
 <tr>
-<th scope="row"><?php _e( 'Membership' ); ?></th>
-<td> <fieldset><legend class="screen-reader-text"><span><?php _e( 'Membership' ); ?></span></legend><label for="users_can_register">
-<input name="users_can_register" type="checkbox" id="users_can_register" value="1" <?php checked( '1', get_option( 'users_can_register' ) ); ?> />
-	<?php _e( 'Anyone can register' ); ?></label>
+<th scope="row"><?php
+ _e( 'Membership' ); ?></th>
+<td> <fieldset><legend class="screen-reader-text"><span><?php
+ _e( 'Membership' ); ?></span></legend><label for="users_can_register">
+<input name="users_can_register" type="checkbox" id="users_can_register" value="1" <?php
+ checked( '1', get_option( 'users_can_register' ) ); ?> />
+	<?php
+ _e( 'Anyone can register' ); ?></label>
 </fieldset></td>
 </tr>
 
 <tr>
-<th scope="row"><label for="default_role"><?php _e( 'New User Default Role' ); ?></label></th>
+<th scope="row"><label for="default_role"><?php
+ _e( 'New User Default Role' ); ?></label></th>
 <td>
-<select name="default_role" id="default_role"><?php wp_dropdown_roles( get_option( 'default_role' ) ); ?></select>
+<select name="default_role" id="default_role"><?php
+ wp_dropdown_roles( get_option( 'default_role' ) ); ?></select>
 </td>
 </tr>
 
 	<?php
+
 }
 
 $languages    = get_available_languages();
@@ -163,9 +198,11 @@ if ( ! is_multisite() && defined( 'WPLANG' ) && '' !== WPLANG && 'en_US' !== WPL
 if ( ! empty( $languages ) || ! empty( $translations ) ) {
 	?>
 	<tr>
-		<th scope="row"><label for="WPLANG"><?php _e( 'Site Language' ); ?><span class="dashicons dashicons-translation" aria-hidden="true"></span></label></th>
+		<th scope="row"><label for="WPLANG"><?php
+ _e( 'Site Language' ); ?><span class="dashicons dashicons-translation" aria-hidden="true"></span></label></th>
 		<td>
 			<?php
+
 			$locale = get_locale();
 			if ( ! in_array( $locale, $languages, true ) ) {
 				$locale = '';
@@ -195,10 +232,12 @@ if ( ! empty( $languages ) || ! empty( $translations ) ) {
 		</td>
 	</tr>
 	<?php
+
 }
 ?>
 <tr>
 <?php
+
 $current_offset = get_option( 'gmt_offset' );
 $tzstring       = get_option( 'timezone_string' );
 
@@ -221,15 +260,18 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 }
 
 ?>
-<th scope="row"><label for="timezone_string"><?php _e( 'Timezone' ); ?></label></th>
+<th scope="row"><label for="timezone_string"><?php
+ _e( 'Timezone' ); ?></label></th>
 <td>
 
 <select id="timezone_string" name="timezone_string" aria-describedby="timezone-description">
-	<?php echo wp_timezone_choice( $tzstring, get_user_locale() ); ?>
+	<?php
+ echo wp_timezone_choice( $tzstring, get_user_locale() ); ?>
 </select>
 
 <p class="description" id="timezone-description">
 <?php
+
 	printf(
 		/* translators: %s: UTC abbreviation */
 		__( 'Choose either a city in the same timezone as you or a %s (Coordinated Universal Time) time offset.' ),
@@ -241,6 +283,7 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 <p class="timezone-info">
 	<span id="utc-time">
 	<?php
+
 		printf(
 			/* translators: %s: UTC time. */
 			__( 'Universal time is %s.' ),
@@ -248,9 +291,11 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 		);
 		?>
 	</span>
-<?php if ( get_option( 'timezone_string' ) || ! empty( $current_offset ) ) : ?>
+<?php
+ if ( get_option( 'timezone_string' ) || ! empty( $current_offset ) ) : ?>
 	<span id="local-time">
 	<?php
+
 		printf(
 			/* translators: %s: Local time. */
 			__( 'Local time is %s.' ),
@@ -258,13 +303,16 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 		);
 	?>
 	</span>
-<?php endif; ?>
+<?php
+ endif; ?>
 </p>
 
-<?php if ( $check_zone_info && $tzstring ) : ?>
+<?php
+ if ( $check_zone_info && $tzstring ) : ?>
 <p class="timezone-info">
 <span>
 	<?php
+
 	$now = new DateTime( 'now', new DateTimeZone( $tzstring ) );
 	$dst = (bool) $now->format( 'I' );
 
@@ -276,6 +324,7 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 	?>
 	<br />
 	<?php
+
 	if ( in_array( $tzstring, timezone_identifiers_list(), true ) ) {
 		$transitions = timezone_transitions_get( timezone_open( $tzstring ), time() );
 
@@ -298,15 +347,19 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 	?>
 	</span>
 </p>
-<?php endif; ?>
+<?php
+ endif; ?>
 </td>
 
 </tr>
 <tr>
-<th scope="row"><?php _e( 'Date Format' ); ?></th>
+<th scope="row"><?php
+ _e( 'Date Format' ); ?></th>
 <td>
-	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Date Format' ); ?></span></legend>
+	<fieldset><legend class="screen-reader-text"><span><?php
+ _e( 'Date Format' ); ?></span></legend>
 <?php
+
 	/**
 	 * Filters the default date formats.
 	 *
@@ -341,10 +394,13 @@ foreach ( $date_formats as $format ) {
 </td>
 </tr>
 <tr>
-<th scope="row"><?php _e( 'Time Format' ); ?></th>
+<th scope="row"><?php
+ _e( 'Time Format' ); ?></th>
 <td>
-	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Time Format' ); ?></span></legend>
+	<fieldset><legend class="screen-reader-text"><span><?php
+ _e( 'Time Format' ); ?></span></legend>
 <?php
+
 	/**
 	 * Filters the default time formats.
 	 *
@@ -380,9 +436,11 @@ foreach ( $time_formats as $format ) {
 </td>
 </tr>
 <tr>
-<th scope="row"><label for="start_of_week"><?php _e( 'Week Starts On' ); ?></label></th>
+<th scope="row"><label for="start_of_week"><?php
+ _e( 'Week Starts On' ); ?></label></th>
 <td><select name="start_of_week" id="start_of_week">
 <?php
+
 /**
  * @global WP_Locale $wp_locale WordPress date and time locale object.
  */
@@ -395,14 +453,18 @@ endfor;
 ?>
 </select></td>
 </tr>
-<?php do_settings_fields( 'general', 'default' ); ?>
+<?php
+ do_settings_fields( 'general', 'default' ); ?>
 </table>
 
-<?php do_settings_sections( 'general' ); ?>
+<?php
+ do_settings_sections( 'general' ); ?>
 
-<?php submit_button(); ?>
+<?php
+ submit_button(); ?>
 </form>
 
 </div>
 
-<?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+<?php
+ require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>

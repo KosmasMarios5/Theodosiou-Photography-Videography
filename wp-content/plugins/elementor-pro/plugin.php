@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro;
 
 use ElementorPro\Core\Admin\Admin;

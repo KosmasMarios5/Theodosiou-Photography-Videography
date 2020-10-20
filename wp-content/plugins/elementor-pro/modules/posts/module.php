@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Posts;
 
 use ElementorPro\Base\Module_Base;

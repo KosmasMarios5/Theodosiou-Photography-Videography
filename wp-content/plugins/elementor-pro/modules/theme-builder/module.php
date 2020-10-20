@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder;
 
 use Elementor\Core\Admin\Admin_Notices;
@@ -189,12 +190,14 @@ class Module extends Module_Base {
 		?>
 		<div id="elementor-new-template__form__location__wrapper" class="elementor-form-field">
 			<label for="elementor-new-template__form__location" class="elementor-form-field__label">
-				<?php echo __( 'Select a Location', 'elementor-pro' ); ?>
+				<?php
+ echo __( 'Select a Location', 'elementor-pro' ); ?>
 			</label>
 			<div class="elementor-form-field__select__wrapper">
 				<select id="elementor-new-template__form__location" class="elementor-form-field__select" name="meta_location">
 					<option value="">
-						<?php echo __( 'Select...', 'elementor-pro' ); ?>
+						<?php
+ echo __( 'Select...', 'elementor-pro' ); ?>
 					</option>
 					<?php
 
@@ -206,6 +209,7 @@ class Module extends Module_Base {
 			</div>
 		</div>
 		<?php
+
 	}
 
 	public function print_post_type_field() {
@@ -219,12 +223,15 @@ class Module extends Module_Base {
 		?>
 		<div id="elementor-new-template__form__post-type__wrapper" class="elementor-form-field">
 			<label for="elementor-new-template__form__post-type" class="elementor-form-field__label">
-				<?php echo __( 'Select Post Type', 'elementor-pro' ); ?>
+				<?php
+ echo __( 'Select Post Type', 'elementor-pro' ); ?>
 			</label>
 			<div class="elementor-form-field__select__wrapper">
-				<select id="elementor-new-template__form__post-type" class="elementor-form-field__select" name="<?php echo Single::REMOTE_CATEGORY_META_KEY; ?>">
+				<select id="elementor-new-template__form__post-type" class="elementor-form-field__select" name="<?php
+ echo Single::REMOTE_CATEGORY_META_KEY; ?>">
 					<option value="">
-						<?php echo __( 'Select', 'elementor-pro' ); ?>...
+						<?php
+ echo __( 'Select', 'elementor-pro' ); ?>...
 					</option>
 					<?php
 
@@ -255,6 +262,7 @@ class Module extends Module_Base {
 			</div>
 		</div>
 		<?php
+
 	}
 
 	public function admin_head() {

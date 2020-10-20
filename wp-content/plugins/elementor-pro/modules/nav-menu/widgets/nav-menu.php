@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\NavMenu\Widgets;
 
 use Elementor\Controls_Manager;
@@ -1125,16 +1126,23 @@ class Nav_Menu extends Base_Widget {
 					endif;
 				endforeach;
 			endif; ?>
-			<nav <?php echo $this->get_render_attribute_string( 'main-menu' ); ?>><?php echo $menu_html; ?></nav>
+			<nav <?php
+ echo $this->get_render_attribute_string( 'main-menu' ); ?>><?php
+ echo $menu_html; ?></nav>
 			<?php
+
 		endif;
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'menu-toggle' ); ?>>
+		<div <?php
+ echo $this->get_render_attribute_string( 'menu-toggle' ); ?>>
 			<i class="eicon-menu-bar" aria-hidden="true"></i>
-			<span class="elementor-screen-only"><?php _e( 'Menu', 'elementor-pro' ); ?></span>
+			<span class="elementor-screen-only"><?php
+ _e( 'Menu', 'elementor-pro' ); ?></span>
 		</div>
-			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true"><?php echo $dropdown_menu_html; ?></nav>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true"><?php
+ echo $dropdown_menu_html; ?></nav>
 		<?php
+
 	}
 
 	public function handle_link_classes( $atts, $item, $args, $depth ) {

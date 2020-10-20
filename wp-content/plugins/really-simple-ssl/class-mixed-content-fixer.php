@@ -1,4 +1,5 @@
 <?php
+
 defined('ABSPATH') or die("you do not have access to this page!");
 
 if (!class_exists('rsssl_admin_mixed_content_fixer')) {
@@ -66,7 +67,6 @@ if (!class_exists('rsssl_admin_mixed_content_fixer')) {
                 add_action("shutdown", array($this, "end_buffer"), 999);
             }
         }
-
 
         /**
          * Apply the mixed content fixer.

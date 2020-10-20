@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -345,10 +346,12 @@ abstract class Widget_Base extends Element_Base {
 		?>
 		<div class="elementor-widget-container">
 			<?php
+
 			echo $template_content; // XSS ok.
 			?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -555,6 +558,7 @@ abstract class Widget_Base extends Element_Base {
 			?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -593,8 +597,10 @@ abstract class Widget_Base extends Element_Base {
 	 */
 	public function before_render() {
 		?>
-		<div <?php $this->print_render_attribute_string( '_wrapper' ); ?>>
+		<div <?php
+ $this->print_render_attribute_string( '_wrapper' ); ?>>
 		<?php
+
 	}
 
 	/**
@@ -609,6 +615,7 @@ abstract class Widget_Base extends Element_Base {
 		?>
 		</div>
 		<?php
+
 	}
 
 	/**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Widget_Archives class
  *
@@ -58,9 +59,13 @@ class WP_Widget_Archives extends WP_Widget {
 		if ( $dropdown ) {
 			$dropdown_id = "{$this->id_base}-dropdown-{$this->number}";
 			?>
-		<label class="screen-reader-text" for="<?php echo esc_attr( $dropdown_id ); ?>"><?php echo $title; ?></label>
-		<select id="<?php echo esc_attr( $dropdown_id ); ?>" name="archive-dropdown">
+		<label class="screen-reader-text" for="<?php
+ echo esc_attr( $dropdown_id ); ?>"><?php
+ echo $title; ?></label>
+		<select id="<?php
+ echo esc_attr( $dropdown_id ); ?>" name="archive-dropdown">
 			<?php
+
 			/**
 			 * Filters the arguments for the Archives widget drop-down.
 			 *
@@ -103,15 +108,19 @@ class WP_Widget_Archives extends WP_Widget {
 			$type_attr = current_theme_supports( 'html5', 'script' ) ? '' : ' type="text/javascript"';
 			?>
 
-			<option value=""><?php echo esc_attr( $label ); ?></option>
-			<?php wp_get_archives( $dropdown_args ); ?>
+			<option value=""><?php
+ echo esc_attr( $label ); ?></option>
+			<?php
+ wp_get_archives( $dropdown_args ); ?>
 
 		</select>
 
-<script<?php echo $type_attr; ?>>
+<script<?php
+ echo $type_attr; ?>>
 /* <![CDATA[ */
 (function() {
-	var dropdown = document.getElementById( "<?php echo esc_js( $dropdown_id ); ?>" );
+	var dropdown = document.getElementById( "<?php
+ echo esc_js( $dropdown_id ); ?>" );
 	function onSelectChange() {
 		if ( dropdown.options[ dropdown.selectedIndex ].value !== '' ) {
 			document.location.href = this.options[ this.selectedIndex ].value;
@@ -122,6 +131,7 @@ class WP_Widget_Archives extends WP_Widget {
 /* ]]> */
 </script>
 			<?php
+
 		} else {
 			$format = current_theme_supports( 'html5', 'navigation-widgets' ) ? 'html5' : 'xhtml';
 
@@ -138,6 +148,7 @@ class WP_Widget_Archives extends WP_Widget {
 
 			<ul>
 				<?php
+
 				wp_get_archives(
 					/**
 					 * Filters the arguments for the Archives widget.
@@ -163,6 +174,7 @@ class WP_Widget_Archives extends WP_Widget {
 			</ul>
 
 			<?php
+
 			if ( 'html5' === $format ) {
 				echo '</nav>';
 			}
@@ -216,16 +228,32 @@ class WP_Widget_Archives extends WP_Widget {
 		);
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
+			<label for="<?php
+ echo $this->get_field_id( 'title' ); ?>"><?php
+ _e( 'Title:' ); ?></label>
+			<input class="widefat" id="<?php
+ echo $this->get_field_id( 'title' ); ?>" name="<?php
+ echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php
+ echo esc_attr( $instance['title'] ); ?>" />
 		</p>
 		<p>
-			<input class="checkbox" type="checkbox"<?php checked( $instance['dropdown'] ); ?> id="<?php echo $this->get_field_id( 'dropdown' ); ?>" name="<?php echo $this->get_field_name( 'dropdown' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'dropdown' ); ?>"><?php _e( 'Display as dropdown' ); ?></label>
+			<input class="checkbox" type="checkbox"<?php
+ checked( $instance['dropdown'] ); ?> id="<?php
+ echo $this->get_field_id( 'dropdown' ); ?>" name="<?php
+ echo $this->get_field_name( 'dropdown' ); ?>" />
+			<label for="<?php
+ echo $this->get_field_id( 'dropdown' ); ?>"><?php
+ _e( 'Display as dropdown' ); ?></label>
 			<br/>
-			<input class="checkbox" type="checkbox"<?php checked( $instance['count'] ); ?> id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Show post counts' ); ?></label>
+			<input class="checkbox" type="checkbox"<?php
+ checked( $instance['count'] ); ?> id="<?php
+ echo $this->get_field_id( 'count' ); ?>" name="<?php
+ echo $this->get_field_name( 'count' ); ?>" />
+			<label for="<?php
+ echo $this->get_field_id( 'count' ); ?>"><?php
+ _e( 'Show post counts' ); ?></label>
 		</p>
 		<?php
+
 	}
 }

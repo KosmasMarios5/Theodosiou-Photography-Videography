@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Frontend events tracking.
  *
@@ -12,7 +13,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
 
 /**
  * Get frontend tracking options.
@@ -102,7 +102,6 @@ function exactmetrics_rss_link_tagger( $guid ) {
     return $guid;
 }
 add_filter( 'the_permalink_rss', 'exactmetrics_rss_link_tagger', 99 );
-
 
 /**
  * Checks used for loading the frontend scripts/admin bar button.
@@ -202,7 +201,6 @@ function exactmetrics_frontend_admin_bar_scripts() {
 add_action( 'wp_enqueue_scripts', 'exactmetrics_frontend_admin_bar_scripts' );
 add_action( 'admin_enqueue_scripts', 'exactmetrics_frontend_admin_bar_scripts', 1005 );
 
-
 /**
  * Load the tracking notice for logged in users.
  */
@@ -234,12 +232,15 @@ function exactmetrics_administrator_tracking_notice() {
 	?>
 	<div class="exactmetrics-tracking-notice exactmetrics-tracking-notice-hide">
 		<div class="exactmetrics-tracking-notice-icon">
-			<img src="<?php echo esc_url( plugins_url( 'assets/images/em-mascot.png', EXACTMETRICS_PLUGIN_FILE ) ); ?>" width="40" alt="ExactMetrics Mascot" />
+			<img src="<?php
+ echo esc_url( plugins_url( 'assets/images/em-mascot.png', EXACTMETRICS_PLUGIN_FILE ) ); ?>" width="40" alt="ExactMetrics Mascot" />
 		</div>
 		<div class="exactmetrics-tracking-notice-text">
-			<h3><?php esc_html_e( 'Tracking is Disabled for Administrators', 'google-analytics-dashboard-for-wp' ); ?></h3>
+			<h3><?php
+ esc_html_e( 'Tracking is Disabled for Administrators', 'google-analytics-dashboard-for-wp' ); ?></h3>
 			<p>
 				<?php
+
 				$doc_url = 'https://exactmetrics.com/docs/tracking-disabled-administrators-editors';
 				$doc_url = add_query_arg( array(
 					'utm_source'   => exactmetrics_is_pro_version() ? 'proplugin' : 'liteplugin',
@@ -355,11 +356,13 @@ function exactmetrics_administrator_tracking_notice() {
 					e.preventDefault();
 					$( this ).closest( '.exactmetrics-tracking-notice' ).addClass( 'exactmetrics-tracking-notice-hide' );
 					$.ajax( {
-						url: '<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>',
+						url: '<?php
+ echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>',
 						method: 'POST',
 						data: {
 							action: 'exactmetrics_dismiss_tracking_notice',
-							nonce: '<?php echo esc_js( wp_create_nonce( 'exactmetrics-tracking-notice' ) ); ?>',
+							nonce: '<?php
+ echo esc_js( wp_create_nonce( 'exactmetrics-tracking-notice' ) ); ?>',
 						}
 					} );
 				} );
@@ -367,6 +370,7 @@ function exactmetrics_administrator_tracking_notice() {
 		}
 	</script>
 	<?php
+
 }
 
 add_action( 'wp_footer', 'exactmetrics_administrator_tracking_notice', 300 );

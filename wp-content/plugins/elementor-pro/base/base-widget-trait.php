@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Base;
 
 use ElementorPro\License\API as License_API;

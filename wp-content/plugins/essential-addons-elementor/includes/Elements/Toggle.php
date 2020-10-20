@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -722,30 +723,41 @@ class Toggle extends Widget_Base {
 
         $this->add_render_attribute( 'toggle-content-wrap', 'class', 'eael-toggle-content-wrap primary' );
         ?>
-        <div <?php echo $this->get_render_attribute_string( 'toggle-container' ); ?>>
-            <div <?php echo $this->get_render_attribute_string( 'toggle-switch-wrap' ); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string( 'toggle-container' ); ?>>
+            <div <?php
+ echo $this->get_render_attribute_string( 'toggle-switch-wrap' ); ?>>
                 <div class="eael-toggle-switch-inner">
-                    <?php if ( $settings['primary_label'] != '' ) { ?>
+                    <?php
+ if ( $settings['primary_label'] != '' ) { ?>
                         <div class="eael-primary-toggle-label">
-                            <?php echo esc_attr( $settings['primary_label'] ); ?>
+                            <?php
+ echo esc_attr( $settings['primary_label'] ); ?>
                         </div>
-                    <?php } ?>
-                    <div <?php echo $this->get_render_attribute_string( 'toggle-switch-container' ); ?>>
+                    <?php
+ } ?>
+                    <div <?php
+ echo $this->get_render_attribute_string( 'toggle-switch-container' ); ?>>
                         <label class="eael-toggle-switch">
                             <input type="checkbox">
                             <span class="eael-toggle-slider"></span>
                         </label>
                     </div>
-                    <?php if ( $settings['secondary_label'] != '' ) { ?>
+                    <?php
+ if ( $settings['secondary_label'] != '' ) { ?>
                         <div class="eael-secondary-toggle-label">
-                            <?php echo esc_attr( $settings['secondary_label'] ); ?>
+                            <?php
+ echo esc_attr( $settings['secondary_label'] ); ?>
                         </div>
-                    <?php } ?>
+                    <?php
+ } ?>
                 </div>
             </div>
-            <div <?php echo $this->get_render_attribute_string( 'toggle-content-wrap' ); ?>>
+            <div <?php
+ echo $this->get_render_attribute_string( 'toggle-content-wrap' ); ?>>
                 <div class="eael-toggle-primary-wrap">
                     <?php
+
                         if ( $settings['primary_content_type'] == 'content' ) {
                             echo $this->parse_text_editor( $settings['primary_content'] );
                         } elseif ( $settings['primary_content_type'] == 'image' ) {
@@ -763,6 +775,7 @@ class Toggle extends Widget_Base {
                 </div>
                 <div class="eael-toggle-secondary-wrap">
                     <?php
+
                         if ( $settings['secondary_content_type'] == 'content' ) {
                             echo $this->parse_text_editor( $settings['secondary_content'] );
                         } elseif ( $settings['secondary_content_type'] == 'image' ) {
@@ -781,6 +794,7 @@ class Toggle extends Widget_Base {
             </div>
         </div>
         <?php
+
     }
 
     /**

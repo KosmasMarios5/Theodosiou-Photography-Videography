@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Classes;
 
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
@@ -7,7 +8,6 @@ use Elementor\TemplateLibrary\Source_Local;
 use ElementorPro\Modules\ThemeBuilder\Documents\Theme_Document;
 use ElementorPro\Modules\ThemeBuilder\Module;
 use ElementorPro\Modules\ThemeBuilder\Conditions\Condition_Base;
-
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -153,7 +153,6 @@ class Conditions_Manager {
 
 		return $conflicted;
 	}
-
 
 	public function ajax_save_theme_template_conditions( $request ) {
 		if ( ! isset( $request['conditions'] ) ) {

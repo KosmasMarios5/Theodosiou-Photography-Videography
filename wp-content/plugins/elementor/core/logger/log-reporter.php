@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Logger;
 
 use Elementor\Modules\System_Info\Reporters\Base;

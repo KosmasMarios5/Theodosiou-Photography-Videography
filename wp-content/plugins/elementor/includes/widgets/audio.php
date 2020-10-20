@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -281,9 +282,11 @@ class Widget_Audio extends Widget_Base {
 
 		if ( $video_html ) : ?>
 			<div class="elementor-soundcloud-wrapper">
-				<?php echo $video_html; ?>
+				<?php
+ echo $video_html; ?>
 			</div>
 			<?php
+
 		endif;
 	}
 

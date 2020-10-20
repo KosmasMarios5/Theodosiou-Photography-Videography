@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\TemplateLibrary\Classes;
 
 if ( ! defined( 'ABSPATH' ) ) {

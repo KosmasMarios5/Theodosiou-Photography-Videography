@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Core\Base\Base_Object;
@@ -112,9 +113,11 @@ abstract class Base_Control extends Base_Object {
 	 */
 	final public function print_template() {
 		?>
-		<script type="text/html" id="tmpl-elementor-control-<?php echo esc_attr( $this->get_type() ); ?>-content">
+		<script type="text/html" id="tmpl-elementor-control-<?php
+ echo esc_attr( $this->get_type() ); ?>-content">
 			<div class="elementor-control-content">
 				<?php
+
 				// TODO: This is for backwards compatibility starting from 2.9.0
 				// This `if` statement should be removed when the method is removed
 				if ( method_exists( $this, '_content_template' ) ) {
@@ -126,6 +129,7 @@ abstract class Base_Control extends Base_Object {
 			</div>
 		</script>
 		<?php
+
 	}
 
 	/**

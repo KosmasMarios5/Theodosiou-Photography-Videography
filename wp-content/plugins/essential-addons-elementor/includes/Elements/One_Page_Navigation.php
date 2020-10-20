@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -697,9 +698,12 @@ class One_Page_Navigation extends Widget_Base {
             $this->add_render_attribute( 'tooltip', 'class', 'eael-tooltip-arrow' );
         }
         ?>
-        <div <?php echo $this->get_render_attribute_string( 'onepage-nav-container' ); ?>>
-            <ul <?php echo $this->get_render_attribute_string( 'onepage-nav' ); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string( 'onepage-nav-container' ); ?>>
+            <ul <?php
+ echo $this->get_render_attribute_string( 'onepage-nav' ); ?>>
                 <?php
+
                 $i = 1;
                 foreach ( $settings['nav_dots'] as $index => $dot ) {
                     $eael_section_title = $dot['section_title'];
@@ -724,6 +728,7 @@ class One_Page_Navigation extends Widget_Base {
             </ul>
         </div>
         <?php
+
     }
 
     /**

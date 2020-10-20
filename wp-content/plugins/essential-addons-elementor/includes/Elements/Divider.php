@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -877,11 +878,15 @@ class Divider extends Widget_Base {
 		);
         
         ?>
-        <div <?php echo $this->get_render_attribute_string('divider-wrap'); ?>>
+        <div <?php
+ echo $this->get_render_attribute_string('divider-wrap'); ?>>
             <?php
+
             if ( $settings['divider_type'] == 'plain' ) { ?>
-                <div <?php echo $this->get_render_attribute_string( 'divider' ); ?>></div>
+                <div <?php
+ echo $this->get_render_attribute_string( 'divider' ); ?>></div>
                 <?php
+
             }
             else { ?>
                 <div class="divider-text-container">
@@ -890,30 +895,51 @@ class Divider extends Widget_Base {
                             <span class="divider-border"></span>
                         </span>
                         <span class="eael-divider-content">
-                            <?php if ( $settings['divider_type'] == 'text' && $settings['divider_text'] ) { ?>
+                            <?php
+ if ( $settings['divider_type'] == 'text' && $settings['divider_text'] ) { ?>
                                 <?php
+
                                     printf('<%1$s %2$s>%3$s</%1$s>', $settings['text_html_tag'], $this->get_render_attribute_string( 'divider_text' ), $settings['divider_text'] );
                                 ?>
-                            <?php } elseif ( $settings['divider_type'] == 'icon') { ?>
-                                <span <?php echo $this->get_render_attribute_string( 'divider-content' ); ?>>
-									<?php if ($icon_migrated || $icon_is_new) { ?>
-										<?php if( isset($settings['divider_icon_new']['value']['url']) ) : ?>
-											<img class="eael-divider-svg-icon" src="<?php echo esc_attr( $settings['divider_icon_new']['value']['url'] ); ?>" alt="<?php echo esc_attr(get_post_meta($settings['divider_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
-										<?php else : ?>
-											<span class="<?php echo esc_attr( $settings['divider_icon_new']['value'] ); ?>" aria-hidden="true"></span>
-										<?php endif; ?>
-									<?php } else { ?>
-										<span class="<?php echo esc_attr( $settings['divider_icon'] ); ?>" aria-hidden="true"></span>
-									<?php } ?>
+                            <?php
+ } elseif ( $settings['divider_type'] == 'icon') { ?>
+                                <span <?php
+ echo $this->get_render_attribute_string( 'divider-content' ); ?>>
+									<?php
+ if ($icon_migrated || $icon_is_new) { ?>
+										<?php
+ if( isset($settings['divider_icon_new']['value']['url']) ) : ?>
+											<img class="eael-divider-svg-icon" src="<?php
+ echo esc_attr( $settings['divider_icon_new']['value']['url'] ); ?>" alt="<?php
+ echo esc_attr(get_post_meta($settings['divider_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
+										<?php
+ else : ?>
+											<span class="<?php
+ echo esc_attr( $settings['divider_icon_new']['value'] ); ?>" aria-hidden="true"></span>
+										<?php
+ endif; ?>
+									<?php
+ } else { ?>
+										<span class="<?php
+ echo esc_attr( $settings['divider_icon'] ); ?>" aria-hidden="true"></span>
+									<?php
+ } ?>
                                 </span>
-                            <?php } elseif ( $settings['divider_type'] == 'image' ) { ?>
-                                <span <?php echo $this->get_render_attribute_string( 'divider-content' ); ?>>
+                            <?php
+ } elseif ( $settings['divider_type'] == 'image' ) { ?>
+                                <span <?php
+ echo $this->get_render_attribute_string( 'divider-content' ); ?>>
                                     <?php
+
                                         if( isset($settings['divider_image']['url']) ) {?>
-                                            <img src="<?php echo esc_url( $settings['divider_image']['url'] ); ?>" alt="<?php echo esc_attr(get_post_meta($settings['divider_image']['id'], '_wp_attachment_image_alt', true)); ?>">
-                                    <?php } ?>
+                                            <img src="<?php
+ echo esc_url( $settings['divider_image']['url'] ); ?>" alt="<?php
+ echo esc_attr(get_post_meta($settings['divider_image']['id'], '_wp_attachment_image_alt', true)); ?>">
+                                    <?php
+ } ?>
                                 </span>
-                            <?php } ?>
+                            <?php
+ } ?>
                         </span>
                         <span class="divider-border-wrap divider-border-right">
                             <span class="divider-border"></span>
@@ -921,10 +947,12 @@ class Divider extends Widget_Base {
                     </div>
                 </div>
                 <?php
+
             }
             ?>
         </div>    
         <?php
+
     }
 
     /**

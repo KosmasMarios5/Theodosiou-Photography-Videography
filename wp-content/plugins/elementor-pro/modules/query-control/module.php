@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\QueryControl;
 
 use Elementor\Controls_Manager;
@@ -344,7 +345,6 @@ class Module extends Module_Base {
 			'hide_empty' => false,
 		];
 	}
-
 
 	private function get_titles_query_for_library_template( $data ) {
 		$query = $data['get_titles']['query'];

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Forms\Classes;
 
 use Elementor\Controls_Manager;

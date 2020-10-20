@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Privacy Settings Screen.
  *
@@ -119,19 +120,27 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 ?>
 <div class="wrap">
-	<h1><?php echo $title; ?></h1>
-	<h2><?php _e( 'Privacy Policy Page' ); ?></h2>
+	<h1><?php
+ echo $title; ?></h1>
+	<h2><?php
+ _e( 'Privacy Policy Page' ); ?></h2>
 	<p>
-		<?php _e( 'As a website owner, you may need to follow national or international privacy laws. For example, you may need to create and display a Privacy Policy.' ); ?>
-		<?php _e( 'If you already have a Privacy Policy page, please select it below. If not, please create one.' ); ?>
+		<?php
+ _e( 'As a website owner, you may need to follow national or international privacy laws. For example, you may need to create and display a Privacy Policy.' ); ?>
+		<?php
+ _e( 'If you already have a Privacy Policy page, please select it below. If not, please create one.' ); ?>
 	</p>
 	<p>
-		<?php _e( 'The new page will include help and suggestions for your Privacy Policy.' ); ?>
-		<?php _e( 'However, it is your responsibility to use those resources correctly, to provide the information that your Privacy Policy requires, and to keep that information current and accurate.' ); ?>
+		<?php
+ _e( 'The new page will include help and suggestions for your Privacy Policy.' ); ?>
+		<?php
+ _e( 'However, it is your responsibility to use those resources correctly, to provide the information that your Privacy Policy requires, and to keep that information current and accurate.' ); ?>
 	</p>
 	<p>
-		<?php _e( 'After your Privacy Policy page is set, we suggest that you edit it.' ); ?>
-		<?php _e( 'We would also suggest reviewing your Privacy Policy from time to time, especially after installing or updating any themes or plugins. There may be changes or new suggested information for you to consider adding to your policy.' ); ?>
+		<?php
+ _e( 'After your Privacy Policy page is set, we suggest that you edit it.' ); ?>
+		<?php
+ _e( 'We would also suggest reviewing your Privacy Policy from time to time, especially after installing or updating any themes or plugins. There may be changes or new suggested information for you to consider adding to your policy.' ); ?>
 	</p>
 	<?php
 
@@ -148,6 +157,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		?>
 		<p class="tools-privacy-edit"><strong>
 			<?php
+
 			if ( 'publish' === get_post_status( $privacy_policy_page_id ) ) {
 				printf(
 					/* translators: 1: URL to edit Privacy Policy page, 2: URL to view Privacy Policy page. */
@@ -166,10 +176,12 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			?>
 		</strong></p>
 		<?php
+
 	}
 	?>
 	<p>
 		<?php
+
 		printf(
 			/* translators: 1: Privacy Policy guide URL, 2: Additional link attributes, 3: Accessibility text. */
 			__( 'Need help putting together your new Privacy Policy page? <a href="%1$s" %2$s>Check out our guide%3$s</a> for recommendations on what content to include, along with policies suggested by your plugins and theme.' ),
@@ -186,6 +198,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<th scope="row">
 				<label for="page_for_privacy_policy">
 					<?php
+
 					if ( $privacy_policy_page_exists ) {
 						_e( 'Change your Privacy Policy page' );
 					} else {
@@ -196,6 +209,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			</th>
 			<td>
 				<?php
+
 				$has_pages = (bool) get_posts(
 					array(
 						'post_type'      => 'page',
@@ -212,6 +226,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<form method="post" action="">
 						<input type="hidden" name="action" value="set-privacy-page" />
 						<?php
+
 						wp_dropdown_pages(
 							array(
 								'name'              => 'page_for_privacy_policy',
@@ -227,12 +242,14 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 						submit_button( __( 'Use This Page' ), 'primary', 'submit', false, array( 'id' => 'set-page' ) );
 						?>
 					</form>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 
 				<form class="wp-create-privacy-page" method="post" action="">
 					<input type="hidden" name="action" value="create-privacy-page" />
 					<span>
 						<?php
+
 						if ( $has_pages ) {
 							_e( 'Or:' );
 						} else {
@@ -241,6 +258,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 						?>
 					</span>
 					<?php
+
 					wp_nonce_field( 'create-privacy-page' );
 
 					submit_button( __( 'Create New Page' ), 'primary', 'submit', false, array( 'id' => 'create-page' ) );

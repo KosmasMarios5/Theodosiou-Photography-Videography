@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite themes administration panel.
  *
@@ -132,17 +133,29 @@ if ( $action ) {
 				$themes_to_delete = count( $themes );
 				?>
 				<div class="wrap">
-				<?php if ( 1 === $themes_to_delete ) : ?>
-					<h1><?php _e( 'Delete Theme' ); ?></h1>
-					<div class="error"><p><strong><?php _e( 'Caution:' ); ?></strong> <?php _e( 'This theme may be active on other sites in the network.' ); ?></p></div>
-					<p><?php _e( 'You are about to remove the following theme:' ); ?></p>
-				<?php else : ?>
-					<h1><?php _e( 'Delete Themes' ); ?></h1>
-					<div class="error"><p><strong><?php _e( 'Caution:' ); ?></strong> <?php _e( 'These themes may be active on other sites in the network.' ); ?></p></div>
-					<p><?php _e( 'You are about to remove the following themes:' ); ?></p>
-				<?php endif; ?>
+				<?php
+ if ( 1 === $themes_to_delete ) : ?>
+					<h1><?php
+ _e( 'Delete Theme' ); ?></h1>
+					<div class="error"><p><strong><?php
+ _e( 'Caution:' ); ?></strong> <?php
+ _e( 'This theme may be active on other sites in the network.' ); ?></p></div>
+					<p><?php
+ _e( 'You are about to remove the following theme:' ); ?></p>
+				<?php
+ else : ?>
+					<h1><?php
+ _e( 'Delete Themes' ); ?></h1>
+					<div class="error"><p><strong><?php
+ _e( 'Caution:' ); ?></strong> <?php
+ _e( 'These themes may be active on other sites in the network.' ); ?></p></div>
+					<p><?php
+ _e( 'You are about to remove the following themes:' ); ?></p>
+				<?php
+ endif; ?>
 					<ul class="ul-disc">
 					<?php
+
 					foreach ( $theme_info as $theme ) {
 						echo '<li>' . sprintf(
 							/* translators: 1: Theme name, 2: Theme author. */
@@ -153,12 +166,18 @@ if ( $action ) {
 					}
 					?>
 					</ul>
-				<?php if ( 1 === $themes_to_delete ) : ?>
-					<p><?php _e( 'Are you sure you want to delete this theme?' ); ?></p>
-				<?php else : ?>
-					<p><?php _e( 'Are you sure you want to delete these themes?' ); ?></p>
-				<?php endif; ?>
-				<form method="post" action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ); ?>" style="display:inline;">
+				<?php
+ if ( 1 === $themes_to_delete ) : ?>
+					<p><?php
+ _e( 'Are you sure you want to delete this theme?' ); ?></p>
+				<?php
+ else : ?>
+					<p><?php
+ _e( 'Are you sure you want to delete these themes?' ); ?></p>
+				<?php
+ endif; ?>
+				<form method="post" action="<?php
+ echo esc_url( $_SERVER['REQUEST_URI'] ); ?>" style="display:inline;">
 					<input type="hidden" name="verify-delete" value="1" />
 					<input type="hidden" name="action" value="delete-selected" />
 					<?php
@@ -177,9 +196,12 @@ if ( $action ) {
 
 					?>
 				</form>
-				<?php $referer = wp_get_referer(); ?>
-				<form method="post" action="<?php echo $referer ? esc_url( $referer ) : ''; ?>" style="display:inline;">
-					<?php submit_button( __( 'No, return me to the theme list' ), '', 'submit', false ); ?>
+				<?php
+ $referer = wp_get_referer(); ?>
+				<form method="post" action="<?php
+ echo $referer ? esc_url( $referer ) : ''; ?>" style="display:inline;">
+					<?php
+ submit_button( __( 'No, return me to the theme list' ), '', 'submit', false ); ?>
 				</form>
 				</div>
 				<?php
@@ -344,13 +366,18 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
-
-<?php if ( current_user_can( 'install_themes' ) ) : ?>
-	<a href="theme-install.php" class="page-title-action"><?php echo esc_html_x( 'Add New', 'theme' ); ?></a>
-<?php endif; ?>
+<h1 class="wp-heading-inline"><?php
+ echo esc_html( $title ); ?></h1>
 
 <?php
+ if ( current_user_can( 'install_themes' ) ) : ?>
+	<a href="theme-install.php" class="page-title-action"><?php
+ echo esc_html_x( 'Add New', 'theme' ); ?></a>
+<?php
+ endif; ?>
+
+<?php
+
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 	/* translators: %s: Search query. */
 	printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', esc_html( $s ) );
@@ -360,6 +387,7 @@ if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 <hr class="wp-header-end">
 
 <?php
+
 if ( isset( $_GET['enabled'] ) ) {
 	$enabled = absint( $_GET['enabled'] );
 	if ( 1 === $enabled ) {
@@ -414,10 +442,12 @@ if ( isset( $_GET['enabled'] ) ) {
 ?>
 
 <form method="get">
-<?php $wp_list_table->search_box( __( 'Search Installed Themes' ), 'theme' ); ?>
+<?php
+ $wp_list_table->search_box( __( 'Search Installed Themes' ), 'theme' ); ?>
 </form>
 
 <?php
+
 $wp_list_table->views();
 
 if ( 'broken' === $status ) {
@@ -426,15 +456,19 @@ if ( 'broken' === $status ) {
 ?>
 
 <form id="bulk-action-form" method="post">
-<input type="hidden" name="theme_status" value="<?php echo esc_attr( $status ); ?>" />
-<input type="hidden" name="paged" value="<?php echo esc_attr( $page ); ?>" />
+<input type="hidden" name="theme_status" value="<?php
+ echo esc_attr( $status ); ?>" />
+<input type="hidden" name="paged" value="<?php
+ echo esc_attr( $page ); ?>" />
 
-<?php $wp_list_table->display(); ?>
+<?php
+ $wp_list_table->display(); ?>
 </form>
 
 </div>
 
 <?php
+
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 wp_print_update_row_templates();

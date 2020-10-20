@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -913,13 +914,17 @@ class Element_Column extends Element_Base {
 		$wrapper_element = $is_legacy_mode_active ? 'column' : 'widget';
 
 		?>
-		<div class="elementor-<?php echo $wrapper_element; ?>-wrap">
+		<div class="elementor-<?php
+ echo $wrapper_element; ?>-wrap">
 			<div class="elementor-background-overlay"></div>
-			<?php if ( $is_legacy_mode_active ) { ?>
+			<?php
+ if ( $is_legacy_mode_active ) { ?>
 				<div class="elementor-widget-wrap"></div>
-			<?php } ?>
+			<?php
+ } ?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -957,15 +962,24 @@ class Element_Column extends Element_Base {
 			],
 		] );
 		?>
-		<<?php echo $this->get_html_tag() . ' ' . $this->get_render_attribute_string( '_wrapper' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( $wrapper_attribute_string ); ?>>
-		<?php if ( $has_background_overlay ) : ?>
-			<div <?php echo $this->get_render_attribute_string( '_background_overlay' ); ?>></div>
-		<?php endif; ?>
-		<?php if ( $is_legacy_mode_active ) : ?>
-			<div <?php echo $this->get_render_attribute_string( '_widget_wrapper' ); ?>>
-		<?php endif; ?>
+		<<?php
+ echo $this->get_html_tag() . ' ' . $this->get_render_attribute_string( '_wrapper' ); ?>>
+			<div <?php
+ echo $this->get_render_attribute_string( $wrapper_attribute_string ); ?>>
 		<?php
+ if ( $has_background_overlay ) : ?>
+			<div <?php
+ echo $this->get_render_attribute_string( '_background_overlay' ); ?>></div>
+		<?php
+ endif; ?>
+		<?php
+ if ( $is_legacy_mode_active ) : ?>
+			<div <?php
+ echo $this->get_render_attribute_string( '_widget_wrapper' ); ?>>
+		<?php
+ endif; ?>
+		<?php
+
 	}
 
 	/**
@@ -979,10 +993,13 @@ class Element_Column extends Element_Base {
 	public function after_render() {
 		if ( Plugin::instance()->get_legacy_mode( 'elementWrappers' ) ) { ?>
 				</div>
-		<?php } ?>
-			</div>
-		</<?php echo $this->get_html_tag(); ?>>
 		<?php
+ } ?>
+			</div>
+		</<?php
+ echo $this->get_html_tag(); ?>>
+		<?php
+
 	}
 
 	/**

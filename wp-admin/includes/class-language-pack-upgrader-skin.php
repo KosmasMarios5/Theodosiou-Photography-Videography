@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Upgrader API: Language_Pack_Upgrader_Skin class
  *

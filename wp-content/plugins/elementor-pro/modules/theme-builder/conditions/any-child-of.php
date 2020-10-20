@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Conditions;
 
 if ( ! defined( 'ABSPATH' ) ) {

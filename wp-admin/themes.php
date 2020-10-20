@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Themes administration panel.
  *
@@ -245,56 +246,85 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
-	<h1 class="wp-heading-inline"><?php esc_html_e( 'Themes' ); ?>
-		<span class="title-count theme-count"><?php echo ! empty( $_GET['search'] ) ? __( '&hellip;' ) : count( $themes ); ?></span>
+	<h1 class="wp-heading-inline"><?php
+ esc_html_e( 'Themes' ); ?>
+		<span class="title-count theme-count"><?php
+ echo ! empty( $_GET['search'] ) ? __( '&hellip;' ) : count( $themes ); ?></span>
 	</h1>
 
-	<?php if ( ! is_multisite() && current_user_can( 'install_themes' ) ) : ?>
-		<a href="<?php echo admin_url( 'theme-install.php' ); ?>" class="hide-if-no-js page-title-action"><?php echo esc_html_x( 'Add New', 'theme' ); ?></a>
-	<?php endif; ?>
+	<?php
+ if ( ! is_multisite() && current_user_can( 'install_themes' ) ) : ?>
+		<a href="<?php
+ echo admin_url( 'theme-install.php' ); ?>" class="hide-if-no-js page-title-action"><?php
+ echo esc_html_x( 'Add New', 'theme' ); ?></a>
+	<?php
+ endif; ?>
 
 	<form class="search-form"></form>
 
 	<hr class="wp-header-end">
 <?php
+
 if ( ! validate_current_theme() || isset( $_GET['broken'] ) ) {
 	?>
-	<div id="message1" class="updated notice is-dismissible"><p><?php _e( 'The active theme is broken. Reverting to the default theme.' ); ?></p></div>
+	<div id="message1" class="updated notice is-dismissible"><p><?php
+ _e( 'The active theme is broken. Reverting to the default theme.' ); ?></p></div>
 	<?php
+
 } elseif ( isset( $_GET['activated'] ) ) {
 	if ( isset( $_GET['previewed'] ) ) {
 		?>
-		<div id="message2" class="updated notice is-dismissible"><p><?php _e( 'Settings saved and theme activated.' ); ?> <a href="<?php echo home_url( '/' ); ?>"><?php _e( 'Visit site' ); ?></a></p></div>
+		<div id="message2" class="updated notice is-dismissible"><p><?php
+ _e( 'Settings saved and theme activated.' ); ?> <a href="<?php
+ echo home_url( '/' ); ?>"><?php
+ _e( 'Visit site' ); ?></a></p></div>
 		<?php
+
 	} else {
 		?>
-		<div id="message2" class="updated notice is-dismissible"><p><?php _e( 'New theme activated.' ); ?> <a href="<?php echo home_url( '/' ); ?>"><?php _e( 'Visit site' ); ?></a></p></div>
+		<div id="message2" class="updated notice is-dismissible"><p><?php
+ _e( 'New theme activated.' ); ?> <a href="<?php
+ echo home_url( '/' ); ?>"><?php
+ _e( 'Visit site' ); ?></a></p></div>
 		<?php
+
 	}
 } elseif ( isset( $_GET['deleted'] ) ) {
 	?>
-	<div id="message3" class="updated notice is-dismissible"><p><?php _e( 'Theme deleted.' ); ?></p></div>
+	<div id="message3" class="updated notice is-dismissible"><p><?php
+ _e( 'Theme deleted.' ); ?></p></div>
 	<?php
+
 } elseif ( isset( $_GET['delete-active-child'] ) ) {
 	?>
-	<div id="message4" class="error"><p><?php _e( 'You cannot delete a theme while it has an active child theme.' ); ?></p></div>
+	<div id="message4" class="error"><p><?php
+ _e( 'You cannot delete a theme while it has an active child theme.' ); ?></p></div>
 	<?php
+
 } elseif ( isset( $_GET['resumed'] ) ) {
 	?>
-	<div id="message5" class="updated notice is-dismissible"><p><?php _e( 'Theme resumed.' ); ?></p></div>
+	<div id="message5" class="updated notice is-dismissible"><p><?php
+ _e( 'Theme resumed.' ); ?></p></div>
 	<?php
+
 } elseif ( isset( $_GET['error'] ) && 'resuming' === $_GET['error'] ) {
 	?>
-	<div id="message6" class="error"><p><?php _e( 'Theme could not be resumed because it triggered a <strong>fatal error</strong>.' ); ?></p></div>
+	<div id="message6" class="error"><p><?php
+ _e( 'Theme could not be resumed because it triggered a <strong>fatal error</strong>.' ); ?></p></div>
 	<?php
+
 } elseif ( isset( $_GET['enabled-auto-update'] ) ) {
 	?>
-	<div id="message7" class="updated notice is-dismissible"><p><?php _e( 'Theme will be auto-updated.' ); ?></p></div>
+	<div id="message7" class="updated notice is-dismissible"><p><?php
+ _e( 'Theme will be auto-updated.' ); ?></p></div>
 	<?php
+
 } elseif ( isset( $_GET['disabled-auto-update'] ) ) {
 	?>
-	<div id="message8" class="updated notice is-dismissible"><p><?php _e( 'Theme will no longer be auto-updated.' ); ?></p></div>
+	<div id="message8" class="updated notice is-dismissible"><p><?php
+ _e( 'Theme will no longer be auto-updated.' ); ?></p></div>
 	<?php
+
 }
 
 $ct = wp_get_theme();
@@ -357,15 +387,18 @@ if ( is_array( $submenu ) && isset( $submenu['themes.php'] ) ) {
 ?>
 
 <?php
+
 $class_name = 'theme-browser';
 if ( ! empty( $_GET['search'] ) ) {
 	$class_name .= ' search-loading';
 }
 ?>
-<div class="<?php echo esc_attr( $class_name ); ?>">
+<div class="<?php
+ echo esc_attr( $class_name ); ?>">
 	<div class="themes wp-clearfix">
 
 <?php
+
 /*
  * This PHP is synchronized with the tmpl-theme template below!
  */
@@ -379,27 +412,42 @@ foreach ( $themes as $theme ) :
 		$active_class = ' active';
 	}
 	?>
-<div class="theme<?php echo $active_class; ?>" tabindex="0" aria-describedby="<?php echo $aria_action . ' ' . $aria_name; ?>">
-	<?php if ( ! empty( $theme['screenshot'][0] ) ) { ?>
+<div class="theme<?php
+ echo $active_class; ?>" tabindex="0" aria-describedby="<?php
+ echo $aria_action . ' ' . $aria_name; ?>">
+	<?php
+ if ( ! empty( $theme['screenshot'][0] ) ) { ?>
 		<div class="theme-screenshot">
-			<img src="<?php echo $theme['screenshot'][0]; ?>" alt="" />
+			<img src="<?php
+ echo $theme['screenshot'][0]; ?>" alt="" />
 		</div>
-	<?php } else { ?>
+	<?php
+ } else { ?>
 		<div class="theme-screenshot blank"></div>
-	<?php } ?>
+	<?php
+ } ?>
 
-	<?php if ( $theme['hasUpdate'] ) : ?>
-		<?php if ( $theme['updateResponse']['compatibleWP'] && $theme['updateResponse']['compatiblePHP'] ) : ?>
+	<?php
+ if ( $theme['hasUpdate'] ) : ?>
+		<?php
+ if ( $theme['updateResponse']['compatibleWP'] && $theme['updateResponse']['compatiblePHP'] ) : ?>
 			<div class="update-message notice inline notice-warning notice-alt"><p>
-				<?php if ( $theme['hasPackage'] ) : ?>
-					<?php _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?>
-				<?php else : ?>
-					<?php _e( 'New version available.' ); ?>
-				<?php endif; ?>
+				<?php
+ if ( $theme['hasPackage'] ) : ?>
+					<?php
+ _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?>
+				<?php
+ else : ?>
+					<?php
+ _e( 'New version available.' ); ?>
+				<?php
+ endif; ?>
 			</p></div>
-		<?php else : ?>
+		<?php
+ else : ?>
 			<div class="update-message notice inline notice-error notice-alt"><p>
 				<?php
+
 				if ( ! $theme['updateResponse']['compatibleWP'] && ! $theme['updateResponse']['compatiblePHP'] ) {
 					printf(
 						/* translators: %s: Theme name. */
@@ -458,10 +506,13 @@ foreach ( $themes as $theme ) :
 				}
 				?>
 			</p></div>
-		<?php endif; ?>
-	<?php endif; ?>
+		<?php
+ endif; ?>
+	<?php
+ endif; ?>
 
 	<?php
+
 	if ( ! $theme['compatibleWP'] || ! $theme['compatiblePHP'] ) {
 		echo '<div class="notice inline notice-error notice-alt"><p>';
 		if ( ! $theme['compatibleWP'] && ! $theme['compatiblePHP'] ) {
@@ -512,92 +563,144 @@ foreach ( $themes as $theme ) :
 	}
 	?>
 
-	<span class="more-details" id="<?php echo $aria_action; ?>"><?php _e( 'Theme Details' ); ?></span>
+	<span class="more-details" id="<?php
+ echo $aria_action; ?>"><?php
+ _e( 'Theme Details' ); ?></span>
 	<div class="theme-author">
 		<?php
+
 		/* translators: %s: Theme author name. */
 		printf( __( 'By %s' ), $theme['author'] );
 		?>
 	</div>
 
 	<div class="theme-id-container">
-		<?php if ( $theme['active'] ) { ?>
-			<h2 class="theme-name" id="<?php echo $aria_name; ?>">
-				<span><?php _ex( 'Active:', 'theme' ); ?></span> <?php echo $theme['name']; ?>
+		<?php
+ if ( $theme['active'] ) { ?>
+			<h2 class="theme-name" id="<?php
+ echo $aria_name; ?>">
+				<span><?php
+ _ex( 'Active:', 'theme' ); ?></span> <?php
+ echo $theme['name']; ?>
 			</h2>
-		<?php } else { ?>
-			<h2 class="theme-name" id="<?php echo $aria_name; ?>"><?php echo $theme['name']; ?></h2>
-		<?php } ?>
+		<?php
+ } else { ?>
+			<h2 class="theme-name" id="<?php
+ echo $aria_name; ?>"><?php
+ echo $theme['name']; ?></h2>
+		<?php
+ } ?>
 
 		<div class="theme-actions">
-		<?php if ( $theme['active'] ) { ?>
-			<?php if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
-				<a class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Customize' ); ?></a>
-			<?php } ?>
-		<?php } elseif ( $theme['compatibleWP'] && $theme['compatiblePHP'] ) { ?>
+		<?php
+ if ( $theme['active'] ) { ?>
 			<?php
+ if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
+				<a class="button button-primary customize load-customize hide-if-no-customize" href="<?php
+ echo $theme['actions']['customize']; ?>"><?php
+ _e( 'Customize' ); ?></a>
+			<?php
+ } ?>
+		<?php
+ } elseif ( $theme['compatibleWP'] && $theme['compatiblePHP'] ) { ?>
+			<?php
+
 			/* translators: %s: Theme name. */
 			$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
 			?>
-			<a class="button activate" href="<?php echo $theme['actions']['activate']; ?>" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
-			<?php if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
-				<a class="button button-primary load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Live Preview' ); ?></a>
-			<?php } ?>
-		<?php } else { ?>
+			<a class="button activate" href="<?php
+ echo $theme['actions']['activate']; ?>" aria-label="<?php
+ echo esc_attr( $aria_label ); ?>"><?php
+ _e( 'Activate' ); ?></a>
 			<?php
+ if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
+				<a class="button button-primary load-customize hide-if-no-customize" href="<?php
+ echo $theme['actions']['customize']; ?>"><?php
+ _e( 'Live Preview' ); ?></a>
+			<?php
+ } ?>
+		<?php
+ } else { ?>
+			<?php
+
 			/* translators: %s: Theme name. */
 			$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
 			?>
-			<a class="button disabled" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
-			<?php if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
-				<a class="button button-primary hide-if-no-customize disabled"><?php _e( 'Live Preview' ); ?></a>
-			<?php } ?>
-		<?php } ?>
+			<a class="button disabled" aria-label="<?php
+ echo esc_attr( $aria_label ); ?>"><?php
+ _ex( 'Cannot Activate', 'theme' ); ?></a>
+			<?php
+ if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
+				<a class="button button-primary hide-if-no-customize disabled"><?php
+ _e( 'Live Preview' ); ?></a>
+			<?php
+ } ?>
+		<?php
+ } ?>
 
 		</div>
 	</div>
 </div>
-<?php endforeach; ?>
+<?php
+ endforeach; ?>
 	</div>
 </div>
-<div class="theme-overlay" tabindex="0" role="dialog" aria-label="<?php esc_attr_e( 'Theme Details' ); ?>"></div>
+<div class="theme-overlay" tabindex="0" role="dialog" aria-label="<?php
+ esc_attr_e( 'Theme Details' ); ?>"></div>
 
-<p class="no-themes"><?php _e( 'No themes found. Try a different search.' ); ?></p>
+<p class="no-themes"><?php
+ _e( 'No themes found. Try a different search.' ); ?></p>
 
 <?php
+
 // List broken themes, if any.
 $broken_themes = wp_get_themes( array( 'errors' => true ) );
 if ( ! is_multisite() && $broken_themes ) {
 	?>
 
 <div class="broken-themes">
-<h3><?php _e( 'Broken Themes' ); ?></h3>
-<p><?php _e( 'The following themes are installed but incomplete.' ); ?></p>
+<h3><?php
+ _e( 'Broken Themes' ); ?></h3>
+<p><?php
+ _e( 'The following themes are installed but incomplete.' ); ?></p>
 
 	<?php
+
 	$can_resume  = current_user_can( 'resume_themes' );
 	$can_delete  = current_user_can( 'delete_themes' );
 	$can_install = current_user_can( 'install_themes' );
 	?>
 <table>
 	<tr>
-		<th><?php _ex( 'Name', 'theme name' ); ?></th>
-		<th><?php _e( 'Description' ); ?></th>
-		<?php if ( $can_resume ) { ?>
+		<th><?php
+ _ex( 'Name', 'theme name' ); ?></th>
+		<th><?php
+ _e( 'Description' ); ?></th>
+		<?php
+ if ( $can_resume ) { ?>
 			<td></td>
-		<?php } ?>
-		<?php if ( $can_delete ) { ?>
+		<?php
+ } ?>
+		<?php
+ if ( $can_delete ) { ?>
 			<td></td>
-		<?php } ?>
-		<?php if ( $can_install ) { ?>
+		<?php
+ } ?>
+		<?php
+ if ( $can_install ) { ?>
 			<td></td>
-		<?php } ?>
+		<?php
+ } ?>
 	</tr>
-	<?php foreach ( $broken_themes as $broken_theme ) : ?>
+	<?php
+ foreach ( $broken_themes as $broken_theme ) : ?>
 		<tr>
-			<td><?php echo $broken_theme->get( 'Name' ) ? $broken_theme->display( 'Name' ) : esc_html( $broken_theme->get_stylesheet() ); ?></td>
-			<td><?php echo $broken_theme->errors()->get_error_message(); ?></td>
+			<td><?php
+ echo $broken_theme->get( 'Name' ) ? $broken_theme->display( 'Name' ) : esc_html( $broken_theme->get_stylesheet() ); ?></td>
+			<td><?php
+ echo $broken_theme->errors()->get_error_message(); ?></td>
 			<?php
+
 			if ( $can_resume ) {
 				if ( 'theme_paused' === $broken_theme->errors()->get_error_code() ) {
 					$stylesheet = $broken_theme->get_stylesheet();
@@ -610,12 +713,16 @@ if ( ! is_multisite() && $broken_themes ) {
 					);
 					$resume_url = wp_nonce_url( $resume_url, 'resume-theme_' . $stylesheet );
 					?>
-					<td><a href="<?php echo esc_url( $resume_url ); ?>" class="button resume-theme"><?php _e( 'Resume' ); ?></a></td>
+					<td><a href="<?php
+ echo esc_url( $resume_url ); ?>" class="button resume-theme"><?php
+ _e( 'Resume' ); ?></a></td>
 					<?php
+
 				} else {
 					?>
 					<td></td>
 					<?php
+
 				}
 			}
 
@@ -630,8 +737,11 @@ if ( ! is_multisite() && $broken_themes ) {
 				);
 				$delete_url = wp_nonce_url( $delete_url, 'delete-theme_' . $stylesheet );
 				?>
-				<td><a href="<?php echo esc_url( $delete_url ); ?>" class="button delete-theme"><?php _e( 'Delete' ); ?></a></td>
+				<td><a href="<?php
+ echo esc_url( $delete_url ); ?>" class="button delete-theme"><?php
+ _e( 'Delete' ); ?></a></td>
 				<?php
+
 			}
 
 			if ( $can_install && 'theme_no_parent' === $broken_theme->errors()->get_error_code() ) {
@@ -648,17 +758,22 @@ if ( ! is_multisite() && $broken_themes ) {
 					);
 					$install_url = wp_nonce_url( $install_url, 'install-theme_' . $parent_theme_name );
 					?>
-					<td><a href="<?php echo esc_url( $install_url ); ?>" class="button install-theme"><?php _e( 'Install Parent Theme' ); ?></a></td>
+					<td><a href="<?php
+ echo esc_url( $install_url ); ?>" class="button install-theme"><?php
+ _e( 'Install Parent Theme' ); ?></a></td>
 					<?php
+
 				}
 			}
 			?>
 		</tr>
-	<?php endforeach; ?>
+	<?php
+ endforeach; ?>
 </table>
 </div>
 
 	<?php
+
 }
 ?>
 </div><!-- .wrap -->
@@ -731,15 +846,18 @@ function wp_theme_auto_update_setting_template() {
 		<# if ( data.updateResponse.compatibleWP && data.updateResponse.compatiblePHP ) { #>
 			<div class="update-message notice inline notice-warning notice-alt"><p>
 				<# if ( data.hasPackage ) { #>
-					<?php _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?>
+					<?php
+ _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?>
 				<# } else { #>
-					<?php _e( 'New version available.' ); ?>
+					<?php
+ _e( 'New version available.' ); ?>
 				<# } #>
 			</p></div>
 		<# } else { #>
 			<div class="update-message notice inline notice-error notice-alt"><p>
 				<# if ( ! data.updateResponse.compatibleWP && ! data.updateResponse.compatiblePHP ) { #>
 					<?php
+
 					printf(
 						/* translators: %s: Theme name. */
 						__( 'There is a new version of %s available, but it doesn&#8217;t work with your versions of WordPress and PHP.' ),
@@ -770,6 +888,7 @@ function wp_theme_auto_update_setting_template() {
 					?>
 				<# } else if ( ! data.updateResponse.compatibleWP ) { #>
 					<?php
+
 					printf(
 						/* translators: %s: Theme name. */
 						__( 'There is a new version of %s available, but it doesn&#8217;t work with your version of WordPress.' ),
@@ -785,6 +904,7 @@ function wp_theme_auto_update_setting_template() {
 					?>
 				<# } else if ( ! data.updateResponse.compatiblePHP ) { #>
 					<?php
+
 					printf(
 						/* translators: %s: Theme name. */
 						__( 'There is a new version of %s available, but it doesn&#8217;t work with your version of PHP.' ),
@@ -808,6 +928,7 @@ function wp_theme_auto_update_setting_template() {
 		<div class="notice notice-error notice-alt"><p>
 			<# if ( ! data.compatibleWP && ! data.compatiblePHP ) { #>
 				<?php
+
 				_e( 'This theme doesn&#8217;t work with your versions of WordPress and PHP.' );
 				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 					printf(
@@ -834,6 +955,7 @@ function wp_theme_auto_update_setting_template() {
 				?>
 			<# } else if ( ! data.compatibleWP ) { #>
 				<?php
+
 				_e( 'This theme doesn&#8217;t work with your version of WordPress.' );
 				if ( current_user_can( 'update_core' ) ) {
 					printf(
@@ -845,6 +967,7 @@ function wp_theme_auto_update_setting_template() {
 				?>
 			<# } else if ( ! data.compatiblePHP ) { #>
 				<?php
+
 				_e( 'This theme doesn&#8217;t work with your version of PHP.' );
 				if ( current_user_can( 'update_php' ) ) {
 					printf(
@@ -859,9 +982,11 @@ function wp_theme_auto_update_setting_template() {
 		</p></div>
 	<# } #>
 
-	<span class="more-details" id="{{ data.id }}-action"><?php _e( 'Theme Details' ); ?></span>
+	<span class="more-details" id="{{ data.id }}-action"><?php
+ _e( 'Theme Details' ); ?></span>
 	<div class="theme-author">
 		<?php
+
 		/* translators: %s: Theme author name. */
 		printf( __( 'By %s' ), '{{{ data.author }}}' );
 		?>
@@ -870,7 +995,8 @@ function wp_theme_auto_update_setting_template() {
 	<div class="theme-id-container">
 		<# if ( data.active ) { #>
 			<h2 class="theme-name" id="{{ data.id }}-name">
-				<span><?php _ex( 'Active:', 'theme' ); ?></span> {{{ data.name }}}
+				<span><?php
+ _ex( 'Active:', 'theme' ); ?></span> {{{ data.name }}}
 			</h2>
 		<# } else { #>
 			<h2 class="theme-name" id="{{ data.id }}-name">{{{ data.name }}}</h2>
@@ -879,23 +1005,32 @@ function wp_theme_auto_update_setting_template() {
 		<div class="theme-actions">
 			<# if ( data.active ) { #>
 				<# if ( data.actions.customize ) { #>
-					<a class="button button-primary customize load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Customize' ); ?></a>
+					<a class="button button-primary customize load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php
+ _e( 'Customize' ); ?></a>
 				<# } #>
 			<# } else { #>
 				<# if ( data.compatibleWP && data.compatiblePHP ) { #>
 					<?php
+
 					/* translators: %s: Theme name. */
 					$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
 					?>
-					<a class="button activate" href="{{{ data.actions.activate }}}" aria-label="<?php echo $aria_label; ?>"><?php _e( 'Activate' ); ?></a>
-					<a class="button button-primary load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Live Preview' ); ?></a>
+					<a class="button activate" href="{{{ data.actions.activate }}}" aria-label="<?php
+ echo $aria_label; ?>"><?php
+ _e( 'Activate' ); ?></a>
+					<a class="button button-primary load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php
+ _e( 'Live Preview' ); ?></a>
 				<# } else { #>
 					<?php
+
 					/* translators: %s: Theme name. */
 					$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
 					?>
-					<a class="button disabled" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
-					<a class="button button-primary hide-if-no-customize disabled"><?php _e( 'Live Preview' ); ?></a>
+					<a class="button disabled" aria-label="<?php
+ echo esc_attr( $aria_label ); ?>"><?php
+ _ex( 'Cannot Activate', 'theme' ); ?></a>
+					<a class="button button-primary hide-if-no-customize disabled"><?php
+ _e( 'Live Preview' ); ?></a>
 				<# } #>
 			<# } #>
 		</div>
@@ -906,9 +1041,12 @@ function wp_theme_auto_update_setting_template() {
 	<div class="theme-backdrop"></div>
 	<div class="theme-wrap wp-clearfix" role="document">
 		<div class="theme-header">
-			<button class="left dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
-			<button class="right dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
-			<button class="close dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Close details dialog' ); ?></span></button>
+			<button class="left dashicons dashicons-no"><span class="screen-reader-text"><?php
+ _e( 'Show previous theme' ); ?></span></button>
+			<button class="right dashicons dashicons-no"><span class="screen-reader-text"><?php
+ _e( 'Show next theme' ); ?></span></button>
+			<button class="close dashicons dashicons-no"><span class="screen-reader-text"><?php
+ _e( 'Close details dialog' ); ?></span></button>
 		</div>
 		<div class="theme-about wp-clearfix">
 			<div class="theme-screenshots">
@@ -921,16 +1059,19 @@ function wp_theme_auto_update_setting_template() {
 
 			<div class="theme-info">
 				<# if ( data.active ) { #>
-					<span class="current-label"><?php _e( 'Current Theme' ); ?></span>
+					<span class="current-label"><?php
+ _e( 'Current Theme' ); ?></span>
 				<# } #>
 				<h2 class="theme-name">{{{ data.name }}}<span class="theme-version">
 					<?php
+
 					/* translators: %s: Theme version. */
 					printf( __( 'Version: %s' ), '{{ data.version }}' );
 					?>
 				</span></h2>
 				<p class="theme-author">
 					<?php
+
 					/* translators: %s: Theme author link. */
 					printf( __( 'By %s' ), '{{{ data.authorAndUri }}}' );
 					?>
@@ -940,6 +1081,7 @@ function wp_theme_auto_update_setting_template() {
 					<div class="notice notice-error notice-alt notice-large"><p>
 						<# if ( ! data.compatibleWP && ! data.compatiblePHP ) { #>
 							<?php
+
 							_e( 'This theme doesn&#8217;t work with your versions of WordPress and PHP.' );
 							if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 								printf(
@@ -966,6 +1108,7 @@ function wp_theme_auto_update_setting_template() {
 							?>
 						<# } else if ( ! data.compatibleWP ) { #>
 							<?php
+
 							_e( 'This theme doesn&#8217;t work with your version of WordPress.' );
 							if ( current_user_can( 'update_core' ) ) {
 								printf(
@@ -977,6 +1120,7 @@ function wp_theme_auto_update_setting_template() {
 							?>
 						<# } else if ( ! data.compatiblePHP ) { #>
 							<?php
+
 							_e( 'This theme doesn&#8217;t work with your version of PHP.' );
 							if ( current_user_can( 'update_php' ) ) {
 								printf(
@@ -994,15 +1138,18 @@ function wp_theme_auto_update_setting_template() {
 				<# if ( data.hasUpdate ) { #>
 					<# if ( data.updateResponse.compatibleWP && data.updateResponse.compatiblePHP ) { #>
 						<div class="notice notice-warning notice-alt notice-large">
-							<h3 class="notice-title"><?php _e( 'Update Available' ); ?></h3>
+							<h3 class="notice-title"><?php
+ _e( 'Update Available' ); ?></h3>
 							{{{ data.update }}}
 						</div>
 					<# } else { #>
 						<div class="notice notice-error notice-alt notice-large">
-							<h3 class="notice-title"><?php _e( 'Update Incompatible' ); ?></h3>
+							<h3 class="notice-title"><?php
+ _e( 'Update Incompatible' ); ?></h3>
 							<p>
 								<# if ( ! data.updateResponse.compatibleWP && ! data.updateResponse.compatiblePHP ) { #>
 									<?php
+
 									printf(
 										/* translators: %s: Theme name. */
 										__( 'There is a new version of %s available, but it doesn&#8217;t work with your versions of WordPress and PHP.' ),
@@ -1033,6 +1180,7 @@ function wp_theme_auto_update_setting_template() {
 									?>
 								<# } else if ( ! data.updateResponse.compatibleWP ) { #>
 									<?php
+
 									printf(
 										/* translators: %s: Theme name. */
 										__( 'There is a new version of %s available, but it doesn&#8217;t work with your version of WordPress.' ),
@@ -1048,6 +1196,7 @@ function wp_theme_auto_update_setting_template() {
 									?>
 								<# } else if ( ! data.updateResponse.compatiblePHP ) { #>
 									<?php
+
 									printf(
 										/* translators: %s: Theme name. */
 										__( 'There is a new version of %s available, but it doesn&#8217;t work with your version of PHP.' ),
@@ -1069,7 +1218,8 @@ function wp_theme_auto_update_setting_template() {
 				<# } #>
 
 				<# if ( data.actions.autoupdate ) { #>
-					<?php echo wp_theme_auto_update_setting_template(); ?>
+					<?php
+ echo wp_theme_auto_update_setting_template(); ?>
 				<# } #>
 
 				<p class="theme-description">{{{ data.description }}}</p>
@@ -1077,6 +1227,7 @@ function wp_theme_auto_update_setting_template() {
 				<# if ( data.parent ) { #>
 					<p class="parent-theme">
 						<?php
+
 						/* translators: %s: Theme name. */
 						printf( __( 'This is a child theme of %s.' ), '<strong>{{{ data.parent }}}</strong>' );
 						?>
@@ -1084,46 +1235,59 @@ function wp_theme_auto_update_setting_template() {
 				<# } #>
 
 				<# if ( data.tags ) { #>
-					<p class="theme-tags"><span><?php _e( 'Tags:' ); ?></span> {{{ data.tags }}}</p>
+					<p class="theme-tags"><span><?php
+ _e( 'Tags:' ); ?></span> {{{ data.tags }}}</p>
 				<# } #>
 			</div>
 		</div>
 
 		<div class="theme-actions">
 			<div class="active-theme">
-				<a href="{{{ data.actions.customize }}}" class="button button-primary customize load-customize hide-if-no-customize"><?php _e( 'Customize' ); ?></a>
-				<?php echo implode( ' ', $current_theme_actions ); ?>
+				<a href="{{{ data.actions.customize }}}" class="button button-primary customize load-customize hide-if-no-customize"><?php
+ _e( 'Customize' ); ?></a>
+				<?php
+ echo implode( ' ', $current_theme_actions ); ?>
 			</div>
 			<div class="inactive-theme">
 				<# if ( data.compatibleWP && data.compatiblePHP ) { #>
 					<?php
+
 					/* translators: %s: Theme name. */
 					$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
 					?>
 					<# if ( data.actions.activate ) { #>
-						<a href="{{{ data.actions.activate }}}" class="button activate" aria-label="<?php echo $aria_label; ?>"><?php _e( 'Activate' ); ?></a>
+						<a href="{{{ data.actions.activate }}}" class="button activate" aria-label="<?php
+ echo $aria_label; ?>"><?php
+ _e( 'Activate' ); ?></a>
 					<# } #>
-					<a href="{{{ data.actions.customize }}}" class="button button-primary load-customize hide-if-no-customize"><?php _e( 'Live Preview' ); ?></a>
+					<a href="{{{ data.actions.customize }}}" class="button button-primary load-customize hide-if-no-customize"><?php
+ _e( 'Live Preview' ); ?></a>
 				<# } else { #>
 					<?php
+
 					/* translators: %s: Theme name. */
 					$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
 					?>
 					<# if ( data.actions.activate ) { #>
-						<a class="button disabled" aria-label="<?php echo $aria_label; ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
+						<a class="button disabled" aria-label="<?php
+ echo $aria_label; ?>"><?php
+ _ex( 'Cannot Activate', 'theme' ); ?></a>
 					<# } #>
-					<a class="button button-primary hide-if-no-customize disabled"><?php _e( 'Live Preview' ); ?></a>
+					<a class="button button-primary hide-if-no-customize disabled"><?php
+ _e( 'Live Preview' ); ?></a>
 				<# } #>
 			</div>
 
 			<# if ( ! data.active && data.actions['delete'] ) { #>
-				<a href="{{{ data.actions['delete'] }}}" class="button delete-theme"><?php _e( 'Delete' ); ?></a>
+				<a href="{{{ data.actions['delete'] }}}" class="button delete-theme"><?php
+ _e( 'Delete' ); ?></a>
 			<# } #>
 		</div>
 	</div>
 </script>
 
 <?php
+
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 wp_print_update_row_templates();

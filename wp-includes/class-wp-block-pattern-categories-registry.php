@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Blocks API: WP_Block_Pattern_Categories_Registry class
  *

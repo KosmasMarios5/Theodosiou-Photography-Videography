@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Base WordPress Image Editor
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Sitemaps: WP_Sitemaps_Renderer class
  *

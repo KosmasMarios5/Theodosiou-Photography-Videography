@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Skins;
 
 use Elementor\Skin_Base;
@@ -423,16 +424,22 @@ class Post_Comments_Skin_Classic extends Skin_Base {
 			$class .= ' parent';
 		}
 		?>
-		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $class, $comment ); ?>>
-		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+		<<?php
+ echo $tag; ?> id="comment-<?php
+ comment_ID(); ?>" <?php
+ comment_class( $class, $comment ); ?>>
+		<article id="div-comment-<?php
+ comment_ID(); ?>" class="comment-body">
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
 					<?php
+
 					if ( 0 < $args['avatar_size'] ) {
 						echo get_avatar( $comment, $args['avatar_size'] );
 					}
 					?>
 					<?php
+
 					/* translators: %s: Comment author link. */
 					printf( __( '%s <span class="says">says:</span>', 'elementor-pro' ),
 						sprintf( '<b class="fn">%s</b>', get_comment_author_link( $comment ) )
@@ -441,27 +448,36 @@ class Post_Comments_Skin_Classic extends Skin_Base {
 				</div><!-- .comment-author -->
 
 				<div class="comment-metadata">
-					<a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">
-						<time datetime="<?php comment_time( 'c' ); ?>">
+					<a href="<?php
+ echo esc_url( get_comment_link( $comment, $args ) ); ?>">
+						<time datetime="<?php
+ comment_time( 'c' ); ?>">
 							<?php
+
 							/* translators: 1: Comment date, 2: Comment time. */
 							printf( __( '%1$s at %2$s', 'elementor-pro' ), get_comment_date( '', $comment ), get_comment_time() );
 							?>
 						</time>
 					</a>
-					<?php edit_comment_link( __( 'Edit', 'elementor-pro' ), '<span class="edit-link">', '</span>' ); ?>
+					<?php
+ edit_comment_link( __( 'Edit', 'elementor-pro' ), '<span class="edit-link">', '</span>' ); ?>
 				</div><!-- .comment-metadata -->
 
-				<?php if ( '0' == $comment->comment_approved ) : ?>
-					<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'elementor-pro' ); ?></p>
-				<?php endif; ?>
+				<?php
+ if ( '0' == $comment->comment_approved ) : ?>
+					<p class="comment-awaiting-moderation"><?php
+ esc_html_e( 'Your comment is awaiting moderation.', 'elementor-pro' ); ?></p>
+				<?php
+ endif; ?>
 			</footer><!-- .comment-meta -->
 
 			<div class="comment-content">
-				<?php comment_text(); ?>
+				<?php
+ comment_text(); ?>
 			</div><!-- .comment-content -->
 
 			<?php
+
 			comment_reply_link( array_merge( $args, [
 				'add_below' => 'div-comment',
 				'depth' => $depth,
@@ -472,5 +488,6 @@ class Post_Comments_Skin_Classic extends Skin_Base {
 			?>
 		</article><!-- .comment-body -->
 		<?php
+
 	}
 }

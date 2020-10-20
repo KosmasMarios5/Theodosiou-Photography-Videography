@@ -1,4 +1,5 @@
 <?php
+
 defined('ABSPATH') or die("you do not have access to this page!");
 
 class rsssl_admin extends rsssl_front_end
@@ -141,7 +142,6 @@ class rsssl_admin extends rsssl_front_end
             - No SSL detected
             */
 
-
         //when configuration should run again
         if ($this->clicked_activate_ssl() || !$this->ssl_enabled || !$this->site_has_ssl || $is_on_settings_page || is_network_admin()) {
 
@@ -207,7 +207,6 @@ class rsssl_admin extends rsssl_front_end
         add_action('wp_ajax_rsssl_dismiss_review_notice', array($this, 'dismiss_review_notice_callback'));
         add_action('wp_ajax_rsssl_dismiss_settings_notice', array($this, 'dismiss_settings_notice_callback'));
 
-
         //handle notices
         add_action('admin_notices', array($this, 'show_notices'));
         //show review notice, only to free users
@@ -268,12 +267,10 @@ class rsssl_admin extends rsssl_front_end
         }
     }
 
-
     /*
      * Remove the plugin from the active plugins array when called from listen_for_deactivation
      *
      * */
-
 
     public function remove_plugin_from_array($plugin, $current)
     {
@@ -328,7 +325,6 @@ class rsssl_admin extends rsssl_front_end
         }
     }
 
-
     /*
     checks if the user just clicked the "activate SSL" button.
   */
@@ -351,7 +347,6 @@ class rsssl_admin extends rsssl_front_end
         return false;
     }
 
-
     /*
         Activate the SSL for this site
      */
@@ -364,9 +359,7 @@ class rsssl_admin extends rsssl_front_end
         $this->set_siteurl_to_ssl();
         $this->save_options();
 
-
     }
-
 
     public function deactivate_ssl()
     {
@@ -387,7 +380,6 @@ class rsssl_admin extends rsssl_front_end
 	        exit;
     }
 
-
     public function wpconfig_ok()
     {
 
@@ -403,7 +395,6 @@ class rsssl_admin extends rsssl_front_end
     /*
       This message is shown when no SSL is not enabled by the user yet
   */
-
 
     public function show_notice_activate_ssl()
     {
@@ -442,14 +433,18 @@ class rsssl_admin extends rsssl_front_end
                 .activate-ssl .button {
                     margin-bottom:20px;
                 }
-                <?php echo apply_filters('rsssl_pro_inline_style', ''); ?>
-            </style>
-            <div id="message" class="notice activate-ssl <?php echo apply_filters('rsssl_activate_notice_class', '');?>">
                 <?php
+ echo apply_filters('rsssl_pro_inline_style', ''); ?>
+            </style>
+            <div id="message" class="notice activate-ssl <?php
+ echo apply_filters('rsssl_activate_notice_class', '');?>">
+                <?php
+
                   do_action('rsssl_activation_notice_inner');
                 ?>
             </div>
             <?php
+
         }
     }
 
@@ -464,9 +459,11 @@ class rsssl_admin extends rsssl_front_end
                 }
             </style>
             <div id="message" class="error notice rsssl-notice-certificate">
-                <h1><?php echo __("Detected possible certificate issues", "really-simple-ssl"); ?></h1>
+                <h1><?php
+ echo __("Detected possible certificate issues", "really-simple-ssl"); ?></h1>
                 <p>
                     <?php
+
                     $reload_https_url = esc_url_raw("https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
                     $link_open = '<p><a class="button" target="_blank" href="' . $reload_https_url . '">';
                     $link_close = '</a></p>';
@@ -484,28 +481,33 @@ class rsssl_admin extends rsssl_front_end
                     ?>
                 </p>
             </div>
-        <?php }
+        <?php
+ }
     }
-
 
     public function almost_ready_to_migrate()
     { ?>
-            <h1><?php _e("Almost ready to migrate to SSL!", "really-simple-ssl"); ?></h1>
+            <h1><?php
+ _e("Almost ready to migrate to SSL!", "really-simple-ssl"); ?></h1>
 
-            <?php //action?>
+            <?php
+ //action?>
 
-
-            <?php _e("Some things can't be done automatically. Before you migrate, please check for: ", 'really-simple-ssl'); ?>
+            <?php
+ _e("Some things can't be done automatically. Before you migrate, please check for: ", 'really-simple-ssl'); ?>
             <p>
             <ul class="message-ul">
-                <li class="message-li"><?php _e('Http references in your .css and .js files: change any http:// into //', 'really-simple-ssl'); ?></li>
-                <li class="message-li"><?php _e('Images, stylesheets or scripts from a domain without an SSL certificate: remove them or move to your own server', 'really-simple-ssl'); ?></li><?php
+                <li class="message-li"><?php
+ _e('Http references in your .css and .js files: change any http:// into //', 'really-simple-ssl'); ?></li>
+                <li class="message-li"><?php
+ _e('Images, stylesheets or scripts from a domain without an SSL certificate: remove them or move to your own server', 'really-simple-ssl'); ?></li><?php
 
                 $backup_link = "https://really-simple-ssl.com/knowledge-base/backing-up-your-site/";
                 $link_open = '<a target="_blank" href="'.$backup_link.'">';
                 $link_close = '</a>';
                 ?>
-                <li class="message-li"><?php printf(__("We strongly recommend to take a %sbackup%s of your site before activating SSL", 'really-simple-ssl'), $link_open, $link_close); ?> </li>
+                <li class="message-li"><?php
+ printf(__("We strongly recommend to take a %sbackup%s of your site before activating SSL", 'really-simple-ssl'), $link_open, $link_close); ?> </li>
             </ul>
             </p>
             <style>
@@ -522,6 +524,7 @@ class rsssl_admin extends rsssl_front_end
                 }
             </style>
             <?php
+
     }
 
     /**
@@ -546,19 +549,27 @@ class rsssl_admin extends rsssl_front_end
             <p>
             <div class="rsssl-activate-ssl-button">
             <form action="" method="post">
-                <?php wp_nonce_field('rsssl_nonce', 'rsssl_nonce'); ?>
+                <?php
+ wp_nonce_field('rsssl_nonce', 'rsssl_nonce'); ?>
                 <input type="submit" class='button button-primary'
-                       value="<?php _e("Go ahead, activate SSL!", "really-simple-ssl"); ?>" id="rsssl_do_activate_ssl"
+                       value="<?php
+ _e("Go ahead, activate SSL!", "really-simple-ssl"); ?>" id="rsssl_do_activate_ssl"
                        name="rsssl_do_activate_ssl">
-                <?php if (!defined("rsssl_pro_version") ) { ?>
-                <a class="button action btn-premium" href="https://really-simple-ssl.com/pro" target="_blank"><?php _e("Get ready with Pro", "really-simple-ssl"); ?></a>
-                <?php } ?>
+                <?php
+ if (!defined("rsssl_pro_version") ) { ?>
+                <a class="button action btn-premium" href="https://really-simple-ssl.com/pro" target="_blank"><?php
+ _e("Get ready with Pro", "really-simple-ssl"); ?></a>
+                <?php
+ } ?>
             </form>
-		        <b><?php _e("You may need to login in again.", "really-simple-ssl") ?></b>
-                <div id="rsssl-logo" style="float: right; margin-top: -35px;"><img width=180px" src="<?php echo rsssl_url?>/assets/logo-really-simple-ssl.png" alt="review-logo"></div>
+		        <b><?php
+ _e("You may need to login in again.", "really-simple-ssl") ?></b>
+                <div id="rsssl-logo" style="float: right; margin-top: -35px;"><img width=180px" src="<?php
+ echo rsssl_url?>/assets/logo-really-simple-ssl.png" alt="review-logo"></div>
             </div>
             </p>
             <?php
+
         }
     }
 
@@ -573,11 +584,15 @@ class rsssl_admin extends rsssl_front_end
     {
         if ($this->site_has_ssl) {
             ?>
-            <p><?php _e('You can also let the automatic scan of the pro version handle this for you, and get premium support, increased security with HSTS and more!', 'really-simple-ssl'); ?>
+            <p><?php
+ _e('You can also let the automatic scan of the pro version handle this for you, and get premium support, increased security with HSTS and more!', 'really-simple-ssl'); ?>
                 <a target="_blank"
-                         href="<?php echo $this->pro_url; ?>"><?php _e("Check out Really Simple SSL Pro", "really-simple-ssl"); ?></a>
+                         href="<?php
+ echo $this->pro_url; ?>"><?php
+ _e("Check out Really Simple SSL Pro", "really-simple-ssl"); ?></a>
             </p>
             <?php
+
         }
     }
 
@@ -801,7 +816,6 @@ class rsssl_admin extends rsssl_front_end
         }
     }
 
-
     /**
      * Check to see if we are on the settings page, action hook independent
      *
@@ -879,7 +893,6 @@ class rsssl_admin extends rsssl_front_end
         }
     }
 
-
     /**
      *
      *     Checks if the wp config contains any defined siteurl and homeurl
@@ -904,7 +917,6 @@ class rsssl_admin extends rsssl_front_end
             $this->trace_log("siteurl or home url defines found in wpconfig");
         }
     }
-
 
     /**
      * Runs only when siteurl or homeurl define was found in the wpconfig, with the check_for_siteurl_in_wpconfig function
@@ -946,7 +958,6 @@ class rsssl_admin extends rsssl_front_end
         }
     }
 
-
     /**
      * Check if the wpconfig is already fixed
      *
@@ -974,7 +985,6 @@ class rsssl_admin extends rsssl_front_end
         return false;
     }
 
-
     /**
      * In case of load balancer without server https on, add fix in wp-config
      *
@@ -983,7 +993,6 @@ class rsssl_admin extends rsssl_front_end
      * @access public
      *
      */
-
 
     public function wpconfig_loadbalancer_fix()
     {
@@ -1009,7 +1018,8 @@ class rsssl_admin extends rsssl_front_end
                 $rule .= '}' . "\n";
                 $rule .= "//END Really Simple SSL" . "\n";
 
-                $insert_after = "<?php";
+                $insert_after = "<?php
+";
                 $pos = strpos($wpconfig, $insert_after);
                 if ($pos !== false) {
                     $wpconfig = substr_replace($wpconfig, $rule, $pos + 1 + strlen($insert_after), 0);
@@ -1033,7 +1043,6 @@ class rsssl_admin extends rsssl_front_end
         $this->save_options();
 
     }
-
 
     /**
      * Getting WordPress to recognize setup as being SSL when no https server variable is available
@@ -1080,7 +1089,8 @@ class rsssl_admin extends rsssl_front_end
         }
         $rule = $this->get_server_variable_fix_code();
 
-        $insert_after = "<?php";
+        $insert_after = "<?php
+";
         $pos = strpos($wpconfig, $insert_after);
         if ($pos !== false) {
             $wpconfig = substr_replace($wpconfig, $rule, $pos + 1 + strlen($insert_after), 0);
@@ -1090,7 +1100,6 @@ class rsssl_admin extends rsssl_front_end
 
         $this->save_options();
     }
-
 
     /**
      * @return string
@@ -1198,7 +1207,6 @@ class rsssl_admin extends rsssl_front_end
         update_option('home', $homeurl_ssl);
     }
 
-
     /**
      * On de-activation, siteurl and homeurl are reset to http
      *
@@ -1295,7 +1303,6 @@ class rsssl_admin extends rsssl_front_end
 	    $this->dismiss_all_notices = FALSE;
 	    $this->dismiss_review_notice = FALSE;
 
-
 	    $this->save_options();
 
         //when on multisite, per site activation, recreate domain list for htaccess and wpconfig rewrite actions
@@ -1307,7 +1314,6 @@ class rsssl_admin extends rsssl_front_end
         $this->remove_wpconfig_edit();
         $this->removeHtaccessEdit();
     }
-
 
     /**
      * Checks if we are currently on SSL protocol, but extends standard wp with loadbalancer check.
@@ -1417,7 +1423,6 @@ class rsssl_admin extends rsssl_front_end
         $this->save_options();
     }
 
-
     /**
      * Test if the htaccess redirect will work
      * This way, no redirect loops should occur.
@@ -1504,7 +1509,6 @@ class rsssl_admin extends rsssl_front_end
             set_transient('rsssl_htaccess_test_success', $this->htaccess_test_success, 600);
         }
 
-
         if ($htaccess_test_success == 'no-response'){
             $this->htaccess_test_success = FALSE;
         }
@@ -1516,7 +1520,6 @@ class rsssl_admin extends rsssl_front_end
         }
 
     }
-
 
     /**
      * Get an url with which we can test the SSL connection and htaccess redirect rules.
@@ -1555,7 +1558,6 @@ class rsssl_admin extends rsssl_front_end
 
         return $plugin_url;
     }
-
 
     /**
      * removes the added redirect to https rules to the .htaccess file.
@@ -1677,7 +1679,6 @@ class rsssl_admin extends rsssl_front_end
 
     }
 
-
     /*
   *    Checks if the htaccess contains the Really Simple SSL comment.
   *
@@ -1747,7 +1748,6 @@ class rsssl_admin extends rsssl_front_end
 
         return $result;
     }
-
 
     /**
      * Adds redirect to https rules to the .htaccess file or htaccess.conf on Bitnami.
@@ -2034,7 +2034,6 @@ class rsssl_admin extends rsssl_front_end
         return $rule;
     }
 
-
     /**
      * Show warning when wpconfig could not be fixed
      *
@@ -2051,17 +2050,24 @@ class rsssl_admin extends rsssl_front_end
         if ( $screen->parent_base === 'edit' ) return;
         ?>
         <div id="message" class="error notice">
-            <h1><?php echo __("System detection encountered issues", "really-simple-ssl"); ?></h1>
+            <h1><?php
+ echo __("System detection encountered issues", "really-simple-ssl"); ?></h1>
 
-            <?php if ($this->wpconfig_siteurl_not_fixed) { ?>
+            <?php
+ if ($this->wpconfig_siteurl_not_fixed) { ?>
                 <p>
-                    <?php echo __("A definition of a siteurl or homeurl was detected in your wp-config.php, but the file is not writable.", "really-simple-ssl"); ?>
+                    <?php
+ echo __("A definition of a siteurl or homeurl was detected in your wp-config.php, but the file is not writable.", "really-simple-ssl"); ?>
                 </p>
-                <p><?php echo __("Set your wp-config.php to writable and reload this page.", "really-simple-ssl"); ?></p>
-            <?php }
+                <p><?php
+ echo __("Set your wp-config.php to writable and reload this page.", "really-simple-ssl"); ?></p>
+            <?php
+ }
             if ($this->do_wpconfig_loadbalancer_fix) { ?>
-                <p><?php echo __("Your wp-config.php has to be edited, but is not writable.", "really-simple-ssl"); ?></p>
-                <p><?php echo __("Because your site is behind a loadbalancer and is_ssl() returns false, you should add the following line of code to your wp-config.php.", "really-simple-ssl"); ?>
+                <p><?php
+ echo __("Your wp-config.php has to be edited, but is not writable.", "really-simple-ssl"); ?></p>
+                <p><?php
+ echo __("Because your site is behind a loadbalancer and is_ssl() returns false, you should add the following line of code to your wp-config.php.", "really-simple-ssl"); ?>
                     <br><br><code>
                         //Begin Really Simple SSL Load balancing fix<br>
                         if ((isset($_ENV["HTTPS"]) && ("on" == $_ENV["HTTPS"]))<br>
@@ -2077,22 +2083,27 @@ class rsssl_admin extends rsssl_front_end
                         //END Really Simple SSL
                     </code><br>
                 </p>
-                <p><?php echo __("Or set your wp-config.php to writable and reload this page.", "really-simple-ssl"); ?></p>
+                <p><?php
+ echo __("Or set your wp-config.php to writable and reload this page.", "really-simple-ssl"); ?></p>
                 <?php
+
             }
 
             if ($this->no_server_variable) {
                 ?>
-                <p><?php echo __('Because your server does not pass a variable with which WordPress can detect SSL, WordPress may create redirect loops on SSL.', 'really-simple-ssl'); ?></p>
-                <p><?php echo __("Set your wp-config.php to writable and reload this page.", "really-simple-ssl"); ?></p>
+                <p><?php
+ echo __('Because your server does not pass a variable with which WordPress can detect SSL, WordPress may create redirect loops on SSL.', 'really-simple-ssl'); ?></p>
+                <p><?php
+ echo __("Set your wp-config.php to writable and reload this page.", "really-simple-ssl"); ?></p>
                 <?php
+
             }
             ?>
 
         </div>
         <?php
-    }
 
+    }
 
     /**
      *
@@ -2169,25 +2180,36 @@ class rsssl_admin extends rsssl_front_end
             </style>
             <div id="message" class="updated fade notice is-dismissible rlrsssl-review really-simple-plugins" style="border-left:4px solid #333">
                 <div class="rsssl-container">
-                    <div class="rsssl-review-image"><img width=80px" src="<?php echo rsssl_url?>/assets/icon-128x128.png" alt="review-logo"></div>
+                    <div class="rsssl-review-image"><img width=80px" src="<?php
+ echo rsssl_url?>/assets/icon-128x128.png" alt="review-logo"></div>
                     <div style="margin-left:30px">
-                        <?php if (get_option("rsssl_before_review_notice_user")){?>
-                            <p><?php printf(__('Hi, Really Simple SSL has kept your site secure for some time now, awesome! If you have a moment, please consider leaving a review on WordPress.org to spread the word. We greatly appreciate it! If you have any questions or feedback, leave us a %smessage%s.', 'really-simple-ssl'),'<a href="https://really-simple-ssl.com/contact" target="_blank">','</a>'); ?></p>
-                        <?php } else {?>
-                            <p><?php printf(__('Hi, Really Simple SSL has kept your site secure for a month now, awesome! If you have a moment, please consider leaving a review on WordPress.org to spread the word. We greatly appreciate it! If you have any questions or feedback, leave us a %smessage%s.', 'really-simple-ssl'),'<a href="https://really-simple-ssl.com/contact" target="_blank">','</a>'); ?></p>
-	                    <?php }?>
+                        <?php
+ if (get_option("rsssl_before_review_notice_user")){?>
+                            <p><?php
+ printf(__('Hi, Really Simple SSL has kept your site secure for some time now, awesome! If you have a moment, please consider leaving a review on WordPress.org to spread the word. We greatly appreciate it! If you have any questions or feedback, leave us a %smessage%s.', 'really-simple-ssl'),'<a href="https://really-simple-ssl.com/contact" target="_blank">','</a>'); ?></p>
+                        <?php
+ } else {?>
+                            <p><?php
+ printf(__('Hi, Really Simple SSL has kept your site secure for a month now, awesome! If you have a moment, please consider leaving a review on WordPress.org to spread the word. We greatly appreciate it! If you have any questions or feedback, leave us a %smessage%s.', 'really-simple-ssl'),'<a href="https://really-simple-ssl.com/contact" target="_blank">','</a>'); ?></p>
+	                    <?php
+ }?>
 
                         <i>- Rogier</i>
                         <div class="rsssl-buttons-row">
                             <a class="button button-primary" target="_blank"
-                               href="https://wordpress.org/support/plugin/really-simple-ssl/reviews/#new-post"><?php _e('Leave a review', 'really-simple-ssl'); ?></a>
-                            <div class="dashicons dashicons-calendar"></div><a href="#" id="maybe-later"><?php _e('Maybe later', 'really-simple-ssl'); ?></a>
-                            <div class="dashicons dashicons-no-alt"></div><a href="<?php echo esc_url(add_query_arg(array("page"=>"rlrsssl_really_simple_ssl", "tab"=>"configuration", "rsssl_dismiss_review_notice"=>1),admin_url("options-general.php") ) );?>" class="review-dismiss"><?php _e('Don\'t show again', 'really-simple-ssl'); ?></a>
+                               href="https://wordpress.org/support/plugin/really-simple-ssl/reviews/#new-post"><?php
+ _e('Leave a review', 'really-simple-ssl'); ?></a>
+                            <div class="dashicons dashicons-calendar"></div><a href="#" id="maybe-later"><?php
+ _e('Maybe later', 'really-simple-ssl'); ?></a>
+                            <div class="dashicons dashicons-no-alt"></div><a href="<?php
+ echo esc_url(add_query_arg(array("page"=>"rlrsssl_really_simple_ssl", "tab"=>"configuration", "rsssl_dismiss_review_notice"=>1),admin_url("options-general.php") ) );?>" class="review-dismiss"><?php
+ _e('Don\'t show again', 'really-simple-ssl'); ?></a>
                         </div>
                     </div>
                 </div>
             </div>
             <?php
+
         }
     }
 
@@ -2217,25 +2239,34 @@ class rsssl_admin extends rsssl_front_end
             ?>
             <div id="message" class="error notice is-dismissible rlrsssl-htaccess">
                 <p>
-                    <?php echo __("You do not have a 301 redirect to https active in the settings. For SEO purposes it is advised to use 301 redirects. You can enable a 301 redirect in the settings.", "really-simple-ssl"); ?>
-                    <a href="<?php echo admin_url('options-general.php?page=rlrsssl_really_simple_ssl')?>"><?php echo __("View settings page", "really-simple-ssl"); ?></a>
+                    <?php
+ echo __("You do not have a 301 redirect to https active in the settings. For SEO purposes it is advised to use 301 redirects. You can enable a 301 redirect in the settings.", "really-simple-ssl"); ?>
+                    <a href="<?php
+ echo admin_url('options-general.php?page=rlrsssl_really_simple_ssl')?>"><?php
+ echo __("View settings page", "really-simple-ssl"); ?></a>
                 </p>
             </div>
             <?php
+
         }
 
         if (isset($this->errors["DEACTIVATE_FILE_NOT_RENAMED"])) {
             ?>
             <div id="message" class="error notice is-dismissible rlrsssl-fail">
                 <h1>
-                    <?php _e("Major security issue!", "really-simple-ssl"); ?>
+                    <?php
+ _e("Major security issue!", "really-simple-ssl"); ?>
                 </h1>
                 <p>
-                    <?php _e("The 'force-deactivate.php' file has to be renamed to .txt. Otherwise your ssl can be deactivated by anyone on the internet.", "really-simple-ssl"); ?>
+                    <?php
+ _e("The 'force-deactivate.php' file has to be renamed to .txt. Otherwise your ssl can be deactivated by anyone on the internet.", "really-simple-ssl"); ?>
                 </p>
-                <a href="<?php echo admin_url('options-general.php?page=rlrsssl_really_simple_ssl')?>"><?php echo __("Check again", "really-simple-ssl"); ?></a>
+                <a href="<?php
+ echo admin_url('options-general.php?page=rlrsssl_really_simple_ssl')?>"><?php
+ echo __("Check again", "really-simple-ssl"); ?></a>
             </div>
             <?php
+
         }
 
         if (is_multisite() && !is_main_site(get_current_blog_id())) return;
@@ -2250,39 +2281,55 @@ class rsssl_admin extends rsssl_front_end
             ?>
             <div id="message" class="updated notice is-dismissible rlrsssl-success">
 
-            <h1><?php _e("SSL activated!", "really-simple-ssl"); ?></h1>
+            <h1><?php
+ _e("SSL activated!", "really-simple-ssl"); ?></h1>
                 <p>
-                <?php _e("Take the time to review these things", "really-simple-ssl");?>
+                <?php
+ _e("Take the time to review these things", "really-simple-ssl");?>
                     <ul class="message-ul">
-                        <li class="message-li"><?php _e("Don't forget to change your settings in Google Analytics and Webmaster tools.", "really-simple-ssl");
+                        <li class="message-li"><?php
+ _e("Don't forget to change your settings in Google Analytics and Webmaster tools.", "really-simple-ssl");
                         ?>
                             <a target="_blank"
                            href="https://really-simple-ssl.com/knowledge-base/how-to-setup-google-analytics-and-google-search-consolewebmaster-tools/">
-                            <?php _e("More info", "really-simple-ssl"); ?></a>
+                            <?php
+ _e("More info", "really-simple-ssl"); ?></a>
                         </li>
 
-                        <?php if (rsssl_uses_elementor() && rsssl_does_not_use_pro()) {
+                        <?php
+ if (rsssl_uses_elementor() && rsssl_does_not_use_pro()) {
                         ?>
-                        <li class="message-li"><?php _e("We have detected Elementor.", "really-simple-ssl");?>
+                        <li class="message-li"><?php
+ _e("We have detected Elementor.", "really-simple-ssl");?>
                             <a target="_blank"
-                                   href="https://really-simple-ssl.com/knowledge-base/how-to-fix-mixed-content-in-elementor-after-moving-to-ssl/"><?php _e("See our article for instructions", "really-simple-ssl"); ?></a>
+                                   href="https://really-simple-ssl.com/knowledge-base/how-to-fix-mixed-content-in-elementor-after-moving-to-ssl/"><?php
+ _e("See our article for instructions", "really-simple-ssl"); ?></a>
                         </li>
-                        <?php }
+                        <?php
+ }
                         ?>
-                    <li class="message-li"><?php _e("Improve your security", "really-simple-ssl");?>
-	        <?php if (!defined('rsssl_pro_plugin')) {
+                    <li class="message-li"><?php
+ _e("Improve your security", "really-simple-ssl");?>
+	        <?php
+ if (!defined('rsssl_pro_plugin')) {
                 $margin = '-20px';
 	        } else {
 	            $margin = '-60px';
 	        }?>
-                <a target="_blank" href="https://really-simple-ssl.com/new-security-headers-for-really-simple-ssl-pro-coming-up/"><?php _e("with security headers", "really-simple-ssl"); ?></a>
+                <a target="_blank" href="https://really-simple-ssl.com/new-security-headers-for-really-simple-ssl-pro-coming-up/"><?php
+ _e("with security headers", "really-simple-ssl"); ?></a>
                         </li>
                     </ul>
                 </p>
-                <?php if (!defined('rsssl_pro_plugin')) { ?>
-                    <a class="button action btn-premium btn-premium-activated" style="margin-bottom: 10px;" href="https://really-simple-ssl.com/pro" target="_blank"><?php _e("Really Simple SSL Pro", "really-simple-ssl"); ?></a>
-                <?php } ?>
-                <div id="rsssl-logo" style="float: right; margin-top: <?php echo $margin ?>;"><img width=180px" src="<?php echo rsssl_url?>/assets/logo-really-simple-ssl.png" alt="review-logo"></div>
+                <?php
+ if (!defined('rsssl_pro_plugin')) { ?>
+                    <a class="button action btn-premium btn-premium-activated" style="margin-bottom: 10px;" href="https://really-simple-ssl.com/pro" target="_blank"><?php
+ _e("Really Simple SSL Pro", "really-simple-ssl"); ?></a>
+                <?php
+ } ?>
+                <div id="rsssl-logo" style="float: right; margin-top: <?php
+ echo $margin ?>;"><img width=180px" src="<?php
+ echo rsssl_url?>/assets/logo-really-simple-ssl.png" alt="review-logo"></div>
             </div>
             <style>
                 .message-ul {
@@ -2298,6 +2345,7 @@ class rsssl_admin extends rsssl_front_end
                 }
             </style>
             <?php
+
         }
 
         //some notices for SSL situations
@@ -2307,13 +2355,17 @@ class rsssl_admin extends rsssl_front_end
                 if (isset($this->plugin_conflict["WOOCOMMERCE_FORCEHTTP"]) && $this->plugin_conflict["WOOCOMMERCE_FORCEHTTP"] && isset($this->plugin_conflict["WOOCOMMERCE_FORCESSL"]) && $this->plugin_conflict["WOOCOMMERCE_FORCESSL"]) {
                     ?>
                     <div id="message" class="error notice"><p>
-                            <?php _e("Really Simple SSL has a conflict with another plugin.", "really-simple-ssl"); ?>
+                            <?php
+ _e("Really Simple SSL has a conflict with another plugin.", "really-simple-ssl"); ?>
                             <br>
-                            <?php _e("The force http after leaving checkout in WooCommerce will create a redirect loop.", "really-simple-ssl"); ?>
+                            <?php
+ _e("The force http after leaving checkout in WooCommerce will create a redirect loop.", "really-simple-ssl"); ?>
                             <br>
-                            <a href="admin.php?page=wc-settings&tab=checkout"><?php _e("Show me this setting", "really-simple-ssl"); ?></a>
+                            <a href="admin.php?page=wc-settings&tab=checkout"><?php
+ _e("Show me this setting", "really-simple-ssl"); ?></a>
                         </p></div>
                     <?php
+
                 }
             }
         }
@@ -2337,7 +2389,8 @@ class rsssl_admin extends rsssl_front_end
                 $(".rlrsssl-success.notice.is-dismissible").on("click", ".notice-dismiss", function (event) {
                     var data = {
                         'action': 'dismiss_success_message',
-                        'security': '<?php echo $ajax_nonce; ?>'
+                        'security': '<?php
+ echo $ajax_nonce; ?>'
                     };
 
                     $.post(ajaxurl, data, function (response) {
@@ -2347,6 +2400,7 @@ class rsssl_admin extends rsssl_front_end
             });
         </script>
         <?php
+
     }
 
     /**
@@ -2367,7 +2421,8 @@ class rsssl_admin extends rsssl_front_end
                 $(".rlrsssl-htaccess.notice.is-dismissible").on("click", ".notice-dismiss", function (event) {
                     var data = {
                         'action': 'dismiss_htaccess_warning',
-                        'security': '<?php echo $ajax_nonce; ?>'
+                        'security': '<?php
+ echo $ajax_nonce; ?>'
                     };
                     $.post(ajaxurl, data, function (response) {
 
@@ -2376,6 +2431,7 @@ class rsssl_admin extends rsssl_front_end
             });
         </script>
         <?php
+
     }
 
     /**
@@ -2411,13 +2467,15 @@ class rsssl_admin extends rsssl_front_end
                     var data = {
                         'action': 'rsssl_dismiss_review_notice',
                         'type' : type,
-                        'security': '<?php echo $ajax_nonce; ?>'
+                        'security': '<?php
+ echo $ajax_nonce; ?>'
                     };
                     $.post(ajaxurl, data, function (response) {});
                 }
             });
         </script>
         <?php
+
     }
 
 	/**
@@ -2437,7 +2495,8 @@ class rsssl_admin extends rsssl_front_end
                 var data = {
                     'action': 'rsssl_dismiss_settings_notice',
                     'type' : type,
-                    'security': '<?php echo $ajax_nonce; ?>'
+                    'security': '<?php
+ echo $ajax_nonce; ?>'
                 };
                 $.post(ajaxurl, data, function (response) {});
                 $(this).closest('tr').remove();
@@ -2445,6 +2504,7 @@ class rsssl_admin extends rsssl_front_end
          });
         </script>
         <?php
+
     }
 
     /**
@@ -2604,8 +2664,6 @@ class rsssl_admin extends rsssl_front_end
 
 	    }
 
-
-
     /**
      * Admin help tab
      *
@@ -2654,7 +2712,6 @@ class rsssl_admin extends rsssl_front_end
         echo '</h2>';
     }
 
-
     /**
      * Get array of notices
      * - condition: function returning boolean, if notice should be shown or not
@@ -2662,7 +2719,6 @@ class rsssl_admin extends rsssl_front_end
      *
      * @return array
      */
-
 
     public function get_notices_list()
     {
@@ -2883,7 +2939,6 @@ class rsssl_admin extends rsssl_front_end
         return $notices;
     }
 
-
 	/**
 	 * @param $setting_name
 	 *
@@ -2939,10 +2994,15 @@ class rsssl_admin extends rsssl_front_end
 
         ?>
         <tr>
-            <td><?php echo $icon?></td><td class="rsssl-table-td-main-content"><?php echo $msg?></td>
-            <td class="rsssl-dashboard-dismiss" data-dismiss_type="<?php echo $id?>"><?php echo $dismiss?></td>
+            <td><?php
+ echo $icon?></td><td class="rsssl-table-td-main-content"><?php
+ echo $msg?></td>
+            <td class="rsssl-dashboard-dismiss" data-dismiss_type="<?php
+ echo $id?>"><?php
+ echo $dismiss?></td>
         </tr>
         <?php
+
     }
 
 	/**
@@ -3028,7 +3088,6 @@ class rsssl_admin extends rsssl_front_end
      *
      */
 
-
     public function settings_page()
     {
         if (!current_user_can($this->capability)) return;
@@ -3049,7 +3108,8 @@ class rsssl_admin extends rsssl_front_end
           First tab, configuration
   */
                 ?>
-                <h2><?php echo __("Detected setup", "really-simple-ssl"); ?></h2>
+                <h2><?php
+ echo __("Detected setup", "really-simple-ssl"); ?></h2>
                 <table class="really-simple-ssl-table">
                     <thead></thead>
                     <tbody>
@@ -3069,9 +3129,11 @@ class rsssl_admin extends rsssl_front_end
                     </tbody>
                 </table>
 
-                <?php do_action("rsssl_configuration_page"); ?>
+                <?php
+ do_action("rsssl_configuration_page"); ?>
 
                     <?php
+
                     break;
                     case 'settings' :
                         /*
@@ -3081,14 +3143,17 @@ class rsssl_admin extends rsssl_front_end
                         ?>
                         <form action="options.php" method="post">
                             <?php
+
                             settings_fields('rlrsssl_options');
                             do_settings_sections('rlrsssl');
                             ?>
 
                             <input class="button button-primary" name="Submit" type="submit"
-                                   value="<?php echo __("Save", "really-simple-ssl"); ?>"/>
+                                   value="<?php
+ echo __("Save", "really-simple-ssl"); ?>"/>
                         </form>
                         <?php
+
                         break;
 
                     case 'debug' :
@@ -3098,6 +3163,7 @@ class rsssl_admin extends rsssl_front_end
                         ?>
                         <div>
                             <?php
+
                             if ($this->debug) {
                                 echo "<h2>" . __("Log for debugging purposes", "really-simple-ssl") . "</h2>";
                                 echo "<p>" . __("Send us a copy of these lines if you have any issues. The log will be erased when debug is set to false", "really-simple-ssl") . "</p>";
@@ -3161,6 +3227,7 @@ class rsssl_admin extends rsssl_front_end
                             ?>
                         </div>
                         <?php
+
                         break;
                     default:
                         echo '';
@@ -3189,14 +3256,17 @@ class rsssl_admin extends rsssl_front_end
                 ?>
                 <div class="rsssl-sidebar">
                     <div class="rsssl-really-simple-plugins-logo">
-                        <?php echo "<img class='rsssl-pro-image' src='" . trailingslashit(rsssl_url) . "assets/really-simple-plugins.png' alt='Really Simple SSL pro'>"; ?>
+                        <?php
+ echo "<img class='rsssl-pro-image' src='" . trailingslashit(rsssl_url) . "assets/really-simple-plugins.png' alt='Really Simple SSL pro'>"; ?>
                     </div>
                     <div class="rsssl-sidebar-title">
                         <?php
+
                         $link_open = '<a target="_blank" href="https://really-simple-ssl.com/contact">';
 
                         ?>
-                        <h3> <?php echo sprintf(__("We have some suggestions for your setup. Let us know if you have a suggestion for %sus%s!", "really-simple-ssl"), $link_open, "</a>") ?></h3>
+                        <h3> <?php
+ echo sprintf(__("We have some suggestions for your setup. Let us know if you have a suggestion for %sus%s!", "really-simple-ssl"), $link_open, "</a>") ?></h3>
                     </div>
 
                     <?php
@@ -3240,7 +3310,6 @@ class rsssl_admin extends rsssl_front_end
                               )
                           );
                       }
-
 
                     if (!defined("wp_search_insights_plugin")) {
 	                    $this->get_banner_html(array(
@@ -3289,11 +3358,13 @@ class rsssl_admin extends rsssl_front_end
                     }
                      ?>
                 </div>
-            <?php }
+            <?php
+ }
             ?>
 
         </div><!-- end container -->
         <?php
+
     }
 
     /**
@@ -3353,20 +3424,30 @@ class rsssl_admin extends rsssl_front_end
 
         $pro = $args['pro'] ? '-pro' : '';
         ?>
-        <div class="rsssl-sidebar-single-content-container<?php echo $pro ?>">
-            <img class="rsssl-sidebar-image<?php echo $pro ?>"
-                 src="<?php echo trailingslashit(rsssl_url) . 'assets/' . $args['img'] ?>"
-                 alt="<?php echo $args['title'] ?>">
-            <div class="rsssl-sidebar-text-content<?php echo $pro ?>">
-                <?php echo $args['description'] ?>
+        <div class="rsssl-sidebar-single-content-container<?php
+ echo $pro ?>">
+            <img class="rsssl-sidebar-image<?php
+ echo $pro ?>"
+                 src="<?php
+ echo trailingslashit(rsssl_url) . 'assets/' . $args['img'] ?>"
+                 alt="<?php
+ echo $args['title'] ?>">
+            <div class="rsssl-sidebar-text-content<?php
+ echo $pro ?>">
+                <?php
+ echo $args['description'] ?>
             </div>
             <div class="rsssl-more-info-button">
-                <a id="rsssl-premium-button<?php echo $pro ?>" class="button"
-                   href="<?php echo $args['url'] ?>"
-                   target="_blank"> <?php echo __("More info", "really-simple-ssl") ?> </a>
+                <a id="rsssl-premium-button<?php
+ echo $pro ?>" class="button"
+                   href="<?php
+ echo $args['url'] ?>"
+                   target="_blank"> <?php
+ echo __("More info", "really-simple-ssl") ?> </a>
             </div>
         </div>
         <?php
+
     }
 
     /**
@@ -3458,8 +3539,10 @@ class rsssl_admin extends rsssl_front_end
     public function section_text()
     {
         ?>
-        <p><?php _e('Settings to optimize your SSL configuration', 'really-simple-ssl'); ?></p>
+        <p><?php
+ _e('Settings to optimize your SSL configuration', 'really-simple-ssl'); ?></p>
         <?php
+
     }
 
     /**
@@ -3563,10 +3646,12 @@ class rsssl_admin extends rsssl_front_end
         ?>
         <label class="rsssl-switch">
             <input id="rlrsssl_options" name="rlrsssl_options[debug]" size="40" value="1"
-                   type="checkbox" <?php checked(1, $this->debug, true) ?> />
+                   type="checkbox" <?php
+ checked(1, $this->debug, true) ?> />
             <span class="rsssl-slider rsssl-round"></span>
         </label>
         <?php
+
         RSSSL()->rsssl_help->get_help_tip(__("Enable this option to get debug info in the debug tab.", "really-simple-ssl"));
 
     }
@@ -3594,10 +3679,12 @@ class rsssl_admin extends rsssl_front_end
         ?>
         <label class="rsssl-switch">
             <input id="rlrsssl_options" name="rlrsssl_options[javascript_redirect]" size="40" value="1"
-                   type="checkbox" <?php checked(1, $javascript_redirect, true) ?> />
+                   type="checkbox" <?php
+ checked(1, $javascript_redirect, true) ?> />
             <span class="rsssl-slider rsssl-round"></span>
         </label>
         <?php
+
         RSSSL()->rsssl_help->get_help_tip(__("This is a fallback you should only use if other redirection methods do not work.", "really-simple-ssl"));
         echo $comment;
 
@@ -3626,15 +3713,16 @@ class rsssl_admin extends rsssl_front_end
         ?>
         <label class="rsssl-switch">
             <input id="rlrsssl_options" name="rlrsssl_options[wp_redirect]" size="40" value="1"
-                   type="checkbox" <?php checked(1, $wp_redirect, true) ?> />
+                   type="checkbox" <?php
+ checked(1, $wp_redirect, true) ?> />
             <span class="rsssl-slider rsssl-round"></span>
         </label>
         <?php
+
         RSSSL()->rsssl_help->get_help_tip(__("Enable this if you want to use the internal WordPress 301 redirect. Needed on NGINX servers, or if the .htaccess redirect cannot be used.", "really-simple-ssl"));
         echo $comment;
 
     }
-
 
     /**
      * Insert option into settings form
@@ -3666,10 +3754,12 @@ class rsssl_admin extends rsssl_front_end
         ?>
         <label class="rsssl-switch" id="rsssl-maybe-highlight-wp-redirect-to-htaccess">
             <input id="rlrsssl_options" name="rlrsssl_options[htaccess_redirect]" size="40" value="1"
-                   type="checkbox" <?php checked(1, $this->htaccess_redirect, true) ?> />
+                   type="checkbox" <?php
+ checked(1, $this->htaccess_redirect, true) ?> />
             <span class="rsssl-slider rsssl-round"></span>
         </label>
         <?php
+
         RSSSL()->rsssl_help->get_help_tip(__("A .htaccess redirect is faster. Really Simple SSL detects the redirect code that is most likely to work (99% of websites), but this is not 100%. Make sure you know how to regain access to your site if anything goes wrong!", "really-simple-ssl"));
         echo $comment;
 
@@ -3694,9 +3784,11 @@ class rsssl_admin extends rsssl_front_end
 
                 ?>
                 <code>
-                    <?php echo $rules; ?>
+                    <?php
+ echo $rules; ?>
                 </code>
                 <?php
+
             } else {
                 _e("The plugin could not detect any possible redirect rule.", "really-simple-ssl");
             }
@@ -3733,10 +3825,12 @@ class rsssl_admin extends rsssl_front_end
         ?>
         <label class="rsssl-switch">
             <input id="rlrsssl_options" name="rlrsssl_options[do_not_edit_htaccess]" size="40" value="1"
-                   type="checkbox" <?php checked(1, $this->do_not_edit_htaccess, true) ?> />
+                   type="checkbox" <?php
+ checked(1, $this->do_not_edit_htaccess, true) ?> />
             <span class="rsssl-slider rsssl-round"></span>
         </label>
         <?php
+
         RSSSL()->rsssl_help->get_help_tip(__("If you want to customize the Really Simple SSL .htaccess, you need to prevent Really Simple SSL from rewriting it. Enabling this option will do that.", "really-simple-ssl"));
         if (!$this->do_not_edit_htaccess && !is_writable($this->htaccess_file())) _e(".htaccess is currently not writable.", "really-simple-ssl");
     }
@@ -3755,10 +3849,12 @@ class rsssl_admin extends rsssl_front_end
         ?>
         <label class="rsssl-switch">
             <input id="rlrsssl_options" name="rlrsssl_options[switch_mixed_content_fixer_hook]" size="40" value="1"
-                   type="checkbox" <?php checked(1, $this->switch_mixed_content_fixer_hook, true) ?> />
+                   type="checkbox" <?php
+ checked(1, $this->switch_mixed_content_fixer_hook, true) ?> />
             <span class="rsssl-slider rsssl-round"></span>
         </label>
         <?php
+
         RSSSL()->rsssl_help->get_help_tip(__("If this option is set to true, the mixed content fixer will fire on the init hook instead of the template_redirect hook. Only use this option when you experience problems with the mixed content fixer.", "really-simple-ssl"));
     }
 
@@ -3777,10 +3873,12 @@ class rsssl_admin extends rsssl_front_end
 		?>
         <label class="rsssl-switch">
             <input id="rlrsssl_options" name="rlrsssl_options[dismiss_all_notices]" size="40" value="1"
-                   type="checkbox" <?php checked(1, $this->dismiss_all_notices, true) ?> />
+                   type="checkbox" <?php
+ checked(1, $this->dismiss_all_notices, true) ?> />
             <span class="rsssl-slider rsssl-round"></span>
         </label>
 		<?php
+
 		RSSSL()->rsssl_help->get_help_tip(__("Enable this option to dismiss all +1 notices in the Configuration tab", "really-simple-ssl"));
 	}
 
@@ -3793,7 +3891,6 @@ class rsssl_admin extends rsssl_front_end
      * @access public
      *
      */
-
 
     public function get_option_deactivate_keep_ssl()
     {
@@ -3808,16 +3905,24 @@ class rsssl_admin extends rsssl_front_end
             }
         </style>
         <div><input class="thickbox button" title="" type="button" style="display: block; float: left;" alt="#TB_inline?
-        height=370&width=400&inlineId=deactivate_keep_ssl" value="<?php echo __('Deactivate Plugin and keep SSL', 'really-simple-ssl'); ?>"/></div>
+        height=370&width=400&inlineId=deactivate_keep_ssl" value="<?php
+ echo __('Deactivate Plugin and keep SSL', 'really-simple-ssl'); ?>"/></div>
         <div id="deactivate_keep_ssl" style="display: none;">
-            <h1 style="margin: 10px 0; text-align: center;"><?php _e("Are you sure?", "really-simple-ssl") ?></h1>
-            <h2 style="margin: 20px 0; text-align: left;"><?php _e("Deactivating the plugin while keeping SSL will do the following:", "really-simple-ssl") ?></h2>
+            <h1 style="margin: 10px 0; text-align: center;"><?php
+ _e("Are you sure?", "really-simple-ssl") ?></h1>
+            <h2 style="margin: 20px 0; text-align: left;"><?php
+ _e("Deactivating the plugin while keeping SSL will do the following:", "really-simple-ssl") ?></h2>
             <ul style="text-align: left; font-size: 1.2em;">
-                <li><?php _e("* The mixed content fixer will stop working", "really-simple-ssl") ?></li>
-                <li><?php _e("* The WordPress 301 and Javascript redirect will stop working", "really-simple-ssl") ?></li>
-                <li><?php _e("* Your site address will remain https://", "really-simple-ssl") ?> </li>
-                <li><?php _e("* The .htaccess redirect will remain active", "really-simple-ssl") ?></li>
-                <?php _e("Deactivating the plugin via the plugins overview will revert the site back to http://.", "really-simple-ssl") ?>
+                <li><?php
+ _e("* The mixed content fixer will stop working", "really-simple-ssl") ?></li>
+                <li><?php
+ _e("* The WordPress 301 and Javascript redirect will stop working", "really-simple-ssl") ?></li>
+                <li><?php
+ _e("* Your site address will remain https://", "really-simple-ssl") ?> </li>
+                <li><?php
+ _e("* The .htaccess redirect will remain active", "really-simple-ssl") ?></li>
+                <?php
+ _e("Deactivating the plugin via the plugins overview will revert the site back to http://.", "really-simple-ssl") ?>
             </ul>
 
             <script>
@@ -3826,19 +3931,24 @@ class rsssl_admin extends rsssl_front_end
                 });
             </script>
             <?php
+
             $token = wp_create_nonce('rsssl_deactivate_plugin');
             $deactivate_keep_ssl_link = admin_url("options-general.php?page=rlrsssl_really_simple_ssl&action=uninstall_keep_ssl&token=" . $token);
 
             ?>
-            <a class="button rsssl-button-deactivate-keep-ssl" href="<?php add_thickbox() ?>
-                <?php echo $deactivate_keep_ssl_link ?>"><?php _e("I'm sure I want to deactivate", "really-simple-ssl") ?>
+            <a class="button rsssl-button-deactivate-keep-ssl" href="<?php
+ add_thickbox() ?>
+                <?php
+ echo $deactivate_keep_ssl_link ?>"><?php
+ _e("I'm sure I want to deactivate", "really-simple-ssl") ?>
             </a>
             &nbsp;&nbsp;
-            <a class="button" href="#" id="rsssl_close_tb_window"><?php _e("Cancel", "really-simple-ssl") ?></a>
-
+            <a class="button" href="#" id="rsssl_close_tb_window"><?php
+ _e("Cancel", "really-simple-ssl") ?></a>
 
         </div>
         <?php
+
         RSSSL()->rsssl_help->get_help_tip(__("Clicking this button will deactivate the plugin while keeping your site on SSL. The WordPress 301 redirect, Javascript redirect and mixed content fixer will stop working. The site address will remain https:// and the .htaccess redirect will remain active. Deactivating the plugin via the plugins overview will revert the site back to http://.", "really-simple-ssl"));
 
     }
@@ -3851,10 +3961,12 @@ class rsssl_admin extends rsssl_front_end
         ?>
         <label class="rsssl-switch">
             <input id="rlrsssl_options" name="rlrsssl_options[dismiss_review_notice]" size="40" value="1"
-                   type="checkbox" <?php checked(1, $this->dismiss_review_notice, true) ?> />
+                   type="checkbox" <?php
+ checked(1, $this->dismiss_review_notice, true) ?> />
             <span class="rsssl-slider rsssl-round"></span>
         </label>
         <?php
+
         RSSSL()->rsssl_help->get_help_tip(__("Enable this option to dismiss the review notice.", "really-simple-ssl"));
     }
 
@@ -3880,10 +3992,12 @@ class rsssl_admin extends rsssl_front_end
         ?>
         <label class="rsssl-switch">
             <input id="rlrsssl_options" name="rlrsssl_options[autoreplace_insecure_links]" size="40" value="1"
-                   type="checkbox" <?php checked(1, $autoreplace_mixed_content, true) ?> />
+                   type="checkbox" <?php
+ checked(1, $autoreplace_mixed_content, true) ?> />
             <span class="rsssl-slider rsssl-round"></span>
         </label>
         <?php
+
         RSSSL()->rsssl_help->get_help_tip(__("In most cases you need to leave this enabled, to prevent mixed content issues on your site.", "really-simple-ssl"));
         echo $comment;
     }
@@ -3896,7 +4010,6 @@ class rsssl_admin extends rsssl_front_end
      * @access public
      *
      */
-
 
     public function plugin_settings_link($links)
     {
@@ -3942,7 +4055,6 @@ class rsssl_admin extends rsssl_front_end
         // $this->plugin_conflict["WOOCOMMERCE_FORCESSL"] = TRUE;
     }
 
-
     /**
      * Check if wpconfig contains httponly cooky settings
      *
@@ -3966,7 +4078,6 @@ class rsssl_admin extends rsssl_front_end
 
         return true;
     }
-
 
     /**
      * Get the absolute path the the www directory of this site, where .htaccess lives.
@@ -4102,6 +4213,7 @@ class rsssl_admin extends rsssl_front_end
             jQuery(document).ready(function ($) {
                 'use strict';
                 <?php
+
                     if (isset($_GET['highlight'])) {
 	                    $setting_name = sanitize_text_field( $_GET['highlight'] );
 	                    echo "var setting_name = '$setting_name'" . ";";
@@ -4118,6 +4230,7 @@ class rsssl_admin extends rsssl_front_end
             });
         </script>
     <?php
+
     }
 
 	/**

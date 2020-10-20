@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Elementor Pro
  * Description: Elementor Pro brings a whole new design experience to WordPress. Customize your entire theme: header, footer, single post, archive and 404 page, all with one page builder.

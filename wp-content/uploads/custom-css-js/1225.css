@@ -1,0 +1,31 @@
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+html.fp-enabled{
+  margin-top:0!important;
+}
+
+
+  .fullpage-go-down,
+  .fullpage-go-up{
+   	display: none; 
+  }
+  
+  .fp-tableCell .fullpage-go-down,
+	.fp-tableCell .fullpage-go-up{
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .fp-tableCell,
+  .fp-section.fp-table, .fp-slide.fp-table {
+   display: block!important;
+   height: initial!important;
+    margin-bottom:32px;
+ }
+ 
+  .fp-tableCell .fullpage-go-down,
+	.fp-tableCell .fullpage-go-up{
+  display: none;
+} 
+}</style>
+<!-- end Simple Custom CSS and JS -->

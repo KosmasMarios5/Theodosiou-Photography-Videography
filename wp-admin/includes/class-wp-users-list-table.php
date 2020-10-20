@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_Users_List_Table class
  *
@@ -290,13 +291,21 @@ class WP_Users_List_Table extends WP_List_Table {
 		$button_id = 'bottom' === $which ? 'changeit2' : 'changeit';
 		?>
 	<div class="alignleft actions">
-		<?php if ( current_user_can( 'promote_users' ) && $this->has_items() ) : ?>
-		<label class="screen-reader-text" for="<?php echo $id; ?>"><?php _e( 'Change role to&hellip;' ); ?></label>
-		<select name="<?php echo $id; ?>" id="<?php echo $id; ?>">
-			<option value=""><?php _e( 'Change role to&hellip;' ); ?></option>
-			<?php wp_dropdown_roles(); ?>
+		<?php
+ if ( current_user_can( 'promote_users' ) && $this->has_items() ) : ?>
+		<label class="screen-reader-text" for="<?php
+ echo $id; ?>"><?php
+ _e( 'Change role to&hellip;' ); ?></label>
+		<select name="<?php
+ echo $id; ?>" id="<?php
+ echo $id; ?>">
+			<option value=""><?php
+ _e( 'Change role to&hellip;' ); ?></option>
+			<?php
+ wp_dropdown_roles(); ?>
 		</select>
 			<?php
+
 			submit_button( __( 'Change' ), '', $button_id, false );
 		endif;
 
@@ -313,6 +322,7 @@ class WP_Users_List_Table extends WP_List_Table {
 		?>
 		</div>
 		<?php
+
 		/**
 		 * Fires immediately following the closing "actions" div in the tablenav for the users
 		 * list table.

@@ -1,4 +1,5 @@
 <?php
+
 if ( ! class_exists( 'SimplePie', false ) ) :
 
 // Load classes we will need.
@@ -436,8 +437,6 @@ define('SIMPLEPIE_FILE_SOURCE_CURL', 8);
  * file_get_contents() file source
  */
 define('SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS', 16);
-
-
 
 /**
  * SimplePie
@@ -2893,7 +2892,6 @@ class SimplePie
 
 		return null;
 	}
-
 
 	/**
 	 * Get the feed logo's link

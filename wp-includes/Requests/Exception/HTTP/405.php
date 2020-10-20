@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 405 Method Not Allowed responses
  *

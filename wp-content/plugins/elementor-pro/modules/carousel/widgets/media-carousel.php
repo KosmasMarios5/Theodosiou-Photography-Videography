@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Carousel\Widgets;
 
 use Elementor\Controls_Manager;
@@ -312,23 +313,35 @@ class Media_Carousel extends Base {
 
 	protected function print_slide_image( array $slide, $element_key, array $settings ) {
 		?>
-		<div <?php echo $this->get_render_attribute_string( $element_key . '-image' ); ?>>
-			<?php if ( 'video' === $slide['type'] && $settings['video_play_icon'] ) : ?>
+		<div <?php
+ echo $this->get_render_attribute_string( $element_key . '-image' ); ?>>
+			<?php
+ if ( 'video' === $slide['type'] && $settings['video_play_icon'] ) : ?>
 				<div class="elementor-custom-embed-play">
 					<i class="eicon-play" aria-hidden="true"></i>
-					<span class="elementor-screen-only"><?php _e( 'Play', 'elementor-pro' ); ?></span>
+					<span class="elementor-screen-only"><?php
+ _e( 'Play', 'elementor-pro' ); ?></span>
 				</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</div>
-		<?php if ( $settings['overlay'] ) : ?>
-			<div <?php echo $this->get_render_attribute_string( 'image-overlay' ); ?>>
-				<?php if ( 'text' === $settings['overlay'] ) : ?>
-					<?php echo $this->get_image_caption( $slide ); ?>
-				<?php else : ?>
-					<i class="fa fa-<?php echo $settings['icon']; ?>"></i>
-				<?php endif; ?>
+		<?php
+ if ( $settings['overlay'] ) : ?>
+			<div <?php
+ echo $this->get_render_attribute_string( 'image-overlay' ); ?>>
+				<?php
+ if ( 'text' === $settings['overlay'] ) : ?>
+					<?php
+ echo $this->get_image_caption( $slide ); ?>
+				<?php
+ else : ?>
+					<i class="fa fa-<?php
+ echo $settings['icon']; ?>"></i>
+				<?php
+ endif; ?>
 			</div>
 			<?php
+
 		endif;
 	}
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WP_Privacy_Policy_Content class.
  *
@@ -139,6 +140,7 @@ final class WP_Privacy_Policy_Content {
 		<div class="policy-text-updated notice notice-warning is-dismissible">
 			<p>
 			<?php
+
 				printf(
 					/* translators: %s: Privacy Policy Guide URL. */
 					__( 'The suggested privacy policy text has changed. Please <a href="%s">review the guide</a> and update your privacy policy.' ),
@@ -148,6 +150,7 @@ final class WP_Privacy_Policy_Content {
 			</p>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -351,6 +354,7 @@ final class WP_Privacy_Policy_Content {
 			<div class="notice notice-warning inline wp-pp-notice">
 				<p>
 				<?php
+
 				echo $message;
 				printf(
 					' <a href="%s" target="_blank">%s <span class="screen-reader-text">%s</span></a>',
@@ -363,6 +367,7 @@ final class WP_Privacy_Policy_Content {
 				</p>
 			</div>
 			<?php
+
 		}
 	}
 
@@ -432,31 +437,42 @@ final class WP_Privacy_Policy_Content {
 		if ( count( $toc ) > 2 ) {
 			?>
 			<div class="privacy-text-box-toc">
-				<p><?php _e( 'Table of Contents' ); ?></p>
+				<p><?php
+ _e( 'Table of Contents' ); ?></p>
 				<ol>
-					<?php echo implode( $toc ); ?>
+					<?php
+ echo implode( $toc ); ?>
 				</ol>
 			</div>
 			<?php
+
 		}
 
 		?>
 		<div class="privacy-text-box">
 			<div class="privacy-text-box-head">
 				<a id="wp-privacy-policy-guide-introduction">&nbsp;</a>
-				<h2><?php _e( 'Introduction' ); ?></h2>
-				<p><?php _e( 'Hello,' ); ?></p>
-				<p><?php _e( 'This text template will help you to create your web site&#8217;s privacy policy.' ); ?></p>
-				<p><?php _e( 'We have suggested the sections you will need. Under each section heading you will find a short summary of what information you should provide, which will help you to get started. Some sections include suggested policy content, others will have to be completed with information from your theme and plugins.' ); ?></p>
-				<p><?php _e( 'Please edit your privacy policy content, making sure to delete the summaries, and adding any information from your theme and plugins. Once you publish your policy page, remember to add it to your navigation menu.' ); ?></p>
-				<p><?php _e( 'It is your responsibility to write a comprehensive privacy policy, to make sure it reflects all national and international legal requirements on privacy, and to keep your policy current and accurate.' ); ?></p>
+				<h2><?php
+ _e( 'Introduction' ); ?></h2>
+				<p><?php
+ _e( 'Hello,' ); ?></p>
+				<p><?php
+ _e( 'This text template will help you to create your web site&#8217;s privacy policy.' ); ?></p>
+				<p><?php
+ _e( 'We have suggested the sections you will need. Under each section heading you will find a short summary of what information you should provide, which will help you to get started. Some sections include suggested policy content, others will have to be completed with information from your theme and plugins.' ); ?></p>
+				<p><?php
+ _e( 'Please edit your privacy policy content, making sure to delete the summaries, and adding any information from your theme and plugins. Once you publish your policy page, remember to add it to your navigation menu.' ); ?></p>
+				<p><?php
+ _e( 'It is your responsibility to write a comprehensive privacy policy, to make sure it reflects all national and international legal requirements on privacy, and to keep your policy current and accurate.' ); ?></p>
 			</div>
 
 			<div class="privacy-text-box-body">
-				<?php echo $content; ?>
+				<?php
+ echo $content; ?>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	/**

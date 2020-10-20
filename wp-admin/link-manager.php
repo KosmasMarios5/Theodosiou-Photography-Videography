@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Link Management Administration Screen.
  *
@@ -96,13 +97,16 @@ if ( ! current_user_can( 'manage_links' ) ) {
 <div class="wrap nosubsub">
 <h1 class="wp-heading-inline">
 <?php
+
 echo esc_html( $title );
 ?>
 </h1>
 
-<a href="link-add.php" class="page-title-action"><?php echo esc_html_x( 'Add New', 'link' ); ?></a>
+<a href="link-add.php" class="page-title-action"><?php
+ echo esc_html_x( 'Add New', 'link' ); ?></a>
 
 <?php
+
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 	/* translators: %s: Search query. */
 	printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', esc_html( wp_unslash( $_REQUEST['s'] ) ) );
@@ -112,6 +116,7 @@ if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 <hr class="wp-header-end">
 
 <?php
+
 if ( isset( $_REQUEST['deleted'] ) ) {
 	echo '<div id="message" class="updated notice is-dismissible"><p>';
 	$deleted = (int) $_REQUEST['deleted'];
@@ -124,9 +129,11 @@ if ( isset( $_REQUEST['deleted'] ) ) {
 
 <form id="posts-filter" method="get">
 
-<?php $wp_list_table->search_box( __( 'Search Links' ), 'link' ); ?>
+<?php
+ $wp_list_table->search_box( __( 'Search Links' ), 'link' ); ?>
 
-<?php $wp_list_table->display(); ?>
+<?php
+ $wp_list_table->display(); ?>
 
 <div id="ajax-response"></div>
 </form>
@@ -134,4 +141,5 @@ if ( isset( $_REQUEST['deleted'] ) ) {
 </div>
 
 <?php
+
 require_once ABSPATH . 'wp-admin/admin-footer.php';

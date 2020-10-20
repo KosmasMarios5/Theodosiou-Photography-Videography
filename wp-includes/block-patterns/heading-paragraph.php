@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Heading and paragraph block pattern.
  *

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Carousel\Widgets;
 
 use Elementor\Controls_Manager;
@@ -770,8 +771,10 @@ class Reviews extends Base {
 		}
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( $element_key . '-testimonial' ); ?>>
-			<?php if ( $slide['image']['url'] || ! empty( $slide['name'] ) || ! empty( $slide['title'] ) ) :
+		<div <?php
+ echo $this->get_render_attribute_string( $element_key . '-testimonial' ); ?>>
+			<?php
+ if ( $slide['image']['url'] || ! empty( $slide['name'] ) || ! empty( $slide['title'] ) ) :
 
 				$link_url = empty( $slide['link']['url'] ) ? false : $slide['link']['url'];
 				$header_tag = ! empty( $link_url ) ? 'a' : 'div';
@@ -783,25 +786,38 @@ class Reviews extends Base {
 					$this->add_link_attributes( $header_element, $slide['link'] );
 				}
 				?>
-				<<?php echo $header_tag; ?> <?php echo $this->get_render_attribute_string( $header_element ); ?>>
-					<?php if ( $slide['image']['url'] ) : ?>
+				<<?php
+ echo $header_tag; ?> <?php
+ echo $this->get_render_attribute_string( $header_element ); ?>>
+					<?php
+ if ( $slide['image']['url'] ) : ?>
 						<div class="elementor-testimonial__image">
-							<img <?php echo $this->get_render_attribute_string( $element_key . '-image' ); ?>>
+							<img <?php
+ echo $this->get_render_attribute_string( $element_key . '-image' ); ?>>
 						</div>
-					<?php endif; ?>
-					<?php echo $this->print_cite( $slide, $settings ); ?>
-					<?php echo $this->print_icon( $slide, $element_key ); ?>
-				</<?php echo $header_tag; ?>>
-			<?php endif; ?>
-			<?php if ( $slide['content'] ) : ?>
+					<?php
+ endif; ?>
+					<?php
+ echo $this->print_cite( $slide, $settings ); ?>
+					<?php
+ echo $this->print_icon( $slide, $element_key ); ?>
+				</<?php
+ echo $header_tag; ?>>
+			<?php
+ endif; ?>
+			<?php
+ if ( $slide['content'] ) : ?>
 				<div class="elementor-testimonial__content">
 					<div class="elementor-testimonial__text">
-						<?php echo $slide['content']; ?>
+						<?php
+ echo $slide['content']; ?>
 					</div>
 				</div>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</div>
 		<?php
+
 	}
 
 	protected function render() {

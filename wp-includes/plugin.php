@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The plugin API is located in this file, which allows for creating actions
  * and filters and hooking functions, and methods. The functions or methods will

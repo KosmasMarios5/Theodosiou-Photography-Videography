@@ -1,4 +1,5 @@
 <?php
+
 // --------------------------------------------------------------------------------
 // PhpConcept Library - Zip Module 2.8.2
 // --------------------------------------------------------------------------------
@@ -820,7 +821,6 @@
   }
   // --------------------------------------------------------------------------------
 
-
   // --------------------------------------------------------------------------------
   // Function :
   //   extractByIndex($p_index, $p_path="./", $p_remove_path="")
@@ -1266,8 +1266,6 @@
   }
   // --------------------------------------------------------------------------------
 
-
-
   // --------------------------------------------------------------------------------
   // Function : errorCode()
   // Description :
@@ -1351,14 +1349,11 @@
   }
   // --------------------------------------------------------------------------------
 
-
 // --------------------------------------------------------------------------------
 // ***** UNDER THIS LINE ARE DEFINED PRIVATE INTERNAL FUNCTIONS *****
 // *****                                                        *****
 // *****       THESES FUNCTIONS MUST NOT BE USED DIRECTLY       *****
 // --------------------------------------------------------------------------------
-
-
 
   // --------------------------------------------------------------------------------
   // Function : privCheckFormat()
@@ -1693,7 +1688,6 @@
                   return PclZip::errorCode();
               }
 
-
               // ----- Look for list sort
               if ($v_result_list[$p_options_list[$i]][$j]['start'] < $v_sort_value) {
                   $v_sort_flag=true;
@@ -1852,7 +1846,6 @@
         $v_memory_limit_int = $v_memory_limit_int*1024;
 
     $p_options[PCLZIP_OPT_TEMP_FILE_THRESHOLD] = floor($v_memory_limit_int*PCLZIP_TEMPORARY_FILE_RATIO);
-
 
     // ----- Sanity check : No threshold if value lower than 1M
     if ($p_options[PCLZIP_OPT_TEMP_FILE_THRESHOLD] < 1048576) {
@@ -2479,7 +2472,6 @@
       $p_filedescr_list[$j]['filename']
       = PclZipUtilTranslateWinPath($p_filedescr_list[$j]['filename'], false);
 
-
       // ----- Skip empty file names
       // TBC : Can this be possible ? not checked in DescrParseAtt ?
       if ($p_filedescr_list[$j]['filename'] == "") {
@@ -2591,7 +2583,6 @@
       $p_header['external'] = 0x00000000;
       $p_header['size'] = strlen($p_filedescr['content']);
     }
-
 
     // ----- Look for filetime
     if (isset($p_filedescr['mtime'])) {
@@ -2805,7 +2796,6 @@
     // ----- Working variable
     $p_filename = $p_filedescr['filename'];
 
-
     // ----- Open the source file
     if (($v_file = @fopen($p_filename, "rb")) == 0) {
       PclZip::privErrorLog(PCLZIP_ERR_READ_OPEN_FAIL, "Unable to open file '$p_filename' in binary read mode");
@@ -2934,7 +2924,6 @@
     else {
       $p_remove_all_dir = 0;
     }
-
 
     // ----- Look for full name change
     if (isset($p_filedescr['new_full_name'])) {
@@ -3079,7 +3068,6 @@
     $v_date = getdate($p_header['mtime']);
     $v_mtime = ($v_date['hours']<<11) + ($v_date['minutes']<<5) + $v_date['seconds']/2;
     $v_mdate = (($v_date['year']-1980)<<9) + ($v_date['mon']<<5) + $v_date['mday'];
-
 
     // ----- Packed data
     $v_binary_data = pack("VvvvvvvVVVvvvvvVV", 0x02014b50,
@@ -3626,7 +3614,6 @@
       return $v_result;
     }
 
-
     // ----- Check that the file header is coherent with $p_entry info
     if ($this->privCheckFileHeaders($v_header, $p_entry) != 1) {
         // TBC
@@ -3717,7 +3704,6 @@
       // Only some fields can be modified
       $p_entry['filename'] = $v_local_header['filename'];
     }
-
 
     // ----- Look if extraction should be done
     if ($p_entry['status'] == 'ok') {
@@ -3836,7 +3822,6 @@
             return $v_result;
           }
 
-
           // ----- Read the file by PCLZIP_READ_BLOCK_SIZE octets blocks
           $v_size = $p_entry['compressed_size'];
           while ($v_size != 0)
@@ -3857,7 +3842,6 @@
           // ----- Change the file mtime
           touch($p_entry['filename'], $p_entry['mtime']);
 
-
         }
         else {
           // ----- TBC
@@ -3866,7 +3850,6 @@
             PclZip::privErrorLog(PCLZIP_ERR_UNSUPPORTED_ENCRYPTION, 'File \''.$p_entry['filename'].'\' is encrypted. Encrypted files are not supported.');
             return PclZip::errorCode();
           }
-
 
           // ----- Look for using temporary file to unzip
           if ( (!isset($p_options[PCLZIP_OPT_TEMP_FILE_OFF]))
@@ -3881,7 +3864,6 @@
 
           // ----- Look for extract in memory
           else {
-
 
             // ----- Read the compressed file in a buffer (one shot)
             $v_buffer = @fread($this->zip_fd, $p_entry['compressed_size']);
@@ -3976,7 +3958,6 @@
       return PclZip::errorCode();
     }
 
-
     // ----- Write gz file format header
     $v_binary_data = pack('va1a1Va1a1', 0x8b1f, Chr($p_entry['compression']), Chr(0x00), time(), Chr(0x00), Chr(3));
     @fwrite($v_dest_file, $v_binary_data, 10);
@@ -4013,7 +3994,6 @@
       return PclZip::errorCode();
     }
 
-
     // ----- Read the file by PCLZIP_READ_BLOCK_SIZE octets blocks
     $v_size = $p_entry['size'];
     while ($v_size != 0) {
@@ -4048,7 +4028,6 @@
     if (($v_result = $this->privReadFileHeader($v_header)) != 1) {
       return $v_result;
     }
-
 
     // ----- Check that the file header is coherent with $p_entry info
     if ($this->privCheckFileHeaders($v_header, $p_entry) != 1) {
@@ -4163,7 +4142,6 @@
       return $v_result;
     }
 
-
     // ----- Check that the file header is coherent with $p_entry info
     if ($this->privCheckFileHeaders($v_header, $p_entry) != 1) {
         // TBC
@@ -4197,7 +4175,6 @@
       // Only some fields can be modified
       $p_entry['filename'] = $v_local_header['filename'];
     }
-
 
     // ----- Look if extraction should be done
     if ($p_entry['status'] == 'ok') {
@@ -4469,7 +4446,6 @@
       $p_header['external'] = 0x00000010;
     }
 
-
     // ----- Return
     return $v_result;
   }
@@ -4732,7 +4708,6 @@
         return $v_result;
       }
 
-
       // ----- Store the index
       $v_header_list[$v_nb_extracted]['index'] = $i;
 
@@ -4917,7 +4892,6 @@
             $v_temp_zip->privConvertHeader2FileInfo($v_header_list[$i], $p_result_list[$i]);
         }
 
-
         // ----- Zip file comment
         $v_comment = '';
         if (isset($p_options[PCLZIP_OPT_COMMENT])) {
@@ -4990,7 +4964,6 @@
   function privDirCheck($p_dir, $p_is_dir=false)
   {
     $v_result = 1;
-
 
     // ----- Remove the final '/'
     if (($p_is_dir) && (substr($p_dir, -1)=='/'))
@@ -5697,6 +5670,5 @@
     return $p_path;
   }
   // --------------------------------------------------------------------------------
-
 
 ?>

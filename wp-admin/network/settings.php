@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite network settings administration panel.
  *
@@ -138,38 +139,50 @@ if ( $_POST ) {
 require_once ABSPATH . 'wp-admin/admin-header.php';
 
 if ( isset( $_GET['updated'] ) ) {
-	?><div id="message" class="updated notice is-dismissible"><p><?php _e( 'Settings saved.' ); ?></p></div>
+	?><div id="message" class="updated notice is-dismissible"><p><?php
+ _e( 'Settings saved.' ); ?></p></div>
 	<?php
+
 }
 ?>
 
 <div class="wrap">
-	<h1><?php echo esc_html( $title ); ?></h1>
+	<h1><?php
+ echo esc_html( $title ); ?></h1>
 	<form method="post" action="settings.php" novalidate="novalidate">
-		<?php wp_nonce_field( 'siteoptions' ); ?>
-		<h2><?php _e( 'Operational Settings' ); ?></h2>
+		<?php
+ wp_nonce_field( 'siteoptions' ); ?>
+		<h2><?php
+ _e( 'Operational Settings' ); ?></h2>
 		<table class="form-table" role="presentation">
 			<tr>
-				<th scope="row"><label for="site_name"><?php _e( 'Network Title' ); ?></label></th>
+				<th scope="row"><label for="site_name"><?php
+ _e( 'Network Title' ); ?></label></th>
 				<td>
-					<input name="site_name" type="text" id="site_name" class="regular-text" value="<?php echo esc_attr( get_network()->site_name ); ?>" />
+					<input name="site_name" type="text" id="site_name" class="regular-text" value="<?php
+ echo esc_attr( get_network()->site_name ); ?>" />
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row"><label for="admin_email"><?php _e( 'Network Admin Email' ); ?></label></th>
+				<th scope="row"><label for="admin_email"><?php
+ _e( 'Network Admin Email' ); ?></label></th>
 				<td>
-					<input name="new_admin_email" type="email" id="admin_email" aria-describedby="admin-email-desc" class="regular-text" value="<?php echo esc_attr( get_site_option( 'admin_email' ) ); ?>" />
+					<input name="new_admin_email" type="email" id="admin_email" aria-describedby="admin-email-desc" class="regular-text" value="<?php
+ echo esc_attr( get_site_option( 'admin_email' ) ); ?>" />
 					<p class="description" id="admin-email-desc">
-						<?php _e( 'This address is used for admin purposes. If you change this, we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?>
+						<?php
+ _e( 'This address is used for admin purposes. If you change this, we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?>
 					</p>
 					<?php
+
 					$new_admin_email = get_site_option( 'new_admin_email' );
 					if ( $new_admin_email && get_site_option( 'admin_email' ) !== $new_admin_email ) :
 						?>
 						<div class="updated inline">
 						<p>
 						<?php
+
 							printf(
 								/* translators: %s: New network admin email. */
 								__( 'There is a pending change of the network admin email to %s.' ),
@@ -183,15 +196,19 @@ if ( isset( $_GET['updated'] ) ) {
 						?>
 						</p>
 						</div>
-					<?php endif; ?>
+					<?php
+ endif; ?>
 				</td>
 			</tr>
 		</table>
-		<h2><?php _e( 'Registration Settings' ); ?></h2>
+		<h2><?php
+ _e( 'Registration Settings' ); ?></h2>
 		<table class="form-table" role="presentation">
 			<tr>
-				<th scope="row"><?php _e( 'Allow new registrations' ); ?></th>
+				<th scope="row"><?php
+ _e( 'Allow new registrations' ); ?></th>
 				<?php
+
 				if ( ! get_site_option( 'registration' ) ) {
 					update_site_option( 'registration', 'none' );
 				}
@@ -199,12 +216,22 @@ if ( isset( $_GET['updated'] ) ) {
 				?>
 				<td>
 					<fieldset>
-					<legend class="screen-reader-text"><?php _e( 'New registrations settings' ); ?></legend>
-					<label><input name="registration" type="radio" id="registration1" value="none"<?php checked( $reg, 'none' ); ?> /> <?php _e( 'Registration is disabled' ); ?></label><br />
-					<label><input name="registration" type="radio" id="registration2" value="user"<?php checked( $reg, 'user' ); ?> /> <?php _e( 'User accounts may be registered' ); ?></label><br />
-					<label><input name="registration" type="radio" id="registration3" value="blog"<?php checked( $reg, 'blog' ); ?> /> <?php _e( 'Logged in users may register new sites' ); ?></label><br />
-					<label><input name="registration" type="radio" id="registration4" value="all"<?php checked( $reg, 'all' ); ?> /> <?php _e( 'Both sites and user accounts can be registered' ); ?></label>
+					<legend class="screen-reader-text"><?php
+ _e( 'New registrations settings' ); ?></legend>
+					<label><input name="registration" type="radio" id="registration1" value="none"<?php
+ checked( $reg, 'none' ); ?> /> <?php
+ _e( 'Registration is disabled' ); ?></label><br />
+					<label><input name="registration" type="radio" id="registration2" value="user"<?php
+ checked( $reg, 'user' ); ?> /> <?php
+ _e( 'User accounts may be registered' ); ?></label><br />
+					<label><input name="registration" type="radio" id="registration3" value="blog"<?php
+ checked( $reg, 'blog' ); ?> /> <?php
+ _e( 'Logged in users may register new sites' ); ?></label><br />
+					<label><input name="registration" type="radio" id="registration4" value="all"<?php
+ checked( $reg, 'all' ); ?> /> <?php
+ _e( 'Both sites and user accounts can be registered' ); ?></label>
 					<?php
+
 					if ( is_subdomain_install() ) {
 						echo '<p class="description">';
 						printf(
@@ -221,38 +248,50 @@ if ( isset( $_GET['updated'] ) ) {
 			</tr>
 
 			<tr>
-				<th scope="row"><?php _e( 'Registration notification' ); ?></th>
+				<th scope="row"><?php
+ _e( 'Registration notification' ); ?></th>
 				<?php
+
 				if ( ! get_site_option( 'registrationnotification' ) ) {
 					update_site_option( 'registrationnotification', 'yes' );
 				}
 				?>
 				<td>
-					<label><input name="registrationnotification" type="checkbox" id="registrationnotification" value="yes"<?php checked( get_site_option( 'registrationnotification' ), 'yes' ); ?> /> <?php _e( 'Send the network admin an email notification every time someone registers a site or user account' ); ?></label>
+					<label><input name="registrationnotification" type="checkbox" id="registrationnotification" value="yes"<?php
+ checked( get_site_option( 'registrationnotification' ), 'yes' ); ?> /> <?php
+ _e( 'Send the network admin an email notification every time someone registers a site or user account' ); ?></label>
 				</td>
 			</tr>
 
 			<tr id="addnewusers">
-				<th scope="row"><?php _e( 'Add New Users' ); ?></th>
+				<th scope="row"><?php
+ _e( 'Add New Users' ); ?></th>
 				<td>
-					<label><input name="add_new_users" type="checkbox" id="add_new_users" value="1"<?php checked( get_site_option( 'add_new_users' ) ); ?> /> <?php _e( 'Allow site administrators to add new users to their site via the "Users &rarr; Add New" page' ); ?></label>
+					<label><input name="add_new_users" type="checkbox" id="add_new_users" value="1"<?php
+ checked( get_site_option( 'add_new_users' ) ); ?> /> <?php
+ _e( 'Allow site administrators to add new users to their site via the "Users &rarr; Add New" page' ); ?></label>
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row"><label for="illegal_names"><?php _e( 'Banned Names' ); ?></label></th>
+				<th scope="row"><label for="illegal_names"><?php
+ _e( 'Banned Names' ); ?></label></th>
 				<td>
-					<input name="illegal_names" type="text" id="illegal_names" aria-describedby="illegal-names-desc" class="large-text" value="<?php echo esc_attr( implode( ' ', (array) get_site_option( 'illegal_names' ) ) ); ?>" size="45" />
+					<input name="illegal_names" type="text" id="illegal_names" aria-describedby="illegal-names-desc" class="large-text" value="<?php
+ echo esc_attr( implode( ' ', (array) get_site_option( 'illegal_names' ) ) ); ?>" size="45" />
 					<p class="description" id="illegal-names-desc">
-						<?php _e( 'Users are not allowed to register these sites. Separate names by spaces.' ); ?>
+						<?php
+ _e( 'Users are not allowed to register these sites. Separate names by spaces.' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row"><label for="limited_email_domains"><?php _e( 'Limited Email Registrations' ); ?></label></th>
+				<th scope="row"><label for="limited_email_domains"><?php
+ _e( 'Limited Email Registrations' ); ?></label></th>
 				<td>
 					<?php
+
 					$limited_email_domains = get_site_option( 'limited_email_domains' );
 					$limited_email_domains = str_replace( ' ', "\n", $limited_email_domains );
 
@@ -261,17 +300,21 @@ if ( isset( $_GET['updated'] ) ) {
 					}
 					?>
 					<textarea name="limited_email_domains" id="limited_email_domains" aria-describedby="limited-email-domains-desc" cols="45" rows="5">
-<?php echo esc_textarea( $limited_email_domains ); ?></textarea>
+<?php
+ echo esc_textarea( $limited_email_domains ); ?></textarea>
 					<p class="description" id="limited-email-domains-desc">
-						<?php _e( 'If you want to limit site registrations to certain domains. One domain per line.' ); ?>
+						<?php
+ _e( 'If you want to limit site registrations to certain domains. One domain per line.' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row"><label for="banned_email_domains"><?php _e( 'Banned Email Domains' ); ?></label></th>
+				<th scope="row"><label for="banned_email_domains"><?php
+ _e( 'Banned Email Domains' ); ?></label></th>
 				<td>
 					<?php
+
 					$banned_email_domains = get_site_option( 'banned_email_domains' );
 
 					if ( $banned_email_domains ) {
@@ -279,102 +322,133 @@ if ( isset( $_GET['updated'] ) ) {
 					}
 					?>
 					<textarea name="banned_email_domains" id="banned_email_domains" aria-describedby="banned-email-domains-desc" cols="45" rows="5">
-<?php echo esc_textarea( $banned_email_domains ); ?></textarea>
+<?php
+ echo esc_textarea( $banned_email_domains ); ?></textarea>
 					<p class="description" id="banned-email-domains-desc">
-						<?php _e( 'If you want to ban domains from site registrations. One domain per line.' ); ?>
+						<?php
+ _e( 'If you want to ban domains from site registrations. One domain per line.' ); ?>
 					</p>
 				</td>
 			</tr>
 
 		</table>
-		<h2><?php _e( 'New Site Settings' ); ?></h2>
+		<h2><?php
+ _e( 'New Site Settings' ); ?></h2>
 		<table class="form-table" role="presentation">
 
 			<tr>
-				<th scope="row"><label for="welcome_email"><?php _e( 'Welcome Email' ); ?></label></th>
+				<th scope="row"><label for="welcome_email"><?php
+ _e( 'Welcome Email' ); ?></label></th>
 				<td>
 					<textarea name="welcome_email" id="welcome_email" aria-describedby="welcome-email-desc" rows="5" cols="45" class="large-text">
-<?php echo esc_textarea( get_site_option( 'welcome_email' ) ); ?></textarea>
+<?php
+ echo esc_textarea( get_site_option( 'welcome_email' ) ); ?></textarea>
 					<p class="description" id="welcome-email-desc">
-						<?php _e( 'The welcome email sent to new site owners.' ); ?>
+						<?php
+ _e( 'The welcome email sent to new site owners.' ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="welcome_user_email"><?php _e( 'Welcome User Email' ); ?></label></th>
+				<th scope="row"><label for="welcome_user_email"><?php
+ _e( 'Welcome User Email' ); ?></label></th>
 				<td>
 					<textarea name="welcome_user_email" id="welcome_user_email" aria-describedby="welcome-user-email-desc" rows="5" cols="45" class="large-text">
-<?php echo esc_textarea( get_site_option( 'welcome_user_email' ) ); ?></textarea>
+<?php
+ echo esc_textarea( get_site_option( 'welcome_user_email' ) ); ?></textarea>
 					<p class="description" id="welcome-user-email-desc">
-						<?php _e( 'The welcome email sent to new users.' ); ?>
+						<?php
+ _e( 'The welcome email sent to new users.' ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="first_post"><?php _e( 'First Post' ); ?></label></th>
+				<th scope="row"><label for="first_post"><?php
+ _e( 'First Post' ); ?></label></th>
 				<td>
 					<textarea name="first_post" id="first_post" aria-describedby="first-post-desc" rows="5" cols="45" class="large-text">
-<?php echo esc_textarea( get_site_option( 'first_post' ) ); ?></textarea>
+<?php
+ echo esc_textarea( get_site_option( 'first_post' ) ); ?></textarea>
 					<p class="description" id="first-post-desc">
-						<?php _e( 'The first post on a new site.' ); ?>
+						<?php
+ _e( 'The first post on a new site.' ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="first_page"><?php _e( 'First Page' ); ?></label></th>
+				<th scope="row"><label for="first_page"><?php
+ _e( 'First Page' ); ?></label></th>
 				<td>
 					<textarea name="first_page" id="first_page" aria-describedby="first-page-desc" rows="5" cols="45" class="large-text">
-<?php echo esc_textarea( get_site_option( 'first_page' ) ); ?></textarea>
+<?php
+ echo esc_textarea( get_site_option( 'first_page' ) ); ?></textarea>
 					<p class="description" id="first-page-desc">
-						<?php _e( 'The first page on a new site.' ); ?>
+						<?php
+ _e( 'The first page on a new site.' ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="first_comment"><?php _e( 'First Comment' ); ?></label></th>
+				<th scope="row"><label for="first_comment"><?php
+ _e( 'First Comment' ); ?></label></th>
 				<td>
 					<textarea name="first_comment" id="first_comment" aria-describedby="first-comment-desc" rows="5" cols="45" class="large-text">
-<?php echo esc_textarea( get_site_option( 'first_comment' ) ); ?></textarea>
+<?php
+ echo esc_textarea( get_site_option( 'first_comment' ) ); ?></textarea>
 					<p class="description" id="first-comment-desc">
-						<?php _e( 'The first comment on a new site.' ); ?>
+						<?php
+ _e( 'The first comment on a new site.' ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="first_comment_author"><?php _e( 'First Comment Author' ); ?></label></th>
+				<th scope="row"><label for="first_comment_author"><?php
+ _e( 'First Comment Author' ); ?></label></th>
 				<td>
-					<input type="text" size="40" name="first_comment_author" id="first_comment_author" aria-describedby="first-comment-author-desc" value="<?php echo esc_attr( get_site_option( 'first_comment_author' ) ); ?>" />
+					<input type="text" size="40" name="first_comment_author" id="first_comment_author" aria-describedby="first-comment-author-desc" value="<?php
+ echo esc_attr( get_site_option( 'first_comment_author' ) ); ?>" />
 					<p class="description" id="first-comment-author-desc">
-						<?php _e( 'The author of the first comment on a new site.' ); ?>
+						<?php
+ _e( 'The author of the first comment on a new site.' ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="first_comment_email"><?php _e( 'First Comment Email' ); ?></label></th>
+				<th scope="row"><label for="first_comment_email"><?php
+ _e( 'First Comment Email' ); ?></label></th>
 				<td>
-					<input type="text" size="40" name="first_comment_email" id="first_comment_email" aria-describedby="first-comment-email-desc" value="<?php echo esc_attr( get_site_option( 'first_comment_email' ) ); ?>" />
+					<input type="text" size="40" name="first_comment_email" id="first_comment_email" aria-describedby="first-comment-email-desc" value="<?php
+ echo esc_attr( get_site_option( 'first_comment_email' ) ); ?>" />
 					<p class="description" id="first-comment-email-desc">
-						<?php _e( 'The email address of the first comment author on a new site.' ); ?>
+						<?php
+ _e( 'The email address of the first comment author on a new site.' ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="first_comment_url"><?php _e( 'First Comment URL' ); ?></label></th>
+				<th scope="row"><label for="first_comment_url"><?php
+ _e( 'First Comment URL' ); ?></label></th>
 				<td>
-					<input type="text" size="40" name="first_comment_url" id="first_comment_url" aria-describedby="first-comment-url-desc" value="<?php echo esc_attr( get_site_option( 'first_comment_url' ) ); ?>" />
+					<input type="text" size="40" name="first_comment_url" id="first_comment_url" aria-describedby="first-comment-url-desc" value="<?php
+ echo esc_attr( get_site_option( 'first_comment_url' ) ); ?>" />
 					<p class="description" id="first-comment-url-desc">
-						<?php _e( 'The URL for the first comment on a new site.' ); ?>
+						<?php
+ _e( 'The URL for the first comment on a new site.' ); ?>
 					</p>
 				</td>
 			</tr>
 		</table>
-		<h2><?php _e( 'Upload Settings' ); ?></h2>
+		<h2><?php
+ _e( 'Upload Settings' ); ?></h2>
 		<table class="form-table" role="presentation">
 			<tr>
-				<th scope="row"><?php _e( 'Site upload space' ); ?></th>
+				<th scope="row"><?php
+ _e( 'Site upload space' ); ?></th>
 				<td>
-					<label><input type="checkbox" id="upload_space_check_disabled" name="upload_space_check_disabled" value="0"<?php checked( (bool) get_site_option( 'upload_space_check_disabled' ), false ); ?>/>
+					<label><input type="checkbox" id="upload_space_check_disabled" name="upload_space_check_disabled" value="0"<?php
+ checked( (bool) get_site_option( 'upload_space_check_disabled' ), false ); ?>/>
 						<?php
+
 						printf(
 							/* translators: %s: Number of megabytes to limit uploads to. */
 							__( 'Limit total size of files uploaded to %s MB' ),
@@ -383,25 +457,31 @@ if ( isset( $_GET['updated'] ) ) {
 						?>
 					</label><br />
 					<p class="screen-reader-text" id="blog-upload-space-desc">
-						<?php _e( 'Size in megabytes' ); ?>
+						<?php
+ _e( 'Size in megabytes' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row"><label for="upload_filetypes"><?php _e( 'Upload file types' ); ?></label></th>
+				<th scope="row"><label for="upload_filetypes"><?php
+ _e( 'Upload file types' ); ?></label></th>
 				<td>
-					<input name="upload_filetypes" type="text" id="upload_filetypes" aria-describedby="upload-filetypes-desc" class="large-text" value="<?php echo esc_attr( get_site_option( 'upload_filetypes', 'jpg jpeg png gif' ) ); ?>" size="45" />
+					<input name="upload_filetypes" type="text" id="upload_filetypes" aria-describedby="upload-filetypes-desc" class="large-text" value="<?php
+ echo esc_attr( get_site_option( 'upload_filetypes', 'jpg jpeg png gif' ) ); ?>" size="45" />
 					<p class="description" id="upload-filetypes-desc">
-						<?php _e( 'Allowed file types. Separate types by spaces.' ); ?>
+						<?php
+ _e( 'Allowed file types. Separate types by spaces.' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row"><label for="fileupload_maxk"><?php _e( 'Max upload file size' ); ?></label></th>
+				<th scope="row"><label for="fileupload_maxk"><?php
+ _e( 'Max upload file size' ); ?></label></th>
 				<td>
 					<?php
+
 						printf(
 							/* translators: %s: File size in kilobytes. */
 							__( '%s KB' ),
@@ -409,23 +489,28 @@ if ( isset( $_GET['updated'] ) ) {
 						);
 						?>
 					<p class="screen-reader-text" id="fileupload-maxk-desc">
-						<?php _e( 'Size in kilobytes' ); ?>
+						<?php
+ _e( 'Size in kilobytes' ); ?>
 					</p>
 				</td>
 			</tr>
 		</table>
 
 		<?php
+
 		$languages    = get_available_languages();
 		$translations = wp_get_available_translations();
 		if ( ! empty( $languages ) || ! empty( $translations ) ) {
 			?>
-			<h2><?php _e( 'Language Settings' ); ?></h2>
+			<h2><?php
+ _e( 'Language Settings' ); ?></h2>
 			<table class="form-table" role="presentation">
 				<tr>
-					<th><label for="WPLANG"><?php _e( 'Default Language' ); ?></label></th>
+					<th><label for="WPLANG"><?php
+ _e( 'Default Language' ); ?></label></th>
 					<td>
 						<?php
+
 						$lang = get_site_option( 'WPLANG' );
 						if ( ! in_array( $lang, $languages, true ) ) {
 							$lang = '';
@@ -446,10 +531,12 @@ if ( isset( $_GET['updated'] ) ) {
 				</tr>
 			</table>
 			<?php
+
 		}
 		?>
 
 		<?php
+
 		$menu_perms = get_site_option( 'menu_items' );
 		/**
 		 * Filters available network-wide administration menu options.
@@ -470,12 +557,15 @@ if ( isset( $_GET['updated'] ) ) {
 
 		if ( $menu_items ) :
 			?>
-			<h2><?php _e( 'Menu Settings' ); ?></h2>
+			<h2><?php
+ _e( 'Menu Settings' ); ?></h2>
 			<table id="menu" class="form-table">
 				<tr>
-					<th scope="row"><?php _e( 'Enable administration menus' ); ?></th>
+					<th scope="row"><?php
+ _e( 'Enable administration menus' ); ?></th>
 					<td>
 						<?php
+
 						echo '<fieldset><legend class="screen-reader-text">' . __( 'Enable menus' ) . '</legend>';
 
 						foreach ( (array) $menu_items as $key => $val ) {
@@ -488,10 +578,12 @@ if ( isset( $_GET['updated'] ) ) {
 				</tr>
 			</table>
 			<?php
+
 		endif;
 		?>
 
 		<?php
+
 		/**
 		 * Fires at the end of the Network Settings form, before the submit button.
 		 *
@@ -499,8 +591,10 @@ if ( isset( $_GET['updated'] ) ) {
 		 */
 		do_action( 'wpmu_options' );
 		?>
-		<?php submit_button(); ?>
+		<?php
+ submit_button(); ?>
 	</form>
 </div>
 
-<?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+<?php
+ require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>

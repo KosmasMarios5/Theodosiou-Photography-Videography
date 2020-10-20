@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite: Deprecated admin functions from past versions and WordPress MU
  *

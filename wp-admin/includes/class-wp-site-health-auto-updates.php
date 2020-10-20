@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class for testing automatic updates in the WordPress code.
  *
@@ -16,7 +17,6 @@ class WP_Site_Health_Auto_Updates {
 	public function __construct() {
 		require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 	}
-
 
 	/**
 	 * Run tests to determine if auto-updates can run.

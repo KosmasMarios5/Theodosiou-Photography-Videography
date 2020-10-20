@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin editor network administration panel.
  *

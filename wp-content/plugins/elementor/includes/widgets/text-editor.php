@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -400,8 +401,11 @@ class Widget_Text_Editor extends Widget_Base {
 
 		$this->add_inline_editing_attributes( 'editor', 'advanced' );
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'editor' ); ?>><?php echo $editor_content; ?></div>
+		<div <?php
+ echo $this->get_render_attribute_string( 'editor' ); ?>><?php
+ echo $editor_content; ?></div>
 		<?php
+
 	}
 
 	/**
@@ -434,5 +438,6 @@ class Widget_Text_Editor extends Widget_Base {
 		#>
 		<div {{{ view.getRenderAttributeString( 'editor' ) }}}>{{{ settings.editor }}}</div>
 		<?php
+
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: WP_Widget_Recent_Posts class
  *
@@ -86,9 +87,11 @@ class WP_Widget_Recent_Posts extends WP_Widget {
 		}
 		?>
 
-		<?php echo $args['before_widget']; ?>
+		<?php
+ echo $args['before_widget']; ?>
 
 		<?php
+
 		if ( $title ) {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
@@ -107,8 +110,10 @@ class WP_Widget_Recent_Posts extends WP_Widget {
 		?>
 
 		<ul>
-			<?php foreach ( $r->posts as $recent_post ) : ?>
+			<?php
+ foreach ( $r->posts as $recent_post ) : ?>
 				<?php
+
 				$post_title   = get_the_title( $recent_post->ID );
 				$title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)' );
 				$aria_current = '';
@@ -118,15 +123,23 @@ class WP_Widget_Recent_Posts extends WP_Widget {
 				}
 				?>
 				<li>
-					<a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>><?php echo $title; ?></a>
-					<?php if ( $show_date ) : ?>
-						<span class="post-date"><?php echo get_the_date( '', $recent_post->ID ); ?></span>
-					<?php endif; ?>
+					<a href="<?php
+ the_permalink( $recent_post->ID ); ?>"<?php
+ echo $aria_current; ?>><?php
+ echo $title; ?></a>
+					<?php
+ if ( $show_date ) : ?>
+						<span class="post-date"><?php
+ echo get_the_date( '', $recent_post->ID ); ?></span>
+					<?php
+ endif; ?>
 				</li>
-			<?php endforeach; ?>
+			<?php
+ endforeach; ?>
 		</ul>
 
 		<?php
+
 		if ( 'html5' === $format ) {
 			echo '</nav>';
 		}
@@ -165,19 +178,35 @@ class WP_Widget_Recent_Posts extends WP_Widget {
 		$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+			<label for="<?php
+ echo $this->get_field_id( 'title' ); ?>"><?php
+ _e( 'Title:' ); ?></label>
+			<input class="widefat" id="<?php
+ echo $this->get_field_id( 'title' ); ?>" name="<?php
+ echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php
+ echo $title; ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
-			<input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1" value="<?php echo $number; ?>" size="3" />
+			<label for="<?php
+ echo $this->get_field_id( 'number' ); ?>"><?php
+ _e( 'Number of posts to show:' ); ?></label>
+			<input class="tiny-text" id="<?php
+ echo $this->get_field_id( 'number' ); ?>" name="<?php
+ echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1" value="<?php
+ echo $number; ?>" size="3" />
 		</p>
 
 		<p>
-			<input class="checkbox" type="checkbox"<?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?></label>
+			<input class="checkbox" type="checkbox"<?php
+ checked( $show_date ); ?> id="<?php
+ echo $this->get_field_id( 'show_date' ); ?>" name="<?php
+ echo $this->get_field_name( 'show_date' ); ?>" />
+			<label for="<?php
+ echo $this->get_field_id( 'show_date' ); ?>"><?php
+ _e( 'Display post date?' ); ?></label>
 		</p>
 		<?php
+
 	}
 }

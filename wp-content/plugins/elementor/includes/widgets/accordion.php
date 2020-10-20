@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -497,6 +498,7 @@ class Widget_Accordion extends Widget_Base {
 		?>
 		<div class="elementor-accordion" role="tablist">
 			<?php
+
 			foreach ( $settings['tabs'] as $index => $item ) :
 				$tab_count = $index + 1;
 
@@ -523,26 +525,44 @@ class Widget_Accordion extends Widget_Base {
 				$this->add_inline_editing_attributes( $tab_content_setting_key, 'advanced' );
 				?>
 				<div class="elementor-accordion-item">
-					<<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>>
-						<?php if ( $has_icon ) : ?>
-							<span class="elementor-accordion-icon elementor-accordion-icon-<?php echo esc_attr( $settings['icon_align'] ); ?>" aria-hidden="true">
+					<<?php
+ echo $settings['title_html_tag']; ?> <?php
+ echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>>
+						<?php
+ if ( $has_icon ) : ?>
+							<span class="elementor-accordion-icon elementor-accordion-icon-<?php
+ echo esc_attr( $settings['icon_align'] ); ?>" aria-hidden="true">
 							<?php
+
 							if ( $is_new || $migrated ) { ?>
-								<span class="elementor-accordion-icon-closed"><?php Icons_Manager::render_icon( $settings['selected_icon'] ); ?></span>
-								<span class="elementor-accordion-icon-opened"><?php Icons_Manager::render_icon( $settings['selected_active_icon'] ); ?></span>
-							<?php } else { ?>
-								<i class="elementor-accordion-icon-closed <?php echo esc_attr( $settings['icon'] ); ?>"></i>
-								<i class="elementor-accordion-icon-opened <?php echo esc_attr( $settings['icon_active'] ); ?>"></i>
-							<?php } ?>
+								<span class="elementor-accordion-icon-closed"><?php
+ Icons_Manager::render_icon( $settings['selected_icon'] ); ?></span>
+								<span class="elementor-accordion-icon-opened"><?php
+ Icons_Manager::render_icon( $settings['selected_active_icon'] ); ?></span>
+							<?php
+ } else { ?>
+								<i class="elementor-accordion-icon-closed <?php
+ echo esc_attr( $settings['icon'] ); ?>"></i>
+								<i class="elementor-accordion-icon-opened <?php
+ echo esc_attr( $settings['icon_active'] ); ?>"></i>
+							<?php
+ } ?>
 							</span>
-						<?php endif; ?>
-						<a class="elementor-accordion-title" href=""><?php echo $item['tab_title']; ?></a>
-					</<?php echo $settings['title_html_tag']; ?>>
-					<div <?php echo $this->get_render_attribute_string( $tab_content_setting_key ); ?>><?php echo $this->parse_text_editor( $item['tab_content'] ); ?></div>
+						<?php
+ endif; ?>
+						<a class="elementor-accordion-title" href=""><?php
+ echo $item['tab_title']; ?></a>
+					</<?php
+ echo $settings['title_html_tag']; ?>>
+					<div <?php
+ echo $this->get_render_attribute_string( $tab_content_setting_key ); ?>><?php
+ echo $this->parse_text_editor( $item['tab_content'] ); ?></div>
 				</div>
-			<?php endforeach; ?>
+			<?php
+ endforeach; ?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -609,5 +629,6 @@ class Widget_Accordion extends Widget_Base {
 			} #>
 		</div>
 		<?php
+
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Theme editor administration panel.
  *
@@ -182,24 +183,34 @@ if ( $file_description !== $file_show ) {
 }
 ?>
 <div class="wrap">
-<h1><?php echo esc_html( $title ); ?></h1>
+<h1><?php
+ echo esc_html( $title ); ?></h1>
 
-<?php if ( isset( $_GET['a'] ) ) : ?>
+<?php
+ if ( isset( $_GET['a'] ) ) : ?>
 	<div id="message" class="updated notice is-dismissible">
-		<p><?php _e( 'File edited successfully.' ); ?></p>
+		<p><?php
+ _e( 'File edited successfully.' ); ?></p>
 	</div>
-<?php elseif ( is_wp_error( $edit_error ) ) : ?>
+<?php
+ elseif ( is_wp_error( $edit_error ) ) : ?>
 	<div id="message" class="notice notice-error">
-		<p><?php _e( 'There was an error while trying to update the file. You may need to fix something and try updating again.' ); ?></p>
-		<pre><?php echo esc_html( $edit_error->get_error_message() ? $edit_error->get_error_message() : $edit_error->get_error_code() ); ?></pre>
+		<p><?php
+ _e( 'There was an error while trying to update the file. You may need to fix something and try updating again.' ); ?></p>
+		<pre><?php
+ echo esc_html( $edit_error->get_error_message() ? $edit_error->get_error_message() : $edit_error->get_error_code() ); ?></pre>
 	</div>
-<?php endif; ?>
+<?php
+ endif; ?>
 
-<?php if ( preg_match( '/\.css$/', $file ) ) : ?>
+<?php
+ if ( preg_match( '/\.css$/', $file ) ) : ?>
 	<div id="message" class="notice-info notice">
-		<p><strong><?php _e( 'Did you know?' ); ?></strong></p>
+		<p><strong><?php
+ _e( 'Did you know?' ); ?></strong></p>
 		<p>
 			<?php
+
 			printf(
 				/* translators: %s: Link to Custom CSS section in the Customizer. */
 				__( 'There&#8217;s no need to change your CSS here &mdash; you can edit and live preview CSS changes in the <a href="%s">built-in CSS editor</a>.' ),
@@ -208,12 +219,14 @@ if ( $file_description !== $file_show ) {
 			?>
 		</p>
 	</div>
-<?php endif; ?>
+<?php
+ endif; ?>
 
 <div class="fileedit-sub">
 <div class="alignleft">
 <h2>
 	<?php
+
 	echo $theme->display( 'Name' );
 	if ( $description ) {
 		echo ': ' . $description;}
@@ -222,9 +235,11 @@ if ( $file_description !== $file_show ) {
 </div>
 <div class="alignright">
 	<form action="theme-editor.php" method="get">
-		<strong><label for="theme"><?php _e( 'Select theme to edit:' ); ?> </label></strong>
+		<strong><label for="theme"><?php
+ _e( 'Select theme to edit:' ); ?> </label></strong>
 		<select name="theme" id="theme">
 		<?php
+
 		foreach ( wp_get_themes( array( 'errors' => null ) ) as $a_stylesheet => $a_theme ) {
 			if ( $a_theme->errors() && 'theme_no_stylesheet' === $a_theme->errors()->get_error_code() ) {
 				continue;
@@ -235,24 +250,29 @@ if ( $file_description !== $file_show ) {
 		}
 		?>
 		</select>
-		<?php submit_button( __( 'Select' ), '', 'Submit', false ); ?>
+		<?php
+ submit_button( __( 'Select' ), '', 'Submit', false ); ?>
 	</form>
 </div>
 <br class="clear" />
 </div>
 
 <?php
+
 if ( $theme->errors() ) {
 	echo '<div class="error"><p><strong>' . __( 'This theme is broken.' ) . '</strong> ' . $theme->errors()->get_error_message() . '</p></div>';
 }
 ?>
 
 <div id="templateside">
-	<h2 id="theme-files-label"><?php _e( 'Theme Files' ); ?></h2>
+	<h2 id="theme-files-label"><?php
+ _e( 'Theme Files' ); ?></h2>
 	<ul role="tree" aria-labelledby="theme-files-label">
-		<?php if ( $theme->parent() ) : ?>
+		<?php
+ if ( $theme->parent() ) : ?>
 			<li class="howto">
 				<?php
+
 				printf(
 					/* translators: %s: Link to edit parent theme. */
 					__( 'This child theme inherits templates from a parent theme, %s.' ),
@@ -264,59 +284,84 @@ if ( $theme->errors() ) {
 				);
 				?>
 			</li>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 		<li role="treeitem" tabindex="-1" aria-expanded="true" aria-level="1" aria-posinset="1" aria-setsize="1">
 			<ul role="group">
-				<?php wp_print_theme_file_tree( wp_make_theme_file_tree( $allowed_files ) ); ?>
+				<?php
+ wp_print_theme_file_tree( wp_make_theme_file_tree( $allowed_files ) ); ?>
 			</ul>
 		</li>
 	</ul>
 </div>
 
 <?php
+
 if ( $error ) :
 	echo '<div class="error"><p>' . __( 'File does not exist! Please double check the name and try again.' ) . '</p></div>';
 else :
 	?>
 	<form name="template" id="template" action="theme-editor.php" method="post">
-		<?php wp_nonce_field( 'edit-theme_' . $stylesheet . '_' . $relative_file, 'nonce' ); ?>
+		<?php
+ wp_nonce_field( 'edit-theme_' . $stylesheet . '_' . $relative_file, 'nonce' ); ?>
 		<div>
-			<label for="newcontent" id="theme-plugin-editor-label"><?php _e( 'Selected file content:' ); ?></label>
-			<textarea cols="70" rows="30" name="newcontent" id="newcontent" aria-describedby="editor-keyboard-trap-help-1 editor-keyboard-trap-help-2 editor-keyboard-trap-help-3 editor-keyboard-trap-help-4"><?php echo $content; ?></textarea>
+			<label for="newcontent" id="theme-plugin-editor-label"><?php
+ _e( 'Selected file content:' ); ?></label>
+			<textarea cols="70" rows="30" name="newcontent" id="newcontent" aria-describedby="editor-keyboard-trap-help-1 editor-keyboard-trap-help-2 editor-keyboard-trap-help-3 editor-keyboard-trap-help-4"><?php
+ echo $content; ?></textarea>
 			<input type="hidden" name="action" value="update" />
-			<input type="hidden" name="file" value="<?php echo esc_attr( $relative_file ); ?>" />
-			<input type="hidden" name="theme" value="<?php echo esc_attr( $theme->get_stylesheet() ); ?>" />
+			<input type="hidden" name="file" value="<?php
+ echo esc_attr( $relative_file ); ?>" />
+			<input type="hidden" name="theme" value="<?php
+ echo esc_attr( $theme->get_stylesheet() ); ?>" />
 		</div>
 
-		<?php if ( ! empty( $functions ) ) : ?>
+		<?php
+ if ( ! empty( $functions ) ) : ?>
 			<div id="documentation" class="hide-if-no-js">
-				<label for="docs-list"><?php _e( 'Documentation:' ); ?></label>
-				<?php echo $docs_select; ?>
-				<input disabled id="docs-lookup" type="button" class="button" value="<?php esc_attr_e( 'Look Up' ); ?>" onclick="if ( '' != jQuery('#docs-list').val() ) { window.open( 'https://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=<?php echo urlencode( get_user_locale() ); ?>&amp;version=<?php echo urlencode( get_bloginfo( 'version' ) ); ?>&amp;redirect=true'); }" />
+				<label for="docs-list"><?php
+ _e( 'Documentation:' ); ?></label>
+				<?php
+ echo $docs_select; ?>
+				<input disabled id="docs-lookup" type="button" class="button" value="<?php
+ esc_attr_e( 'Look Up' ); ?>" onclick="if ( '' != jQuery('#docs-list').val() ) { window.open( 'https://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=<?php
+ echo urlencode( get_user_locale() ); ?>&amp;version=<?php
+ echo urlencode( get_bloginfo( 'version' ) ); ?>&amp;redirect=true'); }" />
 			</div>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 
 		<div>
 			<div class="editor-notices">
-				<?php if ( is_child_theme() && $theme->get_stylesheet() === get_template() ) : ?>
+				<?php
+ if ( is_child_theme() && $theme->get_stylesheet() === get_template() ) : ?>
 					<div class="notice notice-warning inline">
 						<p>
-							<?php if ( is_writeable( $file ) ) : ?>
-								<strong><?php _e( 'Caution:' ); ?></strong>
-							<?php endif; ?>
-							<?php _e( 'This is a file in your current parent theme.' ); ?>
+							<?php
+ if ( is_writeable( $file ) ) : ?>
+								<strong><?php
+ _e( 'Caution:' ); ?></strong>
+							<?php
+ endif; ?>
+							<?php
+ _e( 'This is a file in your current parent theme.' ); ?>
 						</p>
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 			</div>
-			<?php if ( is_writeable( $file ) ) : ?>
+			<?php
+ if ( is_writeable( $file ) ) : ?>
 				<p class="submit">
-					<?php submit_button( __( 'Update File' ), 'primary', 'submit', false ); ?>
+					<?php
+ submit_button( __( 'Update File' ), 'primary', 'submit', false ); ?>
 					<span class="spinner"></span>
 				</p>
-			<?php else : ?>
+			<?php
+ else : ?>
 				<p><em>
 					<?php
+
 					printf(
 						/* translators: %s: Documentation URL. */
 						__( 'You need to make this file writable before you can save your changes. See <a href="%s">Changing File Permissions</a> for more information.' ),
@@ -324,17 +369,21 @@ else :
 					);
 					?>
 				</em></p>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 		</div>
 
-		<?php wp_print_file_editor_templates(); ?>
+		<?php
+ wp_print_file_editor_templates(); ?>
 	</form>
 	<?php
+
 endif; // End if $error.
 ?>
 <br class="clear" />
 </div>
 <?php
+
 $dismissed_pointers = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
 if ( ! in_array( 'theme_editor_notice', $dismissed_pointers, true ) ) :
 	// Get a back URL.
@@ -353,13 +402,16 @@ if ( ! in_array( 'theme_editor_notice', $dismissed_pointers, true ) ) :
 		<div class="notification-dialog">
 			<div class="file-editor-warning-content">
 				<div class="file-editor-warning-message">
-					<h1><?php _e( 'Heads up!' ); ?></h1>
+					<h1><?php
+ _e( 'Heads up!' ); ?></h1>
 					<p>
 						<?php
+
 						_e( 'You appear to be making direct edits to your theme in the WordPress dashboard. We recommend that you don&#8217;t! Editing your theme directly could break your site and your changes may be lost in future updates.' );
 						?>
 					</p>
 						<?php
+
 						if ( ! $theme->parent() ) {
 							echo '<p>';
 							printf(
@@ -370,16 +422,21 @@ if ( ! in_array( 'theme_editor_notice', $dismissed_pointers, true ) ) :
 							echo '</p>';
 						}
 						?>
-					<p><?php _e( 'If you decide to go ahead with direct edits anyway, use a file manager to create a copy with a new name and hang on to the original. That way, you can re-enable a functional version if something goes wrong.' ); ?></p>
+					<p><?php
+ _e( 'If you decide to go ahead with direct edits anyway, use a file manager to create a copy with a new name and hang on to the original. That way, you can re-enable a functional version if something goes wrong.' ); ?></p>
 				</div>
 				<p>
-					<a class="button file-editor-warning-go-back" href="<?php echo esc_url( $return_url ); ?>"><?php _e( 'Go back' ); ?></a>
-					<button type="button" class="file-editor-warning-dismiss button button-primary"><?php _e( 'I understand' ); ?></button>
+					<a class="button file-editor-warning-go-back" href="<?php
+ echo esc_url( $return_url ); ?>"><?php
+ _e( 'Go back' ); ?></a>
+					<button type="button" class="file-editor-warning-dismiss button button-primary"><?php
+ _e( 'I understand' ); ?></button>
 				</p>
 			</div>
 		</div>
 	</div>
 	<?php
+
 endif; // Editor warning notice.
 
 require_once ABSPATH . 'wp-admin/admin-footer.php';

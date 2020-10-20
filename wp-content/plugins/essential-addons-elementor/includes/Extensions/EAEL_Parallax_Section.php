@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Extensions;
 
 if (!defined('ABSPATH')) {
@@ -256,9 +257,11 @@ class EAEL_Parallax_Section
 				(function($) {
                     "use strict";
 
-                    var target = $('.elementor-element-<?php echo $element->get_id(); ?>');
+                    var target = $('.elementor-element-<?php
+ echo $element->get_id(); ?>');
 
-                    <?php if ('automove' != $parallax && 'multi' != $parallax): ?>
+                    <?php
+ if ('automove' != $parallax && 'multi' != $parallax): ?>
 
                     var EaelParallaxElement = {
 
@@ -266,8 +269,10 @@ class EAEL_Parallax_Section
 							elementorFrontend.hooks.addAction('frontend/element_ready/global', EaelParallaxElement.initWidget);
 						},
                         responsiveParallax: function(){
-                            var android = <?php echo $android; ?>,
-                                ios = <?php echo $ios; ?>;
+                            var android = <?php
+ echo $android; ?>,
+                                ios = <?php
+ echo $ios; ?>;
                             switch( true || 1 ){
                                 case android && ios:
                                     return /iPad|iPhone|iPod|Android/;
@@ -285,8 +290,10 @@ class EAEL_Parallax_Section
 						initWidget: function( $scope ) {
 
 							target.jarallax({
-								type: '<?php echo $parallax; ?>',
-								speed: <?php echo $speed; ?>,
+								type: '<?php
+ echo $parallax; ?>',
+								speed: <?php
+ echo $speed; ?>,
 								keepImg: true,
                                 disableParallax: EaelParallaxElement.responsiveParallax(),
 							});
@@ -296,82 +303,107 @@ class EAEL_Parallax_Section
 
 					$( window ).on('elementor/frontend/init', EaelParallaxElement.init);
 
-                    <?php elseif ('multi' == $parallax): $counter = 0;?>
+                    <?php
+ elseif ('multi' == $parallax): $counter = 0;?>
                         target.addClass('eael-prallax-multi');
 
-                            <?php foreach ($repeater_list as $layer): $counter = $counter + 1;?>
-                                var backgroundImage = '<?php echo $layer['eael_parallax_layer_image']['url']; ?>',
-                                    mouseParallax   = ' data-parallax="' + <?php echo ($layer['eael_parallax_layer_mouse'] == 'yes') ? 'true' : 'false'; ?> +'" ',
-                                    mouseRate       = ' data-rate="' + <?php echo $layer['eael_parallax_layer_rate']; ?> + '" ';
+                            <?php
+ foreach ($repeater_list as $layer): $counter = $counter + 1;?>
+                                var backgroundImage = '<?php
+ echo $layer['eael_parallax_layer_image']['url']; ?>',
+                                    mouseParallax   = ' data-parallax="' + <?php
+ echo ($layer['eael_parallax_layer_mouse'] == 'yes') ? 'true' : 'false'; ?> +'" ',
+                                    mouseRate       = ' data-rate="' + <?php
+ echo $layer['eael_parallax_layer_rate']; ?> + '" ';
 
-                                $('<div id="eael-parallax-layer-<?php echo $element->get_id() . '-' . $counter; ?>"' + mouseParallax + mouseRate +' class="eael-parallax-layer"></div>').prependTo( target ).css({
-                                    'z-index'               : <?php echo !empty($layer['eael_parallax_layer_z_index']) ? $layer['eael_parallax_layer_z_index'] : 0; ?>,
+                                $('<div id="eael-parallax-layer-<?php
+ echo $element->get_id() . '-' . $counter; ?>"' + mouseParallax + mouseRate +' class="eael-parallax-layer"></div>').prependTo( target ).css({
+                                    'z-index'               : <?php
+ echo !empty($layer['eael_parallax_layer_z_index']) ? $layer['eael_parallax_layer_z_index'] : 0; ?>,
                                     'background-image'      : 'url(' + backgroundImage + ')',
-                                    'background-size'       : '<?php echo $layer['eael_parallax_layer_back_size']; ?>',
-                                    'background-position-x' : <?php echo !empty($layer['eael_parallax_layer_hor_pos']) ? $layer['eael_parallax_layer_hor_pos'] : 50; ?> + '%',
-                                    'background-position-y' : <?php echo !empty($layer['eael_parallax_layer_ver_pos']) ? $layer['eael_parallax_layer_ver_pos'] : 50; ?> + '%'
+                                    'background-size'       : '<?php
+ echo $layer['eael_parallax_layer_back_size']; ?>',
+                                    'background-position-x' : <?php
+ echo !empty($layer['eael_parallax_layer_hor_pos']) ? $layer['eael_parallax_layer_hor_pos'] : 50; ?> + '%',
+                                    'background-position-y' : <?php
+ echo !empty($layer['eael_parallax_layer_ver_pos']) ? $layer['eael_parallax_layer_ver_pos'] : 50; ?> + '%'
                                 });
-                            <?php endforeach;?>
+                            <?php
+ endforeach;?>
 
-                            if( $(window).outerWidth() > <?php echo esc_js(Responsive::get_breakpoints()['md']); ?> ) {
-                                    $('.elementor-element-<?php echo $element->get_id(); ?>').mousemove( function( e ) {
+                            if( $(window).outerWidth() > <?php
+ echo esc_js(Responsive::get_breakpoints()['md']); ?> ) {
+                                    $('.elementor-element-<?php
+ echo $element->get_id(); ?>').mousemove( function( e ) {
 
                                     $( this ).find('.eael-parallax-layer[data-parallax="true"]').each(function( index,element ){
                                         $( this ).parallax( $( this ).data('rate'), e );
                                     });
                                 });
                             }
-                        <?php else: ?>
+                        <?php
+ else: ?>
 
                         target.css('background-position','0px 0px');
 
-						<?php if (11 == $settings['eael_parallax_auto_type']): ?>
+						<?php
+ if (11 == $settings['eael_parallax_auto_type']): ?>
                             var position = parseInt( target.css('background-position-x') );
 
                             setInterval( function() {
-                                position = position + <?php echo $auto_speed; ?>;
+                                position = position + <?php
+ echo $auto_speed; ?>;
                                 target.css("backgroundPosition", position + "px 0");
                             },70 );
 
-                    	<?php elseif ('right' == $settings['eael_parallax_auto_type']): ?>
+                    	<?php
+ elseif ('right' == $settings['eael_parallax_auto_type']): ?>
 
                     	var position = parseInt( target.css('background-position-x') );
 
                             setInterval( function() {
 
-                                position = position - <?php echo $auto_speed; ?>;
+                                position = position - <?php
+ echo $auto_speed; ?>;
 
                                 target.css("backgroundPosition", position + "px 0");
 
                             },70 );
 
-                    	<?php elseif ('top' == $settings['eael_parallax_auto_type']): ?>
+                    	<?php
+ elseif ('top' == $settings['eael_parallax_auto_type']): ?>
 
                     	var position = parseInt(target.css('background-position-y'));
 
                             setInterval( function() {
 
-                                position = position + <?php echo $auto_speed; ?>;
+                                position = position + <?php
+ echo $auto_speed; ?>;
 
                                 target.css("backgroundPosition", "0 " + position + "px");
 
                             },70 );
 
-                    	<?php elseif ('bottom' == $settings['eael_parallax_auto_type']): ?>
+                    	<?php
+ elseif ('bottom' == $settings['eael_parallax_auto_type']): ?>
 
                     	var position = parseInt( target.css('background-position-y') );
 
                             setInterval( function() {
 
-                                position = position - <?php echo $auto_speed; ?>;
+                                position = position - <?php
+ echo $auto_speed; ?>;
                                 target.css("backgroundPosition", "0 " + position + "px");
 
                             },70 );
 
-                    	<?php endif;?>
-                    <?php endif;?>
+                    	<?php
+ endif;?>
+                    <?php
+ endif;?>
 				}( jQuery ) );
 			</script>
-		<?php }
+		<?php
+ }
     }
 }

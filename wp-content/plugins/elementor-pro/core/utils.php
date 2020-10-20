@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core;
 
 use ElementorPro\Plugin;
@@ -271,7 +272,8 @@ class Utils {
 			[
 				'file' => 'index.php',
 				'content' => [
-					'<?php',
+					'<?php
+',
 					'// Silence is golden.',
 				],
 			],

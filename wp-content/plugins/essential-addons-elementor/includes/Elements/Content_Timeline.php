@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -521,7 +522,6 @@ class Content_Timeline extends Widget_Base {
 			]
 		);
 
-
 		$this->add_control(
 			'eael_icon_circle_border_color',
 			[
@@ -535,7 +535,6 @@ class Content_Timeline extends Widget_Base {
 			]
 		);
 
-
 		$this->add_control(
 			'eael_icon_circle_font_color',
 			[
@@ -548,7 +547,6 @@ class Content_Timeline extends Widget_Base {
 
 			]
 		);
-
 
 		$this->add_control(
 			'eael_timeline_icon_active_state',
@@ -571,7 +569,6 @@ class Content_Timeline extends Widget_Base {
 
 			]
 		);
-
 
 		$this->add_control(
 			'eael_icon_circle_active_border_color',
@@ -598,7 +595,6 @@ class Content_Timeline extends Widget_Base {
 
 			]
 		);
-
 
 		$this->end_controls_section();
 
@@ -1135,7 +1131,6 @@ class Content_Timeline extends Widget_Base {
 
 	}
 
-
 	protected function render() {
 		$settings = $this->get_settings_for_display();
         $settings = $this->fix_old_query($settings);
@@ -1153,10 +1148,12 @@ class Content_Timeline extends Widget_Base {
 
         ?>
 
-		<div <?php echo $this->get_render_attribute_string('timeline-wrapper'); ?>>
+		<div <?php
+ echo $this->get_render_attribute_string('timeline-wrapper'); ?>>
 			<div class="eael-content-timeline-container">
 				<div class="eael-content-timeline-container">
-					<?php 
+					<?php
+ 
 						if( 'dynamic' === $settings['eael_content_timeline_choose'] ) :
 							$settings = [
 								'eael_show_image_or_icon'           => $settings['eael_show_image_or_icon'],
@@ -1173,8 +1170,10 @@ class Content_Timeline extends Widget_Base {
 							echo self::render_template_($args, $settings);
 						elseif( 'custom' === $settings['eael_content_timeline_choose'] ) : ?>
 
-						<?php foreach( $settings['eael_coustom_content_posts'] as $custom_content ) : ?>
+						<?php
+ foreach( $settings['eael_coustom_content_posts'] as $custom_content ) : ?>
 							<?php
+
 								$url = $custom_content['eael_read_more_text_link']['url'];
 								$target   = $custom_content['eael_read_more_text_link']['is_external'] ? 'target="_blank"' : '';
 								$nofollow = $custom_content['eael_read_more_text_link']['nofollow'] ? 'rel="nofollow"' : '';
@@ -1185,48 +1184,91 @@ class Content_Timeline extends Widget_Base {
 								<div class="eael-content-timeline-line">
 									<div class="eael-content-timeline-inner"></div>
 								</div>
-								<div class="eael-content-timeline-img eael-picture <?php if( 'bullet' === $settings['eael_show_image_or_icon'] ) : echo 'eael-content-timeline-bullet'; endif;?>">
-										<?php if( 'img' === $custom_content['eael_show_custom_image_or_icon'] ) : ?>
-											<img src="<?php echo esc_url( $custom_content['eael_custom_icon_image']['url'] ); ?>" style="width: <?php echo $custom_content['eael_custom_icon_image_size']; ?>px;" alt="<?php echo esc_attr(get_post_meta($custom_content['eael_custom_icon_image']['id'], '_wp_attachment_image_alt', true)); ?>">
-										<?php endif; ?>
-										<?php if( 'icon' === $custom_content['eael_show_custom_image_or_icon'] ) : ?>
-											<?php if ($icon_migrated || $icon_is_new) { ?>
-												<?php if ( isset($custom_content['eael_custom_content_timeline_circle_icon_new']['value']['url']) ) : ?>
-													<img class="content-timeline-bullet-svg" src="<?php echo esc_attr( $custom_content['eael_custom_content_timeline_circle_icon_new']['value']['url'] ); ?>" alt="<?php echo esc_attr(get_post_meta($custom_content['eael_custom_content_timeline_circle_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
-												<?php else : ?>
-													<i class="<?php echo esc_attr( $custom_content['eael_custom_content_timeline_circle_icon_new']['value'] ); ?>"></i>
-												<?php endif; ?>
-											<?php } else { ?>
-												<i class="<?php echo esc_attr( $custom_content['eael_custom_content_timeline_circle_icon'] ); ?>"></i>
-											<?php } ?>
-										<?php endif; ?>
+								<div class="eael-content-timeline-img eael-picture <?php
+ if( 'bullet' === $settings['eael_show_image_or_icon'] ) : echo 'eael-content-timeline-bullet'; endif;?>">
+										<?php
+ if( 'img' === $custom_content['eael_show_custom_image_or_icon'] ) : ?>
+											<img src="<?php
+ echo esc_url( $custom_content['eael_custom_icon_image']['url'] ); ?>" style="width: <?php
+ echo $custom_content['eael_custom_icon_image_size']; ?>px;" alt="<?php
+ echo esc_attr(get_post_meta($custom_content['eael_custom_icon_image']['id'], '_wp_attachment_image_alt', true)); ?>">
+										<?php
+ endif; ?>
+										<?php
+ if( 'icon' === $custom_content['eael_show_custom_image_or_icon'] ) : ?>
+											<?php
+ if ($icon_migrated || $icon_is_new) { ?>
+												<?php
+ if ( isset($custom_content['eael_custom_content_timeline_circle_icon_new']['value']['url']) ) : ?>
+													<img class="content-timeline-bullet-svg" src="<?php
+ echo esc_attr( $custom_content['eael_custom_content_timeline_circle_icon_new']['value']['url'] ); ?>" alt="<?php
+ echo esc_attr(get_post_meta($custom_content['eael_custom_content_timeline_circle_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
+												<?php
+ else : ?>
+													<i class="<?php
+ echo esc_attr( $custom_content['eael_custom_content_timeline_circle_icon_new']['value'] ); ?>"></i>
+												<?php
+ endif; ?>
+											<?php
+ } else { ?>
+												<i class="<?php
+ echo esc_attr( $custom_content['eael_custom_content_timeline_circle_icon'] ); ?>"></i>
+											<?php
+ } ?>
+										<?php
+ endif; ?>
 									</div>
 
 								<div class="eael-content-timeline-content">
-									<?php if( 'yes' == $settings['eael_show_title'] ) : ?>
+									<?php
+ if( 'yes' == $settings['eael_show_title'] ) : ?>
 										<h2>
-											<?php if( !empty($url) ) : ?><a href="<?php echo esc_url($url); ?> <?php echo $target; ?> <?php echo $nofollow; ?>"><?php endif; ?>
-												<?php echo $custom_content['eael_custom_title']; ?>
-											<?php if( !empty($url) ) : ?></a><?php endif; ?>
+											<?php
+ if( !empty($url) ) : ?><a href="<?php
+ echo esc_url($url); ?> <?php
+ echo $target; ?> <?php
+ echo $nofollow; ?>"><?php
+ endif; ?>
+												<?php
+ echo $custom_content['eael_custom_title']; ?>
+											<?php
+ if( !empty($url) ) : ?></a><?php
+ endif; ?>
 										</h2>
-									<?php endif; ?>
-									<?php if( 'yes' == $settings['eael_show_excerpt'] ) : ?>
-										<p><?php echo wp_kses_post($custom_content['eael_custom_excerpt']); ?></p>
-									<?php endif; ?>
-									<?php if( '1' == $custom_content['eael_show_custom_read_more'] && !empty( $custom_content['eael_show_custom_read_more_text'] ) ) : ?>
-										<a href="<?php echo esc_url( $custom_content['eael_read_more_text_link']['url'] ); ?>" class="eael-read-more" <?php echo $target; ?> <?php echo $nofollow; ?> ><?php echo esc_html__( $custom_content['eael_show_custom_read_more_text'], 'essential-addons-elementor' ); ?></a>
-									<?php endif; ?>
-									<?php if( !empty( $custom_content['eael_custom_post_date'] ) ) : ?>
-										<span class="eael-date"><?php echo $custom_content['eael_custom_post_date']; ?></span>
-									<?php endif; ?>
+									<?php
+ endif; ?>
+									<?php
+ if( 'yes' == $settings['eael_show_excerpt'] ) : ?>
+										<p><?php
+ echo wp_kses_post($custom_content['eael_custom_excerpt']); ?></p>
+									<?php
+ endif; ?>
+									<?php
+ if( '1' == $custom_content['eael_show_custom_read_more'] && !empty( $custom_content['eael_show_custom_read_more_text'] ) ) : ?>
+										<a href="<?php
+ echo esc_url( $custom_content['eael_read_more_text_link']['url'] ); ?>" class="eael-read-more" <?php
+ echo $target; ?> <?php
+ echo $nofollow; ?> ><?php
+ echo esc_html__( $custom_content['eael_show_custom_read_more_text'], 'essential-addons-elementor' ); ?></a>
+									<?php
+ endif; ?>
+									<?php
+ if( !empty( $custom_content['eael_custom_post_date'] ) ) : ?>
+										<span class="eael-date"><?php
+ echo $custom_content['eael_custom_post_date']; ?></span>
+									<?php
+ endif; ?>
 								</div>
 							</div>
-						<?php endforeach; ?>
-					<?php endif; ?>
+						<?php
+ endforeach; ?>
+					<?php
+ endif; ?>
 				</div>
 			</div>
 		</div>
 
         <?php
+
 	}
 }

@@ -318,8 +318,6 @@ class Fancy_Text extends Widget_Base {
 
 		$this->end_controls_section();
 
-
-
 		$this->start_controls_section(
 			'eael_fancy_text_strings_styles',
 			[
@@ -398,8 +396,6 @@ class Fancy_Text extends Widget_Base {
 			]
 		);
 
-
-
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
@@ -428,8 +424,6 @@ class Fancy_Text extends Widget_Base {
 
 
 		$this->end_controls_section();
-
-
 
 		$this->start_controls_section(
 			'eael_fancy_text_suffix_styles',
@@ -492,17 +486,26 @@ class Fancy_Text extends Widget_Base {
 		$this->add_render_attribute( 'fancy-text', 'data-fancy-text-loop', $settings['eael_fancy_text_loop'] );
 	?>
 
-	<div  <?php echo $this->get_render_attribute_string( 'fancy-text' ); ?> >
-		<?php if ( ! empty( $settings['eael_fancy_text_prefix'] ) ) : ?>
-			<span class="eael-fancy-text-prefix"><?php echo wp_kses_post($settings['eael_fancy_text_prefix']); ?> </span>
-		<?php endif; ?>
+	<div  <?php
+ echo $this->get_render_attribute_string( 'fancy-text' ); ?> >
+		<?php
+ if ( ! empty( $settings['eael_fancy_text_prefix'] ) ) : ?>
+			<span class="eael-fancy-text-prefix"><?php
+ echo wp_kses_post($settings['eael_fancy_text_prefix']); ?> </span>
+		<?php
+ endif; ?>
 
-		<?php if ( $settings['eael_fancy_text_transition_type']  == 'fancy' ) : ?>
-			<span id="eael-fancy-text-<?php echo esc_attr($this->get_id()); ?>" class="eael-fancy-text-strings"></span>
-		<?php endif; ?>
+		<?php
+ if ( $settings['eael_fancy_text_transition_type']  == 'fancy' ) : ?>
+			<span id="eael-fancy-text-<?php
+ echo esc_attr($this->get_id()); ?>" class="eael-fancy-text-strings"></span>
+		<?php
+ endif; ?>
 
-		<?php if ( $settings['eael_fancy_text_transition_type']  != 'fancy' ) : ?>
-			<span id="eael-fancy-text-<?php echo esc_attr($this->get_id()); ?>" class="eael-fancy-text-strings">
+		<?php
+ if ( $settings['eael_fancy_text_transition_type']  != 'fancy' ) : ?>
+			<span id="eael-fancy-text-<?php
+ echo esc_attr($this->get_id()); ?>" class="eael-fancy-text-strings">
 				<noscript>
 					<?php
 						$eael_fancy_text_strings_list = "";
@@ -513,11 +516,15 @@ class Fancy_Text extends Widget_Base {
 					?>
 				</noscript>
 			</span>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 
-		<?php if ( ! empty( $settings['eael_fancy_text_suffix'] ) ) : ?>
-			<span class="eael-fancy-text-suffix"> <?php echo wp_kses_post($settings['eael_fancy_text_suffix']); ?></span>
-		<?php endif; ?>
+		<?php
+ if ( ! empty( $settings['eael_fancy_text_suffix'] ) ) : ?>
+			<span class="eael-fancy-text-suffix"> <?php
+ echo wp_kses_post($settings['eael_fancy_text_suffix']); ?></span>
+		<?php
+ endif; ?>
 	</div><!-- close .eael-fancy-text-container -->
 
 	<div class="clearfix"></div>

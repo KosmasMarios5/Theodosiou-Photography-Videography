@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Blocks API: WP_Block_Styles_Registry class
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class for a set of entries for translation and their associated headers
  *

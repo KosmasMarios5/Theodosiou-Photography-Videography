@@ -1,17 +1,16 @@
 
 #navbar {
-  top: 0px;
-
+  top: 0;
   position: fixed;
   z-index: 999;
   padding-top: 70px;
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 .burger {
   width: 30px;
   display: block !important;
-  margin: 0em 0 0 0em;
+  margin: 0 0 0 0;
 
   &__slash {
     height: 1px;
@@ -52,10 +51,15 @@
 .menubar {
   position: absolute;
   z-index: 1;
-  background: white;
 
   ul {
-    padding: 2px 8px;
+    //padding: 2px 8px;
+    padding: 0 8px;
+    margin-bottom: 2px;
+  }
+
+  .menu {
+    background: white;
   }
 
   li {
@@ -81,7 +85,7 @@
 
   &__wrapper {
     color: #4c4c4c;
-    padding: 0px 25px;
+    padding: 0 25px;
     display: block;
   }
 
@@ -97,7 +101,7 @@
     }
 
     > ul {
-      max-height: 0px;
+      max-height: 0;
       overflow: hidden;
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Notices admin class.  
  *
@@ -77,7 +78,6 @@ final class ExactMetrics_Notice_Admin {
 
     }
 
-
     /**
      * Marks a notice as not dismissed
      *
@@ -126,7 +126,6 @@ final class ExactMetrics_Notice_Admin {
          * );
          */
 
-
         // Check if the notice is dismissible, and if so has been dismissed.
         if ( $is_dismissible && $this->is_dismissed( $name ) ) {
             // Nothing to show here, return!
@@ -138,28 +137,39 @@ final class ExactMetrics_Notice_Admin {
         // Display inline notice
         ob_start();
         ?>
-        <div class="exactmetrics-notice <?php echo 'exactmetrics-' . esc_attr( $type ) . '-notice' . $dismissible; ?>" data-notice="<?php echo esc_attr( $name ); ?>">
-            <div class="exactmetrics-notice-icon <?php echo 'exactmetrics-' . esc_attr( $type ) . '-notice-icon'?>">
+        <div class="exactmetrics-notice <?php
+ echo 'exactmetrics-' . esc_attr( $type ) . '-notice' . $dismissible; ?>" data-notice="<?php
+ echo esc_attr( $name ); ?>">
+            <div class="exactmetrics-notice-icon <?php
+ echo 'exactmetrics-' . esc_attr( $type ) . '-notice-icon'?>">
             </div>
-            <div class="exactmetrics-notice-text <?php echo 'exactmetrics-' . esc_attr( $type ) . '-notice-text'?>">
+            <div class="exactmetrics-notice-text <?php
+ echo 'exactmetrics-' . esc_attr( $type ) . '-notice-text'?>">
                 <?php
+
                 // Title
                 if ( ! empty ( $title ) ) {
                     ?>
-                    <p class="exactmetrics-notice-title"><?php echo esc_html( $title ); ?></p>
+                    <p class="exactmetrics-notice-title"><?php
+ echo esc_html( $title ); ?></p>
                     <?php
+
                 }
 
                 // Message
                 if ( ! empty( $message ) ) {
                     if ( empty( $args['skip_message_escape'] ) ) {
                         ?>
-                        <p class="exactmetrics-notice-message"><?php echo esc_html( $message ); ?></p>
+                        <p class="exactmetrics-notice-message"><?php
+ echo esc_html( $message ); ?></p>
                         <?php
+
                     } else {
                         ?>
-                        <p class="exactmetrics-notice-message"><?php echo $message; ?></p>
+                        <p class="exactmetrics-notice-message"><?php
+ echo $message; ?></p>
                         <?php
+
                     }
                 }
                 
@@ -186,8 +196,13 @@ final class ExactMetrics_Notice_Admin {
                         $class = ' class="'. $args['primary']['class'] . '"';
                     }
                     ?>
-                    <a href="<?php echo esc_attr( $url ); ?>"<?php echo $target; ?><?php echo $class;?>><?php echo esc_html( $text ); ?></a>
+                    <a href="<?php
+ echo esc_attr( $url ); ?>"<?php
+ echo $target; ?><?php
+ echo $class;?>><?php
+ echo esc_html( $text ); ?></a>
                     <?php
+
                 }
 
                 // Secondary Button
@@ -213,24 +228,33 @@ final class ExactMetrics_Notice_Admin {
                         $class = ' class="'. $args['secondary']['class'] . '"';
                     }
                     ?>
-                    <a href="<?php echo esc_attr( $url ); ?>"<?php echo $target; ?><?php echo $class;?>><?php echo esc_html( $text ); ?></a>
+                    <a href="<?php
+ echo esc_attr( $url ); ?>"<?php
+ echo $target; ?><?php
+ echo $class;?>><?php
+ echo esc_html( $text ); ?></a>
                     <?php
+
                 }
 
                 // Dismiss Button
                 if ( $is_dismissible ) {
                     ?>
-                    <button type="button" class="notice-dismiss<?php echo $dismissible; ?>">
+                    <button type="button" class="notice-dismiss<?php
+ echo $dismissible; ?>">
                         <span class="screen-reader-text">
-                            <?php esc_html_e( 'Dismiss this notice', 'google-analytics-dashboard-for-wp' ); ?>
+                            <?php
+ esc_html_e( 'Dismiss this notice', 'google-analytics-dashboard-for-wp' ); ?>
                         </span>
                     </button>
                     <?php
+
                 }
                 ?>
             </div>
         </div>
         <?php
+
         return ob_get_clean();
     }
 }

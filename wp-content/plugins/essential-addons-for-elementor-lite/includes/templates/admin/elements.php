@@ -511,16 +511,22 @@ $elements = apply_filters( 'add_eael_elementor_addons', $elements );
     <div class="row">
         <div class="col-full">
             <div class="elements-global-control-wrap">
-                <h4><?php _e('Global Control') ?></h4>
-                <p><?php _e('Use the Buttons to Activate or Deactivate all the Elements of Essential Addons at once.') ?></p>
+                <h4><?php
+ _e('Global Control') ?></h4>
+                <p><?php
+ _e('Use the Buttons to Activate or Deactivate all the Elements of Essential Addons at once.') ?></p>
 
                 <div class="eael-btn-group">
-                    <button type="button" class="eael-btn eael-global-control-enable"><?php _e('Enable All') ?></button>
-                    <button type="button" class="eael-btn eael-global-control-disable"><?php _e('Disable All') ?></button>
+                    <button type="button" class="eael-btn eael-global-control-enable"><?php
+ _e('Enable All') ?></button>
+                    <button type="button" class="eael-btn eael-global-control-disable"><?php
+ _e('Disable All') ?></button>
                 </div>
             </div>
-            <?php foreach($elements as $element) : ?>
-                <?php echo !empty($element['title']) ? '<h4>'.$element['title'].'</h4>' : ''; ?>
+            <?php
+ foreach($elements as $element) : ?>
+                <?php
+ echo !empty($element['title']) ? '<h4>'.$element['title'].'</h4>' : ''; ?>
 
                 <div class="eael-checkbox-container">
                     <?php
@@ -529,11 +535,14 @@ $elements = apply_filters( 'add_eael_elementor_addons', $elements );
                             $label_class = isset($item['is_pro']) && !$this->pro_enabled ? 'eael-get-pro' : '';
                             $class = isset($item['class']) ? ' '.$item['class'] : '';
                         ?>
-                        <div class="eael-checkbox<?php echo $class; ?>">
+                        <div class="eael-checkbox<?php
+ echo $class; ?>">
                             <div class="eael-elements-info">
                                 <p class="eael-el-title">
-                                    <?php _e( $item['title'], 'essential-addons-for-elementor-lite') ?>
-                                    <?php echo isset( $item['is_pro'] ) && !$this->pro_enabled ? '<sup class="pro-label">'.__('Pro', 'essential-addons-for-elementor-lite').'</sup>' : ''; ?>
+                                    <?php
+ _e( $item['title'], 'essential-addons-for-elementor-lite') ?>
+                                    <?php
+ echo isset( $item['is_pro'] ) && !$this->pro_enabled ? '<sup class="pro-label">'.__('Pro', 'essential-addons-for-elementor-lite').'</sup>' : ''; ?>
                                     <?php
                                         if ($item['key'] === 'mailchimp' && $this->pro_enabled) {
                                             echo '<span style="font-size: 12px; font-style:italic;"><a href="#" class="eael-admin-settings-popup" data-title="Mailchimp API Key" data-placeholder="Set API Key" data-target="#mailchimp-api">'.__('Settings', 'essential-addons-for-elementor-lite').'</a></span>
@@ -558,29 +567,51 @@ $elements = apply_filters( 'add_eael_elementor_addons', $elements );
                                             $eael_fb_app_secret = get_option('eael_fb_app_secret');
                                             echo '<span style="font-size: 12px; font-style:italic;"><a href="#" class="eael-admin-settings-popup-extended" id="eael-admin-settings-popup-extended" data-settings-id="lr_settings_data">'.__('Settings', 'essential-addons-for-elementor-lite').'</a></span>';
                                             ?>
-                                <span class="eael-lr-settings-data" id="lr_settings_data" style="display: none" data-pro-enabled="<?php echo $this->pro_enabled ?>" data-r-sitekey="<?php echo esc_attr($eael_recaptcha_sitekey);?>" data-r-secret="<?php echo esc_attr($eael_recaptcha_secret);?>"  data-g-client-id="<?php echo esc_attr($eael_g_client_id);?>" data-fb-app-id="<?php echo esc_attr($eael_fb_app_id);?>" data-fb-app-secret="<?php echo esc_attr($eael_fb_app_secret);?>" >
+                                <span class="eael-lr-settings-data" id="lr_settings_data" style="display: none" data-pro-enabled="<?php
+ echo $this->pro_enabled ?>" data-r-sitekey="<?php
+ echo esc_attr($eael_recaptcha_sitekey);?>" data-r-secret="<?php
+ echo esc_attr($eael_recaptcha_secret);?>"  data-g-client-id="<?php
+ echo esc_attr($eael_g_client_id);?>" data-fb-app-id="<?php
+ echo esc_attr($eael_fb_app_id);?>" data-fb-app-secret="<?php
+ echo esc_attr($eael_fb_app_secret);?>" >
                                 </span>
-                                    <?php } ?>
+                                    <?php
+ } ?>
                                 </p>
-                                <?php if (!empty( $item['demo_link'])) { ?>
-                                <a  class="eael-element-info-link" href="<?php echo esc_attr( esc_url( $item['demo_link'] ) );?>" target="_blank">
+                                <?php
+ if (!empty( $item['demo_link'])) { ?>
+                                <a  class="eael-element-info-link" href="<?php
+ echo esc_attr( esc_url( $item['demo_link'] ) );?>" target="_blank">
                                     <span class="ea-view-demo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M 5 4 C 3.895 4 3 4.895 3 6 L 3 20 C 3 21.105 3.895 22 5 22 L 12.75 22 L 12.25 24 L 11 24 A 1.0001 1.0001 0 1 0 11 26 L 19 26 A 1.0001 1.0001 0 1 0 19 24 L 17.75 24 L 17.25 22 L 25 22 C 26.105 22 27 21.105 27 20 L 27 6 C 27 4.895 26.105 4 25 4 L 5 4 z M 5 6 L 25 6 L 25 18 L 5 18 L 5 6 z M 15 19 C 15.552 19 16 19.448 16 20 C 16 20.552 15.552 21 15 21 C 14.448 21 14 20.552 14 20 C 14 19.448 14.448 19 15 19 z"></path></svg></span>
-                                    <span class="eael-info-tooltip"><?php esc_html_e('Demo', 'essential-addons-elementor'); ?></span>
+                                    <span class="eael-info-tooltip"><?php
+ esc_html_e('Demo', 'essential-addons-elementor'); ?></span>
                                 </a>
-	                            <?php } ?>
-	                            <?php if (!empty( $item['doc_link'])) { ?>
-                                <a class="eael-element-info-link" href="<?php echo esc_attr( esc_url( $item['doc_link'] ) );?>" target="_blank">
+	                            <?php
+ } ?>
+	                            <?php
+ if (!empty( $item['doc_link'])) { ?>
+                                <a class="eael-element-info-link" href="<?php
+ echo esc_attr( esc_url( $item['doc_link'] ) );?>" target="_blank">
                                     <span class="ea-get-help"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 12 6 C 9.79 6 8 7.79 8 10 L 10 10 C 10 8.9 10.9 8 12 8 C 13.1 8 14 8.9 14 10 C 14 12 11 12.367 11 15 L 13 15 C 13 13.349 16 12.5 16 10 C 16 7.79 14.21 6 12 6 z M 11 16 L 11 18 L 13 18 L 13 16 L 11 16 z"></path></svg></span>
-                                    <span class="eael-info-tooltip"><?php esc_html_e('Documentation', 'essential-addons-elementor'); ?></span>
+                                    <span class="eael-info-tooltip"><?php
+ esc_html_e('Documentation', 'essential-addons-elementor'); ?></span>
                                 </a>
-	                            <?php } ?>
+	                            <?php
+ } ?>
                             </div>
-                            <input type="checkbox" id="<?php echo esc_attr($item['key']); ?>" name="<?php echo esc_attr($item['key']); ?>" <?php echo esc_html( $status ); ?>>
-                            <label for="<?php echo esc_attr($item['key']); ?>" class="<?php echo esc_attr( $label_class ); ?>"></label>
+                            <input type="checkbox" id="<?php
+ echo esc_attr($item['key']); ?>" name="<?php
+ echo esc_attr($item['key']); ?>" <?php
+ echo esc_html( $status ); ?>>
+                            <label for="<?php
+ echo esc_attr($item['key']); ?>" class="<?php
+ echo esc_attr( $label_class ); ?>"></label>
                         </div>
-                    <?php } ?>
+                    <?php
+ } ?>
                 </div>
-            <?php endforeach; ?>
+            <?php
+ endforeach; ?>
 
             <!-- hidden input -->
             <input type="hidden" name="embedpress" value="on">
@@ -588,7 +619,8 @@ $elements = apply_filters( 'add_eael_elementor_addons', $elements );
             <input type="hidden" name="career-page" value="on">
 
             <div class="eael-save-btn-wrap">
-                <button type="submit" class="button eael-btn js-eael-settings-save"><?php esc_html_e('Save settings', 'essential-addons-for-elementor-lite'); ?></button>
+                <button type="submit" class="button eael-btn js-eael-settings-save"><?php
+ esc_html_e('Save settings', 'essential-addons-for-elementor-lite'); ?></button>
             </div>
         </div>
     </div>

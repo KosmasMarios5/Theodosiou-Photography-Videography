@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Background_Position_Control class
  *
@@ -90,22 +91,31 @@ class WP_Customize_Background_Position_Control extends WP_Customize_Control {
 		<# } #>
 		<div class="customize-control-content">
 			<fieldset>
-				<legend class="screen-reader-text"><span><?php _e( 'Image Position' ); ?></span></legend>
+				<legend class="screen-reader-text"><span><?php
+ _e( 'Image Position' ); ?></span></legend>
 				<div class="background-position-control">
-				<?php foreach ( $options as $group ) : ?>
+				<?php
+ foreach ( $options as $group ) : ?>
 					<div class="button-group">
-					<?php foreach ( $group as $value => $input ) : ?>
+					<?php
+ foreach ( $group as $value => $input ) : ?>
 						<label>
-							<input class="screen-reader-text" name="background-position" type="radio" value="<?php echo esc_attr( $value ); ?>">
-							<span class="button display-options position"><span class="<?php echo esc_attr( $input['icon'] ); ?>" aria-hidden="true"></span></span>
-							<span class="screen-reader-text"><?php echo $input['label']; ?></span>
+							<input class="screen-reader-text" name="background-position" type="radio" value="<?php
+ echo esc_attr( $value ); ?>">
+							<span class="button display-options position"><span class="<?php
+ echo esc_attr( $input['icon'] ); ?>" aria-hidden="true"></span></span>
+							<span class="screen-reader-text"><?php
+ echo $input['label']; ?></span>
 						</label>
-					<?php endforeach; ?>
+					<?php
+ endforeach; ?>
 					</div>
-				<?php endforeach; ?>
+				<?php
+ endforeach; ?>
 				</div>
 			</fieldset>
 		</div>
 		<?php
+
 	}
 }

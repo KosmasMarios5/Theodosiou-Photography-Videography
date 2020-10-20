@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Customize Panel classes
  *
@@ -322,13 +323,18 @@ class WP_Customize_Panel {
 	 */
 	public function print_template() {
 		?>
-		<script type="text/html" id="tmpl-customize-panel-<?php echo esc_attr( $this->type ); ?>-content">
-			<?php $this->content_template(); ?>
+		<script type="text/html" id="tmpl-customize-panel-<?php
+ echo esc_attr( $this->type ); ?>-content">
+			<?php
+ $this->content_template(); ?>
 		</script>
-		<script type="text/html" id="tmpl-customize-panel-<?php echo esc_attr( $this->type ); ?>">
-			<?php $this->render_template(); ?>
+		<script type="text/html" id="tmpl-customize-panel-<?php
+ echo esc_attr( $this->type ); ?>">
+			<?php
+ $this->render_template(); ?>
 		</script>
 		<?php
+
 	}
 
 	/**
@@ -346,11 +352,13 @@ class WP_Customize_Panel {
 		<li id="accordion-panel-{{ data.id }}" class="accordion-section control-section control-panel control-panel-{{ data.type }}">
 			<h3 class="accordion-section-title" tabindex="0">
 				{{ data.title }}
-				<span class="screen-reader-text"><?php _e( 'Press return or enter to open this panel' ); ?></span>
+				<span class="screen-reader-text"><?php
+ _e( 'Press return or enter to open this panel' ); ?></span>
 			</h3>
 			<ul class="accordion-sub-container control-panel-content"></ul>
 		</li>
 		<?php
+
 	}
 
 	/**
@@ -366,16 +374,19 @@ class WP_Customize_Panel {
 	protected function content_template() {
 		?>
 		<li class="panel-meta customize-info accordion-section <# if ( ! data.description ) { #> cannot-expand<# } #>">
-			<button class="customize-panel-back" tabindex="-1"><span class="screen-reader-text"><?php _e( 'Back' ); ?></span></button>
+			<button class="customize-panel-back" tabindex="-1"><span class="screen-reader-text"><?php
+ _e( 'Back' ); ?></span></button>
 			<div class="accordion-section-title">
 				<span class="preview-notice">
 				<?php
+
 					/* translators: %s: The site/panel title in the Customizer. */
 					printf( __( 'You are customizing %s' ), '<strong class="panel-title">{{ data.title }}</strong>' );
 				?>
 				</span>
 				<# if ( data.description ) { #>
-					<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+					<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php
+ _e( 'Help' ); ?></span></button>
 				<# } #>
 			</div>
 			<# if ( data.description ) { #>
@@ -387,6 +398,7 @@ class WP_Customize_Panel {
 			<div class="customize-control-notifications-container"></div>
 		</li>
 		<?php
+
 	}
 }
 

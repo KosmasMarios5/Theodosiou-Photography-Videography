@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite Administration hooks
  *

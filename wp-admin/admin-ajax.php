@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Ajax Process Execution
  *

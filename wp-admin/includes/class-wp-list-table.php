@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Administration API: WP_List_Table class
  *
@@ -364,11 +365,17 @@ class WP_List_Table {
 		}
 		?>
 <p class="search-box">
-	<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo $text; ?>:</label>
-	<input type="search" id="<?php echo esc_attr( $input_id ); ?>" name="s" value="<?php _admin_search_query(); ?>" />
-		<?php submit_button( $text, '', '', false, array( 'id' => 'search-submit' ) ); ?>
+	<label class="screen-reader-text" for="<?php
+ echo esc_attr( $input_id ); ?>"><?php
+ echo $text; ?>:</label>
+	<input type="search" id="<?php
+ echo esc_attr( $input_id ); ?>" name="s" value="<?php
+ _admin_search_query(); ?>" />
+		<?php
+ submit_button( $text, '', '', false, array( 'id' => 'search-submit' ) ); ?>
 </p>
 		<?php
+
 	}
 
 	/**
@@ -608,10 +615,14 @@ class WP_List_Table {
 
 		$m = isset( $_GET['m'] ) ? (int) $_GET['m'] : 0;
 		?>
-		<label for="filter-by-date" class="screen-reader-text"><?php _e( 'Filter by date' ); ?></label>
+		<label for="filter-by-date" class="screen-reader-text"><?php
+ _e( 'Filter by date' ); ?></label>
 		<select name="m" id="filter-by-date">
-			<option<?php selected( $m, 0 ); ?> value="0"><?php _e( 'All dates' ); ?></option>
+			<option<?php
+ selected( $m, 0 ); ?> value="0"><?php
+ _e( 'All dates' ); ?></option>
 		<?php
+
 		foreach ( $months as $arc_row ) {
 			if ( 0 == $arc_row->year ) {
 				continue;
@@ -631,6 +642,7 @@ class WP_List_Table {
 		?>
 		</select>
 		<?php
+
 	}
 
 	/**
@@ -642,9 +654,11 @@ class WP_List_Table {
 	 */
 	protected function view_switcher( $current_mode ) {
 		?>
-		<input type="hidden" name="mode" value="<?php echo esc_attr( $current_mode ); ?>" />
+		<input type="hidden" name="mode" value="<?php
+ echo esc_attr( $current_mode ); ?>" />
 		<div class="view-switch">
 		<?php
+
 		foreach ( $this->modes as $mode => $title ) {
 			$classes      = array( 'view-' . $mode );
 			$aria_current = '';
@@ -664,6 +678,7 @@ class WP_List_Table {
 		?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -1232,31 +1247,37 @@ class WP_List_Table {
 
 		$this->screen->render_screen_reader_content( 'heading_list' );
 		?>
-<table class="wp-list-table <?php echo implode( ' ', $this->get_table_classes() ); ?>">
+<table class="wp-list-table <?php
+ echo implode( ' ', $this->get_table_classes() ); ?>">
 	<thead>
 	<tr>
-		<?php $this->print_column_headers(); ?>
+		<?php
+ $this->print_column_headers(); ?>
 	</tr>
 	</thead>
 
 	<tbody id="the-list"
 		<?php
+
 		if ( $singular ) {
 			echo " data-wp-lists='list:$singular'";
 		}
 		?>
 		>
-		<?php $this->display_rows_or_placeholder(); ?>
+		<?php
+ $this->display_rows_or_placeholder(); ?>
 	</tbody>
 
 	<tfoot>
 	<tr>
-		<?php $this->print_column_headers( false ); ?>
+		<?php
+ $this->print_column_headers( false ); ?>
 	</tr>
 	</tfoot>
 
 </table>
 		<?php
+
 		$this->display_tablenav( 'bottom' );
 	}
 
@@ -1286,13 +1307,17 @@ class WP_List_Table {
 			wp_nonce_field( 'bulk-' . $this->_args['plural'] );
 		}
 		?>
-	<div class="tablenav <?php echo esc_attr( $which ); ?>">
+	<div class="tablenav <?php
+ echo esc_attr( $which ); ?>">
 
-		<?php if ( $this->has_items() ) : ?>
+		<?php
+ if ( $this->has_items() ) : ?>
 		<div class="alignleft actions bulkactions">
-			<?php $this->bulk_actions( $which ); ?>
+			<?php
+ $this->bulk_actions( $which ); ?>
 		</div>
 			<?php
+
 		endif;
 		$this->extra_tablenav( $which );
 		$this->pagination( $which );
@@ -1301,6 +1326,7 @@ class WP_List_Table {
 		<br class="clear" />
 	</div>
 		<?php
+
 	}
 
 	/**

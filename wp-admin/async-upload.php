@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Server-side file upload handler from wp-plupload or other asynchronous upload methods.
  *

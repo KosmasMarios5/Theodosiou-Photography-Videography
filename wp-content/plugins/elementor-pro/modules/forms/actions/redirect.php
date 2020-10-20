@@ -1,10 +1,10 @@
 <?php
+
 namespace ElementorPro\Modules\Forms\Actions;
 
 use Elementor\Controls_Manager;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 use ElementorPro\Modules\Forms\Classes\Action_Base;
-
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly

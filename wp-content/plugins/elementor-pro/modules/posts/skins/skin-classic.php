@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Posts\Skins;
 
 use Elementor\Controls_Manager;

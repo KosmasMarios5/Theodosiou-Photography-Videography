@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\TemplateLibrary;
 
 use Elementor\Api;

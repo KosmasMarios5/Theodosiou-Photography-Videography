@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -1036,9 +1037,12 @@ class Counter extends Widget_Base {
         $this->add_render_attribute( 'counter_title', 'class', 'eael-counter-title' );
         ?>
         <div class="eael-counter-container">
-            <div <?php echo $this->get_render_attribute_string( 'counter' ); ?>>
-                <?php if ( $settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-5' || $settings['counter_layout'] == 'layout-6' ) { ?>
+            <div <?php
+ echo $this->get_render_attribute_string( 'counter' ); ?>>
+                <?php
+ if ( $settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-5' || $settings['counter_layout'] == 'layout-6' ) { ?>
                     <?php
+
                         // Counter icon
                         $this->render_icon();
                     ?>
@@ -1046,27 +1050,33 @@ class Counter extends Widget_Base {
                     <div class="eael-counter-number-title-wrap">
                         <div class="eael-counter-number-wrap">
                             <?php
+
                                 if ( $settings['number_prefix'] != '' ) {
                                     printf( '<span class="eael-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
                                 }
                             ?>
-                            <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
+                            <div <?php
+ echo $this->get_render_attribute_string( 'counter-number' ); ?>>
                                 0
                             </div>
                             <?php
+
                                 if ( $settings['number_suffix'] != '' ) {
                                     printf( '<span class="eael-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
                                 }
                             ?>
                         </div>
 
-                        <?php if ( $settings['num_divider'] == 'yes' ) { ?>
+                        <?php
+ if ( $settings['num_divider'] == 'yes' ) { ?>
                             <div class="eael-counter-num-divider-wrap">
                                 <span class="eael-counter-num-divider"></span>
                             </div>
-                        <?php } ?>
+                        <?php
+ } ?>
 
                         <?php
+
                             if ( !empty( $settings['counter_title'] ) ) {
                                 printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
                                     echo $settings['counter_title'];
@@ -1074,8 +1084,10 @@ class Counter extends Widget_Base {
                             }
                         ?>
                     </div>
-                <?php } elseif ( $settings['counter_layout'] == 'layout-2' ) { ?>
+                <?php
+ } elseif ( $settings['counter_layout'] == 'layout-2' ) { ?>
                     <?php
+
                         // Counter icon
                         $this->render_icon();
 
@@ -1088,50 +1100,62 @@ class Counter extends Widget_Base {
                 
                     <div class="eael-counter-number-wrap">
                         <?php
+
                             if ( $settings['number_prefix'] != '' ) {
                                 printf( '<span class="eael-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
                             }
                         ?>
-                        <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
+                        <div <?php
+ echo $this->get_render_attribute_string( 'counter-number' ); ?>>
                             0
                         </div>
                         <?php
+
                             if ( $settings['number_suffix'] != '' ) {
                                 printf( '<span class="eael-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
                             }
                         ?>
                     </div>
 
-                    <?php if ( $settings['num_divider'] == 'yes' ) { ?>
+                    <?php
+ if ( $settings['num_divider'] == 'yes' ) { ?>
                         <div class="eael-counter-num-divider-wrap">
                             <span class="eael-counter-num-divider"></span>
                         </div>
-                    <?php } ?>
-                <?php } elseif ( $settings['counter_layout'] == 'layout-3' ) { ?>
+                    <?php
+ } ?>
+                <?php
+ } elseif ( $settings['counter_layout'] == 'layout-3' ) { ?>
                     <div class="eael-counter-number-wrap">
                         <?php
+
                             if ( $settings['number_prefix'] != '' ) {
                                 printf( '<span class="eael-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
                             }
                         ?>
-                        <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
+                        <div <?php
+ echo $this->get_render_attribute_string( 'counter-number' ); ?>>
                             0
                         </div>
                         <?php
+
                             if ( $settings['number_suffix'] != '' ) {
                                 printf( '<span class="eael-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
                             }
                         ?>
                     </div>
 
-                    <?php if ( $settings['num_divider'] == 'yes' ) { ?>
+                    <?php
+ if ( $settings['num_divider'] == 'yes' ) { ?>
                         <div class="eael-counter-num-divider-wrap">
                             <span class="eael-counter-num-divider"></span>
                         </div>
-                    <?php } ?>
+                    <?php
+ } ?>
                 
                     <div class="eael-icon-title-wrap">
                         <?php
+
                             // Counter icon
                             $this->render_icon();
 
@@ -1142,9 +1166,11 @@ class Counter extends Widget_Base {
                             }
                         ?>
                     </div>
-                <?php } elseif ( $settings['counter_layout'] == 'layout-4' ) { ?>
+                <?php
+ } elseif ( $settings['counter_layout'] == 'layout-4' ) { ?>
                     <div class="eael-icon-title-wrap">
                         <?php
+
                             // Counter icon
                             $this->render_icon();
 
@@ -1158,29 +1184,36 @@ class Counter extends Widget_Base {
                 
                     <div class="eael-counter-number-wrap">
                         <?php
+
                             if ( $settings['number_prefix'] != '' ) {
                                 printf( '<span class="eael-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
                             }
                         ?>
-                        <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
+                        <div <?php
+ echo $this->get_render_attribute_string( 'counter-number' ); ?>>
                             0
                         </div>
                         <?php
+
                             if ( $settings['number_suffix'] != '' ) {
                                 printf( '<span class="eael-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
                             }
                         ?>
                     </div>
 
-                    <?php if ( $settings['num_divider'] == 'yes' ) { ?>
+                    <?php
+ if ( $settings['num_divider'] == 'yes' ) { ?>
                         <div class="eael-counter-num-divider-wrap">
                             <span class="eael-counter-num-divider"></span>
                         </div>
-                    <?php } ?>
-                <?php } ?>
+                    <?php
+ } ?>
+                <?php
+ } ?>
             </div>
         </div><!-- .eael-counter-container -->
         <?php
+
     }
     
     /**
@@ -1194,27 +1227,41 @@ class Counter extends Widget_Base {
         if ( $settings['eael_icon_type'] == 'icon' ) { ?>
             <span class="eael-counter-icon-wrap">
                 <span class="eael-counter-icon">
-                    <?php if ($icon_is_new || $icon_migrated) { ?>
-                        <?php if( isset($settings['counter_icon_new']['value']['url']) ) : ?>
-                            <img class="eael-counter-svg-icon" src="<?php echo $settings['counter_icon_new']['value']['url'] ?>" alt="<?php echo esc_attr(get_post_meta($settings['counter_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>">
-                        <?php else : ?>
-                            <span class="<?php echo $settings['counter_icon_new']['value'] ?>" aria-hidden="true"></span>
-                        <?php endif; ?>
-                    <?php } else { ?>
-                        <span class="<?php echo $settings['counter_icon'] ?>" aria-hidden="true"></span>
-                    <?php } ?>
+                    <?php
+ if ($icon_is_new || $icon_migrated) { ?>
+                        <?php
+ if( isset($settings['counter_icon_new']['value']['url']) ) : ?>
+                            <img class="eael-counter-svg-icon" src="<?php
+ echo $settings['counter_icon_new']['value']['url'] ?>" alt="<?php
+ echo esc_attr(get_post_meta($settings['counter_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>">
+                        <?php
+ else : ?>
+                            <span class="<?php
+ echo $settings['counter_icon_new']['value'] ?>" aria-hidden="true"></span>
+                        <?php
+ endif; ?>
+                    <?php
+ } else { ?>
+                        <span class="<?php
+ echo $settings['counter_icon'] ?>" aria-hidden="true"></span>
+                    <?php
+ } ?>
                 </span>
             </span>
-        <?php } elseif ( $settings['eael_icon_type'] == 'image' ) {
+        <?php
+ } elseif ( $settings['eael_icon_type'] == 'image' ) {
             $image = $settings['icon_image'];
             if ( $image['url'] ) {
             ?>
                 <span class="eael-counter-icon-wrap">
                     <span class="eael-counter-icon eael-counter-icon-img">
-                        <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr(get_post_meta($image['id'], '_wp_attachment_image_alt', true)); ?>">
+                        <img src="<?php
+ echo esc_url( $image['url'] ); ?>" alt="<?php
+ echo esc_attr(get_post_meta($image['id'], '_wp_attachment_image_alt', true)); ?>">
                     </span>
                 </span>
-            <?php }
+            <?php
+ }
         }
 
         if ( $settings['icon_divider'] == 'yes' ) {
@@ -1223,11 +1270,10 @@ class Counter extends Widget_Base {
                     <span class="eael-counter-icon-divider"></span>
                 </div>
                 <?php
+
             }
         }
     }
-
-
 
     /**
 	 * Render counter widget output in the editor.

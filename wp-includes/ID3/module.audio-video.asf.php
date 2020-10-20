@@ -1,4 +1,5 @@
 <?php
+
 /////////////////////////////////////////////////////////////////
 /// getID3() by James Heinrich <info@getid3.org>               //
 //  available at https://github.com/JamesHeinrich/getID3       //
@@ -50,7 +51,6 @@ class getid3_asf extends getid3_handler
 		$thisfile_asf_comments    = &$thisfile_asf['comments'];
 		$thisfile_asf['header_object'] = array();
 		$thisfile_asf_headerobject     = &$thisfile_asf['header_object'];
-
 
 		// ASF structure:
 		// * Header Object [required]
@@ -1324,7 +1324,6 @@ class getid3_asf extends getid3_handler
 						}
 					}
 					break;
-
 
 				default:
 					// Implementations shall ignore any standard or non-standard object that they do not know how to handle.

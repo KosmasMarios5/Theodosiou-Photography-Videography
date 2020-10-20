@@ -1,4 +1,5 @@
 <?php
+
 /**
  * oEmbed API: Top-level oEmbed functionality
  *
@@ -570,7 +571,6 @@ function get_oembed_response_data( $post, $width ) {
 	return apply_filters( 'oembed_response_data', $data, $post, $width, $height );
 }
 
-
 /**
  * Retrieves the oEmbed response data for a given URL.
  *
@@ -640,7 +640,6 @@ function get_oembed_response_data_for_url( $url, $args ) {
 
 	return $data ? (object) $data : false;
 }
-
 
 /**
  * Filters the oEmbed response data to return an iframe embed code.
@@ -848,7 +847,6 @@ function wp_filter_oembed_iframe_title_attribute( $result, $data, $url ) {
 	return str_ireplace( '<iframe ', sprintf( '<iframe title="%s" ', esc_attr( $title ) ), $result );
 }
 
-
 /**
  * Filters the given oEmbed HTML.
  *
@@ -1022,8 +1020,10 @@ function enqueue_embed_scripts() {
 function print_embed_styles() {
 	$type_attr = current_theme_supports( 'html5', 'style' ) ? '' : ' type="text/css"';
 	?>
-	<style<?php echo $type_attr; ?>>
+	<style<?php
+ echo $type_attr; ?>>
 	<?php
+
 	if ( SCRIPT_DEBUG ) {
 		readfile( ABSPATH . WPINC . '/css/wp-embed-template.css' );
 	} else {
@@ -1041,10 +1041,12 @@ function print_embed_styles() {
 			/*! This file is auto-generated */
 			body,html{padding:0;margin:0}body{font-family:sans-serif}.screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.dashicons{display:inline-block;width:20px;height:20px;background-color:transparent;background-repeat:no-repeat;background-size:20px;background-position:center;transition:background .1s ease-in;position:relative;top:5px}.dashicons-no{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M15.55%2013.7l-2.19%202.06-3.42-3.65-3.64%203.43-2.06-2.18%203.64-3.43-3.42-3.64%202.18-2.06%203.43%203.64%203.64-3.42%202.05%202.18-3.64%203.43z%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fsvg%3E")}.dashicons-admin-comments{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M5%202h9q.82%200%201.41.59T16%204v7q0%20.82-.59%201.41T14%2013h-2l-5%205v-5H5q-.82%200-1.41-.59T3%2011V4q0-.82.59-1.41T5%202z%27%20fill%3D%27%2382878c%27%2F%3E%3C%2Fsvg%3E")}.wp-embed-comments a:hover .dashicons-admin-comments{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M5%202h9q.82%200%201.41.59T16%204v7q0%20.82-.59%201.41T14%2013h-2l-5%205v-5H5q-.82%200-1.41-.59T3%2011V4q0-.82.59-1.41T5%202z%27%20fill%3D%27%230073aa%27%2F%3E%3C%2Fsvg%3E")}.dashicons-share{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M14.5%2012q1.24%200%202.12.88T17.5%2015t-.88%202.12-2.12.88-2.12-.88T11.5%2015q0-.34.09-.69l-4.38-2.3Q6.32%2013%205%2013q-1.24%200-2.12-.88T2%2010t.88-2.12T5%207q1.3%200%202.21.99l4.38-2.3q-.09-.35-.09-.69%200-1.24.88-2.12T14.5%202t2.12.88T17.5%205t-.88%202.12T14.5%208q-1.3%200-2.21-.99l-4.38%202.3Q8%209.66%208%2010t-.09.69l4.38%202.3q.89-.99%202.21-.99z%27%20fill%3D%27%2382878c%27%2F%3E%3C%2Fsvg%3E");display:none}.js .dashicons-share{display:inline-block}.wp-embed-share-dialog-open:hover .dashicons-share{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M14.5%2012q1.24%200%202.12.88T17.5%2015t-.88%202.12-2.12.88-2.12-.88T11.5%2015q0-.34.09-.69l-4.38-2.3Q6.32%2013%205%2013q-1.24%200-2.12-.88T2%2010t.88-2.12T5%207q1.3%200%202.21.99l4.38-2.3q-.09-.35-.09-.69%200-1.24.88-2.12T14.5%202t2.12.88T17.5%205t-.88%202.12T14.5%208q-1.3%200-2.21-.99l-4.38%202.3Q8%209.66%208%2010t-.09.69l4.38%202.3q.89-.99%202.21-.99z%27%20fill%3D%27%230073aa%27%2F%3E%3C%2Fsvg%3E")}.wp-embed{padding:25px;font-size:14px;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;line-height:1.5;color:#82878c;background:#fff;border:1px solid #e5e5e5;box-shadow:0 1px 1px rgba(0,0,0,.05);overflow:auto;zoom:1}.wp-embed a{color:#82878c;text-decoration:none}.wp-embed a:hover{text-decoration:underline}.wp-embed-featured-image{margin-bottom:20px}.wp-embed-featured-image img{width:100%;height:auto;border:none}.wp-embed-featured-image.square{float:left;max-width:160px;margin-right:20px}.wp-embed p{margin:0}p.wp-embed-heading{margin:0 0 15px;font-weight:600;font-size:22px;line-height:1.3}.wp-embed-heading a{color:#32373c}.wp-embed .wp-embed-more{color:#b4b9be}.wp-embed-footer{display:table;width:100%;margin-top:30px}.wp-embed-site-icon{position:absolute;top:50%;left:0;transform:translateY(-50%);height:25px;width:25px;border:0}.wp-embed-site-title{font-weight:600;line-height:1.78571428}.wp-embed-site-title a{position:relative;display:inline-block;padding-left:35px}.wp-embed-meta,.wp-embed-site-title{display:table-cell}.wp-embed-meta{text-align:right;white-space:nowrap;vertical-align:middle}.wp-embed-comments,.wp-embed-share{display:inline}.wp-embed-meta a:hover{text-decoration:none;color:#0073aa}.wp-embed-comments a{line-height:1.78571428;display:inline-block}.wp-embed-comments+.wp-embed-share{margin-left:10px}.wp-embed-share-dialog{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#222;background-color:rgba(10,10,10,.9);color:#fff;opacity:1;transition:opacity .25s ease-in-out}.wp-embed-share-dialog.hidden{opacity:0;visibility:hidden}.wp-embed-share-dialog-close,.wp-embed-share-dialog-open{margin:-8px 0 0;padding:0;background:0 0;border:none;cursor:pointer;outline:0}.wp-embed-share-dialog-close .dashicons,.wp-embed-share-dialog-open .dashicons{padding:4px}.wp-embed-share-dialog-open .dashicons{top:8px}.wp-embed-share-dialog-close:focus .dashicons,.wp-embed-share-dialog-open:focus .dashicons{box-shadow:0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,.8);border-radius:100%}.wp-embed-share-dialog-close{position:absolute;top:20px;right:20px;font-size:22px}.wp-embed-share-dialog-close:hover{text-decoration:none}.wp-embed-share-dialog-close .dashicons{height:24px;width:24px;background-size:24px}.wp-embed-share-dialog-content{height:100%;transform-style:preserve-3d;overflow:hidden}.wp-embed-share-dialog-text{margin-top:25px;padding:20px}.wp-embed-share-tabs{margin:0 0 20px;padding:0;list-style:none}.wp-embed-share-tab-button{display:inline-block}.wp-embed-share-tab-button button{margin:0;padding:0;border:none;background:0 0;font-size:16px;line-height:1.3;color:#aaa;cursor:pointer;transition:color .1s ease-in}.wp-embed-share-tab-button [aria-selected=true]{color:#fff}.wp-embed-share-tab-button button:hover{color:#fff}.wp-embed-share-tab-button+.wp-embed-share-tab-button{margin:0 0 0 10px;padding:0 0 0 11px;border-left:1px solid #aaa}.wp-embed-share-tab[aria-hidden=true]{display:none}p.wp-embed-share-description{margin:0;font-size:14px;line-height:1;font-style:italic;color:#aaa}.wp-embed-share-input{box-sizing:border-box;width:100%;border:none;height:28px;margin:0 0 10px 0;padding:0 5px;font-size:14px;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;line-height:1.5;resize:none;cursor:text}textarea.wp-embed-share-input{height:72px}html[dir=rtl] .wp-embed-featured-image.square{float:right;margin-right:0;margin-left:20px}html[dir=rtl] .wp-embed-site-title a{padding-left:0;padding-right:35px}html[dir=rtl] .wp-embed-site-icon{margin-right:0;margin-left:10px;left:auto;right:0}html[dir=rtl] .wp-embed-meta{text-align:left}html[dir=rtl] .wp-embed-share{margin-left:0;margin-right:10px}html[dir=rtl] .wp-embed-share-dialog-close{right:auto;left:20px}html[dir=rtl] .wp-embed-share-tab-button+.wp-embed-share-tab-button{margin:0 10px 0 0;padding:0 11px 0 0;border-left:none;border-right:1px solid #aaa}
 		<?php
+
 	}
 	?>
 	</style>
 	<?php
+
 }
 
 /**
@@ -1055,8 +1057,10 @@ function print_embed_styles() {
 function print_embed_scripts() {
 	$type_attr = current_theme_supports( 'html5', 'script' ) ? '' : ' type="text/javascript"';
 	?>
-	<script<?php echo $type_attr; ?>>
+	<script<?php
+ echo $type_attr; ?>>
 	<?php
+
 	if ( SCRIPT_DEBUG ) {
 		readfile( ABSPATH . WPINC . '/js/wp-embed-template.js' );
 	} else {
@@ -1074,10 +1078,12 @@ function print_embed_scripts() {
 			/*! This file is auto-generated */
 			!function(u,c){"use strict";var r,t,e,i=c.querySelector&&u.addEventListener,b=!1;function f(e,t){u.parent.postMessage({message:e,value:t,secret:r},"*")}function n(){if(!b){b=!0;var e,t=c.querySelector(".wp-embed-share-dialog"),r=c.querySelector(".wp-embed-share-dialog-open"),i=c.querySelector(".wp-embed-share-dialog-close"),n=c.querySelectorAll(".wp-embed-share-input"),a=c.querySelectorAll(".wp-embed-share-tab-button button"),o=c.querySelector(".wp-embed-featured-image img");if(n)for(e=0;e<n.length;e++)n[e].addEventListener("click",function(e){e.target.select()});if(r&&r.addEventListener("click",function(){t.className=t.className.replace("hidden",""),c.querySelector('.wp-embed-share-tab-button [aria-selected="true"]').focus()}),i&&i.addEventListener("click",function(){l()}),a)for(e=0;e<a.length;e++)a[e].addEventListener("click",s),a[e].addEventListener("keydown",d);c.addEventListener("keydown",function(e){27===e.keyCode&&-1===t.className.indexOf("hidden")?l():9===e.keyCode&&function(e){var t=c.querySelector('.wp-embed-share-tab-button [aria-selected="true"]');i!==e.target||e.shiftKey?t===e.target&&e.shiftKey&&(i.focus(),e.preventDefault()):(t.focus(),e.preventDefault())}(e)},!1),u.self!==u.top&&(f("height",Math.ceil(c.body.getBoundingClientRect().height)),o&&o.addEventListener("load",function(){f("height",Math.ceil(c.body.getBoundingClientRect().height))}),c.addEventListener("click",function(e){var t,r=e.target;(t=r.hasAttribute("href")?r.getAttribute("href"):r.parentElement.getAttribute("href"))&&(f("link",t),e.preventDefault())}))}function l(){t.className+=" hidden",c.querySelector(".wp-embed-share-dialog-open").focus()}function s(e){var t=c.querySelector('.wp-embed-share-tab-button [aria-selected="true"]');t.setAttribute("aria-selected","false"),c.querySelector("#"+t.getAttribute("aria-controls")).setAttribute("aria-hidden","true"),e.target.setAttribute("aria-selected","true"),c.querySelector("#"+e.target.getAttribute("aria-controls")).setAttribute("aria-hidden","false")}function d(e){var t,r,i=e.target,n=i.parentElement.previousElementSibling,a=i.parentElement.nextElementSibling;if(37===e.keyCode)t=n;else{if(39!==e.keyCode)return!1;t=a}"rtl"===c.documentElement.getAttribute("dir")&&(t=t===n?a:n),t&&(r=t.firstElementChild,i.setAttribute("tabindex","-1"),i.setAttribute("aria-selected",!1),c.querySelector("#"+i.getAttribute("aria-controls")).setAttribute("aria-hidden","true"),r.setAttribute("tabindex","0"),r.setAttribute("aria-selected","true"),r.focus(),c.querySelector("#"+r.getAttribute("aria-controls")).setAttribute("aria-hidden","false"))}}i&&(!function e(){u.self===u.top||r||(r=u.location.hash.replace(/.*secret=([\d\w]{10}).*/,"$1"),clearTimeout(t),t=setTimeout(function(){e()},100))}(),c.documentElement.className=c.documentElement.className.replace(/\bno-js\b/,"")+" js",c.addEventListener("DOMContentLoaded",n,!1),u.addEventListener("load",n,!1),u.addEventListener("resize",function(){u.self!==u.top&&(clearTimeout(e),e=setTimeout(function(){f("height",Math.ceil(c.body.getBoundingClientRect().height))},100))},!1))}(window,document);
 		<?php
+
 	}
 	?>
 	</script>
 	<?php
+
 }
 
 /**
@@ -1104,9 +1110,11 @@ function print_embed_comments_button() {
 	}
 	?>
 	<div class="wp-embed-comments">
-		<a href="<?php comments_link(); ?>" target="_top">
+		<a href="<?php
+ comments_link(); ?>" target="_top">
 			<span class="dashicons dashicons-admin-comments"></span>
 			<?php
+
 			printf(
 				/* translators: %s: Number of comments. */
 				_n(
@@ -1120,6 +1128,7 @@ function print_embed_comments_button() {
 		</a>
 	</div>
 	<?php
+
 }
 
 /**
@@ -1133,11 +1142,13 @@ function print_embed_sharing_button() {
 	}
 	?>
 	<div class="wp-embed-share">
-		<button type="button" class="wp-embed-share-dialog-open" aria-label="<?php esc_attr_e( 'Open sharing dialog' ); ?>">
+		<button type="button" class="wp-embed-share-dialog-open" aria-label="<?php
+ esc_attr_e( 'Open sharing dialog' ); ?>">
 			<span class="dashicons dashicons-share"></span>
 		</button>
 	</div>
 	<?php
+
 }
 
 /**
@@ -1150,39 +1161,48 @@ function print_embed_sharing_dialog() {
 		return;
 	}
 	?>
-	<div class="wp-embed-share-dialog hidden" role="dialog" aria-label="<?php esc_attr_e( 'Sharing options' ); ?>">
+	<div class="wp-embed-share-dialog hidden" role="dialog" aria-label="<?php
+ esc_attr_e( 'Sharing options' ); ?>">
 		<div class="wp-embed-share-dialog-content">
 			<div class="wp-embed-share-dialog-text">
 				<ul class="wp-embed-share-tabs" role="tablist">
 					<li class="wp-embed-share-tab-button wp-embed-share-tab-button-wordpress" role="presentation">
-						<button type="button" role="tab" aria-controls="wp-embed-share-tab-wordpress" aria-selected="true" tabindex="0"><?php esc_html_e( 'WordPress Embed' ); ?></button>
+						<button type="button" role="tab" aria-controls="wp-embed-share-tab-wordpress" aria-selected="true" tabindex="0"><?php
+ esc_html_e( 'WordPress Embed' ); ?></button>
 					</li>
 					<li class="wp-embed-share-tab-button wp-embed-share-tab-button-html" role="presentation">
-						<button type="button" role="tab" aria-controls="wp-embed-share-tab-html" aria-selected="false" tabindex="-1"><?php esc_html_e( 'HTML Embed' ); ?></button>
+						<button type="button" role="tab" aria-controls="wp-embed-share-tab-html" aria-selected="false" tabindex="-1"><?php
+ esc_html_e( 'HTML Embed' ); ?></button>
 					</li>
 				</ul>
 				<div id="wp-embed-share-tab-wordpress" class="wp-embed-share-tab" role="tabpanel" aria-hidden="false">
-					<input type="text" value="<?php the_permalink(); ?>" class="wp-embed-share-input" aria-describedby="wp-embed-share-description-wordpress" tabindex="0" readonly/>
+					<input type="text" value="<?php
+ the_permalink(); ?>" class="wp-embed-share-input" aria-describedby="wp-embed-share-description-wordpress" tabindex="0" readonly/>
 
 					<p class="wp-embed-share-description" id="wp-embed-share-description-wordpress">
-						<?php _e( 'Copy and paste this URL into your WordPress site to embed' ); ?>
+						<?php
+ _e( 'Copy and paste this URL into your WordPress site to embed' ); ?>
 					</p>
 				</div>
 				<div id="wp-embed-share-tab-html" class="wp-embed-share-tab" role="tabpanel" aria-hidden="true">
-					<textarea class="wp-embed-share-input" aria-describedby="wp-embed-share-description-html" tabindex="0" readonly><?php echo esc_textarea( get_post_embed_html( 600, 400 ) ); ?></textarea>
+					<textarea class="wp-embed-share-input" aria-describedby="wp-embed-share-description-html" tabindex="0" readonly><?php
+ echo esc_textarea( get_post_embed_html( 600, 400 ) ); ?></textarea>
 
 					<p class="wp-embed-share-description" id="wp-embed-share-description-html">
-						<?php _e( 'Copy and paste this code into your site to embed' ); ?>
+						<?php
+ _e( 'Copy and paste this code into your site to embed' ); ?>
 					</p>
 				</div>
 			</div>
 
-			<button type="button" class="wp-embed-share-dialog-close" aria-label="<?php esc_attr_e( 'Close sharing dialog' ); ?>">
+			<button type="button" class="wp-embed-share-dialog-close" aria-label="<?php
+ esc_attr_e( 'Close sharing dialog' ); ?>">
 				<span class="dashicons dashicons-no"></span>
 			</button>
 		</div>
 	</div>
 	<?php
+
 }
 
 /**

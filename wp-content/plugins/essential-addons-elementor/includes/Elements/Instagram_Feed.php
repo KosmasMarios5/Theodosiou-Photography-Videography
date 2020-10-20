@@ -198,7 +198,6 @@ class Instagram_Feed extends Widget_Base {
             ]
         );
 
-
         $this->add_control(
             'eael_instafeed_card_style',
             [
@@ -287,7 +286,6 @@ class Instagram_Feed extends Widget_Base {
                 ],
             ]
         );
-
 
         $this->add_control(
             'eael_instafeed_show_username',

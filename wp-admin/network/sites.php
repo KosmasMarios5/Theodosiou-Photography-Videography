@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite sites administration panel.
  *
@@ -111,17 +112,26 @@ if ( isset( $_GET['action'] ) ) {
 		require_once ABSPATH . 'wp-admin/admin-header.php';
 		?>
 			<div class="wrap">
-				<h1><?php _e( 'Confirm your action' ); ?></h1>
-				<form action="sites.php?action=<?php echo esc_attr( $site_action ); ?>" method="post">
-					<input type="hidden" name="action" value="<?php echo esc_attr( $site_action ); ?>" />
-					<input type="hidden" name="id" value="<?php echo esc_attr( $id ); ?>" />
-					<input type="hidden" name="_wp_http_referer" value="<?php echo esc_attr( wp_get_referer() ); ?>" />
-					<?php wp_nonce_field( $site_action . '_' . $id, '_wpnonce', false ); ?>
-					<p><?php printf( $manage_actions[ $site_action ], $site_address ); ?></p>
-					<?php submit_button( __( 'Confirm' ), 'primary' ); ?>
+				<h1><?php
+ _e( 'Confirm your action' ); ?></h1>
+				<form action="sites.php?action=<?php
+ echo esc_attr( $site_action ); ?>" method="post">
+					<input type="hidden" name="action" value="<?php
+ echo esc_attr( $site_action ); ?>" />
+					<input type="hidden" name="id" value="<?php
+ echo esc_attr( $id ); ?>" />
+					<input type="hidden" name="_wp_http_referer" value="<?php
+ echo esc_attr( wp_get_referer() ); ?>" />
+					<?php
+ wp_nonce_field( $site_action . '_' . $id, '_wpnonce', false ); ?>
+					<p><?php
+ printf( $manage_actions[ $site_action ], $site_address ); ?></p>
+					<?php
+ submit_button( __( 'Confirm' ), 'primary' ); ?>
 				</form>
 			</div>
 		<?php
+
 		require_once ABSPATH . 'wp-admin/admin-footer.php';
 		exit;
 	} elseif ( array_key_exists( $_GET['action'], $manage_actions ) ) {
@@ -187,28 +197,38 @@ if ( isset( $_GET['action'] ) ) {
 								require_once ABSPATH . 'wp-admin/admin-header.php';
 								?>
 								<div class="wrap">
-									<h1><?php _e( 'Confirm your action' ); ?></h1>
+									<h1><?php
+ _e( 'Confirm your action' ); ?></h1>
 									<form action="sites.php?action=delete_sites" method="post">
 										<input type="hidden" name="action" value="delete_sites" />
-										<input type="hidden" name="_wp_http_referer" value="<?php echo esc_attr( wp_get_referer() ); ?>" />
-										<?php wp_nonce_field( 'ms-delete-sites', '_wpnonce', false ); ?>
-										<p><?php _e( 'You are about to delete the following sites:' ); ?></p>
+										<input type="hidden" name="_wp_http_referer" value="<?php
+ echo esc_attr( wp_get_referer() ); ?>" />
+										<?php
+ wp_nonce_field( 'ms-delete-sites', '_wpnonce', false ); ?>
+										<p><?php
+ _e( 'You are about to delete the following sites:' ); ?></p>
 										<ul class="ul-disc">
 											<?php
+
 											foreach ( $_POST['allblogs'] as $site_id ) :
 												$site         = get_site( $site_id );
 												$site_address = untrailingslashit( $site->domain . $site->path );
 												?>
 												<li>
-													<?php echo $site_address; ?>
-													<input type="hidden" name="site_ids[]" value="<?php echo (int) $site_id; ?>" />
+													<?php
+ echo $site_address; ?>
+													<input type="hidden" name="site_ids[]" value="<?php
+ echo (int) $site_id; ?>" />
 												</li>
-											<?php endforeach; ?>
+											<?php
+ endforeach; ?>
 										</ul>
-										<?php submit_button( __( 'Confirm' ), 'primary' ); ?>
+										<?php
+ submit_button( __( 'Confirm' ), 'primary' ); ?>
 									</form>
 								</div>
 								<?php
+
 								require_once ABSPATH . 'wp-admin/admin-footer.php';
 								exit;
 							break;
@@ -363,13 +383,19 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php _e( 'Sites' ); ?></h1>
-
-<?php if ( current_user_can( 'create_sites' ) ) : ?>
-	<a href="<?php echo network_admin_url( 'site-new.php' ); ?>" class="page-title-action"><?php echo esc_html_x( 'Add New', 'site' ); ?></a>
-<?php endif; ?>
+<h1 class="wp-heading-inline"><?php
+ _e( 'Sites' ); ?></h1>
 
 <?php
+ if ( current_user_can( 'create_sites' ) ) : ?>
+	<a href="<?php
+ echo network_admin_url( 'site-new.php' ); ?>" class="page-title-action"><?php
+ echo esc_html_x( 'Add New', 'site' ); ?></a>
+<?php
+ endif; ?>
+
+<?php
+
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 	/* translators: %s: Search query. */
 	printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', esc_html( $s ) );
@@ -378,17 +404,21 @@ if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 
 <hr class="wp-header-end">
 
-<?php $wp_list_table->views(); ?>
+<?php
+ $wp_list_table->views(); ?>
 
-<?php echo $msg; ?>
+<?php
+ echo $msg; ?>
 
 <form method="get" id="ms-search" class="wp-clearfix">
-<?php $wp_list_table->search_box( __( 'Search Sites' ), 'site' ); ?>
+<?php
+ $wp_list_table->search_box( __( 'Search Sites' ), 'site' ); ?>
 <input type="hidden" name="action" value="blogs" />
 </form>
 
 <form id="form-site-list" action="sites.php?action=allblogs" method="post">
-	<?php $wp_list_table->display(); ?>
+	<?php
+ $wp_list_table->display(); ?>
 </form>
 </div>
 <?php

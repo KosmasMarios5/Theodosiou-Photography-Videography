@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Kits\Documents\Tabs;
 
 use Elementor\DB;

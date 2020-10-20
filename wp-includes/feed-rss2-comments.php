@@ -1,4 +1,5 @@
 <?php
+
 /**
  * RSS2 Feed Template for displaying RSS2 Comments feed.
  *
@@ -18,11 +19,13 @@ do_action( 'rss_tag_pre', 'rss2-comments' );
 	xmlns:atom="http://www.w3.org/2005/Atom"
 	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
 	<?php
+
 	/** This action is documented in wp-includes/feed-rss2.php */
 	do_action( 'rss2_ns' );
 	?>
 
 	<?php
+
 	/**
 	 * Fires at the end of the RSS root to add namespaces.
 	 *
@@ -34,6 +37,7 @@ do_action( 'rss_tag_pre', 'rss2-comments' );
 <channel>
 	<title>
 	<?php
+
 	if ( is_singular() ) {
 		/* translators: Comments feed title. %s: Post title. */
 		printf( ent2ncr( __( 'Comments on: %s' ) ), get_the_title_rss() );
@@ -46,23 +50,30 @@ do_action( 'rss_tag_pre', 'rss2-comments' );
 	}
 	?>
 	</title>
-	<atom:link href="<?php self_link(); ?>" rel="self" type="application/rss+xml" />
-	<link><?php ( is_single() ) ? the_permalink_rss() : bloginfo_rss( 'url' ); ?></link>
-	<description><?php bloginfo_rss( 'description' ); ?></description>
-	<lastBuildDate><?php echo get_feed_build_date( 'r' ); ?></lastBuildDate>
+	<atom:link href="<?php
+ self_link(); ?>" rel="self" type="application/rss+xml" />
+	<link><?php
+ ( is_single() ) ? the_permalink_rss() : bloginfo_rss( 'url' ); ?></link>
+	<description><?php
+ bloginfo_rss( 'description' ); ?></description>
+	<lastBuildDate><?php
+ echo get_feed_build_date( 'r' ); ?></lastBuildDate>
 	<sy:updatePeriod>
 	<?php
+
 		/** This filter is documented in wp-includes/feed-rss2.php */
 		echo apply_filters( 'rss_update_period', 'hourly' );
 	?>
 	</sy:updatePeriod>
 	<sy:updateFrequency>
 	<?php
+
 		/** This filter is documented in wp-includes/feed-rss2.php */
 		echo apply_filters( 'rss_update_frequency', '1' );
 	?>
 	</sy:updateFrequency>
 	<?php
+
 	/**
 	 * Fires at the end of the RSS2 comment feed header.
 	 *
@@ -78,6 +89,7 @@ do_action( 'rss_tag_pre', 'rss2-comments' );
 	<item>
 		<title>
 		<?php
+
 		if ( ! is_singular() ) {
 			$title = get_the_title( $comment_post->ID );
 			/** This filter is documented in wp-includes/feed.php */
@@ -90,21 +102,33 @@ do_action( 'rss_tag_pre', 'rss2-comments' );
 		}
 		?>
 		</title>
-		<link><?php comment_link(); ?></link>
+		<link><?php
+ comment_link(); ?></link>
 
-		<dc:creator><![CDATA[<?php echo get_comment_author_rss(); ?>]]></dc:creator>
-		<pubDate><?php echo mysql2date( 'D, d M Y H:i:s +0000', get_comment_time( 'Y-m-d H:i:s', true, false ), false ); ?></pubDate>
-		<guid isPermaLink="false"><?php comment_guid(); ?></guid>
-
-		<?php if ( post_password_required( $comment_post ) ) : ?>
-			<description><?php echo ent2ncr( __( 'Protected Comments: Please enter your password to view comments.' ) ); ?></description>
-			<content:encoded><![CDATA[<?php echo get_the_password_form(); ?>]]></content:encoded>
-		<?php else : ?>
-			<description><![CDATA[<?php comment_text_rss(); ?>]]></description>
-			<content:encoded><![CDATA[<?php comment_text(); ?>]]></content:encoded>
-		<?php endif; // End if post_password_required(). ?>
+		<dc:creator><![CDATA[<?php
+ echo get_comment_author_rss(); ?>]]></dc:creator>
+		<pubDate><?php
+ echo mysql2date( 'D, d M Y H:i:s +0000', get_comment_time( 'Y-m-d H:i:s', true, false ), false ); ?></pubDate>
+		<guid isPermaLink="false"><?php
+ comment_guid(); ?></guid>
 
 		<?php
+ if ( post_password_required( $comment_post ) ) : ?>
+			<description><?php
+ echo ent2ncr( __( 'Protected Comments: Please enter your password to view comments.' ) ); ?></description>
+			<content:encoded><![CDATA[<?php
+ echo get_the_password_form(); ?>]]></content:encoded>
+		<?php
+ else : ?>
+			<description><![CDATA[<?php
+ comment_text_rss(); ?>]]></description>
+			<content:encoded><![CDATA[<?php
+ comment_text(); ?>]]></content:encoded>
+		<?php
+ endif; // End if post_password_required(). ?>
+
+		<?php
+
 		/**
 		 * Fires at the end of each RSS2 comment feed item.
 		 *
@@ -116,6 +140,7 @@ do_action( 'rss_tag_pre', 'rss2-comments' );
 		do_action( 'commentrss2_item', $comment->comment_ID, $comment_post->ID );
 		?>
 	</item>
-	<?php endwhile; ?>
+	<?php
+ endwhile; ?>
 </channel>
 </rss>

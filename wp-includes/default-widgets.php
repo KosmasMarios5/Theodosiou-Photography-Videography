@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Widget API: Default core widgets
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The custom header image script.
  *
@@ -343,7 +344,8 @@ class Custom_Image_Header {
 		?>
 <script type="text/javascript">
 (function($){
-	var default_color = '<?php echo $default_color; ?>',
+	var default_color = '<?php
+ echo $default_color; ?>',
 		header_text_fields;
 
 	function pickColor(color) {
@@ -379,13 +381,16 @@ class Custom_Image_Header {
 			}
 		});
 		$('#display-header-text').click( toggle_text );
-		<?php if ( ! display_header_text() ) : ?>
+		<?php
+ if ( ! display_header_text() ) : ?>
 		toggle_text();
-		<?php endif; ?>
+		<?php
+ endif; ?>
 	});
 })(jQuery);
 </script>
 		<?php
+
 	}
 
 	/**
@@ -405,8 +410,10 @@ class Custom_Image_Header {
 	}
 
 	jQuery(document).ready(function() {
-		var xinit = <?php echo absint( get_theme_support( 'custom-header', 'width' ) ); ?>;
-		var yinit = <?php echo absint( get_theme_support( 'custom-header', 'height' ) ); ?>;
+		var xinit = <?php
+ echo absint( get_theme_support( 'custom-header', 'width' ) ); ?>;
+		var yinit = <?php
+ echo absint( get_theme_support( 'custom-header', 'height' ) ); ?>;
 		var ratio = xinit / yinit;
 		var ximg = jQuery('img#upload').width();
 		var yimg = jQuery('img#upload').height();
@@ -430,20 +437,26 @@ class Custom_Image_Header {
 			x2: xinit,
 			y2: yinit,
 			<?php
+
 			if ( ! current_theme_supports( 'custom-header', 'flex-height' ) && ! current_theme_supports( 'custom-header', 'flex-width' ) ) {
 				?>
 			aspectRatio: xinit + ':' + yinit,
 				<?php
+
 			}
 			if ( ! current_theme_supports( 'custom-header', 'flex-height' ) ) {
 				?>
-			maxHeight: <?php echo get_theme_support( 'custom-header', 'height' ); ?>,
+			maxHeight: <?php
+ echo get_theme_support( 'custom-header', 'height' ); ?>,
 				<?php
+
 			}
 			if ( ! current_theme_supports( 'custom-header', 'flex-width' ) ) {
 				?>
-			maxWidth: <?php echo get_theme_support( 'custom-header', 'width' ); ?>,
+			maxWidth: <?php
+ echo get_theme_support( 'custom-header', 'width' ); ?>,
 				<?php
+
 			}
 			?>
 			onInit: function () {
@@ -460,6 +473,7 @@ class Custom_Image_Header {
 	});
 </script>
 		<?php
+
 	}
 
 	/**
@@ -472,12 +486,15 @@ class Custom_Image_Header {
 		?>
 
 <div class="wrap">
-<h1><?php _e( 'Custom Header' ); ?></h1>
+<h1><?php
+ _e( 'Custom Header' ); ?></h1>
 
-		<?php if ( current_user_can( 'customize' ) ) { ?>
+		<?php
+ if ( current_user_can( 'customize' ) ) { ?>
 <div class="notice notice-info hide-if-no-customize">
 	<p>
 			<?php
+
 			printf(
 				/* translators: %s: URL to header image configuration in Customizer. */
 				__( 'You can now manage and live-preview Custom Header in the <a href="%s">Customizer</a>.' ),
@@ -486,29 +503,37 @@ class Custom_Image_Header {
 			?>
 	</p>
 </div>
-		<?php } ?>
+		<?php
+ } ?>
 
-		<?php if ( ! empty( $this->updated ) ) { ?>
+		<?php
+ if ( ! empty( $this->updated ) ) { ?>
 <div id="message" class="updated">
 	<p>
 			<?php
+
 			/* translators: %s: Home URL. */
 			printf( __( 'Header updated. <a href="%s">Visit your site</a> to see how it looks.' ), home_url( '/' ) );
 			?>
 	</p>
 </div>
-		<?php } ?>
+		<?php
+ } ?>
 
-<h2><?php _e( 'Header Image' ); ?></h2>
+<h2><?php
+ _e( 'Header Image' ); ?></h2>
 
 <table class="form-table" role="presentation">
 <tbody>
 
-		<?php if ( get_custom_header() || display_header_text() ) : ?>
+		<?php
+ if ( get_custom_header() || display_header_text() ) : ?>
 <tr>
-<th scope="row"><?php _e( 'Preview' ); ?></th>
+<th scope="row"><?php
+ _e( 'Preview' ); ?></th>
 <td>
 			<?php
+
 			if ( $this->admin_image_div_callback ) {
 				call_user_func( $this->admin_image_div_callback );
 			} else {
@@ -528,28 +553,41 @@ class Custom_Image_Header {
 					$header_image_style .= 'height:' . $custom_header->height . 'px;';
 				}
 				?>
-	<div id="headimg" style="<?php echo $header_image_style; ?>">
+	<div id="headimg" style="<?php
+ echo $header_image_style; ?>">
 				<?php
+
 				if ( display_header_text() ) {
 					$style = ' style="color:#' . get_header_textcolor() . ';"';
 				} else {
 					$style = ' style="display:none;"';
 				}
 				?>
-		<h1><a id="name" class="displaying-header-text" <?php echo $style; ?> onclick="return false;" href="<?php bloginfo( 'url' ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
-		<div id="desc" class="displaying-header-text" <?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
+		<h1><a id="name" class="displaying-header-text" <?php
+ echo $style; ?> onclick="return false;" href="<?php
+ bloginfo( 'url' ); ?>" tabindex="-1"><?php
+ bloginfo( 'name' ); ?></a></h1>
+		<div id="desc" class="displaying-header-text" <?php
+ echo $style; ?>><?php
+ bloginfo( 'description' ); ?></div>
 	</div>
-			<?php } ?>
+			<?php
+ } ?>
 </td>
 </tr>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 
-		<?php if ( current_user_can( 'upload_files' ) && current_theme_supports( 'custom-header', 'uploads' ) ) : ?>
+		<?php
+ if ( current_user_can( 'upload_files' ) && current_theme_supports( 'custom-header', 'uploads' ) ) : ?>
 <tr>
-<th scope="row"><?php _e( 'Select Image' ); ?></th>
+<th scope="row"><?php
+ _e( 'Select Image' ); ?></th>
 <td>
-	<p><?php _e( 'You can select an image to be shown at the top of your site by uploading from your computer or choosing from your media library. After selecting an image you will be able to crop it.' ); ?><br />
+	<p><?php
+ _e( 'You can select an image to be shown at the top of your site by uploading from your computer or choosing from your media library. After selecting an image you will be able to crop it.' ); ?><br />
 			<?php
+
 			if ( ! current_theme_supports( 'custom-header', 'flex-height' ) && ! current_theme_supports( 'custom-header', 'flex-width' ) ) {
 				/* translators: 1: Image width in pixels, 2: Image height in pixels. */
 				printf( __( 'Images of exactly <strong>%1$d &times; %2$d pixels</strong> will be used as-is.' ) . '<br />', get_theme_support( 'custom-header', 'width' ), get_theme_support( 'custom-header', 'height' ) );
@@ -604,15 +642,20 @@ class Custom_Image_Header {
 			}
 			?>
 	</p>
-	<form enctype="multipart/form-data" id="upload-form" class="wp-upload-form" method="post" action="<?php echo esc_url( add_query_arg( 'step', 2 ) ); ?>">
+	<form enctype="multipart/form-data" id="upload-form" class="wp-upload-form" method="post" action="<?php
+ echo esc_url( add_query_arg( 'step', 2 ) ); ?>">
 	<p>
-		<label for="upload"><?php _e( 'Choose an image from your computer:' ); ?></label><br />
+		<label for="upload"><?php
+ _e( 'Choose an image from your computer:' ); ?></label><br />
 		<input type="file" id="upload" name="import" />
 		<input type="hidden" name="action" value="save" />
-			<?php wp_nonce_field( 'custom-header-upload', '_wpnonce-custom-header-upload' ); ?>
-			<?php submit_button( __( 'Upload' ), '', 'submit', false ); ?>
+			<?php
+ wp_nonce_field( 'custom-header-upload', '_wpnonce-custom-header-upload' ); ?>
+			<?php
+ submit_button( __( 'Upload' ), '', 'submit', false ); ?>
 	</p>
 			<?php
+
 				$modal_update_href = esc_url(
 					add_query_arg(
 						array(
@@ -625,98 +668,134 @@ class Custom_Image_Header {
 				);
 			?>
 	<p>
-		<label for="choose-from-library-link"><?php _e( 'Or choose an image from your media library:' ); ?></label><br />
+		<label for="choose-from-library-link"><?php
+ _e( 'Or choose an image from your media library:' ); ?></label><br />
 		<button id="choose-from-library-link" class="button"
-			data-update-link="<?php echo esc_attr( $modal_update_href ); ?>"
-			data-choose="<?php esc_attr_e( 'Choose a Custom Header' ); ?>"
-			data-update="<?php esc_attr_e( 'Set as header' ); ?>"><?php _e( 'Choose Image' ); ?></button>
+			data-update-link="<?php
+ echo esc_attr( $modal_update_href ); ?>"
+			data-choose="<?php
+ esc_attr_e( 'Choose a Custom Header' ); ?>"
+			data-update="<?php
+ esc_attr_e( 'Set as header' ); ?>"><?php
+ _e( 'Choose Image' ); ?></button>
 	</p>
 	</form>
 </td>
 </tr>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 </tbody>
 </table>
 
-<form method="post" action="<?php echo esc_url( add_query_arg( 'step', 1 ) ); ?>">
-		<?php submit_button( null, 'screen-reader-text', 'save-header-options', false ); ?>
+<form method="post" action="<?php
+ echo esc_url( add_query_arg( 'step', 1 ) ); ?>">
+		<?php
+ submit_button( null, 'screen-reader-text', 'save-header-options', false ); ?>
 <table class="form-table" role="presentation">
 <tbody>
-		<?php if ( get_uploaded_header_images() ) : ?>
+		<?php
+ if ( get_uploaded_header_images() ) : ?>
 <tr>
-<th scope="row"><?php _e( 'Uploaded Images' ); ?></th>
+<th scope="row"><?php
+ _e( 'Uploaded Images' ); ?></th>
 <td>
-	<p><?php _e( 'You can choose one of your previously uploaded headers, or show a random one.' ); ?></p>
+	<p><?php
+ _e( 'You can choose one of your previously uploaded headers, or show a random one.' ); ?></p>
 			<?php
+
 			$this->show_header_selector( 'uploaded' );
 			?>
 </td>
 </tr>
 			<?php
+
 	endif;
 		if ( ! empty( $this->default_headers ) ) :
 			?>
 <tr>
-<th scope="row"><?php _e( 'Default Images' ); ?></th>
+<th scope="row"><?php
+ _e( 'Default Images' ); ?></th>
 <td>
-			<?php if ( current_theme_supports( 'custom-header', 'uploads' ) ) : ?>
-	<p><?php _e( 'If you don&lsquo;t want to upload your own image, you can use one of these cool headers, or show a random one.' ); ?></p>
-	<?php else : ?>
-	<p><?php _e( 'You can use one of these cool headers or show a random one on each page.' ); ?></p>
-	<?php endif; ?>
 			<?php
+ if ( current_theme_supports( 'custom-header', 'uploads' ) ) : ?>
+	<p><?php
+ _e( 'If you don&lsquo;t want to upload your own image, you can use one of these cool headers, or show a random one.' ); ?></p>
+	<?php
+ else : ?>
+	<p><?php
+ _e( 'You can use one of these cool headers or show a random one on each page.' ); ?></p>
+	<?php
+ endif; ?>
+			<?php
+
 			$this->show_header_selector( 'default' );
 			?>
 </td>
 </tr>
 			<?php
+
 	endif;
 		if ( get_header_image() ) :
 			?>
 <tr>
-<th scope="row"><?php _e( 'Remove Image' ); ?></th>
+<th scope="row"><?php
+ _e( 'Remove Image' ); ?></th>
 <td>
-	<p><?php _e( 'This will remove the header image. You will not be able to restore any customizations.' ); ?></p>
-			<?php submit_button( __( 'Remove Header Image' ), '', 'removeheader', false ); ?>
+	<p><?php
+ _e( 'This will remove the header image. You will not be able to restore any customizations.' ); ?></p>
+			<?php
+ submit_button( __( 'Remove Header Image' ), '', 'removeheader', false ); ?>
 </td>
 </tr>
 			<?php
+
 	endif;
 
 		$default_image = sprintf( get_theme_support( 'custom-header', 'default-image' ), get_template_directory_uri(), get_stylesheet_directory_uri() );
 		if ( $default_image && get_header_image() != $default_image ) :
 			?>
 <tr>
-<th scope="row"><?php _e( 'Reset Image' ); ?></th>
+<th scope="row"><?php
+ _e( 'Reset Image' ); ?></th>
 <td>
-	<p><?php _e( 'This will restore the original header image. You will not be able to restore any customizations.' ); ?></p>
-			<?php submit_button( __( 'Restore Original Header Image' ), '', 'resetheader', false ); ?>
+	<p><?php
+ _e( 'This will restore the original header image. You will not be able to restore any customizations.' ); ?></p>
+			<?php
+ submit_button( __( 'Restore Original Header Image' ), '', 'resetheader', false ); ?>
 </td>
 </tr>
-	<?php endif; ?>
+	<?php
+ endif; ?>
 </tbody>
 </table>
 
-		<?php if ( current_theme_supports( 'custom-header', 'header-text' ) ) : ?>
+		<?php
+ if ( current_theme_supports( 'custom-header', 'header-text' ) ) : ?>
 
-<h2><?php _e( 'Header Text' ); ?></h2>
+<h2><?php
+ _e( 'Header Text' ); ?></h2>
 
 <table class="form-table" role="presentation">
 <tbody>
 <tr>
-<th scope="row"><?php _e( 'Header Text' ); ?></th>
+<th scope="row"><?php
+ _e( 'Header Text' ); ?></th>
 <td>
 	<p>
-	<label><input type="checkbox" name="display-header-text" id="display-header-text"<?php checked( display_header_text() ); ?> /> <?php _e( 'Show header text with your image.' ); ?></label>
+	<label><input type="checkbox" name="display-header-text" id="display-header-text"<?php
+ checked( display_header_text() ); ?> /> <?php
+ _e( 'Show header text with your image.' ); ?></label>
 	</p>
 </td>
 </tr>
 
 <tr class="displaying-header-text">
-<th scope="row"><?php _e( 'Text Color' ); ?></th>
+<th scope="row"><?php
+ _e( 'Text Color' ); ?></th>
 <td>
 	<p>
 			<?php
+
 			$default_color = '';
 			if ( current_theme_supports( 'custom-header', 'default-text-color' ) ) {
 				$default_color = get_theme_support( 'custom-header', 'default-text-color' );
@@ -744,6 +823,7 @@ class Custom_Image_Header {
 </tbody>
 </table>
 			<?php
+
 endif;
 
 		/**
@@ -756,11 +836,13 @@ endif;
 		wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' );
 		?>
 
-		<?php submit_button( null, 'primary', 'save-header-options' ); ?>
+		<?php
+ submit_button( null, 'primary', 'save-header-options' ); ?>
 </form>
 </div>
 
 		<?php
+
 	}
 
 	/**
@@ -850,30 +932,46 @@ endif;
 		?>
 
 <div class="wrap">
-<h1><?php _e( 'Crop Header Image' ); ?></h1>
+<h1><?php
+ _e( 'Crop Header Image' ); ?></h1>
 
-<form method="post" action="<?php echo esc_url( add_query_arg( 'step', 3 ) ); ?>">
-	<p class="hide-if-no-js"><?php _e( 'Choose the part of the image you want to use as your header.' ); ?></p>
-	<p class="hide-if-js"><strong><?php _e( 'You need JavaScript to choose a part of the image.' ); ?></strong></p>
+<form method="post" action="<?php
+ echo esc_url( add_query_arg( 'step', 3 ) ); ?>">
+	<p class="hide-if-no-js"><?php
+ _e( 'Choose the part of the image you want to use as your header.' ); ?></p>
+	<p class="hide-if-js"><strong><?php
+ _e( 'You need JavaScript to choose a part of the image.' ); ?></strong></p>
 
 	<div id="crop_image" style="position: relative">
-		<img src="<?php echo esc_url( $url ); ?>" id="upload" width="<?php echo $width; ?>" height="<?php echo $height; ?>" alt="" />
+		<img src="<?php
+ echo esc_url( $url ); ?>" id="upload" width="<?php
+ echo $width; ?>" height="<?php
+ echo $height; ?>" alt="" />
 	</div>
 
 	<input type="hidden" name="x1" id="x1" value="0"/>
 	<input type="hidden" name="y1" id="y1" value="0"/>
-	<input type="hidden" name="width" id="width" value="<?php echo esc_attr( $width ); ?>"/>
-	<input type="hidden" name="height" id="height" value="<?php echo esc_attr( $height ); ?>"/>
-	<input type="hidden" name="attachment_id" id="attachment_id" value="<?php echo esc_attr( $attachment_id ); ?>" />
-	<input type="hidden" name="oitar" id="oitar" value="<?php echo esc_attr( $oitar ); ?>" />
-		<?php if ( empty( $_POST ) && isset( $_GET['file'] ) ) { ?>
+	<input type="hidden" name="width" id="width" value="<?php
+ echo esc_attr( $width ); ?>"/>
+	<input type="hidden" name="height" id="height" value="<?php
+ echo esc_attr( $height ); ?>"/>
+	<input type="hidden" name="attachment_id" id="attachment_id" value="<?php
+ echo esc_attr( $attachment_id ); ?>" />
+	<input type="hidden" name="oitar" id="oitar" value="<?php
+ echo esc_attr( $oitar ); ?>" />
+		<?php
+ if ( empty( $_POST ) && isset( $_GET['file'] ) ) { ?>
 	<input type="hidden" name="create-new-attachment" value="true" />
-	<?php } ?>
-		<?php wp_nonce_field( 'custom-header-crop-image' ); ?>
+	<?php
+ } ?>
+		<?php
+ wp_nonce_field( 'custom-header-crop-image' ); ?>
 
 	<p class="submit">
-		<?php submit_button( __( 'Crop and Publish' ), 'primary', 'submit', false ); ?>
 		<?php
+ submit_button( __( 'Crop and Publish' ), 'primary', 'submit', false ); ?>
+		<?php
+
 		if ( isset( $oitar ) && 1 == $oitar && ( current_theme_supports( 'custom-header', 'flex-height' ) || current_theme_supports( 'custom-header', 'flex-width' ) ) ) {
 			submit_button( __( 'Skip Cropping, Publish Image as Is' ), '', 'skip-cropping', false );
 		}
@@ -882,8 +980,8 @@ endif;
 </form>
 </div>
 		<?php
-	}
 
+	}
 
 	/**
 	 * Upload the file to be cropped in the second step.

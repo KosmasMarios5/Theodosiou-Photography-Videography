@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 use Elementor\Modules\DynamicTags\Module as TagsModule;
@@ -137,7 +138,8 @@ class Control_Media extends Control_Base_Multiple {
 						<i class="eicon-plus-circle" aria-hidden="true"></i>
 					</div>
 					<div class="elementor-control-media-area elementor-fit-aspect-ratio">
-						<div class="elementor-control-media__remove elementor-control-media__content__remove" title="<?php echo __( 'Remove', 'elementor' ); ?>">
+						<div class="elementor-control-media__remove elementor-control-media__content__remove" title="<?php
+ echo __( 'Remove', 'elementor' ); ?>">
 							<i class="eicon-trash-o"></i>
 						</div>
 						<# if( 'image' === data.media_type ) { #>
@@ -149,9 +151,11 @@ class Control_Media extends Control_Base_Multiple {
 					</div>
 					<div class="elementor-control-media__tools elementor-control-dynamic-switcher-wrapper">
 						<# if( 'image' === data.media_type ) { #>
-						<div class="elementor-control-media__tool elementor-control-media__replace"><?php echo __( 'Choose Image', 'elementor' ); ?></div>
+						<div class="elementor-control-media__tool elementor-control-media__replace"><?php
+ echo __( 'Choose Image', 'elementor' ); ?></div>
 						<# } else if( 'video' === data.media_type ) { #>
-						<div class="elementor-control-media__tool elementor-control-media__replace"><?php echo __( 'Choose Video', 'elementor' ); ?></div>
+						<div class="elementor-control-media__tool elementor-control-media__replace"><?php
+ echo __( 'Choose Video', 'elementor' ); ?></div>
 						<# } #>
 					</div>
 				</div>
@@ -159,7 +163,8 @@ class Control_Media extends Control_Base_Multiple {
 			<# } else { #>
 			<div class="elementor-control-media__file elementor-control-preview-area">
 				<div class="elementor-control-media__file__content">
-					<div class="elementor-control-media__file__content__label"><?php echo __( 'Click the media icon to upload file', 'elementor' ); ?></div>
+					<div class="elementor-control-media__file__content__label"><?php
+ echo __( 'Click the media icon to upload file', 'elementor' ); ?></div>
 					<div class="elementor-control-media__file__content__info">
 						<div class="elementor-control-media__file__content__info__icon">
 							<i class="eicon-document-file"></i>
@@ -168,10 +173,12 @@ class Control_Media extends Control_Base_Multiple {
 					</div>
 				</div>
 				<div class="elementor-control-media__file__controls">
-					<div class="elementor-control-media__remove elementor-control-media__file__controls__remove" title="<?php echo __( 'Remove', 'elementor' ); ?>">
+					<div class="elementor-control-media__remove elementor-control-media__file__controls__remove" title="<?php
+ echo __( 'Remove', 'elementor' ); ?>">
 						<i class="eicon-trash-o"></i>
 					</div>
-					<div class="elementor-control-media__file__controls__upload-button elementor-control-media-upload-button" title="<?php echo __( 'Upload', 'elementor' ); ?>">
+					<div class="elementor-control-media__file__controls__upload-button elementor-control-media-upload-button" title="<?php
+ echo __( 'Upload', 'elementor' ); ?>">
 						<i class="eicon-upload"></i>
 					</div>
 				</div>
@@ -183,6 +190,7 @@ class Control_Media extends Control_Base_Multiple {
 			<input type="hidden" data-setting="{{ data.name }}"/>
 		</div>
 		<?php
+
 	}
 
 	/**

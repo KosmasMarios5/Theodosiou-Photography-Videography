@@ -1,4 +1,5 @@
 <?php
+
 /**
  * REST API functions.
  *
@@ -895,8 +896,10 @@ function rest_output_rsd() {
 		return;
 	}
 	?>
-	<api name="WP-API" blogID="1" preferred="false" apiLink="<?php echo esc_url( $api_root ); ?>" />
+	<api name="WP-API" blogID="1" preferred="false" apiLink="<?php
+ echo esc_url( $api_root ); ?>" />
 	<?php
+
 }
 
 /**

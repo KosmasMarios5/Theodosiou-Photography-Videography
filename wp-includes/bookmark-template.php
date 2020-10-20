@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Bookmark Template Functions for usage in Themes
  *

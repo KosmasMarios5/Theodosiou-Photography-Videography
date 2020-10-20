@@ -1,4 +1,5 @@
 <?php
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
@@ -87,7 +88,6 @@ function exactmetrics_mp_api_call( $args = array() ) {
 
 	$body = wp_parse_args( $body, $default_body );
 	$body = apply_filters( 'exactmetrics_mp_api_call', $body );
-
 
 	// Ensure that the CID is not empty
 	if ( empty( $body['cid'] ) ) {

@@ -1,4 +1,5 @@
 <?php
+
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
 	// Reference: src/plugins/exactmetrics-Headline-Analyzer/components/HeadlinePanelCharacterCount.js:10

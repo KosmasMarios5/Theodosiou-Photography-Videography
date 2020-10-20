@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Rewrite API: WP_Rewrite class
  *
@@ -807,7 +808,6 @@ class WP_Rewrite {
 			$this->queryreplace[]   = $query;
 		}
 	}
-
 
 	/**
 	 * Removes an existing rewrite tag.

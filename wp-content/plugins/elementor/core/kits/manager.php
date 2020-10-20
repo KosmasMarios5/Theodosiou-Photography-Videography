@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Kits;
 
 use Elementor\Core\Kits\Controls\Repeater;
@@ -45,7 +46,6 @@ class Manager {
 
 		return Plugin::$instance->documents->get_doc_for_frontend( $id );
 	}
-
 
 	/**
 	 * Init kit controls.

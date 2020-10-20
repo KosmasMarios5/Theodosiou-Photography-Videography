@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Database Repair and Optimization Script.
  *
@@ -12,16 +13,21 @@ require_once dirname( dirname( __DIR__ ) ) . '/wp-load.php';
 header( 'Content-Type: text/html; charset=utf-8' );
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php
+ language_attributes(); ?>>
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'WordPress &rsaquo; Database Repair' ); ?></title>
-	<?php wp_admin_css( 'install', true ); ?>
+	<title><?php
+ _e( 'WordPress &rsaquo; Database Repair' ); ?></title>
+	<?php
+ wp_admin_css( 'install', true ); ?>
 </head>
 <body class="wp-core-ui">
-<p id="logo"><a href="<?php echo esc_url( __( 'https://wordpress.org/' ) ); ?>"><?php _e( 'WordPress' ); ?></a></p>
+<p id="logo"><a href="<?php
+ echo esc_url( __( 'https://wordpress.org/' ) ); ?>"><?php
+ _e( 'WordPress' ); ?></a></p>
 
 <?php
 
@@ -164,10 +170,14 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) || ! WP_ALLOW_REPAIR ) {
 		echo '<p>' . __( 'WordPress can automatically look for some common database problems and repair them. Repairing can take a while, so please be patient.' ) . '</p>';
 	}
 	?>
-	<p class="step"><a class="button button-large" href="repair.php?repair=1"><?php _e( 'Repair Database' ); ?></a></p>
-	<p><?php _e( 'WordPress can also attempt to optimize the database. This improves performance in some situations. Repairing and optimizing the database can take a long time and the database will be locked while optimizing.' ); ?></p>
-	<p class="step"><a class="button button-large" href="repair.php?repair=2"><?php _e( 'Repair and Optimize Database' ); ?></a></p>
+	<p class="step"><a class="button button-large" href="repair.php?repair=1"><?php
+ _e( 'Repair Database' ); ?></a></p>
+	<p><?php
+ _e( 'WordPress can also attempt to optimize the database. This improves performance in some situations. Repairing and optimizing the database can take a long time and the database will be locked while optimizing.' ); ?></p>
+	<p class="step"><a class="button button-large" href="repair.php?repair=2"><?php
+ _e( 'Repair and Optimize Database' ); ?></a></p>
 	<?php
+
 }
 ?>
 </body>

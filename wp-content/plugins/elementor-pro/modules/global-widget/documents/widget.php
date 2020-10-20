@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\GlobalWidget\Documents;
 
 use Elementor\Modules\Library\Documents\Library_Document;

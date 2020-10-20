@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Media Library administration panel.
  *
@@ -81,14 +82,20 @@ if ( 'grid' === $mode ) {
 
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
-	<div class="wrap" id="wp-media-grid" data-search="<?php _admin_search_query(); ?>">
-		<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+	<div class="wrap" id="wp-media-grid" data-search="<?php
+ _admin_search_query(); ?>">
+		<h1 class="wp-heading-inline"><?php
+ echo esc_html( $title ); ?></h1>
 
 		<?php
+
 		if ( current_user_can( 'upload_files' ) ) {
 			?>
-			<a href="<?php echo admin_url( 'media-new.php' ); ?>" class="page-title-action aria-button-if-js"><?php echo esc_html_x( 'Add New', 'file' ); ?></a>
+			<a href="<?php
+ echo admin_url( 'media-new.php' ); ?>" class="page-title-action aria-button-if-js"><?php
+ echo esc_html_x( 'Add New', 'file' ); ?></a>
 								<?php
+
 		}
 		?>
 
@@ -97,6 +104,7 @@ if ( 'grid' === $mode ) {
 		<div class="error hide-if-js">
 			<p>
 			<?php
+
 			printf(
 				/* translators: %s: List view URL. */
 				__( 'The grid view for the Media Library requires JavaScript. <a href="%s">Switch to the list view</a>.' ),
@@ -107,6 +115,7 @@ if ( 'grid' === $mode ) {
 		</div>
 	</div>
 	<?php
+
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 	exit;
 }
@@ -265,13 +274,18 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+<h1 class="wp-heading-inline"><?php
+ echo esc_html( $title ); ?></h1>
 
 <?php
+
 if ( current_user_can( 'upload_files' ) ) {
 	?>
-	<a href="<?php echo admin_url( 'media-new.php' ); ?>" class="page-title-action"><?php echo esc_html_x( 'Add New', 'file' ); ?></a>
+	<a href="<?php
+ echo admin_url( 'media-new.php' ); ?>" class="page-title-action"><?php
+ echo esc_html_x( 'Add New', 'file' ); ?></a>
 						<?php
+
 }
 
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
@@ -283,6 +297,7 @@ if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 <hr class="wp-header-end">
 
 <?php
+
 $message = '';
 if ( ! empty( $_GET['posted'] ) ) {
 	$message                = __( 'Media file updated.' );
@@ -363,19 +378,25 @@ if ( ! empty( $_GET['message'] ) && isset( $messages[ $_GET['message'] ] ) ) {
 
 if ( ! empty( $message ) ) {
 	?>
-<div id="message" class="updated notice is-dismissible"><p><?php echo $message; ?></p></div>
-<?php } ?>
+<div id="message" class="updated notice is-dismissible"><p><?php
+ echo $message; ?></p></div>
+<?php
+ } ?>
 
 <form id="posts-filter" method="get">
 
-<?php $wp_list_table->views(); ?>
+<?php
+ $wp_list_table->views(); ?>
 
-<?php $wp_list_table->display(); ?>
+<?php
+ $wp_list_table->display(); ?>
 
 <div id="ajax-response"></div>
-<?php find_posts_div(); ?>
+<?php
+ find_posts_div(); ?>
 </form>
 </div>
 
 <?php
+
 require_once ABSPATH . 'wp-admin/admin-footer.php';

@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -169,10 +170,12 @@ class Control_Repeater extends Base_Data_Control {
 		<# if ( itemActions.add ) { #>
 			<div class="elementor-button-wrapper">
 				<button class="elementor-button elementor-button-default elementor-repeater-add" type="button">
-					<i class="eicon-plus" aria-hidden="true"></i><?php echo __( 'Add Item', 'elementor' ); ?>
+					<i class="eicon-plus" aria-hidden="true"></i><?php
+ echo __( 'Add Item', 'elementor' ); ?>
 				</button>
 			</div>
 		<# } #>
 		<?php
+
 	}
 }

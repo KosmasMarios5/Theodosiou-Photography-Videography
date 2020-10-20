@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Classes, which help reading streams of data from files.
  * Based on the classes from Danilo Segan <danilo@kvota.net>

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ShareButtons\Widgets;
 
 use Elementor\Controls_Manager;
@@ -578,6 +579,7 @@ class Share_Buttons extends Base_Widget {
 		?>
 		<div class="elementor-grid">
 			<?php
+
 			foreach ( $settings['share_buttons'] as $button ) {
 				$network_name = $button['button'];
 
@@ -585,29 +587,41 @@ class Share_Buttons extends Base_Widget {
 
 				?>
 				<div class="elementor-grid-item">
-					<div class="<?php echo esc_attr( $button_classes . $social_network_class ); ?>">
-						<?php if ( 'icon' === $settings['view'] || 'icon-text' === $settings['view'] ) : ?>
+					<div class="<?php
+ echo esc_attr( $button_classes . $social_network_class ); ?>">
+						<?php
+ if ( 'icon' === $settings['view'] || 'icon-text' === $settings['view'] ) : ?>
 							<span class="elementor-share-btn__icon">
-								<i class="<?php echo self::get_network_class( $network_name ); ?>" aria-hidden="true"></i>
-								<span class="elementor-screen-only"><?php echo sprintf( __( 'Share on %s', 'elementor-pro' ), $network_name ); ?></span>
+								<i class="<?php
+ echo self::get_network_class( $network_name ); ?>" aria-hidden="true"></i>
+								<span class="elementor-screen-only"><?php
+ echo sprintf( __( 'Share on %s', 'elementor-pro' ), $network_name ); ?></span>
 							</span>
-						<?php endif; ?>
-						<?php if ( $show_text ) : ?>
+						<?php
+ endif; ?>
+						<?php
+ if ( $show_text ) : ?>
 							<div class="elementor-share-btn__text">
-								<?php if ( 'yes' === $settings['show_label'] || 'text' === $settings['view'] ) : ?>
+								<?php
+ if ( 'yes' === $settings['show_label'] || 'text' === $settings['view'] ) : ?>
 									<span class="elementor-share-btn__title">
-										<?php echo $button['text'] ? $button['text'] : Module::get_networks( $network_name )['title']; ?>
+										<?php
+ echo $button['text'] ? $button['text'] : Module::get_networks( $network_name )['title']; ?>
 									</span>
-								<?php endif; ?>
+								<?php
+ endif; ?>
 							</div>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 					</div>
 				</div>
 				<?php
+
 			}
 			?>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -652,5 +666,6 @@ class Share_Buttons extends Base_Widget {
 			<#  } ); #>
 		</div>
 		<?php
+
 	}
 }

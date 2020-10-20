@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Debug\Classes;
 
 use Elementor\Modules\SafeMode\Module as Safe_Mode;

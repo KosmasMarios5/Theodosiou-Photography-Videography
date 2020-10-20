@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Core\Editor;
 
 use Elementor\Core\Editor\Notice_Bar as Base_Notice_Bar;

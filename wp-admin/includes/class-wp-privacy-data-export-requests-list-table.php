@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_Privacy_Data_Export_Requests_List_Table class
  *
@@ -99,10 +100,15 @@ class WP_Privacy_Data_Export_Requests_List_Table extends WP_Privacy_Requests_Tab
 					'">';
 
 				?>
-				<span class="export-personal-data-idle"><button type="button" class="button-link export-personal-data-handle"><?php _e( 'Send Export Link' ); ?></button></span>
-				<span class="export-personal-data-processing hidden"><?php _e( 'Sending Email...' ); ?> <span class="export-progress"></span></span>
-				<span class="export-personal-data-success success-message hidden"><?php _e( 'Email sent.' ); ?></span>
-				<span class="export-personal-data-failed hidden"><?php _e( 'Email could not be sent.' ); ?> <button type="button" class="button-link export-personal-data-handle"><?php _e( 'Retry' ); ?></button></span>
+				<span class="export-personal-data-idle"><button type="button" class="button-link export-personal-data-handle"><?php
+ _e( 'Send Export Link' ); ?></button></span>
+				<span class="export-personal-data-processing hidden"><?php
+ _e( 'Sending Email...' ); ?> <span class="export-progress"></span></span>
+				<span class="export-personal-data-success success-message hidden"><?php
+ _e( 'Email sent.' ); ?></span>
+				<span class="export-personal-data-failed hidden"><?php
+ _e( 'Email could not be sent.' ); ?> <button type="button" class="button-link export-personal-data-handle"><?php
+ _e( 'Retry' ); ?></button></span>
 				<?php
 
 				echo '</div>';

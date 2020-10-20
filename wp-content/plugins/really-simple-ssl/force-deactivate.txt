@@ -1,4 +1,5 @@
 <?php
+
 /*
 * Deactivation page to simple deactivate the plugin when backend is not accessible anymore
 * To deactivate:
@@ -12,6 +13,7 @@
 <body>
 
 <?php
+
   # No need for the template engine
   define( 'WP_USE_THEMES', false );
 

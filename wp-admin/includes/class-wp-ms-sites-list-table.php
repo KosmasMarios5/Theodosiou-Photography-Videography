@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_MS_Sites_List_Table class
  *
@@ -321,6 +322,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		?>
 		<div class="alignleft actions">
 		<?php
+
 		if ( 'top' === $which ) {
 			ob_start();
 
@@ -341,6 +343,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		?>
 		</div>
 		<?php
+
 		/**
 		 * Fires immediately following the closing "actions" div in the tablenav for the
 		 * MS sites list table.
@@ -401,14 +404,19 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		if ( ! is_main_site( $blog['blog_id'] ) ) :
 			$blogname = untrailingslashit( $blog['domain'] . $blog['path'] );
 			?>
-			<label class="screen-reader-text" for="blog_<?php echo $blog['blog_id']; ?>">
+			<label class="screen-reader-text" for="blog_<?php
+ echo $blog['blog_id']; ?>">
 				<?php
+
 				/* translators: %s: Site URL. */
 				printf( __( 'Select %s' ), $blogname );
 				?>
 			</label>
-			<input type="checkbox" id="blog_<?php echo $blog['blog_id']; ?>" name="allblogs[]" value="<?php echo esc_attr( $blog['blog_id'] ); ?>" />
+			<input type="checkbox" id="blog_<?php
+ echo $blog['blog_id']; ?>" name="allblogs[]" value="<?php
+ echo esc_attr( $blog['blog_id'] ); ?>" />
 			<?php
+
 		endif;
 	}
 
@@ -439,10 +447,14 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 
 		?>
 		<strong>
-			<a href="<?php echo esc_url( network_admin_url( 'site-info.php?id=' . $blog['blog_id'] ) ); ?>" class="edit"><?php echo $blogname; ?></a>
-			<?php $this->site_states( $blog ); ?>
+			<a href="<?php
+ echo esc_url( network_admin_url( 'site-info.php?id=' . $blog['blog_id'] ) ); ?>" class="edit"><?php
+ echo $blogname; ?></a>
+			<?php
+ $this->site_states( $blog ); ?>
 		</strong>
 		<?php
+
 		if ( 'list' !== $mode ) {
 			switch_to_blog( $blog['blog_id'] );
 			echo '<p>';

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\TableOfContents\Widgets;
 
 use Elementor\Controls_Manager;
@@ -665,17 +666,24 @@ class Table_Of_Contents extends Base_Widget {
 		}
 		?>
 		<div class="elementor-toc__header">
-			<?php echo '<' . $settings['html_tag'] . ' class="elementor-toc__header-title">' . $settings['title'] . '</' . $settings['html_tag'] . '>'; ?>
-			<?php if ( 'yes' === $settings['minimize_box'] ) : ?>
-				<div class="elementor-toc__toggle-button elementor-toc__toggle-button--expand"><?php Icons_Manager::render_icon( $settings['expand_icon'] ); ?></div>
-				<div class="elementor-toc__toggle-button elementor-toc__toggle-button--collapse"><?php Icons_Manager::render_icon( $settings['collapse_icon'] ); ?></div>
-			<?php endif; ?>
+			<?php
+ echo '<' . $settings['html_tag'] . ' class="elementor-toc__header-title">' . $settings['title'] . '</' . $settings['html_tag'] . '>'; ?>
+			<?php
+ if ( 'yes' === $settings['minimize_box'] ) : ?>
+				<div class="elementor-toc__toggle-button elementor-toc__toggle-button--expand"><?php
+ Icons_Manager::render_icon( $settings['expand_icon'] ); ?></div>
+				<div class="elementor-toc__toggle-button elementor-toc__toggle-button--collapse"><?php
+ Icons_Manager::render_icon( $settings['collapse_icon'] ); ?></div>
+			<?php
+ endif; ?>
 		</div>
-		<div <?php echo $this->get_render_attribute_string( 'body' ); ?>>
+		<div <?php
+ echo $this->get_render_attribute_string( 'body' ); ?>>
 			<div class="elementor-toc__spinner-container">
 				<i class="elementor-toc__spinner eicon-loading eicon-animation-spin" aria-hidden="true"></i>
 			</div>
 		</div>
 		<?php
+
 	}
 }

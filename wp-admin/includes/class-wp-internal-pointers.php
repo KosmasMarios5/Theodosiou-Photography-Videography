@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Administration API: WP_Internal_Pointers class
  *
@@ -119,7 +120,8 @@ final class WP_Internal_Pointers {
 		?>
 		<script type="text/javascript">
 		(function($){
-			var options = <?php echo wp_json_encode( $args ); ?>, setup;
+			var options = <?php
+ echo wp_json_encode( $args ); ?>, setup;
 
 			if ( ! options )
 				return;
@@ -127,14 +129,16 @@ final class WP_Internal_Pointers {
 			options = $.extend( options, {
 				close: function() {
 					$.post( ajaxurl, {
-						pointer: '<?php echo $pointer_id; ?>',
+						pointer: '<?php
+ echo $pointer_id; ?>',
 						action: 'dismiss-wp-pointer'
 					});
 				}
 			});
 
 			setup = function() {
-				$('<?php echo $selector; ?>').first().pointer( options ).pointer('open');
+				$('<?php
+ echo $selector; ?>').first().pointer( options ).pointer('open');
 			};
 
 			if ( options.position && options.position.defer_loading )
@@ -145,6 +149,7 @@ final class WP_Internal_Pointers {
 		})( jQuery );
 		</script>
 		<?php
+
 	}
 
 	public static function pointer_wp330_toolbar() {}

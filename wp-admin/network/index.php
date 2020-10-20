@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Multisite administration panel.
  *
@@ -67,11 +68,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
 <div class="wrap">
-<h1><?php echo esc_html( $title ); ?></h1>
+<h1><?php
+ echo esc_html( $title ); ?></h1>
 
 <div id="dashboard-widgets-wrap">
 
-<?php wp_dashboard(); ?>
+<?php
+ wp_dashboard(); ?>
 
 <div class="clear"></div>
 </div><!-- dashboard-widgets-wrap -->
@@ -79,5 +82,6 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 </div><!-- wrap -->
 
 <?php
+
 wp_print_community_events_templates();
 require_once ABSPATH . 'wp-admin/admin-footer.php';

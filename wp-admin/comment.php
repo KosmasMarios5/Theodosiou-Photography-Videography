@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Comment Management Screen
  *
@@ -119,9 +120,11 @@ switch ( $action ) {
 		?>
 	<div class="wrap">
 
-	<h1><?php echo esc_html( $title ); ?></h1>
+	<h1><?php
+ echo esc_html( $title ); ?></h1>
 
 		<?php
+
 		switch ( $action ) {
 			case 'spam':
 				$caution_msg = __( 'You are about to mark the following comment as spam:' );
@@ -159,29 +162,44 @@ switch ( $action ) {
 			}
 		}
 		?>
-<div id="message" class="notice notice-warning"><p><strong><?php _e( 'Caution:' ); ?></strong> <?php echo $caution_msg; ?></p></div>
+<div id="message" class="notice notice-warning"><p><strong><?php
+ _e( 'Caution:' ); ?></strong> <?php
+ echo $caution_msg; ?></p></div>
 
 <table class="form-table comment-ays">
 <tr>
-<th scope="row"><?php _e( 'Author' ); ?></th>
-<td><?php comment_author( $comment ); ?></td>
+<th scope="row"><?php
+ _e( 'Author' ); ?></th>
+<td><?php
+ comment_author( $comment ); ?></td>
 </tr>
-		<?php if ( get_comment_author_email( $comment ) ) { ?>
+		<?php
+ if ( get_comment_author_email( $comment ) ) { ?>
 <tr>
-<th scope="row"><?php _e( 'Email' ); ?></th>
-<td><?php comment_author_email( $comment ); ?></td>
+<th scope="row"><?php
+ _e( 'Email' ); ?></th>
+<td><?php
+ comment_author_email( $comment ); ?></td>
 </tr>
-<?php } ?>
-		<?php if ( get_comment_author_url( $comment ) ) { ?>
+<?php
+ } ?>
+		<?php
+ if ( get_comment_author_url( $comment ) ) { ?>
 <tr>
-<th scope="row"><?php _e( 'URL' ); ?></th>
-<td><a href="<?php comment_author_url( $comment ); ?>"><?php comment_author_url( $comment ); ?></a></td>
+<th scope="row"><?php
+ _e( 'URL' ); ?></th>
+<td><a href="<?php
+ comment_author_url( $comment ); ?>"><?php
+ comment_author_url( $comment ); ?></a></td>
 </tr>
-<?php } ?>
+<?php
+ } ?>
 <tr>
-	<th scope="row"><?php /* translators: Column name or table row header. */ _e( 'In response to' ); ?></th>
+	<th scope="row"><?php
+ /* translators: Column name or table row header. */ _e( 'In response to' ); ?></th>
 	<td>
 		<?php
+
 		$post_id = $comment->comment_post_ID;
 		if ( current_user_can( 'edit_post', $post_id ) ) {
 			$post_link  = "<a href='" . esc_url( get_edit_post_link( $post_id ) ) . "'>";
@@ -205,9 +223,11 @@ switch ( $action ) {
 	</td>
 	</tr>
 	<tr>
-	<th scope="row"><?php _e( 'Submitted on' ); ?></th>
+	<th scope="row"><?php
+ _e( 'Submitted on' ); ?></th>
 	<td>
 		<?php
+
 		$submitted = sprintf(
 			/* translators: 1: Comment date, 2: Comment time. */
 			__( '%1$s at %2$s' ),
@@ -225,10 +245,14 @@ switch ( $action ) {
 		</td>
 	</tr>
 	<tr>
-	<th scope="row"><?php /* translators: Field name in comment form. */ _ex( 'Comment', 'noun' ); ?></th>
+	<th scope="row"><?php
+ /* translators: Field name in comment form. */ _ex( 'Comment', 'noun' ); ?></th>
 	<td class="comment-content">
-		<?php comment_text( $comment ); ?>
-	<p class="edit-comment"><a href="<?php echo admin_url( "comment.php?action=editcomment&amp;c={$comment->comment_ID}" ); ?>"><?php esc_html_e( 'Edit' ); ?></a></p>
+		<?php
+ comment_text( $comment ); ?>
+	<p class="edit-comment"><a href="<?php
+ echo admin_url( "comment.php?action=editcomment&amp;c={$comment->comment_ID}" ); ?>"><?php
+ esc_html_e( 'Edit' ); ?></a></p>
 	</td>
 	</tr>
 	</table>
@@ -236,18 +260,25 @@ switch ( $action ) {
 	<form action="comment.php" method="get" class="comment-ays-submit">
 
 	<p>
-		<?php submit_button( $button, 'primary', 'submit', false ); ?>
-	<a href="<?php echo admin_url( 'edit-comments.php' ); ?>" class="button-cancel"><?php esc_html_e( 'Cancel' ); ?></a>
+		<?php
+ submit_button( $button, 'primary', 'submit', false ); ?>
+	<a href="<?php
+ echo admin_url( 'edit-comments.php' ); ?>" class="button-cancel"><?php
+ esc_html_e( 'Cancel' ); ?></a>
 	</p>
 
-		<?php wp_nonce_field( $nonce_action ); ?>
-	<input type="hidden" name="action" value="<?php echo esc_attr( $formaction ); ?>" />
-	<input type="hidden" name="c" value="<?php echo esc_attr( $comment->comment_ID ); ?>" />
+		<?php
+ wp_nonce_field( $nonce_action ); ?>
+	<input type="hidden" name="action" value="<?php
+ echo esc_attr( $formaction ); ?>" />
+	<input type="hidden" name="c" value="<?php
+ echo esc_attr( $comment->comment_ID ); ?>" />
 	<input type="hidden" name="noredir" value="1" />
 	</form>
 
 	</div>
 		<?php
+
 		break;
 
 	case 'deletecomment':

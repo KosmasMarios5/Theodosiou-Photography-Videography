@@ -203,8 +203,6 @@ trait Login_Registration {
 			$errors['widget_id'] = __( 'Widget ID is missing', 'essential-addons-for-elementor-lite' );
 		}
 
-
-
 		$settings = $this->lr_get_widget_settings( $page_id, $widget_id);
 
 

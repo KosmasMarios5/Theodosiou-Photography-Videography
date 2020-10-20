@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\AssetsManager\AssetTypes;
 
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
@@ -153,8 +154,10 @@ class Fonts_Manager {
 		wp_nonce_field( self::CPT, self::CPT . '_nonce' );
 		$name = self::TAXONOMY;
 		?>
-		<div id="taxonomy-<?php echo esc_attr( $name ); ?>" class="categorydiv">
+		<div id="taxonomy-<?php
+ echo esc_attr( $name ); ?>" class="categorydiv">
 			<?php
+
 			$term_obj = wp_get_object_terms( $post->ID, $name );
 			$slug = false;
 			if ( is_array( $term_obj ) && isset( $term_obj[0] ) ) {
@@ -165,9 +168,12 @@ class Fonts_Manager {
 				$options .= sprintf( '<option value="%s"%s>%s</option>' . "\n", $type, selected( $slug, $type, false ), $instance->get_name() );
 			}
 			?>
-			<select class="widefat" name="<?php echo esc_attr( $name ); ?>"><?php echo $options; ?></select>
+			<select class="widefat" name="<?php
+ echo esc_attr( $name ); ?>"><?php
+ echo $options; ?></select>
 		</div>
 		<?php
+
 	}
 
 	/**

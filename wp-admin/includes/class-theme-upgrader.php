@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Upgrade API: Theme_Upgrader class
  *

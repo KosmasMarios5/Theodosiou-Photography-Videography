@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\DynamicTags\Tags;
 
 use ElementorPro\Modules\DynamicTags\Tags\Base\Tag;
@@ -10,7 +11,6 @@ use ElementorPro\Plugin;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
 
 class Lightbox extends Tag {
 

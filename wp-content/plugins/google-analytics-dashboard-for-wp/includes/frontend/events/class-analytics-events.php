@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Events JS class.
  *

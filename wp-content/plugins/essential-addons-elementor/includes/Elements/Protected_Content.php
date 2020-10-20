@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 use \Elementor\Controls_Manager;
@@ -811,15 +812,20 @@ class Protected_Content extends Widget_Base {
 	protected function eael_render_message($settings){
 		ob_start();?>
 		<div class="eael-protected-content-message">
-			<?php 
+			<?php
+ 
 				if('none' == $settings['eael_protected_content_message_type']){
 					//nothing happen
 				}
 				elseif('text' == $settings['eael_protected_content_message_type']) {?>
-						<?php if ( ! empty( $settings['eael_protected_content_message_type'] ) ) : ?>
-							<div class="eael-protected-content-message-text"><?php echo $settings['eael_protected_content_message_text']; ?></div>
-						<?php endif; ?>
-				<?php } 
+						<?php
+ if ( ! empty( $settings['eael_protected_content_message_type'] ) ) : ?>
+							<div class="eael-protected-content-message-text"><?php
+ echo $settings['eael_protected_content_message_text']; ?></div>
+						<?php
+ endif; ?>
+				<?php
+ } 
 				else {
 					if ( !empty( $settings['eael_protected_content_message_template'] ) ) {
 						echo Plugin::$instance->frontend->get_builder_content($settings['eael_protected_content_message_template'], true);
@@ -827,44 +833,60 @@ class Protected_Content extends Widget_Base {
 				}
 			?>
 		</div>  
-		<?php echo ob_get_clean();
+		<?php
+ echo ob_get_clean();
 	}
 
 	protected function eael_render_content($settings){
 		ob_start(); ?>
 			 <div class="protected-content">
-				<?php if( 'content' === $settings['eael_protected_content_type'] ) : ?>
-					<?php if ( ! empty( $settings['eael_protected_content_field'] ) ) : ?>
-						<p><?php echo $settings['eael_protected_content_field']; ?></p>
-					<?php endif; ?>
-				<?php elseif( 'template' === $settings['eael_protected_content_type'] ) :
+				<?php
+ if( 'content' === $settings['eael_protected_content_type'] ) : ?>
+					<?php
+ if ( ! empty( $settings['eael_protected_content_field'] ) ) : ?>
+						<p><?php
+ echo $settings['eael_protected_content_field']; ?></p>
+					<?php
+ endif; ?>
+				<?php
+ elseif( 'template' === $settings['eael_protected_content_type'] ) :
 					if ( !empty( $settings['eael_protected_content_template'] ) ) {
 						echo Plugin::$instance->frontend->get_builder_content($settings['eael_protected_content_template'], true);
 					}
 				endif; ?>
 			</div>
-		<?php return ob_get_clean();
+		<?php
+ return ob_get_clean();
 	}
-
-
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 	?>
-		<?php if ('role' == $settings['eael_protected_content_protection_type']) :?>
+		<?php
+ if ('role' == $settings['eael_protected_content_protection_type']) :?>
 			<div class="eael-protected-content">     
-				<?php if( true === $this->current_user_privileges() ) : ?>
-					<?php echo $this->eael_render_content($this->get_settings_for_display()); ?>
-				<?php else : ?>
-					<?php $this->eael_render_message($this->get_settings_for_display()); ?>
-				<?php endif; ?>
+				<?php
+ if( true === $this->current_user_privileges() ) : ?>
+					<?php
+ echo $this->eael_render_content($this->get_settings_for_display()); ?>
+				<?php
+ else : ?>
+					<?php
+ $this->eael_render_message($this->get_settings_for_display()); ?>
+				<?php
+ endif; ?>
 
-				<?php if( 'yes' == $settings['eael_show_fallback_message']) : ?>
-					<?php $this->eael_render_message($this->get_settings_for_display()); ?>
-				<?php endif; ?>
+				<?php
+ if( 'yes' == $settings['eael_show_fallback_message']) : ?>
+					<?php
+ $this->eael_render_message($this->get_settings_for_display()); ?>
+				<?php
+ endif; ?>
 			</div>
-		<?php else: ?>
+		<?php
+ else: ?>
             <?php
+
                 if(!empty($settings['protection_password']) ) {
 					$unlocked = false;
 
@@ -892,8 +914,10 @@ class Protected_Content extends Widget_Base {
 					}
                 }
             ?>
-        <?php endif; ?>     
+        <?php
+ endif; ?>     
     <?php
+
 	}
     
 }

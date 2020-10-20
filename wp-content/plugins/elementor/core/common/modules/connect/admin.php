@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Common\Modules\Connect;
 
 use Elementor\Plugin;
@@ -94,6 +95,7 @@ class Admin {
 			?>
 		</div><!-- /.wrap -->
 		<?php
+
 	}
 
 	/**

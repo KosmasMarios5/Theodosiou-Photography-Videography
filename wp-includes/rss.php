@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MagpieRSS: a simple RSS integration tool
  *

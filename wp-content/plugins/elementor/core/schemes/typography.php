@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Schemes;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -155,5 +156,6 @@ class Typography extends Base_UI {
 		?>
 		<div class="elementor-panel-scheme-items"></div>
 		<?php
+
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * List Table API: WP_Terms_List_Table class
  *
@@ -637,26 +638,33 @@ class WP_Terms_List_Table extends WP_List_Table {
 		<table style="display: none"><tbody id="inlineedit">
 
 			<tr id="inline-edit" class="inline-edit-row" style="display: none">
-			<td colspan="<?php echo $this->get_column_count(); ?>" class="colspanchange">
+			<td colspan="<?php
+ echo $this->get_column_count(); ?>" class="colspanchange">
 
 			<fieldset>
-				<legend class="inline-edit-legend"><?php _e( 'Quick Edit' ); ?></legend>
+				<legend class="inline-edit-legend"><?php
+ _e( 'Quick Edit' ); ?></legend>
 				<div class="inline-edit-col">
 				<label>
-					<span class="title"><?php _ex( 'Name', 'term name' ); ?></span>
+					<span class="title"><?php
+ _ex( 'Name', 'term name' ); ?></span>
 					<span class="input-text-wrap"><input type="text" name="name" class="ptitle" value="" /></span>
 				</label>
 
-				<?php if ( ! global_terms_enabled() ) : ?>
+				<?php
+ if ( ! global_terms_enabled() ) : ?>
 					<label>
-						<span class="title"><?php _e( 'Slug' ); ?></span>
+						<span class="title"><?php
+ _e( 'Slug' ); ?></span>
 						<span class="input-text-wrap"><input type="text" name="slug" class="ptitle" value="" /></span>
 					</label>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 				</div>
 			</fieldset>
 
 			<?php
+
 			$core_columns = array(
 				'cb'          => true,
 				'description' => true,
@@ -678,13 +686,18 @@ class WP_Terms_List_Table extends WP_List_Table {
 			?>
 
 			<div class="inline-edit-save submit">
-				<button type="button" class="cancel button alignleft"><?php _e( 'Cancel' ); ?></button>
-				<button type="button" class="save button button-primary alignright"><?php echo $tax->labels->update_item; ?></button>
+				<button type="button" class="cancel button alignleft"><?php
+ _e( 'Cancel' ); ?></button>
+				<button type="button" class="save button button-primary alignright"><?php
+ echo $tax->labels->update_item; ?></button>
 				<span class="spinner"></span>
 
-				<?php wp_nonce_field( 'taxinlineeditnonce', '_inline_edit', false ); ?>
-				<input type="hidden" name="taxonomy" value="<?php echo esc_attr( $this->screen->taxonomy ); ?>" />
-				<input type="hidden" name="post_type" value="<?php echo esc_attr( $this->screen->post_type ); ?>" />
+				<?php
+ wp_nonce_field( 'taxinlineeditnonce', '_inline_edit', false ); ?>
+				<input type="hidden" name="taxonomy" value="<?php
+ echo esc_attr( $this->screen->taxonomy ); ?>" />
+				<input type="hidden" name="post_type" value="<?php
+ echo esc_attr( $this->screen->post_type ); ?>" />
 				<br class="clear" />
 
 				<div class="notice notice-error notice-alt inline hidden">
@@ -697,5 +710,6 @@ class WP_Terms_List_Table extends WP_List_Table {
 		</tbody></table>
 		</form>
 		<?php
+
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Nav_Menu_Name_Control class
  *
@@ -52,5 +53,6 @@ class WP_Customize_Nav_Menu_Name_Control extends WP_Customize_Control {
 			<p id="{{ data.section }}-description">{{ data.description }}</p>
 		<# } #>
 		<?php
+
 	}
 }

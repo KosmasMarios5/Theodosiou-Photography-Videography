@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Dependencies API: Scripts functions
  *

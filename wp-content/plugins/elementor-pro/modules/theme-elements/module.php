@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeElements;
 
 use ElementorPro\Base\Module_Base;

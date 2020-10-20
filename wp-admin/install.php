@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Installer
  *
@@ -22,6 +23,7 @@ if ( false ) {
 </body>
 </html>
 	<?php
+
 }
 
 /**
@@ -65,18 +67,24 @@ function display_header( $body_classes = '' ) {
 	}
 	?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php
+ language_attributes(); ?>>
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'WordPress &rsaquo; Installation' ); ?></title>
-	<?php wp_admin_css( 'install', true ); ?>
+	<title><?php
+ _e( 'WordPress &rsaquo; Installation' ); ?></title>
+	<?php
+ wp_admin_css( 'install', true ); ?>
 </head>
-<body class="wp-core-ui<?php echo $body_classes; ?>">
-<p id="logo"><?php _e( 'WordPress' ); ?></p>
+<body class="wp-core-ui<?php
+ echo $body_classes; ?>">
+<p id="logo"><?php
+ _e( 'WordPress' ); ?></p>
 
 	<?php
+
 } // End display_header().
 
 /**
@@ -105,58 +113,80 @@ function display_setup_form( $error = null ) {
 
 	if ( ! is_null( $error ) ) {
 		?>
-<h1><?php _ex( 'Welcome', 'Howdy' ); ?></h1>
-<p class="message"><?php echo $error; ?></p>
-<?php } ?>
+<h1><?php
+ _ex( 'Welcome', 'Howdy' ); ?></h1>
+<p class="message"><?php
+ echo $error; ?></p>
+<?php
+ } ?>
 <form id="setup" method="post" action="install.php?step=2" novalidate="novalidate">
 	<table class="form-table" role="presentation">
 		<tr>
-			<th scope="row"><label for="weblog_title"><?php _e( 'Site Title' ); ?></label></th>
-			<td><input name="weblog_title" type="text" id="weblog_title" size="25" value="<?php echo esc_attr( $weblog_title ); ?>" /></td>
+			<th scope="row"><label for="weblog_title"><?php
+ _e( 'Site Title' ); ?></label></th>
+			<td><input name="weblog_title" type="text" id="weblog_title" size="25" value="<?php
+ echo esc_attr( $weblog_title ); ?>" /></td>
 		</tr>
 		<tr>
-			<th scope="row"><label for="user_login"><?php _e( 'Username' ); ?></label></th>
+			<th scope="row"><label for="user_login"><?php
+ _e( 'Username' ); ?></label></th>
 			<td>
 			<?php
+
 			if ( $user_table ) {
 				_e( 'User(s) already exists.' );
 				echo '<input name="user_name" type="hidden" value="admin" />';
 			} else {
 				?>
-				<input name="user_name" type="text" id="user_login" size="25" value="<?php echo esc_attr( sanitize_user( $user_name, true ) ); ?>" />
-				<p><?php _e( 'Usernames can have only alphanumeric characters, spaces, underscores, hyphens, periods, and the @ symbol.' ); ?></p>
+				<input name="user_name" type="text" id="user_login" size="25" value="<?php
+ echo esc_attr( sanitize_user( $user_name, true ) ); ?>" />
+				<p><?php
+ _e( 'Usernames can have only alphanumeric characters, spaces, underscores, hyphens, periods, and the @ symbol.' ); ?></p>
 				<?php
+
 			}
 			?>
 			</td>
 		</tr>
-		<?php if ( ! $user_table ) : ?>
+		<?php
+ if ( ! $user_table ) : ?>
 		<tr class="form-field form-required user-pass1-wrap">
 			<th scope="row">
 				<label for="pass1">
-					<?php _e( 'Password' ); ?>
+					<?php
+ _e( 'Password' ); ?>
 				</label>
 			</th>
 			<td>
 				<div class="wp-pwd">
-					<?php $initial_password = isset( $_POST['admin_password'] ) ? stripslashes( $_POST['admin_password'] ) : wp_generate_password( 18 ); ?>
-					<input type="password" name="admin_password" id="pass1" class="regular-text" autocomplete="off" data-reveal="1" data-pw="<?php echo esc_attr( $initial_password ); ?>" aria-describedby="pass-strength-result" />
-					<button type="button" class="button wp-hide-pw hide-if-no-js" data-start-masked="<?php echo (int) isset( $_POST['admin_password'] ); ?>" data-toggle="0" aria-label="<?php esc_attr_e( 'Hide password' ); ?>">
+					<?php
+ $initial_password = isset( $_POST['admin_password'] ) ? stripslashes( $_POST['admin_password'] ) : wp_generate_password( 18 ); ?>
+					<input type="password" name="admin_password" id="pass1" class="regular-text" autocomplete="off" data-reveal="1" data-pw="<?php
+ echo esc_attr( $initial_password ); ?>" aria-describedby="pass-strength-result" />
+					<button type="button" class="button wp-hide-pw hide-if-no-js" data-start-masked="<?php
+ echo (int) isset( $_POST['admin_password'] ); ?>" data-toggle="0" aria-label="<?php
+ esc_attr_e( 'Hide password' ); ?>">
 						<span class="dashicons dashicons-hidden"></span>
-						<span class="text"><?php _e( 'Hide' ); ?></span>
+						<span class="text"><?php
+ _e( 'Hide' ); ?></span>
 					</button>
 					<div id="pass-strength-result" aria-live="polite"></div>
 				</div>
 				<p><span class="description important hide-if-no-js">
-				<strong><?php _e( 'Important:' ); ?></strong>
-				<?php /* translators: The non-breaking space prevents 1Password from thinking the text "log in" should trigger a password save prompt. */ ?>
-				<?php _e( 'You will need this password to log&nbsp;in. Please store it in a secure location.' ); ?></span></p>
+				<strong><?php
+ _e( 'Important:' ); ?></strong>
+				<?php
+ /* translators: The non-breaking space prevents 1Password from thinking the text "log in" should trigger a password save prompt. */ ?>
+				<?php
+ _e( 'You will need this password to log&nbsp;in. Please store it in a secure location.' ); ?></span></p>
 			</td>
 		</tr>
 		<tr class="form-field form-required user-pass2-wrap hide-if-js">
 			<th scope="row">
-				<label for="pass2"><?php _e( 'Repeat Password' ); ?>
-					<span class="description"><?php _e( '(required)' ); ?></span>
+				<label for="pass2"><?php
+ _e( 'Repeat Password' ); ?>
+					<span class="description"><?php
+ _e( '(required)' ); ?></span>
 				</label>
 			</th>
 			<td>
@@ -164,50 +194,72 @@ function display_setup_form( $error = null ) {
 			</td>
 		</tr>
 		<tr class="pw-weak">
-			<th scope="row"><?php _e( 'Confirm Password' ); ?></th>
+			<th scope="row"><?php
+ _e( 'Confirm Password' ); ?></th>
 			<td>
 				<label>
 					<input type="checkbox" name="pw_weak" class="pw-checkbox" />
-					<?php _e( 'Confirm use of weak password' ); ?>
+					<?php
+ _e( 'Confirm use of weak password' ); ?>
 				</label>
 			</td>
 		</tr>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 		<tr>
-			<th scope="row"><label for="admin_email"><?php _e( 'Your Email' ); ?></label></th>
-			<td><input name="admin_email" type="email" id="admin_email" size="25" value="<?php echo esc_attr( $admin_email ); ?>" />
-			<p><?php _e( 'Double-check your email address before continuing.' ); ?></p></td>
+			<th scope="row"><label for="admin_email"><?php
+ _e( 'Your Email' ); ?></label></th>
+			<td><input name="admin_email" type="email" id="admin_email" size="25" value="<?php
+ echo esc_attr( $admin_email ); ?>" />
+			<p><?php
+ _e( 'Double-check your email address before continuing.' ); ?></p></td>
 		</tr>
 		<tr>
-			<th scope="row"><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site visibility' ) : _e( 'Search engine visibility' ); ?></th>
+			<th scope="row"><?php
+ has_action( 'blog_privacy_selector' ) ? _e( 'Site visibility' ) : _e( 'Search engine visibility' ); ?></th>
 			<td>
 				<fieldset>
-					<legend class="screen-reader-text"><span><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site visibility' ) : _e( 'Search engine visibility' ); ?> </span></legend>
+					<legend class="screen-reader-text"><span><?php
+ has_action( 'blog_privacy_selector' ) ? _e( 'Site visibility' ) : _e( 'Search engine visibility' ); ?> </span></legend>
 					<?php
+
 					if ( has_action( 'blog_privacy_selector' ) ) {
 						?>
-						<input id="blog-public" type="radio" name="blog_public" value="1" <?php checked( 1, $blog_public ); ?> />
-						<label for="blog-public"><?php _e( 'Allow search engines to index this site' ); ?></label><br/>
-						<input id="blog-norobots" type="radio" name="blog_public" value="0" <?php checked( 0, $blog_public ); ?> />
-						<label for="blog-norobots"><?php _e( 'Discourage search engines from indexing this site' ); ?></label>
-						<p class="description"><?php _e( 'Note: Neither of these options blocks access to your site &mdash; it is up to search engines to honor your request.' ); ?></p>
+						<input id="blog-public" type="radio" name="blog_public" value="1" <?php
+ checked( 1, $blog_public ); ?> />
+						<label for="blog-public"><?php
+ _e( 'Allow search engines to index this site' ); ?></label><br/>
+						<input id="blog-norobots" type="radio" name="blog_public" value="0" <?php
+ checked( 0, $blog_public ); ?> />
+						<label for="blog-norobots"><?php
+ _e( 'Discourage search engines from indexing this site' ); ?></label>
+						<p class="description"><?php
+ _e( 'Note: Neither of these options blocks access to your site &mdash; it is up to search engines to honor your request.' ); ?></p>
 						<?php
+
 						/** This action is documented in wp-admin/options-reading.php */
 						do_action( 'blog_privacy_selector' );
 					} else {
 						?>
-						<label for="blog_public"><input name="blog_public" type="checkbox" id="blog_public" value="0" <?php checked( 0, $blog_public ); ?> />
-						<?php _e( 'Discourage search engines from indexing this site' ); ?></label>
-						<p class="description"><?php _e( 'It is up to search engines to honor this request.' ); ?></p>
-					<?php } ?>
+						<label for="blog_public"><input name="blog_public" type="checkbox" id="blog_public" value="0" <?php
+ checked( 0, $blog_public ); ?> />
+						<?php
+ _e( 'Discourage search engines from indexing this site' ); ?></label>
+						<p class="description"><?php
+ _e( 'It is up to search engines to honor this request.' ); ?></p>
+					<?php
+ } ?>
 				</fieldset>
 			</td>
 		</tr>
 	</table>
-	<p class="step"><?php submit_button( __( 'Install WordPress' ), 'large', 'Submit', false, array( 'id' => 'submit' ) ); ?></p>
-	<input type="hidden" name="language" value="<?php echo isset( $_REQUEST['language'] ) ? esc_attr( $_REQUEST['language'] ) : ''; ?>" />
+	<p class="step"><?php
+ submit_button( __( 'Install WordPress' ), 'large', 'Submit', false, array( 'id' => 'submit' ) ); ?></p>
+	<input type="hidden" name="language" value="<?php
+ echo isset( $_REQUEST['language'] ) ? esc_attr( $_REQUEST['language'] ) : ''; ?>" />
 </form>
 	<?php
+
 } // End display_setup_form().
 
 // Let's check to make sure WP isn't already installed.
@@ -354,13 +406,18 @@ switch ( $step ) {
 
 		display_header();
 		?>
-<h1><?php _ex( 'Welcome', 'Howdy' ); ?></h1>
-<p><?php _e( 'Welcome to the famous five-minute WordPress installation process! Just fill in the information below and you&#8217;ll be on your way to using the most extendable and powerful personal publishing platform in the world.' ); ?></p>
+<h1><?php
+ _ex( 'Welcome', 'Howdy' ); ?></h1>
+<p><?php
+ _e( 'Welcome to the famous five-minute WordPress installation process! Just fill in the information below and you&#8217;ll be on your way to using the most extendable and powerful personal publishing platform in the world.' ); ?></p>
 
-<h2><?php _e( 'Information needed' ); ?></h2>
-<p><?php _e( 'Please provide the following information. Don&#8217;t worry, you can always change these settings later.' ); ?></p>
+<h2><?php
+ _e( 'Information needed' ); ?></h2>
+<p><?php
+ _e( 'Please provide the following information. Don&#8217;t worry, you can always change these settings later.' ); ?></p>
 
 		<?php
+
 		display_setup_form();
 		break;
 	case 2:
@@ -414,31 +471,43 @@ switch ( $step ) {
 			$result = wp_install( $weblog_title, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
 			?>
 
-<h1><?php _e( 'Success!' ); ?></h1>
+<h1><?php
+ _e( 'Success!' ); ?></h1>
 
-<p><?php _e( 'WordPress has been installed. Thank you, and enjoy!' ); ?></p>
+<p><?php
+ _e( 'WordPress has been installed. Thank you, and enjoy!' ); ?></p>
 
 <table class="form-table install-success">
 	<tr>
-		<th><?php _e( 'Username' ); ?></th>
-		<td><?php echo esc_html( sanitize_user( $user_name, true ) ); ?></td>
+		<th><?php
+ _e( 'Username' ); ?></th>
+		<td><?php
+ echo esc_html( sanitize_user( $user_name, true ) ); ?></td>
 	</tr>
 	<tr>
-		<th><?php _e( 'Password' ); ?></th>
+		<th><?php
+ _e( 'Password' ); ?></th>
 		<td>
 			<?php
+
 			if ( ! empty( $result['password'] ) && empty( $admin_password_check ) ) :
 				?>
-			<code><?php echo esc_html( $result['password'] ); ?></code><br />
-		<?php endif ?>
-			<p><?php echo $result['password_message']; ?></p>
+			<code><?php
+ echo esc_html( $result['password'] ); ?></code><br />
+		<?php
+ endif ?>
+			<p><?php
+ echo $result['password_message']; ?></p>
 		</td>
 	</tr>
 </table>
 
-<p class="step"><a href="<?php echo esc_url( wp_login_url() ); ?>" class="button button-large"><?php _e( 'Log In' ); ?></a></p>
+<p class="step"><a href="<?php
+ echo esc_url( wp_login_url() ); ?>" class="button button-large"><?php
+ _e( 'Log In' ); ?></a></p>
 
 			<?php
+
 		}
 		break;
 }
@@ -447,6 +516,7 @@ if ( ! wp_is_mobile() ) {
 	?>
 <script type="text/javascript">var t = document.getElementById('weblog_title'); if (t){ t.focus(); }</script>
 	<?php
+
 }
 
 wp_print_scripts( $scripts_to_print );

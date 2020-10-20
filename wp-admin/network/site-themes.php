@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Edit Site Themes Administration Screen
  *
@@ -175,8 +176,13 @@ $submenu_file = 'sites.php';
 require_once ABSPATH . 'wp-admin/admin-header.php'; ?>
 
 <div class="wrap">
-<h1 id="edit-site"><?php echo $title; ?></h1>
-<p class="edit-site-actions"><a href="<?php echo esc_url( get_home_url( $id, '/' ) ); ?>"><?php _e( 'Visit' ); ?></a> | <a href="<?php echo esc_url( get_admin_url( $id ) ); ?>"><?php _e( 'Dashboard' ); ?></a></p>
+<h1 id="edit-site"><?php
+ echo $title; ?></h1>
+<p class="edit-site-actions"><a href="<?php
+ echo esc_url( get_home_url( $id, '/' ) ); ?>"><?php
+ _e( 'Visit' ); ?></a> | <a href="<?php
+ echo esc_url( get_admin_url( $id ) ); ?>"><?php
+ _e( 'Dashboard' ); ?></a></p>
 <?php
 
 network_edit_site_nav(
@@ -209,21 +215,28 @@ if ( isset( $_GET['enabled'] ) ) {
 }
 ?>
 
-<p><?php _e( 'Network enabled themes are not shown on this screen.' ); ?></p>
+<p><?php
+ _e( 'Network enabled themes are not shown on this screen.' ); ?></p>
 
 <form method="get">
-<?php $wp_list_table->search_box( __( 'Search Installed Themes' ), 'theme' ); ?>
-<input type="hidden" name="id" value="<?php echo esc_attr( $id ); ?>" />
+<?php
+ $wp_list_table->search_box( __( 'Search Installed Themes' ), 'theme' ); ?>
+<input type="hidden" name="id" value="<?php
+ echo esc_attr( $id ); ?>" />
 </form>
 
-<?php $wp_list_table->views(); ?>
+<?php
+ $wp_list_table->views(); ?>
 
 <form method="post" action="site-themes.php?action=update-site">
-	<input type="hidden" name="id" value="<?php echo esc_attr( $id ); ?>" />
+	<input type="hidden" name="id" value="<?php
+ echo esc_attr( $id ); ?>" />
 
-<?php $wp_list_table->display(); ?>
+<?php
+ $wp_list_table->display(); ?>
 
 </form>
 
 </div>
-<?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+<?php
+ require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>

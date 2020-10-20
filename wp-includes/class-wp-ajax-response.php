@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Send XML response back to Ajax request.
  *

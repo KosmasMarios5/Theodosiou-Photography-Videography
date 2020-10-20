@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Administration API: WP_Site_Icon class
  *

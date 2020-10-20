@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Taxonomy API: Walker_Category_Checklist class
  *

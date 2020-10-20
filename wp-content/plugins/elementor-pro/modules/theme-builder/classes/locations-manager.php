@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Classes;
 
 use Elementor\Core\Files\CSS\Post as Post_CSS;

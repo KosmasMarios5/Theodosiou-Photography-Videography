@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Posts\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) {

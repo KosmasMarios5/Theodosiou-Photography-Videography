@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Facilitates adding of the WordPress editor as used on the Write and Edit screens.
  *
@@ -972,7 +973,8 @@ final class _WP_Editors {
 		window.wp.editor = window.wp.editor || {};
 		window.wp.editor.getDefaultSettings = function() {
 			return {
-				tinymce: <?php echo $settings; ?>,
+				tinymce: <?php
+ echo $settings; ?>,
 				quicktags: {
 					buttons: 'strong,em,link,ul,ol,li,code'
 				}
@@ -987,13 +989,16 @@ final class _WP_Editors {
 
 			?>
 			var tinyMCEPreInit = {
-				baseURL: "<?php echo $baseurl; ?>",
-				suffix: "<?php echo $suffix; ?>",
+				baseURL: "<?php
+ echo $baseurl; ?>",
+				suffix: "<?php
+ echo $suffix; ?>",
 				mceInit: {},
 				qtInit: {},
 				load_ext: function(url,lang){var sl=tinymce.ScriptLoader;sl.markDone(url+'/langs/'+lang+'.js');sl.markDone(url+'/langs/'+lang+'_dlg.js');}
 			};
 			<?php
+
 		}
 		?>
 		</script>
@@ -1612,8 +1617,10 @@ final class _WP_Editors {
 
 		<script type="text/javascript">
 		tinyMCEPreInit = {
-			baseURL: "<?php echo $baseurl; ?>",
-			suffix: "<?php echo $suffix; ?>",
+			baseURL: "<?php
+ echo $baseurl; ?>",
+			suffix: "<?php
+ echo $suffix; ?>",
 			<?php
 
 			if ( self::$drag_drop_upload ) {
@@ -1621,9 +1628,12 @@ final class _WP_Editors {
 			}
 
 			?>
-			mceInit: <?php echo $mceInit; ?>,
-			qtInit: <?php echo $qtInit; ?>,
-			ref: <?php echo self::_parse_init( $ref ); ?>,
+			mceInit: <?php
+ echo $mceInit; ?>,
+			qtInit: <?php
+ echo $qtInit; ?>,
+			ref: <?php
+ echo self::_parse_init( $ref ); ?>,
 			load_ext: function(url,lang){var sl=tinymce.ScriptLoader;sl.markDone(url+'/langs/'+lang+'.js');sl.markDone(url+'/langs/'+lang+'_dlg.js');}
 		};
 		</script>
@@ -1830,30 +1840,39 @@ final class _WP_Editors {
 		<div id="wp-link-backdrop" style="display: none"></div>
 		<div id="wp-link-wrap" class="wp-core-ui" style="display: none" role="dialog" aria-labelledby="link-modal-title">
 		<form id="wp-link" tabindex="-1">
-		<?php wp_nonce_field( 'internal-linking', '_ajax_linking_nonce', false ); ?>
-		<h1 id="link-modal-title"><?php _e( 'Insert/edit link' ); ?></h1>
-		<button type="button" id="wp-link-close"><span class="screen-reader-text"><?php _e( 'Close' ); ?></span></button>
+		<?php
+ wp_nonce_field( 'internal-linking', '_ajax_linking_nonce', false ); ?>
+		<h1 id="link-modal-title"><?php
+ _e( 'Insert/edit link' ); ?></h1>
+		<button type="button" id="wp-link-close"><span class="screen-reader-text"><?php
+ _e( 'Close' ); ?></span></button>
 		<div id="link-selector">
 			<div id="link-options">
-				<p class="howto" id="wplink-enter-url"><?php _e( 'Enter the destination URL' ); ?></p>
+				<p class="howto" id="wplink-enter-url"><?php
+ _e( 'Enter the destination URL' ); ?></p>
 				<div>
-					<label><span><?php _e( 'URL' ); ?></span>
+					<label><span><?php
+ _e( 'URL' ); ?></span>
 					<input id="wp-link-url" type="text" aria-describedby="wplink-enter-url" /></label>
 				</div>
 				<div class="wp-link-text-field">
-					<label><span><?php _e( 'Link Text' ); ?></span>
+					<label><span><?php
+ _e( 'Link Text' ); ?></span>
 					<input id="wp-link-text" type="text" /></label>
 				</div>
 				<div class="link-target">
 					<label><span></span>
-					<input type="checkbox" id="wp-link-target" /> <?php _e( 'Open link in a new tab' ); ?></label>
+					<input type="checkbox" id="wp-link-target" /> <?php
+ _e( 'Open link in a new tab' ); ?></label>
 				</div>
 			</div>
-			<p class="howto" id="wplink-link-existing-content"><?php _e( 'Or link to existing content' ); ?></p>
+			<p class="howto" id="wplink-link-existing-content"><?php
+ _e( 'Or link to existing content' ); ?></p>
 			<div id="search-panel">
 				<div class="link-search-wrapper">
 					<label>
-						<span class="search-label"><?php _e( 'Search' ); ?></span>
+						<span class="search-label"><?php
+ _e( 'Search' ); ?></span>
 						<input type="search" id="wp-link-search" class="link-search-field" autocomplete="off" aria-describedby="wplink-link-existing-content" />
 						<span class="spinner"></span>
 					</label>
@@ -1866,8 +1885,10 @@ final class _WP_Editors {
 				</div>
 				<div id="most-recent-results" class="query-results" tabindex="0">
 					<div class="query-notice" id="query-notice-message">
-						<em class="query-notice-default"><?php _e( 'No search term specified. Showing recent items.' ); ?></em>
-						<em class="query-notice-hint screen-reader-text"><?php _e( 'Search or use up and down arrow keys to select an item.' ); ?></em>
+						<em class="query-notice-default"><?php
+ _e( 'No search term specified. Showing recent items.' ); ?></em>
+						<em class="query-notice-hint screen-reader-text"><?php
+ _e( 'Search or use up and down arrow keys to select an item.' ); ?></em>
 					</div>
 					<ul></ul>
 					<div class="river-waiting">
@@ -1878,14 +1899,17 @@ final class _WP_Editors {
 		</div>
 		<div class="submitbox">
 			<div id="wp-link-cancel">
-				<button type="button" class="button"><?php _e( 'Cancel' ); ?></button>
+				<button type="button" class="button"><?php
+ _e( 'Cancel' ); ?></button>
 			</div>
 			<div id="wp-link-update">
-				<input type="submit" value="<?php esc_attr_e( 'Add Link' ); ?>" class="button button-primary" id="wp-link-submit" name="wp-link-submit">
+				<input type="submit" value="<?php
+ esc_attr_e( 'Add Link' ); ?>" class="button button-primary" id="wp-link-submit" name="wp-link-submit">
 			</div>
 		</div>
 		</form>
 		</div>
 		<?php
+
 	}
 }

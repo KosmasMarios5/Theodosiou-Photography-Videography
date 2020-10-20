@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ExactMetrics Onboarding Wizard
  *
@@ -16,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class ExactMetrics_Dashboard_Widget
  */
 class ExactMetrics_Onboarding_Wizard {
-
 
 	/**
 	 * ExactMetrics_Onboarding_Wizard constructor.
@@ -156,17 +156,23 @@ class ExactMetrics_Onboarding_Wizard {
 	public function onboarding_wizard_header() {
 		?>
 		<!DOCTYPE html>
-		<html <?php language_attributes(); ?>>
+		<html <?php
+ language_attributes(); ?>>
 		<head>
 			<meta name="viewport" content="width=device-width"/>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-			<title><?php esc_html_e( 'ExactMetrics &rsaquo; Onboarding Wizard', 'google-analytics-dashboard-for-wp' ); ?></title>
-			<?php do_action( 'admin_print_styles' ); ?>
-			<?php do_action( 'admin_print_scripts' ); ?>
-			<?php do_action( 'admin_head' ); ?>
+			<title><?php
+ esc_html_e( 'ExactMetrics &rsaquo; Onboarding Wizard', 'google-analytics-dashboard-for-wp' ); ?></title>
+			<?php
+ do_action( 'admin_print_styles' ); ?>
+			<?php
+ do_action( 'admin_print_scripts' ); ?>
+			<?php
+ do_action( 'admin_head' ); ?>
 		</head>
 		<body class="exactmetrics-onboarding">
 		<?php
+
 	}
 
 	/**
@@ -184,10 +190,12 @@ class ExactMetrics_Onboarding_Wizard {
 	 */
 	public function onboarding_wizard_footer() {
 		?>
-		<?php wp_print_scripts( 'exactmetrics-vue-script' ); ?>
+		<?php
+ wp_print_scripts( 'exactmetrics-vue-script' ); ?>
 		</body>
 		</html>
 		<?php
+
 	}
 
 	/**

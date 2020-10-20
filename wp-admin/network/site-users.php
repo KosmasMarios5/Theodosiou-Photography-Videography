@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Edit Site Users Administration Screen
  *
@@ -220,13 +221,18 @@ if ( ! wp_is_large_network( 'users' ) && apply_filters( 'show_network_site_users
 require_once ABSPATH . 'wp-admin/admin-header.php'; ?>
 
 <script type="text/javascript">
-var current_site_id = <?php echo $id; ?>;
+var current_site_id = <?php
+ echo $id; ?>;
 </script>
 
-
 <div class="wrap">
-<h1 id="edit-site"><?php echo $title; ?></h1>
-<p class="edit-site-actions"><a href="<?php echo esc_url( get_home_url( $id, '/' ) ); ?>"><?php _e( 'Visit' ); ?></a> | <a href="<?php echo esc_url( get_admin_url( $id ) ); ?>"><?php _e( 'Dashboard' ); ?></a></p>
+<h1 id="edit-site"><?php
+ echo $title; ?></h1>
+<p class="edit-site-actions"><a href="<?php
+ echo esc_url( get_home_url( $id, '/' ) ); ?>"><?php
+ _e( 'Visit' ); ?></a> | <a href="<?php
+ echo esc_url( get_admin_url( $id ) ); ?>"><?php
+ _e( 'Dashboard' ); ?></a></p>
 <?php
 
 network_edit_site_nav(
@@ -276,20 +282,26 @@ endif;
 ?>
 
 <form class="search-form" method="get">
-<?php $wp_list_table->search_box( __( 'Search Users' ), 'user' ); ?>
-<input type="hidden" name="id" value="<?php echo esc_attr( $id ); ?>" />
+<?php
+ $wp_list_table->search_box( __( 'Search Users' ), 'user' ); ?>
+<input type="hidden" name="id" value="<?php
+ echo esc_attr( $id ); ?>" />
 </form>
 
-<?php $wp_list_table->views(); ?>
+<?php
+ $wp_list_table->views(); ?>
 
 <form method="post" action="site-users.php?action=update-site">
-	<input type="hidden" name="id" value="<?php echo esc_attr( $id ); ?>" />
+	<input type="hidden" name="id" value="<?php
+ echo esc_attr( $id ); ?>" />
 
-<?php $wp_list_table->display(); ?>
+<?php
+ $wp_list_table->display(); ?>
 
 </form>
 
 <?php
+
 /**
  * Fires after the list table on the Users screen in the Multisite Network Admin.
  *
@@ -300,18 +312,23 @@ do_action( 'network_site_users_after_list_table' );
 /** This filter is documented in wp-admin/network/site-users.php */
 if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_users_add_existing_form', true ) ) :
 	?>
-<h2 id="add-existing-user"><?php _e( 'Add Existing User' ); ?></h2>
+<h2 id="add-existing-user"><?php
+ _e( 'Add Existing User' ); ?></h2>
 <form action="site-users.php?action=adduser" id="adduser" method="post">
-	<input type="hidden" name="id" value="<?php echo esc_attr( $id ); ?>" />
+	<input type="hidden" name="id" value="<?php
+ echo esc_attr( $id ); ?>" />
 	<table class="form-table" role="presentation">
 		<tr>
-			<th scope="row"><label for="newuser"><?php _e( 'Username' ); ?></label></th>
+			<th scope="row"><label for="newuser"><?php
+ _e( 'Username' ); ?></label></th>
 			<td><input type="text" class="regular-text wp-suggest-user" name="newuser" id="newuser" /></td>
 		</tr>
 		<tr>
-			<th scope="row"><label for="new_role_adduser"><?php _e( 'Role' ); ?></label></th>
+			<th scope="row"><label for="new_role_adduser"><?php
+ _e( 'Role' ); ?></label></th>
 			<td><select name="new_role" id="new_role_adduser">
 			<?php
+
 			switch_to_blog( $id );
 			wp_dropdown_roles( get_option( 'default_role' ) );
 			restore_current_blog();
@@ -319,12 +336,16 @@ if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_us
 			</select></td>
 		</tr>
 	</table>
-	<?php wp_nonce_field( 'add-user', '_wpnonce_add-user' ); ?>
-	<?php submit_button( __( 'Add User' ), 'primary', 'add-user', true, array( 'id' => 'submit-add-existing-user' ) ); ?>
+	<?php
+ wp_nonce_field( 'add-user', '_wpnonce_add-user' ); ?>
+	<?php
+ submit_button( __( 'Add User' ), 'primary', 'add-user', true, array( 'id' => 'submit-add-existing-user' ) ); ?>
 </form>
-<?php endif; ?>
+<?php
+ endif; ?>
 
 <?php
+
 /**
  * Filters whether to show the Add New User form on the Multisite Users screen.
  *
@@ -334,22 +355,29 @@ if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_us
  */
 if ( current_user_can( 'create_users' ) && apply_filters( 'show_network_site_users_add_new_form', true ) ) :
 	?>
-<h2 id="add-new-user"><?php _e( 'Add New User' ); ?></h2>
-<form action="<?php echo network_admin_url( 'site-users.php?action=newuser' ); ?>" id="newuser" method="post">
-	<input type="hidden" name="id" value="<?php echo esc_attr( $id ); ?>" />
+<h2 id="add-new-user"><?php
+ _e( 'Add New User' ); ?></h2>
+<form action="<?php
+ echo network_admin_url( 'site-users.php?action=newuser' ); ?>" id="newuser" method="post">
+	<input type="hidden" name="id" value="<?php
+ echo esc_attr( $id ); ?>" />
 	<table class="form-table" role="presentation">
 		<tr>
-			<th scope="row"><label for="user_username"><?php _e( 'Username' ); ?></label></th>
+			<th scope="row"><label for="user_username"><?php
+ _e( 'Username' ); ?></label></th>
 			<td><input type="text" class="regular-text" name="user[username]" id="user_username" /></td>
 		</tr>
 		<tr>
-			<th scope="row"><label for="user_email"><?php _e( 'Email' ); ?></label></th>
+			<th scope="row"><label for="user_email"><?php
+ _e( 'Email' ); ?></label></th>
 			<td><input type="text" class="regular-text" name="user[email]" id="user_email" /></td>
 		</tr>
 		<tr>
-			<th scope="row"><label for="new_role_newuser"><?php _e( 'Role' ); ?></label></th>
+			<th scope="row"><label for="new_role_newuser"><?php
+ _e( 'Role' ); ?></label></th>
 			<td><select name="new_role" id="new_role_newuser">
 			<?php
+
 			switch_to_blog( $id );
 			wp_dropdown_roles( get_option( 'default_role' ) );
 			restore_current_blog();
@@ -357,13 +385,18 @@ if ( current_user_can( 'create_users' ) && apply_filters( 'show_network_site_use
 			</select></td>
 		</tr>
 		<tr class="form-field">
-			<td colspan="2" class="td-full"><?php _e( 'A password reset link will be sent to the user via email.' ); ?></td>
+			<td colspan="2" class="td-full"><?php
+ _e( 'A password reset link will be sent to the user via email.' ); ?></td>
 		</tr>
 	</table>
-	<?php wp_nonce_field( 'add-user', '_wpnonce_add-new-user' ); ?>
-	<?php submit_button( __( 'Add New User' ), 'primary', 'add-user', true, array( 'id' => 'submit-add-user' ) ); ?>
+	<?php
+ wp_nonce_field( 'add-user', '_wpnonce_add-new-user' ); ?>
+	<?php
+ submit_button( __( 'Add New User' ), 'primary', 'add-user', true, array( 'id' => 'submit-add-user' ) ); ?>
 </form>
-<?php endif; ?>
+<?php
+ endif; ?>
 </div>
 <?php
+
 require_once ABSPATH . 'wp-admin/admin-footer.php';

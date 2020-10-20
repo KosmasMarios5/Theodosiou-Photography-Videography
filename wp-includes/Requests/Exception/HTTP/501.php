@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 501 Not Implemented responses
  *

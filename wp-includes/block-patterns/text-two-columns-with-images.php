@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Two columns of text, each with an image on top block pattern.
  *

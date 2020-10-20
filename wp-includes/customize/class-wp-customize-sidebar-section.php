@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_Sidebar_Section class
  *

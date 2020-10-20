@@ -1,4 +1,5 @@
 <?php
+
 /**
  * REST API: WP_REST_Search_Controller class
  *

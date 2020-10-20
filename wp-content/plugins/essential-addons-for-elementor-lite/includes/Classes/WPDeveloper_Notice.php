@@ -832,11 +832,14 @@ class WPDeveloper_Notice {
                     $('body').on('click', 'button.notice-dismiss', function (e) {
                         e.preventDefault();
                         $.ajax({
-                            url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+                            url: '<?php
+ echo admin_url( 'admin-ajax.php' ); ?>',
                             type: 'post',
                             data: {
-                                action: 'wpdeveloper_notice_dissmiss_for_<?php echo $this->plugin_name; ?>',
-                                _wpnonce: '<?php echo wp_create_nonce('wpdeveloper_notice_dissmiss'); ?>',
+                                action: 'wpdeveloper_notice_dissmiss_for_<?php
+ echo $this->plugin_name; ?>',
+                                _wpnonce: '<?php
+ echo wp_create_nonce('wpdeveloper_notice_dissmiss'); ?>',
                                 dismiss: true,
                                 notice: wpdevNotice.data('notice'),
                             },
@@ -874,27 +877,39 @@ class WPDeveloper_Notice {
         ?>
         <script type="text/javascript">
             jQuery(document).ready( function($) {
-                <?php if( ! empty( $plugin_slug ) && ! empty( $plugin_file ) ) : ?>
-                $('#plugin-install-core-<?php echo $this->plugin_name; ?>').on('click', function (e) {
+                <?php
+ if( ! empty( $plugin_slug ) && ! empty( $plugin_file ) ) : ?>
+                $('#plugin-install-core-<?php
+ echo $this->plugin_name; ?>').on('click', function (e) {
                     var self = $(this);
                     e.preventDefault();
                     self.addClass('install-now updating-message');
-                    self.text('<?php echo esc_js( 'Installing...' ); ?>');
+                    self.text('<?php
+ echo esc_js( 'Installing...' ); ?>');
 
                     $.ajax({
-                        url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+                        url: '<?php
+ echo admin_url( 'admin-ajax.php' ); ?>',
                         type: 'POST',
                         data: {
-                            action: 'wpdeveloper_upsale_core_install_<?php echo $this->plugin_name; ?>',
-                            _wpnonce: '<?php echo wp_create_nonce('wpdeveloper_upsale_core_install_' . $this->plugin_name); ?>',
-                            slug : '<?php echo $plugin_slug; ?>',
-                            file : '<?php echo $plugin_file; ?>'
+                            action: 'wpdeveloper_upsale_core_install_<?php
+ echo $this->plugin_name; ?>',
+                            _wpnonce: '<?php
+ echo wp_create_nonce('wpdeveloper_upsale_core_install_' . $this->plugin_name); ?>',
+                            slug : '<?php
+ echo $plugin_slug; ?>',
+                            file : '<?php
+ echo $plugin_file; ?>'
                         },
                         success: function(response) {
-                            self.text('<?php echo esc_js( 'Installed' ); ?>');
-                            <?php if( ! empty( $page_slug ) ) : ?>
-                                window.location.href = '<?php echo admin_url( "admin.php?page={$page_slug}" ); ?>';
-                            <?php endif; ?>
+                            self.text('<?php
+ echo esc_js( 'Installed' ); ?>');
+                            <?php
+ if( ! empty( $page_slug ) ) : ?>
+                                window.location.href = '<?php
+ echo admin_url( "admin.php?page={$page_slug}" ); ?>';
+                            <?php
+ endif; ?>
                         },
                         error: function(error) {
                             self.removeClass('install-now updating-message');
@@ -905,15 +920,19 @@ class WPDeveloper_Notice {
                         }
                     });
                 });
-                <?php endif; ?>
+                <?php
+ endif; ?>
                 $('.wpdeveloper-upsale-notice').on('click', 'button.notice-dismiss', function (e) {
                     e.preventDefault();
                     $.ajax({
-                        url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+                        url: '<?php
+ echo admin_url( 'admin-ajax.php' ); ?>',
                         type: 'post',
                         data: {
-                            action: 'wpdeveloper_upsale_notice_dissmiss_for_<?php echo $this->plugin_name; ?>',
-                            _wpnonce: '<?php echo wp_create_nonce('wpdeveloper_upsale_notice_dissmiss'); ?>',
+                            action: 'wpdeveloper_upsale_notice_dissmiss_for_<?php
+ echo $this->plugin_name; ?>',
+                            _wpnonce: '<?php
+ echo wp_create_nonce('wpdeveloper_upsale_notice_dissmiss'); ?>',
                             dismiss: true
                         },
                         success: function(response) {

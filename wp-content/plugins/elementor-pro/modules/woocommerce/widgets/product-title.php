@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use Elementor\Widget_Heading;
@@ -77,6 +78,7 @@ class Product_Title extends Widget_Heading {
 		?>
 		<# view.addRenderAttribute( 'title', 'class', [ 'product_title', 'entry-title' ] ); #>
 		<?php
+
 		parent::content_template();
 	}
 

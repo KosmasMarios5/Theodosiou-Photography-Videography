@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Quote block pattern.
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Import WordPress Administration Screen
  *
@@ -58,20 +59,27 @@ $parent_file = 'tools.php';
 ?>
 
 <div class="wrap">
-<h1><?php echo esc_html( $title ); ?></h1>
-<?php if ( ! empty( $_GET['invalid'] ) ) : ?>
+<h1><?php
+ echo esc_html( $title ); ?></h1>
+<?php
+ if ( ! empty( $_GET['invalid'] ) ) : ?>
 	<div class="error">
-		<p><strong><?php _e( 'Error:' ); ?></strong>
+		<p><strong><?php
+ _e( 'Error:' ); ?></strong>
 			<?php
+
 			/* translators: %s: Importer slug. */
 			printf( __( 'The %s importer is invalid or is not installed.' ), '<strong>' . esc_html( $_GET['invalid'] ) . '</strong>' );
 			?>
 		</p>
 	</div>
-<?php endif; ?>
-<p><?php _e( 'If you have posts or comments in another system, WordPress can import those into this site. To get started, choose a system to import from below:' ); ?></p>
+<?php
+ endif; ?>
+<p><?php
+ _e( 'If you have posts or comments in another system, WordPress can import those into this site. To get started, choose a system to import from below:' ); ?></p>
 
 <?php
+
 // Registered (already installed) importers. They're stored in the global $wp_importers.
 $importers = get_importers();
 
@@ -100,6 +108,7 @@ if ( empty( $importers ) ) {
 <table class="widefat importers striped">
 
 	<?php
+
 	foreach ( $importers as $importer_id => $data ) {
 		$plugin_slug         = '';
 		$action              = '';
@@ -220,6 +229,7 @@ if ( empty( $importers ) ) {
 	?>
 </table>
 	<?php
+
 }
 
 if ( current_user_can( 'install_plugins' ) ) {
@@ -234,6 +244,7 @@ if ( current_user_can( 'install_plugins' ) ) {
 </div>
 
 <?php
+
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 

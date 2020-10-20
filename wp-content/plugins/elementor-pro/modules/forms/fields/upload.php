@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Forms\Fields;
 
 use Elementor\Widget_Base;
@@ -360,7 +361,8 @@ class Upload extends Field_Base {
 			[
 				'file' => 'index.php',
 				'content' => [
-					'<?php',
+					'<?php
+',
 					'// Silence is golden.',
 				],
 			],

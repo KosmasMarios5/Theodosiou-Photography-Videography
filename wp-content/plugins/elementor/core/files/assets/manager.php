@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Files\Assets;
 
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
@@ -52,7 +53,6 @@ class Manager {
 	public function add_asset( $instance ) {
 		$this->asset_types[ $instance::get_name() ] = $instance;
 	}
-
 
 	/**
 	 * Register Asset Types

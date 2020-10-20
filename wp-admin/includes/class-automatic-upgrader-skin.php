@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Upgrader API: Automatic_Upgrader_Skin class
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress API for media display.
  *
@@ -2410,6 +2411,7 @@ function wp_underscore_playlist_templates() {
 	<div class="wp-playlist-caption">
 		<span class="wp-playlist-item-meta wp-playlist-item-title">
 		<?php
+
 			/* translators: %s: Playlist item title. */
 			printf( _x( '&#8220;%s&#8221;', 'playlist item title' ), '{{ data.title }}' );
 		?>
@@ -2427,6 +2429,7 @@ function wp_underscore_playlist_templates() {
 			<# } else { #>
 				<span class="wp-playlist-item-title">
 				<?php
+
 					/* translators: %s: Playlist item title. */
 					printf( _x( '&#8220;%s&#8221;', 'playlist item title' ), '{{{ data.title }}}' );
 				?>
@@ -2442,6 +2445,7 @@ function wp_underscore_playlist_templates() {
 	</div>
 </script>
 	<?php
+
 }
 
 /**
@@ -2455,8 +2459,10 @@ function wp_playlist_scripts( $type ) {
 	wp_enqueue_style( 'wp-mediaelement' );
 	wp_enqueue_script( 'wp-playlist' );
 	?>
-<!--[if lt IE 9]><script>document.createElement('<?php echo esc_js( $type ); ?>');</script><![endif]-->
+<!--[if lt IE 9]><script>document.createElement('<?php
+ echo esc_js( $type ); ?>');</script><![endif]-->
 	<?php
+
 	add_action( 'wp_footer', 'wp_underscore_playlist_templates', 0 );
 	add_action( 'admin_footer', 'wp_underscore_playlist_templates', 0 );
 }
@@ -2688,35 +2694,46 @@ function wp_playlist_shortcode( $attr ) {
 		do_action( 'wp_playlist_scripts', $atts['type'], $atts['style'] );
 	}
 	?>
-<div class="wp-playlist wp-<?php echo $safe_type; ?>-playlist wp-playlist-<?php echo $safe_style; ?>">
-	<?php if ( 'audio' === $atts['type'] ) : ?>
+<div class="wp-playlist wp-<?php
+ echo $safe_type; ?>-playlist wp-playlist-<?php
+ echo $safe_style; ?>">
+	<?php
+ if ( 'audio' === $atts['type'] ) : ?>
 	<div class="wp-playlist-current-item"></div>
-	<?php endif ?>
-	<<?php echo $safe_type; ?> controls="controls" preload="none" width="
+	<?php
+ endif ?>
+	<<?php
+ echo $safe_type; ?> controls="controls" preload="none" width="
 				<?php
+
 				echo (int) $theme_width;
 				?>
 	"
 	<?php
+
 	if ( 'video' === $safe_type ) :
 		echo ' height="', (int) $theme_height, '"';
 	endif;
 	?>
-	></<?php echo $safe_type; ?>>
+	></<?php
+ echo $safe_type; ?>>
 	<div class="wp-playlist-next"></div>
 	<div class="wp-playlist-prev"></div>
 	<noscript>
 	<ol>
 	<?php
+
 	foreach ( $attachments as $att_id => $attachment ) {
 		printf( '<li>%s</li>', wp_get_attachment_link( $att_id ) );
 	}
 	?>
 	</ol>
 	</noscript>
-	<script type="application/json" class="wp-playlist-script"><?php echo wp_json_encode( $data ); ?></script>
+	<script type="application/json" class="wp-playlist-script"><?php
+ echo wp_json_encode( $data ); ?></script>
 </div>
 	<?php
+
 	return ob_get_clean();
 }
 add_shortcode( 'playlist', 'wp_playlist_shortcode' );

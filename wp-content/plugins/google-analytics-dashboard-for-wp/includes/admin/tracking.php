@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Tracking functions for reporting plugin usage to the ExactMetrics site for users that have opted in
  *
@@ -96,8 +97,6 @@ class ExactMetrics_Tracking {
 		$data['timezoneoffset']= date('P');
 		$data['installed_lite']= get_option( 'exactmetrics_installed_lite', array() );
 		$data['installed_pro'] = get_option( 'exactmetrics_installed_pro', array() );
-
-
 
 		// Retrieve current plugin information
 		if( ! function_exists( 'get_plugins' ) ) {

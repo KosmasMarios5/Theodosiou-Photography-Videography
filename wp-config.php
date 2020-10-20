@@ -1,4 +1,10 @@
 <?php
+
+
+define('CONCATENATE_SCRIPTS', false);
+define('DISALLOW_FILE_EDIT', true);
+define('WP_DEBUG_DISPLAY', false);
+define('WP_DEBUG_LOG', false);
 define('WP_AUTO_UPDATE_CORE', 'minor');// This setting is required to make sure that WordPress updates can be properly managed in WordPress Toolkit. Remove this line if this WordPress website is not managed by WordPress Toolkit anymore.
 /**
  * The base configuration for WordPress
@@ -18,9 +24,6 @@ define('WP_AUTO_UPDATE_CORE', 'minor');// This setting is required to make sure 
  *
  * @package WordPress
  */
-
-define( 'WP_HOME', 'https://new.theodosiou.gr' );
-define( 'WP_SITEURL', 'https://new.theodosiou.gr' );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -67,7 +70,7 @@ define( 'NONCE_SALT',       '~N _Z:AEc#Ygq1%{r_}Vikv(}#8yu%7/{Ytd0Y](${R>oyM>kDg
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = 'wp_';
+$table_prefix = 'jXg2To_';
 
 /**
  * For developers: WordPress debugging mode.
@@ -81,9 +84,18 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy publishing. */
+
+//if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
+//    $_SERVER['HTTPS']='on';
+
+define( 'WP_HOME', 'https://new.theodosiou.gr' );
+define( 'WP_SITEURL', 'https://new.theodosiou.gr' );
+
+//define('FORCE_SSL_LOGIN', true);
+//define('FORCE_SSL_ADMIN', true);
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -92,5 +104,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
-
 

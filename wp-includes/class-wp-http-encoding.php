@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HTTP API: WP_Http_Encoding class
  *

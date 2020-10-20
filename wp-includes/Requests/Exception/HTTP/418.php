@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception for 418 I'm A Teapot responses
  *

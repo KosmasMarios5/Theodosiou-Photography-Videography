@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Options Administration API.
  *
@@ -24,6 +25,7 @@ function options_discussion_add_js() {
 	})(jQuery);
 	</script>
 	<?php
+
 }
 
 /**
@@ -36,7 +38,8 @@ function options_general_add_js() {
 <script type="text/javascript">
 	jQuery(document).ready(function($){
 		var $siteName = $( '#wp-admin-bar-site-name' ).children( 'a' ).first(),
-			homeURL = ( <?php echo wp_json_encode( get_home_url() ); ?> || '' ).replace( /^(https?:\/\/)?(www\.)?/, '' );
+			homeURL = ( <?php
+ echo wp_json_encode( get_home_url() ); ?> || '' ).replace( /^(https?:\/\/)?(www\.)?/, '' );
 
 		$( '#blogname' ).on( 'input', function() {
 			var title = $.trim( $( this ).val() ) || homeURL;
@@ -99,6 +102,7 @@ function options_general_add_js() {
 	});
 </script>
 	<?php
+
 }
 
 /**
@@ -121,6 +125,7 @@ function options_reading_add_js() {
 	});
 </script>
 	<?php
+
 }
 
 /**

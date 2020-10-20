@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class for looking up a site's health based on a user's WordPress environment.
  *

@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\ThemeBuilder\Widgets;
 
 use Elementor\Controls_Manager;
@@ -119,7 +120,6 @@ class Archive_Posts extends Posts_Base {
 
 		$this->end_controls_section();
 	}
-
 
 	public function query_posts() {
 		global $wp_query;

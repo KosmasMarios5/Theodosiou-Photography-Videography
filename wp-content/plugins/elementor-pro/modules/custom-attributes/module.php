@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\CustomAttributes;
 
 use Elementor\Controls_Stack;

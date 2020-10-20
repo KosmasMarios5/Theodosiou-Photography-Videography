@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress API for creating bbcode-like tags or what WordPress calls
  * "shortcodes". The tag and attribute parsing or regular expression code is

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Routes for VUE are registered here.
  *
@@ -132,11 +133,9 @@ class ExactMetrics_Rest_Routes {
 				$options['summaries_html_template'] = 'yes';
 			}
 
-
 			if ( ! isset( $options['summaries_carbon_copy'] ) ) {
 				$options['summaries_carbon_copy'] = 'no';
 			}
-
 
 			if ( ! isset( $options['summaries_header_image'] ) ) {
 				$options['summaries_header_image'] = '';

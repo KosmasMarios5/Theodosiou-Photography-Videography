@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\AssetsManager\AssetTypes\Icons;
 
 use Elementor\Core\Utils\Exceptions;

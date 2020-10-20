@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -314,6 +315,7 @@ class Widget_Counter extends Widget_Base {
 			} #>
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -345,14 +347,23 @@ class Widget_Counter extends Widget_Base {
 		?>
 		<div class="elementor-counter">
 			<div class="elementor-counter-number-wrapper">
-				<span class="elementor-counter-number-prefix"><?php echo $settings['prefix']; ?></span>
-				<span <?php echo $this->get_render_attribute_string( 'counter' ); ?>><?php echo $settings['starting_number']; ?></span>
-				<span class="elementor-counter-number-suffix"><?php echo $settings['suffix']; ?></span>
+				<span class="elementor-counter-number-prefix"><?php
+ echo $settings['prefix']; ?></span>
+				<span <?php
+ echo $this->get_render_attribute_string( 'counter' ); ?>><?php
+ echo $settings['starting_number']; ?></span>
+				<span class="elementor-counter-number-suffix"><?php
+ echo $settings['suffix']; ?></span>
 			</div>
-			<?php if ( $settings['title'] ) : ?>
-				<div <?php echo $this->get_render_attribute_string( 'counter-title' ); ?>><?php echo $settings['title']; ?></div>
-			<?php endif; ?>
+			<?php
+ if ( $settings['title'] ) : ?>
+				<div <?php
+ echo $this->get_render_attribute_string( 'counter-title' ); ?>><?php
+ echo $settings['title']; ?></div>
+			<?php
+ endif; ?>
 		</div>
 		<?php
+
 	}
 }

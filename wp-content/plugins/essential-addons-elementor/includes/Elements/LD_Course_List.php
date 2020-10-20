@@ -1,4 +1,5 @@
 <?php
+
 namespace Essential_Addons_Elementor\Pro\Elements;
 
 // If this file is called directly, abort.
@@ -367,7 +368,6 @@ class LD_Course_List extends Widget_Base
                 ]
             );
 
-
             $this->add_control(
                 'show_progress_bar',
                 [
@@ -413,7 +413,6 @@ class LD_Course_List extends Widget_Base
 
             $this->end_controls_section();
             #End of `General Settings` section
-
 
             /**
              * Sorting section
@@ -1383,7 +1382,6 @@ class LD_Course_List extends Widget_Base
             $this->end_controls_section();
             # End of `Course Meta section bottom`
 
-
             /**
              * Course Meta section
              * ----------------------------------------
@@ -1812,14 +1810,14 @@ class LD_Course_List extends Widget_Base
         }
     }
 
-
     protected function _generate_tags($tags)
     {
         $settings = $this->get_settings();
 
         if(! empty($tags) && $settings['show_tags'] === 'true') { $i = 0; ?>
             <div class="eael-learn-dash-course-header">
-                <?php foreach($tags as $tag) {
+                <?php
+ foreach($tags as $tag) {
                     if($i == 3) break;
                     if($tag) {
                         echo '<div class="course-tag">'.$tag->name.'</div>';
@@ -1827,7 +1825,8 @@ class LD_Course_List extends Widget_Base
                     $i++;
                 }?>
             </div>
-        <?php }
+        <?php
+ }
     }
 
     protected function get_courses()
@@ -1913,7 +1912,6 @@ class LD_Course_List extends Widget_Base
         
         $settings = $this->get_settings();
 
-
         $this->add_render_attribute(
             'eael-learn-dash-wrapper',
             [
@@ -1937,7 +1935,6 @@ class LD_Course_List extends Widget_Base
         if($settings['mycourses'] === 'enrolled' || $settings['mycourses'] === 'not-enrolled') {
             $enrolled_course_only = $this->get_enrolled_courses_only($courses);
         }
-
 
         ob_start();
         $html = '<div '.$this->get_render_attribute_string('eael-learn-dash-wrapper').'>';
@@ -1988,7 +1985,6 @@ class LD_Course_List extends Widget_Base
                         }
                     }
 
-
                     $author_courses_from_cat = add_query_arg($args, get_author_posts_url( $authordata->ID, $authordata->user_nicename ));
                 }
 
@@ -2005,7 +2001,8 @@ class LD_Course_List extends Widget_Base
                 <script type="text/javascript">
                     jQuery(document).ready(function($){
                         $(".eael-learndash-wrapper").each(function() {
-                            var $node_id = "<?php echo $this->get_id(); ?>",
+                            var $node_id = "<?php
+ echo $this->get_id(); ?>",
                                 $scope = $(".elementor-element-"+$node_id+""),
                                 $this = $(this),
                                 $layout = $this.data('layout-mode');
@@ -2031,6 +2028,7 @@ class LD_Course_List extends Widget_Base
                     });
                 </script>
                 <?php
+
             }
 
         }else {

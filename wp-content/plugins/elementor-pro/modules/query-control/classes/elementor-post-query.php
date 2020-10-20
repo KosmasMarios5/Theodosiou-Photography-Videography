@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\QueryControl\Classes;
 
 use Elementor\Widget_Base;

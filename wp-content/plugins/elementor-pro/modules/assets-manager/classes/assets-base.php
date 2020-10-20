@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\AssetsManager\Classes;
 
 use Elementor\Utils;
@@ -19,6 +20,7 @@ abstract class Assets_Base {
 		?>
 		<div class="elementor-metabox-content">
 			<?php
+
 			foreach ( $fields as $field ) :
 				$field['saved'] = isset( $field['saved'] ) ? $field['saved'] : '';
 				echo $this->get_metabox_field_html( $field, $field['saved'] );
@@ -26,6 +28,7 @@ abstract class Assets_Base {
 			?>
 		</div>
 		<?php
+
 	}
 
 	public function get_metabox_field_html( $field, $saved ) {
@@ -220,17 +223,24 @@ abstract class Assets_Base {
 				<div class="elementor--dropzone--upload__icon">
 					<i class="eicon-library-upload"></i>
 				</div>
-				<?php echo $input_html; ?>
-				<?php echo $this->get_field_label( $field ); ?>
+				<?php
+ echo $input_html; ?>
+				<?php
+ echo $this->get_field_label( $field ); ?>
 				<div class="elementor-button elementor--dropzone--upload__browse">
-					<span><?php esc_html_e( 'Click here to browse', 'elementor-pro' ); ?></span>
+					<span><?php
+ esc_html_e( 'Click here to browse', 'elementor-pro' ); ?></span>
 				</div>
 			</div>
-			<div class="box__uploading"><?php esc_html_e( 'Uploading&hellip;', 'elementor-pro' ); ?></div>
-			<div class="box__success"><?php esc_html_e( 'Done!', 'elementor-pro' ); ?></div>
-			<div class="box__error"><?php esc_html_e( 'Error!', 'elementor-pro' ); ?> <span></span>.</div>
+			<div class="box__uploading"><?php
+ esc_html_e( 'Uploading&hellip;', 'elementor-pro' ); ?></div>
+			<div class="box__success"><?php
+ esc_html_e( 'Done!', 'elementor-pro' ); ?></div>
+			<div class="box__error"><?php
+ esc_html_e( 'Error!', 'elementor-pro' ); ?> <span></span>.</div>
 		</div>
 		<?php
+
 		return ob_get_clean();
 	}
 
@@ -256,14 +266,17 @@ abstract class Assets_Base {
 		$row_label_html = '<span ' . $this->get_attribute_string( $row_label_html_args ) . '>' . $label . '</span>';
 		ob_start();
 		?>
-		<script type="text/template" id="<?php echo esc_attr( $js_id . '_block' ); ?>">
+		<script type="text/template" id="<?php
+ echo esc_attr( $js_id . '_block' ); ?>">
 			<div class="repeater-block block-visible">
 				<?php
+
 				echo $row_label_html;
 				echo $this->get_repeater_tools( $field );
 				?>
 				<div class="repeater-content form-table">
 					<?php
+
 					foreach ( $field['fields'] as $sub_field ) {
 						$sub_field['real_id'] = $id;
 						$sub_field['id'] = $id . '[__counter__][' . $sub_field['id'] . ']';
@@ -274,6 +287,7 @@ abstract class Assets_Base {
 			</div>
 		</script>
 		<?php
+
 		$counter = 0;
 		$row_label_html_args['class'] = 'repeater-title';
 

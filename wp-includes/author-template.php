@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Author Template functions for use in themes.
  *

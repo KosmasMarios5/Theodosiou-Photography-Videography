@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Akismet
  */
@@ -59,6 +60,7 @@ class Akismet_Widget extends WP_Widget {
 </style>
 
 <?php
+
 	}
 
 	function form( $instance ) {
@@ -71,11 +73,17 @@ class Akismet_Widget extends WP_Widget {
 ?>
 
 		<p>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:' , 'akismet'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		<label for="<?php
+ echo $this->get_field_id( 'title' ); ?>"><?php
+ esc_html_e( 'Title:' , 'akismet'); ?></label>
+		<input class="widefat" id="<?php
+ echo $this->get_field_id( 'title' ); ?>" name="<?php
+ echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php
+ echo esc_attr( $title ); ?>" />
 		</p>
 
 <?php
+
 	}
 
 	function update( $new_instance, $old_instance ) {
@@ -99,10 +107,12 @@ class Akismet_Widget extends WP_Widget {
 ?>
 
 	<div class="a-stats">
-		<a href="https://akismet.com" target="_blank" title=""><?php printf( _n( '<strong class="count">%1$s spam</strong> blocked by <strong>Akismet</strong>', '<strong class="count">%1$s spam</strong> blocked by <strong>Akismet</strong>', $count , 'akismet'), number_format_i18n( $count ) ); ?></a>
+		<a href="https://akismet.com" target="_blank" title=""><?php
+ printf( _n( '<strong class="count">%1$s spam</strong> blocked by <strong>Akismet</strong>', '<strong class="count">%1$s spam</strong> blocked by <strong>Akismet</strong>', $count , 'akismet'), number_format_i18n( $count ) ); ?></a>
 	</div>
 
 <?php
+
 		echo $args['after_widget'];
 	}
 }

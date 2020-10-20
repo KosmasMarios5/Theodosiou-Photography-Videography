@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Main WordPress API
  *
@@ -3456,16 +3457,20 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 		}
 		?>
 <!DOCTYPE html>
-<html <?php echo $dir_attr; ?>>
+<html <?php
+ echo $dir_attr; ?>>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $parsed_args['charset']; ?>" />
+	<meta http-equiv="Content-Type" content="text/html; charset=<?php
+ echo $parsed_args['charset']; ?>" />
 	<meta name="viewport" content="width=device-width">
 		<?php
+
 		if ( function_exists( 'wp_no_robots' ) ) {
 			wp_no_robots();
 		}
 		?>
-	<title><?php echo $title; ?></title>
+	<title><?php
+ echo $title; ?></title>
 	<style type="text/css">
 		html {
 			background: #f1f1f1;
@@ -3575,6 +3580,7 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 		}
 
 		<?php
+
 		if ( 'rtl' === $text_direction ) {
 			echo 'body { font-family: Tahoma, Arial; }';
 		}
@@ -3582,11 +3588,14 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 	</style>
 </head>
 <body id="error-page">
-<?php endif; // ! did_action( 'admin_head' ) ?>
-	<?php echo $message; ?>
+<?php
+ endif; // ! did_action( 'admin_head' ) ?>
+	<?php
+ echo $message; ?>
 </body>
 </html>
 	<?php
+
 	if ( $parsed_args['exit'] ) {
 		die();
 	}
@@ -4263,7 +4272,6 @@ function _mce_set_direction( $mce_init ) {
 
 	return $mce_init;
 }
-
 
 /**
  * Convert smiley code to the icon graphic file equivalent.
@@ -6525,10 +6533,12 @@ function wp_auth_check_html() {
 	$wrap_class  = $same_domain ? 'hidden' : 'hidden fallback';
 
 	?>
-	<div id="wp-auth-check-wrap" class="<?php echo $wrap_class; ?>">
+	<div id="wp-auth-check-wrap" class="<?php
+ echo $wrap_class; ?>">
 	<div id="wp-auth-check-bg"></div>
 	<div id="wp-auth-check">
-	<button type="button" class="wp-auth-check-close button-link"><span class="screen-reader-text"><?php _e( 'Close dialog' ); ?></span></button>
+	<button type="button" class="wp-auth-check-close button-link"><span class="screen-reader-text"><?php
+ _e( 'Close dialog' ); ?></span></button>
 	<?php
 
 	if ( $same_domain ) {
@@ -6540,19 +6550,26 @@ function wp_auth_check_html() {
 			$login_url
 		);
 		?>
-		<div id="wp-auth-check-form" class="loading" data-src="<?php echo esc_url( $login_src ); ?>"></div>
+		<div id="wp-auth-check-form" class="loading" data-src="<?php
+ echo esc_url( $login_src ); ?>"></div>
 		<?php
+
 	}
 
 	?>
 	<div class="wp-auth-fallback">
-		<p><b class="wp-auth-fallback-expired" tabindex="0"><?php _e( 'Session expired' ); ?></b></p>
-		<p><a href="<?php echo esc_url( $login_url ); ?>" target="_blank"><?php _e( 'Please log in again.' ); ?></a>
-		<?php _e( 'The login page will open in a new tab. After logging in you can close it and return to this page.' ); ?></p>
+		<p><b class="wp-auth-fallback-expired" tabindex="0"><?php
+ _e( 'Session expired' ); ?></b></p>
+		<p><a href="<?php
+ echo esc_url( $login_url ); ?>" target="_blank"><?php
+ _e( 'Please log in again.' ); ?></a>
+		<?php
+ _e( 'The login page will open in a new tab. After logging in you can close it and return to this page.' ); ?></p>
 	</div>
 	</div>
 	</div>
 	<?php
+
 }
 
 /**
@@ -6783,7 +6800,8 @@ function wp_post_preview_js() {
 		var query = document.location.search;
 
 		if ( query && query.indexOf( 'preview=true' ) !== -1 ) {
-			window.name = '<?php echo $name; ?>';
+			window.name = '<?php
+ echo $name; ?>';
 		}
 
 		if ( window.addEventListener ) {
@@ -6792,6 +6810,7 @@ function wp_post_preview_js() {
 	}());
 	</script>
 	<?php
+
 }
 
 /**

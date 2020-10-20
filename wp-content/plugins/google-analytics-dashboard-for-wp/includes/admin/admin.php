@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Admin class.
  *
@@ -273,7 +274,6 @@ function exactmetrics_admin_setup_notices() {
     // 8. Woo upsell
     // 9. EDD upsell
 
-
     // 1. Google Analytics not authenticated
 	if ( ! is_network_admin() && ! exactmetrics_get_ua() && ! defined( 'EXACTMETRICS_DISABLE_TRACKING' ) ) {
 
@@ -506,7 +506,6 @@ function exactmetrics_admin_setup_notices() {
 add_action( 'admin_notices', 'exactmetrics_admin_setup_notices' );
 add_action( 'network_admin_notices', 'exactmetrics_admin_setup_notices' );
 
-
 // AM Notices
 function exactmetrics_am_notice_optout( $super_admin ) {
     if ( exactmetrics_get_option( 'hide_am_notices', false ) || exactmetrics_get_option( 'network_hide_am_notices', false ) ) {
@@ -531,6 +530,7 @@ function exactmetrics_admin_menu_inline_styles() {
 		}
 	</style>
 	<?php
+
 }
 
 add_action( 'admin_footer', 'exactmetrics_admin_menu_inline_styles', 300 );

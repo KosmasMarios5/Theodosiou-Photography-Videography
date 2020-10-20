@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Forms\Widgets;
 
 use Elementor\Controls_Manager;
@@ -812,11 +813,16 @@ class Login extends Base_Widget {
 
 		$this->form_fields_render_attributes();
 		?>
-		<form class="elementor-login elementor-form" method="post" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>">
-			<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_url ); ?>">
-			<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-				<div <?php echo $this->get_render_attribute_string( 'field-group' ); ?>>
+		<form class="elementor-login elementor-form" method="post" action="<?php
+ echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>">
+			<input type="hidden" name="redirect_to" value="<?php
+ echo esc_attr( $redirect_url ); ?>">
+			<div <?php
+ echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+				<div <?php
+ echo $this->get_render_attribute_string( 'field-group' ); ?>>
 					<?php
+
 					if ( $settings['show_labels'] ) {
 						echo '<label ' . $this->get_render_attribute_string( 'user_label' ) . '>' . $settings['user_label'] . '</label>';
 					}
@@ -825,8 +831,10 @@ class Login extends Base_Widget {
 
 					?>
 				</div>
-				<div <?php echo $this->get_render_attribute_string( 'field-group' ); ?>>
+				<div <?php
+ echo $this->get_render_attribute_string( 'field-group' ); ?>>
 					<?php
+
 					if ( $settings['show_labels'] ) :
 						echo '<label ' . $this->get_render_attribute_string( 'password_label' ) . '>' . $settings['password_label'] . '</label>';
 					endif;
@@ -835,48 +843,69 @@ class Login extends Base_Widget {
 					?>
 				</div>
 
-				<?php if ( 'yes' === $settings['show_remember_me'] ) : ?>
+				<?php
+ if ( 'yes' === $settings['show_remember_me'] ) : ?>
 					<div class="elementor-field-type-checkbox elementor-field-group elementor-column elementor-col-100 elementor-remember-me">
 						<label for="elementor-login-remember-me">
 							<input type="checkbox" id="elementor-login-remember-me" name="rememberme" value="forever">
-							<?php echo __( 'Remember Me', 'elementor-pro' ); ?>
+							<?php
+ echo __( 'Remember Me', 'elementor-pro' ); ?>
 						</label>
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 
-				<div <?php echo $this->get_render_attribute_string( 'submit-group' ); ?>>
-					<button type="submit" <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-							<?php if ( ! empty( $settings['button_text'] ) ) : ?>
-								<span class="elementor-button-text"><?php echo $settings['button_text']; ?></span>
-							<?php endif; ?>
+				<div <?php
+ echo $this->get_render_attribute_string( 'submit-group' ); ?>>
+					<button type="submit" <?php
+ echo $this->get_render_attribute_string( 'button' ); ?>>
+							<?php
+ if ( ! empty( $settings['button_text'] ) ) : ?>
+								<span class="elementor-button-text"><?php
+ echo $settings['button_text']; ?></span>
+							<?php
+ endif; ?>
 					</button>
 				</div>
 
 				<?php
+
 				$show_lost_password = 'yes' === $settings['show_lost_password'];
 				$show_register = get_option( 'users_can_register' ) && 'yes' === $settings['show_register'];
 
 				if ( $show_lost_password || $show_register ) : ?>
 					<div class="elementor-field-group elementor-column elementor-col-100">
-						<?php if ( $show_lost_password ) : ?>
-							<a class="elementor-lost-password" href="<?php echo wp_lostpassword_url( $redirect_url ); ?>">
-								<?php echo __( 'Lost your password?', 'elementor-pro' ); ?>
+						<?php
+ if ( $show_lost_password ) : ?>
+							<a class="elementor-lost-password" href="<?php
+ echo wp_lostpassword_url( $redirect_url ); ?>">
+								<?php
+ echo __( 'Lost your password?', 'elementor-pro' ); ?>
 							</a>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 
-						<?php if ( $show_register ) : ?>
-							<?php if ( $show_lost_password ) : ?>
+						<?php
+ if ( $show_register ) : ?>
+							<?php
+ if ( $show_lost_password ) : ?>
 								<span class="elementor-login-separator"> | </span>
-							<?php endif; ?>
-							<a class="elementor-register" href="<?php echo wp_registration_url(); ?>">
-								<?php echo __( 'Register', 'elementor-pro' ); ?>
+							<?php
+ endif; ?>
+							<a class="elementor-register" href="<?php
+ echo wp_registration_url(); ?>">
+								<?php
+ echo __( 'Register', 'elementor-pro' ); ?>
 							</a>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 					</div>
-				<?php endif; ?>
+				<?php
+ endif; ?>
 			</div>
 		</form>
 		<?php
+
 	}
 
 	/**
@@ -911,7 +940,8 @@ class Login extends Base_Widget {
 					<div class="elementor-field-type-checkbox elementor-field-group elementor-column elementor-col-100 elementor-remember-me">
 						<label for="elementor-login-remember-me">
 							<input type="checkbox" id="elementor-login-remember-me" name="rememberme" value="forever">
-							<?php echo __( 'Remember Me', 'elementor-pro' ); ?>
+							<?php
+ echo __( 'Remember Me', 'elementor-pro' ); ?>
 						</label>
 					</div>
 				<# } #>
@@ -927,26 +957,33 @@ class Login extends Base_Widget {
 				<# if ( settings.show_lost_password || settings.show_register ) { #>
 					<div class="elementor-field-group elementor-column elementor-col-100">
 						<# if ( settings.show_lost_password ) { #>
-							<a class="elementor-lost-password" href="<?php echo wp_lostpassword_url(); ?>">
-								<?php echo __( 'Lost your password?', 'elementor-pro' ); ?>
+							<a class="elementor-lost-password" href="<?php
+ echo wp_lostpassword_url(); ?>">
+								<?php
+ echo __( 'Lost your password?', 'elementor-pro' ); ?>
 							</a>
 						<# } #>
 
-						<?php if ( get_option( 'users_can_register' ) ) { ?>
+						<?php
+ if ( get_option( 'users_can_register' ) ) { ?>
 							<# if ( settings.show_register ) { #>
 								<# if ( settings.show_lost_password ) { #>
 									<span class="elementor-login-separator"> | </span>
 								<# } #>
-								<a class="elementor-register" href="<?php echo wp_registration_url(); ?>">
-									<?php echo __( 'Register', 'elementor-pro' ); ?>
+								<a class="elementor-register" href="<?php
+ echo wp_registration_url(); ?>">
+									<?php
+ echo __( 'Register', 'elementor-pro' ); ?>
 								</a>
 							<# } #>
-						<?php } ?>
+						<?php
+ } ?>
 					</div>
 				<# } #>
 			</div>
 		</div>
 		<?php
+
 	}
 
 	public function render_plain_content() {}

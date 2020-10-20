@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\AssetsManager\AssetTypes;
 
 use ElementorPro\Modules\AssetsManager\Classes;

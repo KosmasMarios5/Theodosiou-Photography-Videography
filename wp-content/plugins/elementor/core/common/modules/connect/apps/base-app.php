@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Common\Modules\Connect\Apps;
 
 use Elementor\Core\Common\Modules\Connect\Admin;
@@ -83,7 +84,6 @@ abstract class Base_App {
 		echo '<hr>';
 	}
 
-
 	/**
 	 * @since 2.3.0
 	 * @access protected
@@ -107,7 +107,6 @@ abstract class Base_App {
 
 		$this->delete( 'notices' );
 	}
-
 
 	public function get_app_token_from_cli_token( $cli_token ) {
 		$response = $this->request( 'get_app_token_from_cli_token', [
@@ -508,14 +507,17 @@ protected function request( $action, $request_body = [], $as_array = false ) {
 		?>
 		<script>
 			if ( opener && opener !== window ) {
-				opener.jQuery( 'body' ).trigger( 'elementor/connect/success/<?php echo esc_attr( $_REQUEST['callback_id'] ); ?>' );
+				opener.jQuery( 'body' ).trigger( 'elementor/connect/success/<?php
+ echo esc_attr( $_REQUEST['callback_id'] ); ?>' );
 				window.close();
 				opener.focus();
 			} else {
-				location = '<?php echo $url; ?>';
+				location = '<?php
+ echo $url; ?>';
 			}
 		</script>
 		<?php
+
 		die;
 	}
 
@@ -572,7 +574,6 @@ protected function request( $action, $request_body = [], $as_array = false ) {
 
 		return $redirect_uri;
 	}
-
 
 	protected function print_notices( $notices ) {
 		switch ( $this->auth_mode ) {

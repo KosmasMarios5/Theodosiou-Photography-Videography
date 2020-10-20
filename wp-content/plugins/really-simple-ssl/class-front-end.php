@@ -1,4 +1,5 @@
 <?php
+
 defined('ABSPATH') or die("you do not have access to this page!");
 
 if ( ! class_exists( 'rsssl_front_end' ) ) {
@@ -64,7 +65,6 @@ if ( ! class_exists( 'rsssl_front_end' ) ) {
             }
         }
 
-
         /**
          * Force SSL on wp rest api
          *
@@ -88,7 +88,6 @@ if ( ! class_exists( 'rsssl_front_end' ) ) {
             }
         }
 
-
         /**
          * Redirect using wp redirect
          *
@@ -109,7 +108,6 @@ if ( ! class_exists( 'rsssl_front_end' ) ) {
                 exit;
             }
         }
-
 
         /**
          * Get the options for this plugin
@@ -145,7 +143,6 @@ if ( ! class_exists( 'rsssl_front_end' ) ) {
                 }
             }
         }
-
 
         /**
          * Adds some javascript to redirect to https.

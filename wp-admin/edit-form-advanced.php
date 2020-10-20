@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Post advanced form for inclusion in the administration panels.
  *
@@ -426,11 +427,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <div class="wrap">
 <h1 class="wp-heading-inline">
 <?php
+
 echo esc_html( $title );
 ?>
 </h1>
 
 <?php
+
 if ( isset( $post_new_file ) && current_user_can( $post_type_object->cap->create_posts ) ) {
 	echo ' <a href="' . esc_url( admin_url( $post_new_file ) ) . '" class="page-title-action">' . esc_html( $post_type_object->labels->add_new ) . '</a>';
 }
@@ -438,19 +441,28 @@ if ( isset( $post_new_file ) && current_user_can( $post_type_object->cap->create
 
 <hr class="wp-header-end">
 
-<?php if ( $notice ) : ?>
-<div id="notice" class="notice notice-warning"><p id="has-newer-autosave"><?php echo $notice; ?></p></div>
-<?php endif; ?>
-<?php if ( $message ) : ?>
-<div id="message" class="updated notice notice-success is-dismissible"><p><?php echo $message; ?></p></div>
-<?php endif; ?>
+<?php
+ if ( $notice ) : ?>
+<div id="notice" class="notice notice-warning"><p id="has-newer-autosave"><?php
+ echo $notice; ?></p></div>
+<?php
+ endif; ?>
+<?php
+ if ( $message ) : ?>
+<div id="message" class="updated notice notice-success is-dismissible"><p><?php
+ echo $message; ?></p></div>
+<?php
+ endif; ?>
 <div id="lost-connection-notice" class="error hidden">
-	<p><span class="spinner"></span> <?php _e( '<strong>Connection lost.</strong> Saving has been disabled until you&#8217;re reconnected.' ); ?>
-	<span class="hide-if-no-sessionstorage"><?php _e( 'We&#8217;re backing up this post in your browser, just in case.' ); ?></span>
+	<p><span class="spinner"></span> <?php
+ _e( '<strong>Connection lost.</strong> Saving has been disabled until you&#8217;re reconnected.' ); ?>
+	<span class="hide-if-no-sessionstorage"><?php
+ _e( 'We&#8217;re backing up this post in your browser, just in case.' ); ?></span>
 	</p>
 </div>
 <form name="post" action="post.php" method="post" id="post"
 <?php
+
 /**
  * Fires inside the post editor form tag.
  *
@@ -463,17 +475,28 @@ do_action( 'post_edit_form_tag', $post );
 $referer = wp_get_referer();
 ?>
 >
-<?php wp_nonce_field( $nonce_action ); ?>
-<input type="hidden" id="user-id" name="user_ID" value="<?php echo (int) $user_ID; ?>" />
-<input type="hidden" id="hiddenaction" name="action" value="<?php echo esc_attr( $form_action ); ?>" />
-<input type="hidden" id="originalaction" name="originalaction" value="<?php echo esc_attr( $form_action ); ?>" />
-<input type="hidden" id="post_author" name="post_author" value="<?php echo esc_attr( $post->post_author ); ?>" />
-<input type="hidden" id="post_type" name="post_type" value="<?php echo esc_attr( $post_type ); ?>" />
-<input type="hidden" id="original_post_status" name="original_post_status" value="<?php echo esc_attr( $post->post_status ); ?>" />
-<input type="hidden" id="referredby" name="referredby" value="<?php echo $referer ? esc_url( $referer ) : ''; ?>" />
-<?php if ( ! empty( $active_post_lock ) ) { ?>
-<input type="hidden" id="active_post_lock" value="<?php echo esc_attr( implode( ':', $active_post_lock ) ); ?>" />
+<?php
+ wp_nonce_field( $nonce_action ); ?>
+<input type="hidden" id="user-id" name="user_ID" value="<?php
+ echo (int) $user_ID; ?>" />
+<input type="hidden" id="hiddenaction" name="action" value="<?php
+ echo esc_attr( $form_action ); ?>" />
+<input type="hidden" id="originalaction" name="originalaction" value="<?php
+ echo esc_attr( $form_action ); ?>" />
+<input type="hidden" id="post_author" name="post_author" value="<?php
+ echo esc_attr( $post->post_author ); ?>" />
+<input type="hidden" id="post_type" name="post_type" value="<?php
+ echo esc_attr( $post_type ); ?>" />
+<input type="hidden" id="original_post_status" name="original_post_status" value="<?php
+ echo esc_attr( $post->post_status ); ?>" />
+<input type="hidden" id="referredby" name="referredby" value="<?php
+ echo $referer ? esc_url( $referer ) : ''; ?>" />
+<?php
+ if ( ! empty( $active_post_lock ) ) { ?>
+<input type="hidden" id="active_post_lock" value="<?php
+ echo esc_attr( implode( ':', $active_post_lock ) ); ?>" />
 	<?php
+
 }
 if ( 'draft' !== get_post_status( $post ) ) {
 	wp_original_referer_field( true, 'previous' );
@@ -486,6 +509,7 @@ wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
 ?>
 
 <?php
+
 /**
  * Fires at the beginning of the edit form.
  *
@@ -499,13 +523,16 @@ do_action( 'edit_form_top', $post );
 ?>
 
 <div id="poststuff">
-<div id="post-body" class="metabox-holder columns-<?php echo ( 1 === get_current_screen()->get_columns() ) ? '1' : '2'; ?>">
+<div id="post-body" class="metabox-holder columns-<?php
+ echo ( 1 === get_current_screen()->get_columns() ) ? '1' : '2'; ?>">
 <div id="post-body-content">
 
-<?php if ( post_type_supports( $post_type, 'title' ) ) { ?>
+<?php
+ if ( post_type_supports( $post_type, 'title' ) ) { ?>
 <div id="titlediv">
 <div id="titlewrap">
 	<?php
+
 	/**
 	 * Filters the title field placeholder text.
 	 *
@@ -516,10 +543,13 @@ do_action( 'edit_form_top', $post );
 	 */
 	$title_placeholder = apply_filters( 'enter_title_here', __( 'Add title' ), $post );
 	?>
-	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo $title_placeholder; ?></label>
-	<input type="text" name="post_title" size="30" value="<?php echo esc_attr( $post->post_title ); ?>" id="title" spellcheck="true" autocomplete="off" />
+	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php
+ echo $title_placeholder; ?></label>
+	<input type="text" name="post_title" size="30" value="<?php
+ echo esc_attr( $post->post_title ); ?>" id="title" spellcheck="true" autocomplete="off" />
 </div>
 	<?php
+
 	/**
 	 * Fires before the permalink field in the edit form.
 	 *
@@ -531,6 +561,7 @@ do_action( 'edit_form_top', $post );
 	?>
 <div class="inside">
 	<?php
+
 	if ( $viewable ) :
 		$sample_permalink_html = $post_type_object->public ? get_sample_permalink_html( $post->ID ) : '';
 
@@ -553,21 +584,25 @@ do_action( 'edit_form_top', $post );
 			?>
 	<div id="edit-slug-box" class="hide-if-no-js">
 			<?php
+
 			if ( $has_sample_permalink ) {
 				echo $sample_permalink_html;
 			}
 			?>
 	</div>
 			<?php
+
 		}
 endif;
 	?>
 </div>
 	<?php
+
 	wp_nonce_field( 'samplepermalink', 'samplepermalinknonce', false );
 	?>
 </div><!-- /titlediv -->
 	<?php
+
 }
 /**
  * Fires after the title field.
@@ -584,9 +619,11 @@ if ( post_type_supports( $post_type, 'editor' ) ) {
 		$_wp_editor_expand_class = ' wp-editor-expand';
 	}
 	?>
-<div id="postdivrich" class="postarea<?php echo $_wp_editor_expand_class; ?>">
+<div id="postdivrich" class="postarea<?php
+ echo $_wp_editor_expand_class; ?>">
 
 	<?php
+
 	wp_editor(
 		$post->post_content,
 		'content',
@@ -607,6 +644,7 @@ if ( post_type_supports( $post_type, 'editor' ) ) {
 <table id="post-status-info"><tbody><tr>
 	<td id="wp-word-count" class="hide-if-no-js">
 	<?php
+
 	printf(
 		/* translators: %s: Number of words. */
 		__( 'Word count: %s' ),
@@ -617,6 +655,7 @@ if ( post_type_supports( $post_type, 'editor' ) ) {
 	<td class="autosave-info">
 	<span class="autosave-message">&nbsp;</span>
 	<?php
+
 	if ( 'auto-draft' !== $post->post_status ) {
 		echo '<span id="last-edit">';
 		$last_user = get_userdata( get_post_meta( $post_ID, '_edit_last', true ) );
@@ -636,6 +675,7 @@ if ( post_type_supports( $post_type, 'editor' ) ) {
 
 </div>
 	<?php
+
 }
 /**
  * Fires after the content editor.
@@ -675,7 +715,6 @@ if ( 'page' === $post_type ) {
 	do_action( 'submitpost_box', $post );
 }
 
-
 do_meta_boxes( $post_type, 'side', $post );
 
 ?>
@@ -705,12 +744,12 @@ if ( 'page' === $post_type ) {
 	do_action( 'edit_form_advanced', $post );
 }
 
-
 do_meta_boxes( null, 'advanced', $post );
 
 ?>
 </div>
 <?php
+
 /**
  * Fires after all meta box sections have been output, before the closing #post-body div.
  *
@@ -728,13 +767,16 @@ do_action( 'dbx_post_sidebar', $post );
 </div>
 
 <?php
+
 if ( post_type_supports( $post_type, 'comments' ) ) {
 	wp_comment_reply();
 }
 ?>
 
-<?php if ( ! wp_is_mobile() && post_type_supports( $post_type, 'title' ) && '' === $post->post_title ) : ?>
+<?php
+ if ( ! wp_is_mobile() && post_type_supports( $post_type, 'title' ) && '' === $post->post_title ) : ?>
 <script type="text/javascript">
 try{document.post.title.focus();}catch(e){}
 </script>
-<?php endif; ?>
+<?php
+ endif; ?>

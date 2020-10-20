@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\Forms\Actions;
 
 use Elementor\Controls_Manager;
@@ -204,7 +205,6 @@ class Getresponse extends Integration_Base {
 
 		return $subscriber;
 	}
-
 
 	/**
 	 * @param Form_Record $record

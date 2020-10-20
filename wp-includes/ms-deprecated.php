@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Deprecated functions from WordPress MU and the multisite feature. You shouldn't
  * use these functions and look for the alternatives instead. The functions will be

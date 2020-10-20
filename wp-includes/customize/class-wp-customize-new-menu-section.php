@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customize API: WP_Customize_New_Menu_Section class
  *
@@ -54,12 +55,15 @@ class WP_Customize_New_Menu_Section extends WP_Customize_Section {
 	protected function render() {
 		_deprecated_function( __METHOD__, '4.9.0' );
 		?>
-		<li id="accordion-section-<?php echo esc_attr( $this->id ); ?>" class="accordion-section-new-menu">
+		<li id="accordion-section-<?php
+ echo esc_attr( $this->id ); ?>" class="accordion-section-new-menu">
 			<button type="button" class="button add-new-menu-item add-menu-toggle" aria-expanded="false">
-				<?php echo esc_html( $this->title ); ?>
+				<?php
+ echo esc_html( $this->title ); ?>
 			</button>
 			<ul class="new-menu-section-content"></ul>
 		</li>
 		<?php
+
 	}
 }

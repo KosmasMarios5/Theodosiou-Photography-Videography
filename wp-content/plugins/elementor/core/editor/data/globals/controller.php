@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Editor\Data\Globals;
 
 use Elementor\Data\Base\Controller as Controller_Base;

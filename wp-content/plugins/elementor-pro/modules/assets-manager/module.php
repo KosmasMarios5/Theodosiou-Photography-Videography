@@ -1,4 +1,5 @@
 <?php
+
 namespace ElementorPro\Modules\AssetsManager;
 
 use ElementorPro\Base\Module_Base;

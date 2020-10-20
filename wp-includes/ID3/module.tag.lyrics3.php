@@ -244,7 +244,6 @@ class getid3_lyrics3 extends getid3_handler
 				return false;
 		}
 
-
 		if (isset($info['id3v1']['tag_offset_start']) && ($info['id3v1']['tag_offset_start'] <= $ParsedLyrics3['tag_offset_end'])) {
 			$this->warning('ID3v1 tag information ignored since it appears to be a false synch in Lyrics3 tag data');
 			unset($info['id3v1']);

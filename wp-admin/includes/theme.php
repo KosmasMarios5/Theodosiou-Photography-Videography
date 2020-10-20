@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Theme Administration API
  *
@@ -786,9 +787,12 @@ function customize_themes_print_templates() {
 		<div class="theme-backdrop"></div>
 		<div class="theme-wrap wp-clearfix" role="document">
 			<div class="theme-header">
-				<button type="button" class="left dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
-				<button type="button" class="right dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
-				<button type="button" class="close dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Close details dialog' ); ?></span></button>
+				<button type="button" class="left dashicons dashicons-no"><span class="screen-reader-text"><?php
+ _e( 'Show previous theme' ); ?></span></button>
+				<button type="button" class="right dashicons dashicons-no"><span class="screen-reader-text"><?php
+ _e( 'Show next theme' ); ?></span></button>
+				<button type="button" class="close dashicons dashicons-no"><span class="screen-reader-text"><?php
+ _e( 'Close details dialog' ); ?></span></button>
 			</div>
 			<div class="theme-about wp-clearfix">
 				<div class="theme-screenshots">
@@ -801,16 +805,19 @@ function customize_themes_print_templates() {
 
 				<div class="theme-info">
 					<# if ( data.active ) { #>
-						<span class="current-label"><?php _e( 'Current Theme' ); ?></span>
+						<span class="current-label"><?php
+ _e( 'Current Theme' ); ?></span>
 					<# } #>
 					<h2 class="theme-name">{{{ data.name }}}<span class="theme-version">
 						<?php
+
 						/* translators: %s: Theme version. */
 						printf( __( 'Version: %s' ), '{{ data.version }}' );
 						?>
 					</span></h2>
 					<h3 class="theme-author">
 						<?php
+
 						/* translators: %s: Theme author link. */
 						printf( __( 'By %s' ), '{{{ data.authorAndUri }}}' );
 						?>
@@ -821,6 +828,7 @@ function customize_themes_print_templates() {
 							{{{ data.stars }}}
 							<a class="num-ratings" target="_blank" href="{{ data.reviews_url }}">
 								<?php
+
 								printf(
 									'%1$s <span class="screen-reader-text">%2$s</span>',
 									/* translators: %s: Number of ratings. */
@@ -836,15 +844,18 @@ function customize_themes_print_templates() {
 					<# if ( data.hasUpdate ) { #>
 						<# if ( data.updateResponse.compatibleWP && data.updateResponse.compatiblePHP ) { #>
 							<div class="notice notice-warning notice-alt notice-large" data-slug="{{ data.id }}">
-								<h3 class="notice-title"><?php _e( 'Update Available' ); ?></h3>
+								<h3 class="notice-title"><?php
+ _e( 'Update Available' ); ?></h3>
 								{{{ data.update }}}
 							</div>
 						<# } else { #>
 							<div class="notice notice-error notice-alt notice-large" data-slug="{{ data.id }}">
-								<h3 class="notice-title"><?php _e( 'Update Incompatible' ); ?></h3>
+								<h3 class="notice-title"><?php
+ _e( 'Update Incompatible' ); ?></h3>
 								<p>
 									<# if ( ! data.updateResponse.compatibleWP && ! data.updateResponse.compatiblePHP ) { #>
 										<?php
+
 										printf(
 											/* translators: %s: Theme name. */
 											__( 'There is a new version of %s available, but it doesn&#8217;t work with your versions of WordPress and PHP.' ),
@@ -875,6 +886,7 @@ function customize_themes_print_templates() {
 										?>
 									<# } else if ( ! data.updateResponse.compatibleWP ) { #>
 										<?php
+
 										printf(
 											/* translators: %s: Theme name. */
 											__( 'There is a new version of %s available, but it doesn&#8217;t work with your version of WordPress.' ),
@@ -890,6 +902,7 @@ function customize_themes_print_templates() {
 										?>
 									<# } else if ( ! data.updateResponse.compatiblePHP ) { #>
 										<?php
+
 										printf(
 											/* translators: %s: Theme name. */
 											__( 'There is a new version of %s available, but it doesn&#8217;t work with your version of PHP.' ),
@@ -913,6 +926,7 @@ function customize_themes_print_templates() {
 					<# if ( data.parent ) { #>
 						<p class="parent-theme">
 							<?php
+
 							printf(
 								/* translators: %s: Theme name. */
 								__( 'This is a child theme of %s.' ),
@@ -926,6 +940,7 @@ function customize_themes_print_templates() {
 						<div class="notice notice-error notice-alt notice-large"><p>
 							<# if ( ! data.compatibleWP && ! data.compatiblePHP ) { #>
 								<?php
+
 								_e( 'This theme doesn&#8217;t work with your versions of WordPress and PHP.' );
 								if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 									printf(
@@ -952,6 +967,7 @@ function customize_themes_print_templates() {
 								?>
 							<# } else if ( ! data.compatibleWP ) { #>
 								<?php
+
 								_e( 'This theme doesn&#8217;t work with your version of WordPress.' );
 								if ( current_user_can( 'update_core' ) ) {
 									printf(
@@ -963,6 +979,7 @@ function customize_themes_print_templates() {
 								?>
 							<# } else if ( ! data.compatiblePHP ) { #>
 								<?php
+
 								_e( 'This theme doesn&#8217;t work with your version of PHP.' );
 								if ( current_user_can( 'update_php' ) ) {
 									printf(
@@ -980,39 +997,51 @@ function customize_themes_print_templates() {
 					<p class="theme-description">{{{ data.description }}}</p>
 
 					<# if ( data.tags ) { #>
-						<p class="theme-tags"><span><?php _e( 'Tags:' ); ?></span> {{{ data.tags }}}</p>
+						<p class="theme-tags"><span><?php
+ _e( 'Tags:' ); ?></span> {{{ data.tags }}}</p>
 					<# } #>
 				</div>
 			</div>
 
 			<div class="theme-actions">
 				<# if ( data.active ) { #>
-					<button type="button" class="button button-primary customize-theme"><?php _e( 'Customize' ); ?></button>
+					<button type="button" class="button button-primary customize-theme"><?php
+ _e( 'Customize' ); ?></button>
 				<# } else if ( 'installed' === data.type ) { #>
-					<?php if ( current_user_can( 'delete_themes' ) ) { ?>
+					<?php
+ if ( current_user_can( 'delete_themes' ) ) { ?>
 						<# if ( data.actions && data.actions['delete'] ) { #>
-							<a href="{{{ data.actions['delete'] }}}" data-slug="{{ data.id }}" class="button button-secondary delete-theme"><?php _e( 'Delete' ); ?></a>
+							<a href="{{{ data.actions['delete'] }}}" data-slug="{{ data.id }}" class="button button-secondary delete-theme"><?php
+ _e( 'Delete' ); ?></a>
 						<# } #>
-					<?php } ?>
+					<?php
+ } ?>
 
 					<# if ( data.compatibleWP && data.compatiblePHP ) { #>
-						<button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php _e( 'Live Preview' ); ?></button>
+						<button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php
+ _e( 'Live Preview' ); ?></button>
 					<# } else { #>
-						<button class="button button-primary disabled"><?php _e( 'Live Preview' ); ?></button>
+						<button class="button button-primary disabled"><?php
+ _e( 'Live Preview' ); ?></button>
 					<# } #>
 				<# } else { #>
 					<# if ( data.compatibleWP && data.compatiblePHP ) { #>
-						<button type="button" class="button theme-install" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></button>
-						<button type="button" class="button button-primary theme-install preview" data-slug="{{ data.id }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+						<button type="button" class="button theme-install" data-slug="{{ data.id }}"><?php
+ _e( 'Install' ); ?></button>
+						<button type="button" class="button button-primary theme-install preview" data-slug="{{ data.id }}"><?php
+ _e( 'Install &amp; Preview' ); ?></button>
 					<# } else { #>
-						<button type="button" class="button disabled"><?php _ex( 'Cannot Install', 'theme' ); ?></button>
-						<button type="button" class="button button-primary disabled"><?php _e( 'Install &amp; Preview' ); ?></button>
+						<button type="button" class="button disabled"><?php
+ _ex( 'Cannot Install', 'theme' ); ?></button>
+						<button type="button" class="button button-primary disabled"><?php
+ _e( 'Install &amp; Preview' ); ?></button>
 					<# } #>
 				<# } #>
 			</div>
 		</div>
 	</script>
 	<?php
+
 }
 
 /**

@@ -836,7 +836,6 @@ abstract class ParagonIE_Sodium_Core_Curve25519 extends ParagonIE_Sodium_Core_Cu
         );
     }
 
-
     /**
      * Square and double a field element
      *
