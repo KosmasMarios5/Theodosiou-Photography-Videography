@@ -6,20 +6,67 @@
  Version:      1.0.0
  Text Domain:  html5blankchild
 */
+.site-logo-top {
+  top: 0;
+  right: 0;
+  position: fixed;
+  z-index: 999;
+  padding-top: 32px;
+  padding-right: 16px;
+  max-width: 62px;
+}
+
+.menubar__burger > .animated-c {
+  padding-top: 5px !important;
+}
+
 #navbar {
   top: 0;
   position: fixed;
   z-index: 999;
-  padding-top: 70px;
+  padding-top: 32px;
   padding-left: 0;
-}
-@media screen and (max-width: 768px) {
-  #navbar {
-    position: initial;
-    padding-top: 0;
-  }
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+@media only screen and (max-width: 768px) {
+  body {
+    margin-top: 54px !important;
+  }
+
+  #page-header {
+    background: white;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    padding: 4px 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #navbar {
+    position: initial;
+    margin-top: 0;
+    padding-left: 0;
+    padding-top: 0;
+    flex: 1;
+  }
+  #navbar .menubar {
+    position: initial;
+    margin-top: 4px;
+  }
+
+  .site-logo-top {
+    position: initial;
+    margin-top: 0;
+    padding-right: 16px;
+    padding-top: 0;
+    max-width: 60px;
+  }
+}
 .burger {
   width: 30px;
   display: block !important;
@@ -54,14 +101,9 @@
   position: absolute;
   z-index: 1;
 }
-@media screen and (max-width: 768px) {
-  .menubar {
-    position: initial;
-  }
-}
 .menubar ul {
-  padding: 0 8px !important;
-  margin-bottom: 2px !important;
+  padding: 0 8px;
+  margin-bottom: 2px;
 }
 .menubar .menu {
   background: white;
@@ -87,14 +129,18 @@
   color: #4c4c4c;
   padding: 0 25px;
   display: block;
+  margin-top: 0;
 }
 .menubar .menu-item-has-children > a:after {
   content: "+";
   margin-left: 5px;
   font-weight: 900;
 }
+.menubar .menu-item-has-children.close > a:after {
+  content: "-";
+}
 .menubar .menu-item-has-children--no-add > a:after {
-  content: none;
+  content: none !important;
 }
 .menubar .menu-item-has-children > ul {
   max-height: 0;
@@ -129,6 +175,23 @@
 
 .elementor-editor-active {
   padding-top: 62px;
+}
+
+.elementor-animation-grow {
+  transition-property: transform !important;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /*# sourceMappingURL=style.css.map */

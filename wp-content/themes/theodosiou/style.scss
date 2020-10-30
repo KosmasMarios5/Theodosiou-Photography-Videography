@@ -13,3 +13,20 @@
 .elementor-editor-active {
   padding-top: 62px;
 }
+
+.elementor-animation-grow {
+  transition-property: transform !important;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
